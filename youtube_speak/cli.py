@@ -145,6 +145,10 @@ def main(
     click.echo(f"   Shadowing chunks: {len(analysis.shadowing)} chunks")
     click.echo(f"   Difficult spots: {len(analysis.difficult_spots)} items")
 
+    if analysis.usage and analysis.usage.total_tokens > 0:
+        cost_str = f"¥{analysis.usage.cost_cny:.4f}"
+        click.echo(f"   API cost: {cost_str} ({analysis.usage.total_tokens} tokens)")
+
     video_dir = out_dir / info.video_id
     analysis_json = video_dir / "analysis.json"
     save_analysis(analysis, analysis_json)

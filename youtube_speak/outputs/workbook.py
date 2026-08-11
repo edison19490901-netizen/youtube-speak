@@ -85,6 +85,12 @@ def generate(
         sentence_count=len(analysis.golden_sentences),
         shadow_count=len(analysis.shadowing),
         difficult_count=len(analysis.difficult_spots),
+        usage={
+            "prompt_tokens": analysis.usage.prompt_tokens if analysis.usage else 0,
+            "completion_tokens": analysis.usage.completion_tokens if analysis.usage else 0,
+            "total_tokens": analysis.usage.total_tokens if analysis.usage else 0,
+            "cost_cny": analysis.usage.cost_cny if analysis.usage else 0,
+        },
     )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)

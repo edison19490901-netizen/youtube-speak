@@ -65,6 +65,15 @@ class DifficultSpot:
 
 
 @dataclass
+class UsageInfo:
+    """API 调用用量与费用。"""
+    prompt_tokens: int = 0
+    completion_tokens: int = 0
+    total_tokens: int = 0
+    cost_cny: float = 0.0
+
+
+@dataclass
 class AnalysisResult:
     """完整的分析结果。"""
 
@@ -73,6 +82,7 @@ class AnalysisResult:
     summary: Summary | None = None
     shadowing: list[ShadowingChunk] = field(default_factory=list)
     difficult_spots: list[DifficultSpot] = field(default_factory=list)
+    usage: UsageInfo | None = None
 
 
 def analyze(
@@ -142,7 +152,23 @@ def analyze(
             "字幕可能太长，请尝试更短的视频。"
         )
 
-    return _parse_response(raw)
+    result = _parse_response(raw)
+
+    # 捕获用量并计算费用
+    if response.usage:
+        prompt_tokens = response.usage.prompt_tokens or 0
+        completion_tokens = response.usage.completion_tokens or 0
+        total_tokens = response.usage.total_tokens or 0
+        # DeepSeek-chat: ¥1/1M input, ¥2/1M output
+        cost_cny = (prompt_tokens / 1_000_000) * 1 + (completion_tokens / 1_000_000) * 2
+        result.usage = UsageInfo(
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            total_tokens=total_tokens,
+            cost_cny=round(cost_cny, 6),
+        )
+
+    return result
 
 
 def _parse_response(raw: str) -> AnalysisResult:
@@ -304,6 +330,12 @@ def save_analysis(result: AnalysisResult, output_path: Path) -> None:
             }
             for d in result.difficult_spots
         ],
+        "usage": {
+            "prompt_tokens": result.usage.prompt_tokens if result.usage else 0,
+            "completion_tokens": result.usage.completion_tokens if result.usage else 0,
+            "total_tokens": result.usage.total_tokens if result.usage else 0,
+            "cost_cny": result.usage.cost_cny if result.usage else 0,
+        },
     }
     output_path.write_text(
         json.dumps(data, ensure_ascii=False, indent=2),

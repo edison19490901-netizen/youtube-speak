@@ -105,6 +105,10 @@ HOME_HTML = """<!DOCTYPE html>
     </form>
   </div>
 
+  <div class="nav" style="text-align:center; margin-top:8px;">
+    <a href="/library" style="font-size:13px; color:#e94560; text-decoration:none;">📚 查看文库</a>
+  </div>
+
   {% if error %}
   <div class="msg err" style="display:block">{{ error }}</div>
   {% endif %}
@@ -246,6 +250,96 @@ def result(video_id):
     if not workbook_path.exists():
         return "Workbook not found. It may have been cleaned up. Please generate again.", 404
     return send_file(str(workbook_path), mimetype="text/html; charset=utf-8")
+
+
+@app.route("/library")
+def library():
+    """多字幕文库 —— 列出所有已生成的练习册。"""
+    items = []
+    if OUTPUT_ROOT.exists():
+        for subdir in sorted(OUTPUT_ROOT.iterdir(), reverse=True):
+            if not subdir.is_dir():
+                continue
+            analysis_json = subdir / "analysis.json"
+            if not analysis_json.exists():
+                continue
+            try:
+                import json
+                data = json.loads(analysis_json.read_text(encoding="utf-8"))
+                usage = data.get("usage", {})
+                cost_cny = usage.get("cost_cny", 0)
+                total_tokens = usage.get("total_tokens", 0)
+                items.append({
+                    "video_id": subdir.name,
+                    "title": data.get("summary", {}).get("summary_en", subdir.name)[:80],
+                    "vocab_count": len(data.get("vocabulary", [])),
+                    "word_count": len(data.get("summary", {}).get("summary_en", "").split()),
+                    "cost_cny": cost_cny,
+                    "total_tokens": total_tokens,
+                })
+            except Exception:
+                pass
+
+    return render_template_string(LIBRARY_HTML, items=items)
+
+
+LIBRARY_HTML = """<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文库 — YouTube Speak</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"PingFang SC","Microsoft YaHei",sans-serif; background:#f5f5f5; color:#2c2c2c; }
+  .wrap { max-width:600px; margin:0 auto; padding:24px 16px; }
+  h1 { text-align:center; font-size:20px; color:#1a1a2e; margin-bottom:6px; }
+  .sub { text-align:center; color:#888; font-size:12px; margin-bottom:24px; }
+  .nav { text-align:center; margin-bottom:20px; }
+  .nav a { font-size:13px; color:#e94560; text-decoration:none; }
+  .card {
+    display:block; background:#fff; border-radius:10px; padding:16px 20px;
+    margin-bottom:10px; box-shadow:0 1px 4px rgba(0,0,0,0.05);
+    text-decoration:none; color:inherit; transition:box-shadow 0.2s;
+  }
+  .card:hover { box-shadow:0 2px 12px rgba(0,0,0,0.1); }
+  .card h3 { font-size:15px; color:#1a1a2e; margin-bottom:6px; }
+  .card .meta { font-size:12px; color:#888; }
+  .card .meta span { margin-right:16px; }
+  .empty { text-align:center; padding:60px 20px; color:#aaa; font-size:14px; }
+  .footer { text-align:center; padding:24px; color:#bbb; font-size:11px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📚 练习册文库</h1>
+  <p class="sub">{{ items|length }} 份练习册</p>
+  <div class="nav"><a href="/">← 返回首页</a></div>
+
+  {% if items %}
+    {% for item in items %}
+    <a class="card" href="/result/{{ item.video_id }}">
+      <h3>{{ item.title }}</h3>
+      <div class="meta">
+        <span>📖 {{ item.vocab_count }} 词汇</span>
+        {% if item.total_tokens > 0 %}
+        <span>💰 ¥{{ "%.4f"|format(item.cost_cny) }}</span>
+        <span>🔤 {{ item.total_tokens }} tokens</span>
+        {% endif %}
+      </div>
+    </a>
+    {% endfor %}
+  {% else %}
+    <div class="empty">
+      <p>还没有生成任何练习册</p>
+      <p style="margin-top:8px;"><a href="/">去生成第一个 →</a></p>
+    </div>
+  {% endif %}
+
+  <div class="footer">YouTube Speak</div>
+</div>
+</body>
+</html>"""
 
 
 # ── 辅助 ────────────────────────────────────

@@ -38,6 +38,11 @@
     font-size: 12px;
     opacity: 0.7;
   }
+  .hero .cost {
+    margin-top: 8px;
+    font-size: 11px;
+    opacity: 0.5;
+  }
 
   /* ── 横向 Tab 导航 ── */
   .tab-bar {
@@ -342,6 +347,9 @@
   <div class="hero">
     <h1>{{ title }}</h1>
     <div class="meta">{{ uploader }} · {{ duration }} · {{ word_count }} 词</div>
+    {% if usage and usage.total_tokens > 0 %}
+    <div class="cost">本次分析 · ¥{{ "%.4f"|format(usage.cost_cny) }} · {{ usage.total_tokens }} tokens</div>
+    {% endif %}
   </div>
 
   <!-- ═══ Tab 导航 ═══ -->
