@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Generated output
+output/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Subtitles (downloaded / local)
+*.srt
+
+# IDE
+.vscode/
+.idea/
