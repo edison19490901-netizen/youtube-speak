@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Be Disgustingly Articulate And Well Spoken — 口语练习册</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* ── 封面标题区（紧凑版） ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .hero .meta {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .hero .cost {
+    margin-top: 8px;
+    font-size: 11px;
+    opacity: 0.5;
+  }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active {
+    color: #fff;
+    background: #e94560;
+  }
+
+  /* ── 内容面板 ── */
+  .tab-panels {
+    padding: 16px 16px 24px;
+  }
+  .tab-panel {
+    display: none;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+
+  /* ── 摘要 ── */
+  .summary-block {
+    background: #f8f9fa;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .summary-block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 6px;
+  }
+  .summary-block p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.75;
+  }
+
+  /* ── 复述练习 ── */
+  .retell-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fafafa;
+  }
+  .retell-item .hint-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .retell-item .hint-label {
+    font-size: 11px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .retell-item .show-answer-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: #e94560;
+    background: #fff;
+    border: 1.5px solid #e94560;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .retell-item .show-answer-btn:hover,
+  .retell-item .show-answer-btn:active {
+    background: #e94560;
+    color: #fff;
+  }
+  .retell-item .reference-answer {
+    display: none;
+    margin-top: 10px;
+    padding: 12px 16px;
+    background: #fff;
+    border-left: 3px solid #e94560;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.75;
+  }
+  .retell-item .reference-answer.show { display: block; }
+
+  /* ── 词汇表 ── */
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .vocab-table th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .vocab-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 金句 ── */
+  .sentence-practice {
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  .sentence-practice .pattern {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    background: #fff3cd;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .sentence-practice .example {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 4px;
+    padding-left: 10px;
+    border-left: 2px solid #ddd;
+  }
+  .sentence-practice .info {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .sentence-practice .write-area {
+    border: 1px dashed #ccc;
+    min-height: 40px;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  /* ── 影子跟读 ── */
+  .shadow-chunk {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+  }
+  .shadow-chunk .chunk-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .shadow-chunk .chunk-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .shadow-chunk .text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.6;
+  }
+  .shadow-chunk .hints {
+    font-size: 11px;
+    color: #888;
+    margin-left: 30px;
+    margin-top: 2px;
+  }
+  .practice-tip {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* ── 难点注释 ── */
+  .difficult-item {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background: #fff8f0;
+    border-radius: 8px;
+    border: 1px solid #ffe0c0;
+  }
+  .difficult-item .orig {
+    font-weight: 600;
+    color: #c44;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .difficult-item .explain {
+    font-size: 13px;
+    color: #555;
+  }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+  }
+  .stat-item .stat-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: #e94560;
+    line-height: 1.2;
+  }
+  .stat-item .stat-label {
+    font-size: 11px;
+    color: #888;
+  }
+
+  /* ── 页脚 ── */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: #bbb;
+    font-size: 11px;
+  }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel {
+      display: block !important;
+      margin-bottom: 16px;
+      page-break-inside: avoid;
+    }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .show-answer-btn { display: none !important; }
+    .reference-answer { display: block !important; }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>How to Be Disgustingly Articulate And Well Spoken</h1>
+    <div class="meta">Unknown · 19m 5s · 3165 词</div>
+    
+    <div class="cost">本次分析 · ¥0.0120 · 8525 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">摘要</button>
+    <button class="tab-btn" data-tab="tab-retell">复述</button>
+    <button class="tab-btn" data-tab="tab-vocab">词汇</button>
+    <button class="tab-btn" data-tab="tab-sentence">金句</button>
+    <button class="tab-btn" data-tab="tab-shadow">跟读</button>
+    <button class="tab-btn" data-tab="tab-difficult">难点</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 摘要 -->
+    <div class="tab-panel active" id="tab-summary" data-label="摘要">
+      
+      <div class="summary-block">
+        <h3>English Summary</h3>
+        <p>In this video, Vin, a communication coach, shares three frameworks to help people become more articulate and well-spoken. The first scenario is when you know your topic but can't explain it simply. He introduces a four-step loop: capture (write down your thoughts), structure (organize them), practice (speak out loud), and iterate (refine). The second scenario is when you don't know much about the topic. He suggests naming what you know, what you're still working out, and asking a question to move the conversation forward. He also emphasizes that saying 'I don't know' is acceptable if you've already shown credibility. The third scenario is when you know the answer but go blank under pressure. He introduces the POP framework: Pause, One thought, and Proof. Pausing gives you time to think, focusing on one thought prevents rambling, and providing proof adds credibility. He encourages viewers to practice these frameworks to improve their communication skills.</p>
+      </div>
+      
+      
+      <div class="summary-block">
+        <h3>中文概要</h3>
+        <p>视频中，沟通教练Vin分享了三个框架帮助人们更清晰地表达。第一个场景是当你了解话题但无法简单解释时，他提出了四步循环：捕捉（写下来）、结构化（组织）、练习（大声说）、迭代（改进）。第二个场景是当你不了解话题时，他建议说出你知道的、还在思考的，并提问推进对话。他还强调，如果你已经展示了可信度，说“我不知道”是可以的。第三个场景是当你知道答案但压力下大脑空白时，他介绍了POP框架：暂停、一个想法、证明。暂停给你思考时间，专注一个想法避免漫谈，提供证明增加可信度。他鼓励观众练习这些框架以提高沟通技巧。</p>
+      </div>
+      
+    </div>
+
+    <!-- 复述 -->
+    <div class="tab-panel" id="tab-retell" data-label="复述">
+      <p style="color:#888; margin-bottom:12px; font-size:13px;">
+        看提示词用自己的话复述，完成后点击按钮查看参考复述。
+      </p>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 1</div>
+        <div class="hint-text">Vin's introduction: coach, three frameworks, improve communication</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">Vin is a communication coach who has helped millions of people improve their communication skills. In this video, he shares three frameworks to help you sound more articulate and well-spoken in professional and personal conversations. The frameworks address three common scenarios: when you know your stuff but can't explain it simply, when you don't know much about the topic, and when you know the answer but go blank under pressure.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 2</div>
+        <div class="hint-text">First framework: four-step loop: capture, structure, practice, iterate</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">The first framework is for when you know your topic but struggle to explain it. Vin suggests a four-step loop: capture, which means writing down your thoughts to make them visible; structure, where you organize and reorder your ideas; practice, where you speak out loud and record yourself; and iterate, where you refine and improve. This loop helps you simplify complex ideas and become a better explainer.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 3</div>
+        <div class="hint-text">Second framework: name what you know, what you're working out, ask a question</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">The second framework is for when you're in a conversation about a topic you don't know much about. Vin advises to name what you know, name what you're still working out, and then ask a question that moves the conversation forward. This way, you come across as thoughtful and competent, even if you're not an expert. He also mentions that saying 'I don't know' is okay if you've already shown credibility.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 4</div>
+        <div class="hint-text">Third framework: POP: Pause, One thought, Proof</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">The third framework is for when you know the answer but go blank under pressure. Vin introduces POP: Pause, which means taking a few seconds to think before responding; One thought, which means focusing on a single point to share; and Proof, which means backing up your thought with an example or evidence. This framework helps you respond clearly and confidently in high-pressure situations.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 5</div>
+        <div class="hint-text">Challenge: practice the first framework with a topic you know</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">Vin challenges viewers to pick a topic they know well and take it through the first framework. Write down everything that comes to mind, restructure it, practice speaking it out loud, and then iterate. This practice helps you develop the habit of thinking and speaking clearly. Remember, you're not stuck with your current communication style; you can improve with practice.</div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 词汇 -->
+    
+    <div class="tab-panel" id="tab-vocab" data-label="词汇">
+      <p style="color:#888; margin-bottom:10px; font-size:12px;">
+        ✏️ 遮盖中文注释列，看英文能否说出中文意思。
+      </p>
+      <table class="vocab-table">
+        <thead>
+          <tr><th>单词 / 短语</th><th>难度</th><th>出现语境</th><th>中文注释</th></tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td class="word-col">articulate</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">How do you articulate your thoughts clearly without overthinking every single word?</td>
+            <td>清晰表达（思想、观点）。常用于正式或专业场合，强调有条理地表达。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">go blank</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">the pressure of being in front of your peers and your leaders causes your brain to scramble and then you go blank.</td>
+            <td>大脑一片空白，突然想不起来。口语常用，形容紧张或压力下的状态。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">messy</td>
+            <td class="stars-col">★☆☆</td>
+            <td class="context-col">Messy words come from messy thinking.</td>
+            <td>混乱的，不整洁的。这里形容思维和语言混乱。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">distill</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">They're able to distill the complex and make it simple for you to understand.</td>
+            <td>提炼，浓缩。常用于把复杂信息简化。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">jumbled</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">When a thought is in your head, it's floating around, it's jumbled, it's disjointed, and it's all over the place.</td>
+            <td>杂乱无章的，混乱的。形容想法没有条理。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">iterate</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">And then finally, you've got iterate.</td>
+            <td>迭代，反复改进。在框架中表示不断重复循环以优化。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">put on the spot</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">when you're put on the spot, frameworks will help you think more clearly</td>
+            <td>被突然提问，被置于尴尬境地。口语常用。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">come across</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">you don't want to come across completely clueless.</td>
+            <td>给人留下...印象。常用于描述他人如何看待你。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">clueless</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">you don't want to come across completely clueless.</td>
+            <td>一无所知的，摸不着头脑的。口语常用。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">ramble</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">you start speaking your thoughts out loud causing you to go in circles and ramble.</td>
+            <td>漫无目的地闲聊，东拉西扯。形容说话没有重点。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">counterintuitive</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">I know how counterintuitive this feels because again, you feel like you should respond immediately.</td>
+            <td>违反直觉的。形容看似不合理但实际有效。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">analysis paralysis</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">it allows you to respond faster because of the focus, and not get stuck in analysis paralysis.</td>
+            <td>分析瘫痪，过度思考导致无法行动。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">solidify</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">This helps solidify and add more credibility to the thought that you just shared.</td>
+            <td>巩固，使更坚实。常用于加强观点。</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+
+    <!-- 金句 -->
+    
+    <div class="tab-panel" id="tab-sentence" data-label="金句">
+      <p style="color:#888; margin-bottom:12px; font-size:13px;">
+        看模板和例句，在空白处用自己的例子仿写。
+      </p>
+      
+      <div class="sentence-practice">
+        <div class="pattern">The one thought that comes to mind is ...</div>
+        <div class="example">📌 The one thought that comes to mind is that we can create a skit where we passively speak to the audience about the importance of why they should subscribe.</div>
+        <div class="info">场景: 当被问及观点时，用这个句型来聚焦一个想法，显得有条理。 | 这个句型用来引出你最重要的一个想法，避免东拉西扯。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">What I know is that ...</div>
+        <div class="example">📌 What I know is that AI has gotten scary good at the narrow and repetitive stuff, the tasks that follow really clear rules.</div>
+        <div class="info">场景: 在讨论不熟悉的话题时，先说明自己知道的部分。 | 用于表达你确定的事情，展示你的知识范围。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">The part that I'm still trying to work out myself is ...</div>
+        <div class="example">📌 And the part that I'm still trying to work out myself is where's the limit?</div>
+        <div class="info">场景: 承认自己还在思考的部分，显得诚实且谦逊。 | 用于表达你还在探索的方面，增加可信度。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">Can I ask what's your take?</div>
+        <div class="example">📌 And can I ask what's your take? Do you see it as a tool that replaces just tasks or do you think it's gradually going to replace people in their roles?</div>
+        <div class="info">场景: 在对话中询问对方观点，促进交流。 | 礼貌地询问对方看法，常用于讨论中。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">I don't know the answer to that.</div>
+        <div class="example">📌 I don't know the answer to that. And I believe it's very important for me to clearly state that when I don't know it.</div>
+        <div class="info">场景: 当不知道答案时，诚实表达，建立信任。 | 直接承认不知道，比胡编乱造更好。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">Let me give you an example.</div>
+        <div class="example">📌 Let me give you an example. Because when we do it directly to the camera, people tend to resist because they don't want to be told what to do.</div>
+        <div class="info">场景: 在解释观点时，用例子来支撑。 | 用于引出具体例子，使观点更清晰。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">The art of ... is the art of ...</div>
+        <div class="example">📌 The art of writing is the art of making your thoughts visible.</div>
+        <div class="info">场景: 用于强调某个技能的本质。 | 这个句型用来表达两个事物之间的内在联系。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">You can't do one without the other.</div>
+        <div class="example">📌 You can't do one without the other.</div>
+        <div class="info">场景: 强调两个事物相互依赖。 | 用于说明两者缺一不可。</div>
+        <div class="write-area"></div>
+      </div>
+      
+    </div>
+    
+
+    <!-- 跟读 -->
+    
+    <div class="tab-panel" id="tab-shadow" data-label="跟读">
+      <p style="color:#888; margin-bottom:10px; font-size:13px;">
+        跟着原声逐段模仿，注意重音和连读。每段跟读 3-5 遍。
+      </p>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">1</span>
+          <span class="text">How do you articulate your thoughts clearly without overthinking every single word?</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 stress on 'articulate' and 'clearly'; link 'without' and 'overthinking'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">2</span>
+          <span class="text">Messy words come from messy thinking.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 stress on 'messy' and 'thinking'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">3</span>
+          <span class="text">The art of writing is the art of making your thoughts visible.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 stress on 'art' and 'visible'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">4</span>
+          <span class="text">Capture it, write it down, everything that comes to mind.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 stress on 'capture' and 'write'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">5</span>
+          <span class="text">Then, when your thoughts are visible, restructure it, remix it, add stuff, mix it all around.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 stress on 'visible', 'restructure', 'remix'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">6</span>
+          <span class="text">Most people stop there, but without the next step of practice and reading your thoughts out loud, you'll never be able to explain anything simply and articulately.</span>
+        </div>
+        <div class="hints">⏱ long &nbsp;|&nbsp; 🗣 stress on 'stop', 'practice', 'simply', 'articulately'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">7</span>
+          <span class="text">And finally, iterate. That's how you start practicing the habit of thinking and speaking clearly.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 stress on 'iterate', 'habit', 'clearly'</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">8</span>
+          <span class="text">You can't do one without the other.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 stress on 'can't', 'one', 'other'</div>
+      </div>
+      
+      <div class="practice-tip">
+        <strong>练习方法:</strong><br>
+        1. 先听原声一遍，不跟读 &nbsp; 2. 逐段暂停模仿语音语调<br>
+        3. 全文连贯跟读 2-3 遍 &nbsp; 4. 录音对比找差距
+      </div>
+    </div>
+    
+
+    <!-- 难点 -->
+    
+    <div class="tab-panel" id="tab-difficult" data-label="难点">
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "You know that moment when you're talking halfway through your sentence and you don't even know what point you're trying to make."</div>
+        <div class="explain"><strong>难点</strong>: 口语化表达，'halfway through' 意为'说到一半'，'what point you're trying to make' 意为'你想表达什么'。</div>
+        <div class="explain"><strong>解释</strong>: 这句话描述了一种常见的尴尬时刻：说话说到一半突然忘了自己要说什么。'halfway through' 是'中途'的意思。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "It's like when you accidentally open all the browser tabs in one click causing your browser to lag."</div>
+        <div class="explain"><strong>难点</strong>: 使用比喻，'browser tabs' 和 'lag' 是计算机术语，但这里用来比喻大脑超载。</div>
+        <div class="explain"><strong>解释</strong>: 这里用电脑浏览器打开太多标签页导致卡顿来比喻大脑同时处理太多想法而卡壳。'lag' 是'卡顿'的意思。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "Did you catch what happened in the skit though?"</div>
+        <div class="explain"><strong>难点</strong>: 'catch' 在这里是'理解、注意到'的意思，'skit' 是'短剧'。</div>
+        <div class="explain"><strong>解释</strong>: 'catch' 在口语中常表示'听懂、抓住'，'skit' 指幽默短剧。这句话问对方是否注意到了短剧中的要点。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "That was premature."</div>
+        <div class="explain"><strong>难点</strong>: 'premature' 意为'过早的'，这里指动作发生得太早，有点尴尬。</div>
+        <div class="explain"><strong>解释</strong>: 在对话中，Peter 提前打了个响指，Vin 说 'That was premature' 意思是'那太早了'，带有幽默感。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "I'm not going to fire Peter and replace him with AI."</div>
+        <div class="explain"><strong>难点</strong>: 'fire' 是'解雇'，'replace' 是'取代'，这里用幽默的方式回应关于AI取代工作的担忧。</div>
+        <div class="explain"><strong>解释</strong>: 这句话是开玩笑说不会解雇Peter，因为AI不能像Peter那样为他做咖啡等。</div>
+      </div>
+      
+    </div>
+    
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">3165</div>
+          <div class="stat-label">字幕总词数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">13</div>
+          <div class="stat-label">重点词汇</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8</div>
+          <div class="stat-label">金句模板</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8</div>
+          <div class="stat-label">跟读段落</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">5</div>
+          <div class="stat-label">难点注释</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        Keep practicing! Consistency beats intensity. 🚀
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    Generated by YouTube Speak · 2026-08-11
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    // 切换按钮 active 态
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    // 切换面板
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+
+  // 展开复述参考
+  function toggleAnswer(btn) {
+    var answer = btn.nextElementSibling;
+    var isOpen = answer.classList.contains('show');
+    if (isOpen) {
+      answer.classList.remove('show');
+      btn.textContent = '📝 查看参考';
+    } else {
+      answer.classList.add('show');
+      btn.textContent = '📝 收起参考';
+    }
+  }
+</script>
+
+</body>
+</html>

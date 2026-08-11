@@ -33,6 +33,11 @@ HOME_HTML = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="口语练习">
+<link rel="apple-touch-icon" href="/static/speak_icon.png">
+<link rel="manifest" href="/manifest.json">
 <title>YouTube Speak — 英语口语练习册生成器</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -147,6 +152,11 @@ WORKING_HTML = """<!DOCTYPE html>
 @app.route("/")
 def home():
     return render_template_string(HOME_HTML)
+
+
+@app.route("/manifest.json")
+def manifest():
+    return send_file(str(Path(__file__).parent / "manifest.json"), mimetype="application/json")
 
 
 @app.route("/process", methods=["POST"])
@@ -288,6 +298,11 @@ LIBRARY_HTML = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="口语练习">
+<link rel="apple-touch-icon" href="/static/speak_icon.png">
+<link rel="manifest" href="/manifest.json">
 <title>文库 — YouTube Speak</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }

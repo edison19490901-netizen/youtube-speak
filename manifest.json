@@ -1,0 +1,16 @@
+{
+  "name": "YouTube Speak - 英语口语练习册",
+  "short_name": "口语练习",
+  "description": "从 YouTube 字幕生成交互式英语口语练习册",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#e94560",
+  "icons": [
+    {
+      "src": "/static/speak_icon.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }
+  ]
+}

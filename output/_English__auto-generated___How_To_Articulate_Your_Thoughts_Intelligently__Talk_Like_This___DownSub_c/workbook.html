@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[English (auto-generated)] How To Articulate Your Thoughts Intelligently (Talk Like This) [DownSub.c.txt — 口语练习册</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* ── 封面标题区（紧凑版） ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 {
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .hero .meta {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  .hero .cost {
+    margin-top: 8px;
+    font-size: 11px;
+    opacity: 0.5;
+  }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active {
+    color: #fff;
+    background: #e94560;
+  }
+
+  /* ── 内容面板 ── */
+  .tab-panels {
+    padding: 16px 16px 24px;
+  }
+  .tab-panel {
+    display: none;
+  }
+  .tab-panel.active {
+    display: block;
+  }
+
+  /* ── 摘要 ── */
+  .summary-block {
+    background: #f8f9fa;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .summary-block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 6px;
+  }
+  .summary-block p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.75;
+  }
+
+  /* ── 复述练习 ── */
+  .retell-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fafafa;
+  }
+  .retell-item .hint-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+  }
+  .retell-item .hint-label {
+    font-size: 11px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .retell-item .show-answer-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: #e94560;
+    background: #fff;
+    border: 1.5px solid #e94560;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .retell-item .show-answer-btn:hover,
+  .retell-item .show-answer-btn:active {
+    background: #e94560;
+    color: #fff;
+  }
+  .retell-item .reference-answer {
+    display: none;
+    margin-top: 10px;
+    padding: 12px 16px;
+    background: #fff;
+    border-left: 3px solid #e94560;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #444;
+    line-height: 1.75;
+  }
+  .retell-item .reference-answer.show { display: block; }
+
+  /* ── 词汇表 ── */
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .vocab-table th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .vocab-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 金句 ── */
+  .sentence-practice {
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 1px solid #eee;
+  }
+  .sentence-practice .pattern {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+    background: #fff3cd;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .sentence-practice .example {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 4px;
+    padding-left: 10px;
+    border-left: 2px solid #ddd;
+  }
+  .sentence-practice .info {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+  }
+  .sentence-practice .write-area {
+    border: 1px dashed #ccc;
+    min-height: 40px;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  /* ── 影子跟读 ── */
+  .shadow-chunk {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 6px 6px 0;
+  }
+  .shadow-chunk .chunk-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .shadow-chunk .chunk-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .shadow-chunk .text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #222;
+    line-height: 1.6;
+  }
+  .shadow-chunk .hints {
+    font-size: 11px;
+    color: #888;
+    margin-left: 30px;
+    margin-top: 2px;
+  }
+  .practice-tip {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #666;
+  }
+
+  /* ── 难点注释 ── */
+  .difficult-item {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background: #fff8f0;
+    border-radius: 8px;
+    border: 1px solid #ffe0c0;
+  }
+  .difficult-item .orig {
+    font-weight: 600;
+    color: #c44;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+  .difficult-item .explain {
+    font-size: 13px;
+    color: #555;
+  }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    text-align: center;
+  }
+  .stat-item .stat-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: #e94560;
+    line-height: 1.2;
+  }
+  .stat-item .stat-label {
+    font-size: 11px;
+    color: #888;
+  }
+
+  /* ── 页脚 ── */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: #bbb;
+    font-size: 11px;
+  }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel {
+      display: block !important;
+      margin-bottom: 16px;
+      page-break-inside: avoid;
+    }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .show-answer-btn { display: none !important; }
+    .reference-answer { display: block !important; }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>[English (auto-generated)] How To Articulate Your Thoughts Intelligently (Talk Like This) [DownSub.c.txt</h1>
+    <div class="meta">Uploaded · 23m 20s · 4175 词</div>
+    
+    <div class="cost">本次分析 · ¥0.0158 · 11371 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">摘要</button>
+    <button class="tab-btn" data-tab="tab-retell">复述</button>
+    <button class="tab-btn" data-tab="tab-vocab">词汇</button>
+    <button class="tab-btn" data-tab="tab-sentence">金句</button>
+    <button class="tab-btn" data-tab="tab-shadow">跟读</button>
+    <button class="tab-btn" data-tab="tab-difficult">难点</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 摘要 -->
+    <div class="tab-panel active" id="tab-summary" data-label="摘要">
+      
+      <div class="summary-block">
+        <h3>English Summary</h3>
+        <p>The speaker shares his journey from feeling inarticulate to becoming a successful communicator. He emphasizes the importance of building a 'greatest hits' album of 8-10 core ideas that can be connected to any topic. He introduces three frameworks for articulation: the micro story (PAS: problem, amplification, solution), the pyramid principle (answer first, then supporting arguments), and cross-domain synthesis (combining concepts from different fields). He also stresses the value of writing as a practice tool, and provides practical tips like using pain points, examples, and metaphors to fill content. The overall message is that articulation is a skill that can be developed through deliberate practice and repetition.</p>
+      </div>
+      
+      
+      <div class="summary-block">
+        <h3>中文概要</h3>
+        <p>演讲者分享了自己从不会表达到成为成功沟通者的经历。他强调建立8-10个核心想法（即“最热门作品”）的重要性，这些想法可以连接到任何话题。他介绍了三个表达框架：微故事（PAS：问题、放大、解决方案）、金字塔原理（先给答案，再给支持论点）、跨领域综合（结合不同领域的概念）。他还强调了写作作为练习工具的价值，并提供了实用技巧，如使用痛点、例子和隐喻来填充内容。总体信息是，表达是一种可以通过刻意练习和重复来发展的技能。</p>
+      </div>
+      
+    </div>
+
+    <!-- 复述 -->
+    <div class="tab-panel" id="tab-retell" data-label="复述">
+      <p style="color:#888; margin-bottom:12px; font-size:13px;">
+        看提示词用自己的话复述，完成后点击按钮查看参考复述。
+      </p>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 1</div>
+        <div class="hint-text">Speaker's initial belief about articulate people</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">When the speaker was young, he admired people who sounded intelligent, like Alan Watts and Jordan Peterson. He thought they were inherently smarter and that he could never be articulate himself. He felt that being good at tests was different from being able to string thoughts together coherently.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 2</div>
+        <div class="hint-text">The importance of having a 'greatest hits' album of ideas</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">The speaker explains that to articulate well, you need a pool of 8-10 big ideas that you can connect to almost any topic. These ideas should be refined over time through writing and speaking. He gives the example of his own content pillars, like the one-person business model and lifestyle design.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 3</div>
+        <div class="hint-text">The problem of repeating yourself and the mental hurdle</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">The speaker admits that his biggest mental hurdle is not wanting to sound repetitive. When on podcasts, he avoids saying things he's already said, which makes his mind go blank. He realizes that ideas need time to be dissected and refined, and repetition is necessary for mastery.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 4</div>
+        <div class="hint-text">The analogy of musicians and their style</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">He compares creators to musicians: just as fans love a musician's consistent style, audiences appreciate a creator's repeated themes. If an EDM artist suddenly switched to country, it would be terrible. Similarly, you need to repeat your best ideas to refine them and build your brand.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 5</div>
+        <div class="hint-text">The three frameworks for articulation</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">The speaker introduces three frameworks: the micro story (PAS: problem, amplification, solution), the pyramid principle (start with the main idea, then support with key arguments and evidence), and cross-domain synthesis (combine concepts from different fields to create unique insights).</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 6</div>
+        <div class="hint-text">The role of writing in practicing articulation</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">He emphasizes that writing is the foundation of articulation. Writing helps you think clearly and refine your ideas. He writes for 1-2 hours every morning, and he suggests that posting your writing publicly gives you feedback on which ideas resonate.</div>
+        
+      </div>
+      
+      <div class="retell-item">
+        <div class="hint-label">Hint 7</div>
+        <div class="hint-text">Practical tips for filling content (Legos of writing)</div>
+        
+        <button class="show-answer-btn" onclick="toggleAnswer(this)">📝 查看参考</button>
+        <div class="reference-answer">He provides 'Legos' for writing: use pain points, examples, personal stories, statistics, metaphors, quotes, reframes, or ask what/how/why. These are building blocks to keep your writing or speaking flowing.</div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 词汇 -->
+    
+    <div class="tab-panel" id="tab-vocab" data-label="词汇">
+      <p style="color:#888; margin-bottom:10px; font-size:12px;">
+        ✏️ 遮盖中文注释列，看英文能否说出中文意思。
+      </p>
+      <table class="vocab-table">
+        <thead>
+          <tr><th>单词 / 短语</th><th>难度</th><th>出现语境</th><th>中文注释</th></tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td class="word-col">drawn to</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">When I was young, I was always drawn to people that sounded intelligent.</td>
+            <td>被吸引；口语中常用，表示对某人或某物感兴趣。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">palatable</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">who could explain deep ideas in an exciting yet palatable way.</td>
+            <td>易于接受的，合口味的；这里指讲解方式让人容易理解。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">articulate</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">I never thought that I could be articulate.</td>
+            <td>善于表达的，口齿伶俐的；动词形式表示清晰地表达。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">inherently</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">I thought that those people were just inherently more intelligent than I was.</td>
+            <td>天生地，固有地；强调某种特质是与生俱来的。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">stringing together</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">being good at stringing together coherent thoughts</td>
+            <td>把...串联起来；这里指把想法连贯地组织起来。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">recite</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">I felt like I had to memorize entire books worth of information so that I could recite it on the spot</td>
+            <td>背诵，朗诵；这里指当场复述出来。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">attribute to</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">I can, however, attribute most of that success to being able to articulate valuable ideas</td>
+            <td>把...归因于；常用搭配 attribute A to B。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">stumble over</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">Maybe you're going on a podcast and don't want to stumble over your words</td>
+            <td>结结巴巴地说，绊倒；这里指说话不流畅。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">command respect</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">Maybe you want to command respect in a company meeting or a sales call.</td>
+            <td>赢得尊重；command 在这里表示“博得”。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">nerve-wracking</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">where people spend thousands to tens of thousands of dollars on the production quality of their actual podcast, that's nerve-wracking.</td>
+            <td>伤脑筋的，令人紧张的；形容让人焦虑的事情。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">riffing</td>
+            <td class="stars-col">★★★</td>
+            <td class="context-col">but usually you're just riffing.</td>
+            <td>即兴发挥；源自爵士乐，指即兴演奏，这里指即兴说话。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">kicking myself</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">I'm just like kicking myself because I knew that I could have responded to certain questions better.</td>
+            <td>自责，后悔；字面是踢自己，表示对自己不满。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">mental hurdle</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">But that's my biggest mental hurdle.</td>
+            <td>心理障碍；hurdle 是跨栏，比喻障碍。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">mind goes blank</td>
+            <td class="stars-col">★★☆</td>
+            <td class="context-col">my mind kind of goes blank</td>
+            <td>大脑一片空白；常用表达，表示突然想不起来。</td>
+          </tr>
+          
+          <tr>
+            <td class="word-col">hammer this home</td>
+            <td class="stars-col">★★★</td>
+            <td class="context-col">Now, a question to further hammer this home.</td>
+            <td>把...讲透彻；hammer home 是习语，表示反复强调使理解。</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+
+    <!-- 金句 -->
+    
+    <div class="tab-panel" id="tab-sentence" data-label="金句">
+      <p style="color:#888; margin-bottom:12px; font-size:13px;">
+        看模板和例句，在空白处用自己的例子仿写。
+      </p>
+      
+      <div class="sentence-practice">
+        <div class="pattern">I was always drawn to [something/someone].</div>
+        <div class="example">📌 When I was young, I was always drawn to people that sounded intelligent.</div>
+        <div class="info">场景: 表达对某人或某事的长期兴趣或吸引力。 | 表示“我总是被...吸引”，用于描述一贯的喜好。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">I never thought that I could [do something].</div>
+        <div class="example">📌 I never thought that I could be articulate.</div>
+        <div class="info">场景: 表达过去认为自己不可能做到某事。 | “我从没想过我能...”，用于表达自我怀疑或惊喜。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">Being good at [A] is a lot different from being good at [B].</div>
+        <div class="example">📌 being good at taking tests is a lot different from being good at stringing together coherent thoughts</div>
+        <div class="info">场景: 对比两种能力或情况的不同。 | “擅长A和擅长B是很不同的”，用于强调差异。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">I can attribute [something] to [something].</div>
+        <div class="example">📌 I can, however, attribute most of that success to being able to articulate valuable ideas</div>
+        <div class="info">场景: 说明某事的成因或归功于什么。 | “我可以把...归因于...”，用于解释成功或结果的原因。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">Maybe you want to [do something].</div>
+        <div class="example">📌 Maybe you want to command respect in a company meeting or a sales call.</div>
+        <div class="info">场景: 提出建议或猜测对方的意图。 | “也许你想...”，用于委婉地提出可能性。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">It's obvious that [statement].</div>
+        <div class="example">📌 It's obvious to me which ideas are the most valuable.</div>
+        <div class="info">场景: 表达某事的明显性。 | “很明显...”，用于强调显而易见的事实。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">I don't want to sound like I'm [doing something].</div>
+        <div class="example">📌 I don't want to sound like I'm repeating myself.</div>
+        <div class="info">场景: 表达不想给人某种印象。 | “我不想听起来像在...”，用于避免误解。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">If you wish to [do something], you need to [do something].</div>
+        <div class="example">📌 If you wish to articulate yourself and you do not have a body of work that is continuing to be refined and continues to grow, then you have a lot of work to do</div>
+        <div class="info">场景: 提出条件或建议。 | “如果你想...，你需要...”，用于给出实现目标的必要条件。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">The same applies to [something].</div>
+        <div class="example">📌 The same applies to being a creator, a speaker, a writer, or just a person who wants to be able to articulate themselves.</div>
+        <div class="info">场景: 说明某个道理同样适用于其他情况。 | “同样适用于...”，用于类推。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">Not only does [A], but it also [B].</div>
+        <div class="example">📌 Not only does this keep the listener engaged, leading to the podcast doing better, and then more podcast wanting you to have on, increasing your success, but it's also a clippable moment.</div>
+        <div class="info">场景: 强调一个行为的双重好处。 | “不仅...而且...”，用于递进强调。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">If you've watched any [something] with [someone], you know that [statement].</div>
+        <div class="example">📌 If you've watched any podcast with Alex Foros, you know that he's very good at this.</div>
+        <div class="info">场景: 引用例子来支持观点。 | “如果你看过任何...，你就知道...”，用于举例说明。</div>
+        <div class="write-area"></div>
+      </div>
+      
+      <div class="sentence-practice">
+        <div class="pattern">That has nothing to do with [something].</div>
+        <div class="example">📌 That has nothing to do with actual like skill acquisition that's on people's mind.</div>
+        <div class="info">场景: 表示某事与另一件事无关。 | “那与...无关”，用于澄清或反驳。</div>
+        <div class="write-area"></div>
+      </div>
+      
+    </div>
+    
+
+    <!-- 跟读 -->
+    
+    <div class="tab-panel" id="tab-shadow" data-label="跟读">
+      <p style="color:#888; margin-bottom:10px; font-size:13px;">
+        跟着原声逐段模仿，注意重音和连读。每段跟读 3-5 遍。
+      </p>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">1</span>
+          <span class="text">When I was young, I was always drawn to people that sounded intelligent.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 Stress 'young', 'drawn', 'intelligent'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">2</span>
+          <span class="text">I never thought that I could be articulate.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'never', 'thought', 'articulate'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">3</span>
+          <span class="text">Being good at taking tests is a lot different from being good at stringing together coherent thoughts.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'good', 'tests', 'different', 'stringing', 'coherent'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">4</span>
+          <span class="text">But now over a decade later, people ask me how I write and speak so well.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 Stress 'decade', 'ask', 'write', 'speak'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">5</span>
+          <span class="text">I can attribute most of that success to being able to articulate valuable ideas in a way that people are drawn to.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'attribute', 'success', 'articulate', 'valuable', 'drawn'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">6</span>
+          <span class="text">You need a pool of 8 to 10 of your biggest ideas that can be connected to almost any topic.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'pool', 'biggest', 'connected', 'any'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">7</span>
+          <span class="text">It's obvious that I really only have eight to ten big ideas that illustrate the value that my brand provides.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'obvious', 'eight', 'ten', 'big', 'value', 'brand'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">8</span>
+          <span class="text">I don't want to sound like I'm repeating myself.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 Stress 'don't', 'sound', 'repeating'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">9</span>
+          <span class="text">Ideas require time to dissect and explore.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'require', 'time', 'dissect', 'explore'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">10</span>
+          <span class="text">If you wish to articulate yourself, you need a body of work that is continuing to be refined.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'wish', 'articulate', 'body', 'work', 'refined'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">11</span>
+          <span class="text">The best speakers don't answer the question directly; they speak their best idea with confidence.</span>
+        </div>
+        <div class="hints">⏱ medium &nbsp;|&nbsp; 🗣 Stress 'best', 'speakers', 'answer', 'directly', 'speak', 'confidence'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">12</span>
+          <span class="text">Writing is like Legos with ideas.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 Stress 'writing', 'Legos', 'ideas'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">13</span>
+          <span class="text">If you don't know what to write, start with a relevant pain point.</span>
+        </div>
+        <div class="hints">⏱ short &nbsp;|&nbsp; 🗣 Stress 'don't', 'know', 'write', 'relevant', 'pain'.</div>
+      </div>
+      
+      <div class="shadow-chunk">
+        <div class="chunk-header">
+          <span class="chunk-num">14</span>
+          <span class="text">Once you get the hang of this, it becomes second nature.</span>
+        </div>
+        <div class="hints">⏱ long &nbsp;|&nbsp; 🗣 Stress 'get', 'hang', 'becomes', 'second', 'nature'.</div>
+      </div>
+      
+      <div class="practice-tip">
+        <strong>练习方法:</strong><br>
+        1. 先听原声一遍，不跟读 &nbsp; 2. 逐段暂停模仿语音语调<br>
+        3. 全文连贯跟读 2-3 遍 &nbsp; 4. 录音对比找差距
+      </div>
+    </div>
+    
+
+    <!-- 难点 -->
+    
+    <div class="tab-panel" id="tab-difficult" data-label="难点">
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "I was always drawn to people that sounded intelligent."</div>
+        <div class="explain"><strong>难点</strong>: 短语 'drawn to' 可能不熟悉，且 'that' 引导定语从句修饰 people。</div>
+        <div class="explain"><strong>解释</strong>: 这句话意思是“我总是被听起来聪明的人吸引”。'drawn to' 是“被吸引”的意思。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "being good at taking tests is a lot different from being good at stringing together coherent thoughts"</div>
+        <div class="explain"><strong>难点</strong>: 动名词短语作主语，且 'stringing together' 是固定搭配。</div>
+        <div class="explain"><strong>解释</strong>: “擅长考试和擅长把连贯的想法串联起来是很不同的。” 'stringing together' 意思是“把...串起来”。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "I felt like I had to memorize entire books worth of information so that I could recite it on the spot"</div>
+        <div class="explain"><strong>难点</strong>: 'books worth of' 是口语化表达，表示“整整一本书那么多的”。</div>
+        <div class="explain"><strong>解释</strong>: “我觉得我必须记住整本书那么多的信息，以便当场背诵出来。” 'on the spot' 是“当场”的意思。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "I can, however, attribute most of that success to being able to articulate valuable ideas"</div>
+        <div class="explain"><strong>难点</strong>: 'attribute A to B' 结构，且 'however' 插入语。</div>
+        <div class="explain"><strong>解释</strong>: “然而，我可以把大部分成功归因于能够清晰表达有价值的想法。” 'attribute to' 是“归因于”。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "Maybe you're going on a podcast and don't want to stumble over your words"</div>
+        <div class="explain"><strong>难点</strong>: 'stumble over' 是短语动词，表示“结结巴巴地说”。</div>
+        <div class="explain"><strong>解释</strong>: “也许你要上播客，不想说话结结巴巴。” 'stumble over your words' 是“说话磕巴”的意思。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "It's like I want to somehow have this mindblowing idea on the spot when I know that's not how ideas work."</div>
+        <div class="explain"><strong>难点</strong>: 'mindblowing' 是俚语，表示“令人惊叹的”；'on the spot' 再次出现。</div>
+        <div class="explain"><strong>解释</strong>: “就好像我想当场想出这个惊人的想法，但我知道想法不是这样产生的。” 'mindblowing' 是“令人震撼的”。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "If an EDM artist immediately decided to switch to country music, their first track would be horrible, as most first iterations are"</div>
+        <div class="explain"><strong>难点</strong>: EDM 和 country music 是音乐类型，可能不熟悉；'iterations' 是“迭代”。</div>
+        <div class="explain"><strong>解释</strong>: “如果一个电子音乐艺术家突然转向乡村音乐，他们的第一首歌会很糟糕，就像大多数第一次尝试一样。” 'iterations' 指“版本，尝试”。</div>
+      </div>
+      
+      <div class="difficult-item">
+        <div class="orig">❓ "So, by Horoszi just making the decision to say that idea, he sets himself and the podcast host up for a very interesting conversation"</div>
+        <div class="explain"><strong>难点</strong>: 'sets up for' 是固定搭配，表示“为...做好准备”；人名 Horoszi 可能不熟悉。</div>
+        <div class="explain"><strong>解释</strong>: “所以，通过做出说那个想法的决定，他让自己和播客主持人为一场非常有趣的对话做好了准备。” 'set up for' 是“为...做准备”。</div>
+      </div>
+      
+    </div>
+    
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-num">4175</div>
+          <div class="stat-label">字幕总词数</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15</div>
+          <div class="stat-label">重点词汇</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">12</div>
+          <div class="stat-label">金句模板</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">14</div>
+          <div class="stat-label">跟读段落</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8</div>
+          <div class="stat-label">难点注释</div>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        Keep practicing! Consistency beats intensity. 🚀
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    Generated by YouTube Speak · 2026-08-11
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    // 切换按钮 active 态
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    // 切换面板
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+
+  // 展开复述参考
+  function toggleAnswer(btn) {
+    var answer = btn.nextElementSibling;
+    var isOpen = answer.classList.contains('show');
+    if (isOpen) {
+      answer.classList.remove('show');
+      btn.textContent = '📝 查看参考';
+    } else {
+      answer.classList.add('show');
+      btn.textContent = '📝 收起参考';
+    }
+  }
+</script>
+
+</body>
+</html>
