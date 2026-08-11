@@ -1,84 +1,63 @@
 # YouTube Speak 🎙️
 
-从 YouTube 长视频字幕生成英语口语练习材料的 CLI 工具。
-
-**核心流程**: 下载字幕 → AI 智能提炼 → 多格式输出
+从 YouTube 字幕（或本地 .srt / .txt 文件）生成**交互式英语口语练习册**。
 
 ## 快速开始
+
+### 在线使用（无需安装）
+
+部署到 [Render](https://render.com) 后，浏览器打开即可使用：
+1. 粘贴 YouTube 链接或上传字幕文件
+2. 选择英语水平
+3. 等待 AI 分析（约 10-30 秒）
+4. 在线查看 / 下载练习册
+
+### 本地运行
 
 ```bash
 # 1. 安装依赖
 pip install -r requirements.txt
 
 # 2. 设置 DeepSeek API Key
-# 获取: https://platform.deepseek.com/api_keys
 export DEEPSEEK_API_KEY="sk-xxxx"
+# 获取: https://platform.deepseek.com/api_keys
 
-# 3. 一键生成
-python -m youtube_speak "https://youtube.com/watch?v=Ggio3AqKYXo"
+# 3. 启动 Web 界面
+python app.py
+# 浏览器打开 http://localhost:5000
+
+# 4. 或命令行直接生成
+python -m youtube_speak -f subtitles.srt -t "标题"
 ```
 
 ## 输出内容
 
-运行后会在 `output/{video_id}/` 目录下生成：
+运行后在 `output/` 生成 `workbook.html`，包含：
 
-| 文件 | 说明 |
+| 板块 | 内容 |
 |------|------|
-| `notes.md` | Markdown 学习笔记（适合个人博客） |
-| `cards/cards.html` | 社交图文卡片（适合分享到小红书/公众号） |
-| `workbook.pdf` | PDF 练习册（可打印，含默写栏和笔记区） |
-| `analysis.json` | AI 分析原始数据（可复用） |
-| `*.srt` | 下载的字幕文件 |
+| 摘要 | 中英文内容概要 |
+| 复述 | 6-8 条分层提示 + 点击查看参考复述 |
+| 词汇 | 重点词汇表（分难度、带语境例句） |
+| 金句 | 口语句型模板 + 仿写练习区 |
+| 跟读 | 影子跟读分段文本 + 发音提示 |
+| 难点 | 俚语、文化梗等注释 |
+| 统计 | 学习数据一览 |
 
-### 学习笔记包含
+所有板块在手机上一行横向切换，点击展开。
 
-- 📝 中英文内容摘要
-- 🗣️ 复述练习提示
-- ⭐ 金句模板（带场景和中文说明）
-- 📖 重点词汇（分难度等级）
-- 📄 影子跟读分段文本（带重音连读提示）
-- 💡 难点注释（俚语、文化梗等）
+## Render 部署
 
-## CLI 选项
-
-```bash
-# 选择性输出
-python -m youtube_speak "URL" --output notes     # 只要笔记
-python -m youtube_speak "URL" --output cards     # 只要卡片
-python -m youtube_speak "URL" --output pdf       # 只要练习册
-
-# 难度等级
-python -m youtube_speak "URL" --level beginner     # 初级（默认）
-python -m youtube_speak "URL" --level intermediate # 中级
-python -m youtube_speak "URL" --level advanced     # 高级
-
-# 模型和 API
-python -m youtube_speak "URL" --model deepseek-chat
-python -m youtube_speak "URL" --api-key "sk-xxxx"
-
-# 自定义输出目录
-python -m youtube_speak "URL" --output-dir ./my_notes
-```
+| 配置项 | 值 |
+|--------|-----|
+| Build Command | `pip install -r requirements.txt` |
+| Start Command | `gunicorn app:app --bind 0.0.0.0:$PORT` |
+| Environment Variable | `DEEPSEEK_API_KEY` = 你的 API Key |
 
 ## 依赖
 
-- **yt-dlp**: YouTube 字幕下载
-- **DeepSeek API**: AI 分析（OpenAI 兼容接口，成本极低）
-- **Jinja2**: 模板渲染
-- **WeasyPrint**: PDF 生成（可选，仅 PDF 输出需要）
-- **Click**: CLI 框架
-
-## 适用场景
-
-- 英语口语练习者（尤其是初级→中级过渡期）
-- 通过播客/访谈学习地道口语表达
-- 制作个人学习笔记并分享到社交平台
-- 英语学习博主批量生产内容
-
-## 路线图
-
-- [ ] 音频切片 + 逐句播放
-- [ ] Web 界面管理学习材料
-- [ ] 支持更多语言
-- [ ] 间隔重复复习系统
-- [ ] Anki 卡片导出
+- **Flask** — Web 界面
+- **youtube-transcript-api** — 字幕下载
+- **DeepSeek API** — AI 分析（OpenAI 兼容，成本极低）
+- **Jinja2** — 模板渲染
+- **Click** — CLI 框架
