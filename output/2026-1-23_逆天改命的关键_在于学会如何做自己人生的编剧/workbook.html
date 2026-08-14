@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<title>��������Ĺؼ�������ѧ��������Լ������ı�� — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>��������Ĺؼ�������ѧ��������Լ������ı��</h1>
+    <div class="meta">本地文件 · 16280 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0175 · 14859 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>逆天改命的关键在于学会做自己人生的编剧，而不是研究钱本身。</li><li>研究有钱人比研究钱更重要，福布斯榜上只有囤积资源和定义生活两条路。</li><li>用终局思维设计当下，把自己想象成最终成功的样子，并按照那个标准要求自己。</li><li>出来混最难的是出来，利用公开承诺（吹牛皮）来克服恐惧和自毁程序。</li><li>用心眼看世界，保持出离感，像看电影一样看待人生，才能理性决策。</li><li>幸福是一种感觉，可以通过剪辑人生素材（高光时刻和结局）来编辑。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天咱们聊一个重磅话题，怎么逆天改命，怎么成为自己人生的编剧。很多人觉得阶层固化了，努力也没用，但文章告诉你，命运是可以改的，关键不在于研究钱，而在于研究有钱人。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>文章第一部分就点醒你，别去研究钱，要去研究那些已经成功的人。福布斯榜上就两条路：囤积资源，像巴菲特那样控盘；或者定义生活，像马斯克、LV老板那样告诉你该怎么活。你二选一，没有第三条路。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>第二部分讲终局思维，你最终想成为什么样的人，现在就按那个标准要求自己。别指望曲线救国，赌狗永远都是赌狗，你是什么，你最后就是什么。所以从第一天起，就把自己想象成富老头，按照富老头的方式过日子。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>第三部分解决最难的开局问题。为什么你总是迈不出第一步？因为大脑怕你与众不同，怕你死。破解办法就是吹牛皮，当众立下目标，让大脑为了避免社死而帮你暴走。我当年就是靠这招从年级八十多冲到全省前一百的。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>第四部分教你用心眼看世界，保持出离感。别拿自己当人，当自己是来自星星的宿主，人生只是一场观影体验。这样你就能理性决策，遵守大数定理、贝叶斯定理，不被贪婪恐惧牵着走。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>最后，幸福是可以剪辑的。人生就像电影，你只记得高潮和结局，所以你可以自己选素材，把失败剪掉，留下高光时刻。这样你就能幸福，别人也会觉得你赢麻了。好路、好目标、好车、好司机、好剪辑，开启你的爽剧人生吧。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The key to changing your fate is to become the screenwriter of your own life, not to study money itself.</li><li>Studying rich people is more important than studying money; there are only two paths on the Forbes list: hoarding resources and defining lifestyles.</li><li>Use endgame thinking to design the present, imagine yourself as the final successful version, and hold yourself to that standard.</li><li>The hardest part is starting; use public commitment (boasting) to overcome fear and self-sabotage.</li><li>See the world with your mind&#39;s eye, maintain a sense of detachment, and view life like a movie to make rational decisions.</li><li>Happiness is a feeling that can be edited by curating life&#39;s highlights and endings.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re talking about a big topic: how to change your fate and become the screenwriter of your own life. Many people feel stuck, but the article says fate can be changed. The key is not to study money, but to study rich people.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>The first part wakes you up: don&#39;t study money, study those who have already succeeded. There are only two paths on the Forbes list: hoarding resources like Buffett, or defining lifestyles like Musk and the LV boss. You pick one, there&#39;s no third way.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>The second part is about endgame thinking. Be the person you want to become right now. Don&#39;t expect a curveball; a gambler is always a gambler. So from day one, imagine yourself as a wealthy old man and live that way.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>The third part tackles the hardest part: starting. Why can&#39;t you take the first step? Because your brain fears you&#39;ll stand out and die. The trick is to boast publicly, set goals out loud, and let your brain avoid social death by going into overdrive. I used this to jump from 80th to top 100 in my province.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>The fourth part teaches you to see with your mind&#39;s eye and maintain detachment. Don&#39;t take yourself too seriously; see life as a movie. That way you can make rational decisions, follow the law of large numbers, and not be swayed by greed and fear.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Finally, happiness is editable. Life is like a film; you only remember the highlights and the ending, so you can choose your own material, cut out the failures, and keep the shining moments. That way you&#39;ll be happy, and others will think you&#39;ve won. Good path, good goal, good car, good driver, good editing—start your awesome life now.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以&#39;逆天改命&#39;为引，采用总分总结构，先破后立。主线是：纠正错误认知（研究钱不如研究有钱人）→ 确立正确目标（终局思维）→ 解决启动难题（公开承诺）→ 提升认知层次（心眼与出离感）→ 编辑幸福（剪辑人生）。风格犀利、口语化，大量使用比喻、设问、亲身经历和对比，说服力强。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">5 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点，纠正读者错误方向</span>
+            <span class="sec-title">第一部分：研究有钱人而非钱</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">想有钱应该研究有钱人，而不是研究钱本身；福布斯榜上只有囤积资源和定义生活两条路。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">以巴菲特控盘、管仲价格轮动、马斯克和LV定义生活为例；作者自身考研、读研、工作经历。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问、对比、举例、亲身经历、比喻（如&#39;考研标准卷&#39;）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">深化论点，提供核心方法论</span>
+            <span class="sec-title">第二部分：终局思维设计当下</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">要成为什么样的人，现在就按那个标准要求自己；赌徒心态会导致无法回头。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">足浴店下海者案例、赌狗复赌案例、A/B交易员对比、康熙评四阿哥、巴菲特25岁想象95岁。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比、比喻（&#39;因果&#39;）、引用历史人物、故事化叙述</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">解决执行难题，提供具体方法</span>
+            <span class="sec-title">第三部分：出来混最难的是出来</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人难以上轨道源于恐惧和自毁程序，破解方法是公开承诺（吹牛皮）让大脑为避免社死而暴走。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">作者大考失常经历、政治老师解释、生物老师方案、体育老师用女生加油让作者及格。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">亲身经历、对话、幽默、比喻（&#39;暴走的猩猩&#39;）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提升认知层次，强调用心眼看世界</span>
+            <span class="sec-title">第四部分：心眼与出离感</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">真知靠心眼而非肉眼，保持出离感才能理性决策。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">牛顿发现万有引力、王阳明格竹、佛陀说三千大千世界、黑客帝国红蓝药丸比喻。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">类比、引用、哲学思辨、电影引用</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">收尾，提供幸福方法论</span>
+            <span class="sec-title">第五部分：幸福可以剪辑</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人生如电影，幸福取决于剪辑，选取高光时刻和结局即可。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">作者学生时代失败经历、年度总结写法、09年芯片事件。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻（&#39;电影剪辑&#39;）、亲身经历、对比</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">设问引导</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你想有钱，结果去研究钱，你想幸福，结果去研究幸福。研究不出来的。”</span></div>
+            
+            
+            <div class="tech-line">💡 直接点出读者常见误区，引发共鸣和思考。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">对比论证</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“A只有几万块的本金，他是个穷光蛋，这是他的事实。但是在他心目中，他把自己想象成了一个指挥着大量资金的交易员。B呢，也只有几万块的本金……”</span></div>
+            
+            
+            <div class="tech-line">💡 通过A/B对比，鲜明展示不同思维模式带来的不同结局。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">亲身经历增强可信度</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“我大四的时候，面对一堆挂了的课，我当众说，我要用考研的方式，来解决本科毕业的问题。”</span></div>
+            
+            
+            <div class="tech-line">💡 用真实故事拉近距离，让方法论更具说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻和类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“商业的本质就是传教士，没有一个成功的传教士会去较劲上帝存不存在。”</span></div>
+            
+            
+            <div class="tech-line">💡 将抽象概念具象化，便于理解。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">引用权威或经典</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“康熙怎么评价四阿哥？四阿哥，人品贵重，深肖朕躬，必能克承大统……”</span></div>
+            
+            
+            <div class="tech-line">💡 借助历史人物增加论点的分量。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">研究成功者而非研究目标本身</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 确定你想成功的领域，找出该领域最成功的3-5个人，研究他们的路径、方法和思维模式，而不是空想。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 如果你想赚钱，不要天天盯盘，而是去读巴菲特、马斯克等人的传记，分析他们的决策逻辑。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">终局思维自我要求</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 每天早晨问自己：如果我已经是那个成功的人，我现在会怎么做？然后按那个标准行动。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 如果你希望成为自律的富人，现在就按时作息、健康饮食、学习投资，而不是等有钱了再开始。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">公开承诺启动法</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当众宣布你的目标（比如在朋友圈、会议上），利用社交压力迫使自己行动。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 在年初时公开你的年度目标，并定期汇报进度，这样大脑会为了避免丢脸而帮你专注。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">剪辑人生素材</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 定期回顾自己的经历，只记录高光时刻和成功结局，主动遗忘失败细节，重塑自我叙事。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 写年终总结时，只选取几个关键成就，并强调其重要性，而不是罗列所有琐事。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">终局思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 从最终目标倒推当下行动，以终为始。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在设定目标或做决策时，先想象成功后的状态，再反推需要哪些步骤和习惯。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">出离感/观影思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 把自己当作观察者，不沉浸于情绪和得失，像看电影一样看待人生。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在投资或重大决策时，想象自己是局外人，客观分析利弊，避免情绪化。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">因果思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 现在的行为决定未来的结果，种什么因得什么果。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当你想改变命运时，先改变日常行为模式，因为习惯塑造命运。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">剪辑思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 人生叙事由你选择，你可以决定哪些片段成为记忆和他人眼中的你。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在自我认知和对外展示时，主动选择高光片段，塑造积极形象。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">16280</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 12230 tokens · 输出 2629 tokens ·
+        费用 ¥0.0175
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-08-14
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+</script>
+
+</body>
+</html>

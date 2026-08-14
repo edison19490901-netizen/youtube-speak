@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<title>bilibili.com — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>bilibili.com</h1>
+    <div class="meta">bilibili.com · 33 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0057 · 3460 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>韩广斌从10万做到20亿，核心是长期主义，年化20%就足够。</li><li>他承认错过是常态，不追求抓住每个机会，只做自己看得懂的。</li><li>他强调风险控制，避免永久性亏损，保住本金才能复利。</li><li>他注重逆向思维，在市场恐慌时买入优质资产。</li><li>他认为投资是认知的变现，持续学习和独立思考很重要。</li><li>他建议普通人用闲钱投资，长期持有优质公司。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们来聊聊私募大佬韩广斌的早年采访，他从10万做到20亿，但他说错过是常态，每年赚20%就够了。这段采访虽然过去多年，但里面的投资智慧至今依然适用。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>韩广斌最核心的观点是长期主义，他不追求暴利，而是追求稳定的复利增长。他认为年化20%已经非常优秀，长期坚持就能创造奇迹。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>他特别强调错过是常态，市场机会无数，但人的能力圈有限。他只投资自己看得懂的行业，比如消费和医药，其他机会错过也不可惜。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>风险控制是他投资体系的重中之重，他宁愿错过也不愿亏损，因为本金一旦亏损，复利就会中断。他常说，投资第一是不亏钱，第二是记住第一条。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>他还善于逆向思维，在市场恐慌时敢于买入优质资产，比如在非典时期买入白酒股。这种逆向操作需要勇气，更需要对公司价值的深刻理解。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>最后，韩广斌认为投资是认知的变现，普通人应该用闲钱投资，长期持有优质公司，同时不断学习提升认知。希望今天的分享对你有所启发，我们下期再见。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Han Guangbin grew 100k to 2 billion by embracing long-termism and settling for 20% annual returns.</li><li>He accepts missing opportunities as normal, focusing only on what he understands.</li><li>He prioritizes risk control to avoid permanent capital loss, enabling compounding.</li><li>He practices contrarian thinking, buying quality assets during market panic.</li><li>He believes investing is monetizing cognition, requiring continuous learning and independent thinking.</li><li>He advises ordinary investors to use spare money and hold quality companies long-term.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re diving into an early interview with private equity legend Han Guangbin, who grew 100,000 yuan to 2 billion. He says missing opportunities is normal, and earning 20% a year is enough. His wisdom remains relevant today.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Han&#39;s core philosophy is long-termism. He doesn&#39;t chase quick profits but aims for steady compound growth. He believes 20% annual return is excellent and, if sustained, can work wonders.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>He emphasizes that missing out is normal. There are countless opportunities, but our circle of competence is limited. He only invests in industries he understands, like consumer and healthcare, and doesn&#39;t regret missing others.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Risk control is paramount in his system. He&#39;d rather miss an opportunity than suffer a loss, because once you lose capital, compounding stops. He often says the first rule is don&#39;t lose money, and the second is remember the first.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>He also practices contrarian thinking, buying quality assets during market panics, like buying liquor stocks during SARS. This requires courage and deep understanding of company value.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Finally, Han believes investing is monetizing cognition. Ordinary people should invest spare money, hold quality companies long-term, and keep learning. I hope today&#39;s sharing inspires you. See you next time.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以私募大佬韩广斌的早年采访为素材，通过其个人经历和投资理念，传递长期主义、风险控制和逆向思维等核心观点。结构上采用引言、分论点、例证和总结的经典叙事方式，风格平实但富有感染力，多用直接引语和具体数据增强可信度。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">开篇引入：大佬的传奇业绩</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">韩广斌从10万做到20亿，证明其投资方法的有效性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">具体数字：10万到20亿，以及年化20%的收益目标。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">用数字对比制造冲击力，吸引读者注意。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">核心观点：错过是常态</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">投资中错过机会是正常的，不必追求抓住所有机会。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">韩广斌的原话或转述，强调能力圈限制。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">直接引用观点，简洁有力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">投资哲学：长期主义与复利</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">长期持有优质公司，依靠复利实现财富增长。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">年化20%的长期效果，以及他坚持长期投资的案例。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">逻辑推演，用复利公式说明长期主义价值。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">风险控制：不亏钱是第一位</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">风险控制比追求收益更重要，避免永久性亏损。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">他常说“投资第一是不亏钱，第二是记住第一条”。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用金句，强化记忆点。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">逆向思维：恐慌时买入</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">在市场恐慌时逆向买入优质资产，能获得超额收益。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">非典时期买入白酒股的具体案例。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">用具体事件作为例证，增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">认知变现：持续学习与独立思考</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">投资是认知的变现，需要不断学习和独立思考。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">韩广斌强调认知提升的重要性，以及普通人如何应用。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">总结升华，给出行动建议。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">数字冲击</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“从 10 万到 20 亿”</span></div>
+            
+            
+            <div class="tech-line">💡 用巨大反差吸引读者注意，突出主人公的成就。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">直接引用</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“他说错过是常态，每年赚 20% 就够了”</span></div>
+            
+            
+            <div class="tech-line">💡 引用原话增强真实感和权威性。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">金句提炼</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“投资第一是不亏钱，第二是记住第一条”</span></div>
+            
+            
+            <div class="tech-line">💡 简洁有力的金句易于传播和记忆。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">案例佐证</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“非典时期买入白酒股”</span></div>
+            
+            
+            <div class="tech-line">💡 具体案例让抽象理念变得可感知。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">对比手法</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“错过是常态 vs 追求抓住所有机会”</span></div>
+            
+            
+            <div class="tech-line">💡 通过对比强化观点，让读者更易接受。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">设定合理的年化收益目标</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 根据自身风险承受能力，设定一个长期可达成的年化收益目标，如10%-20%，避免追求暴利。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 每月定投指数基金，预期年化10%，坚持10年。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">建立个人能力圈清单</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 列出自己真正了解的行业或公司，只投资清单内的标的，其他机会放弃。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 写下你熟悉的消费、科技行业中的5家公司，深入研究后只买这些。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">制定风险控制规则</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 设定单只股票最大仓位、止损线，以及永不使用杠杆等规则，并严格执行。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 单只股票不超过总资产的20%，亏损15%时强制卖出。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">逆向投资操作流程</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在市场恐慌时，筛选优质公司，分批买入，并设定持有期限。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 当大盘下跌20%时，检查自选股中基本面良好的公司，分三批买入。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">定期复盘与学习</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 每周或每月复盘投资决策，记录错误和成功，并阅读投资经典书籍提升认知。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 每月末写投资日记，分析每笔交易的原因和结果。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">长期主义思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 关注长期价值，忽略短期波动，相信复利效应。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在做任何投资决策时，问自己：这个决定在10年后是否依然正确？</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">能力圈思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 只投资自己真正理解的领域，避免盲目跟风。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在买入任何资产前，先测试自己能否清晰解释其商业模式和盈利逻辑。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">风险优先思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 先考虑亏损的可能性，再考虑收益，确保本金安全。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 每次投资前，先计算最大可能亏损，并问自己能否承受。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">逆向思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 在市场恐慌时贪婪，在市场狂热时谨慎，与大众相反。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当周围人都在抛售时，研究是否出现优质资产被低估的机会。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">认知变现思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 投资回报是认知水平的体现，提升认知才能提升收益。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 将投资亏损视为认知缺陷，通过学习和复盘来弥补。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">33</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 1253 tokens · 输出 2207 tokens ·
+        费用 ¥0.0057
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-08-14
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+</script>
+
+</body>
+</html>

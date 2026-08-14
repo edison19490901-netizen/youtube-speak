@@ -1,233 +1,279 @@
 {
-  "vocabulary": [
-    {
-      "word": "articulate",
-      "context_sentence": "How do you articulate your thoughts clearly without overthinking every single word?",
-      "difficulty": "★★☆",
-      "chinese_note": "清晰表达（思想、观点）。常用于正式或专业场合，强调有条理地表达。"
-    },
-    {
-      "word": "go blank",
-      "context_sentence": "the pressure of being in front of your peers and your leaders causes your brain to scramble and then you go blank.",
-      "difficulty": "★★☆",
-      "chinese_note": "大脑一片空白，突然想不起来。口语常用，形容紧张或压力下的状态。"
-    },
-    {
-      "word": "messy",
-      "context_sentence": "Messy words come from messy thinking.",
-      "difficulty": "★☆☆",
-      "chinese_note": "混乱的，不整洁的。这里形容思维和语言混乱。"
-    },
-    {
-      "word": "distill",
-      "context_sentence": "They're able to distill the complex and make it simple for you to understand.",
-      "difficulty": "★★☆",
-      "chinese_note": "提炼，浓缩。常用于把复杂信息简化。"
-    },
-    {
-      "word": "jumbled",
-      "context_sentence": "When a thought is in your head, it's floating around, it's jumbled, it's disjointed, and it's all over the place.",
-      "difficulty": "★★☆",
-      "chinese_note": "杂乱无章的，混乱的。形容想法没有条理。"
-    },
-    {
-      "word": "iterate",
-      "context_sentence": "And then finally, you've got iterate.",
-      "difficulty": "★★☆",
-      "chinese_note": "迭代，反复改进。在框架中表示不断重复循环以优化。"
-    },
-    {
-      "word": "put on the spot",
-      "context_sentence": "when you're put on the spot, frameworks will help you think more clearly",
-      "difficulty": "★★☆",
-      "chinese_note": "被突然提问，被置于尴尬境地。口语常用。"
-    },
-    {
-      "word": "come across",
-      "context_sentence": "you don't want to come across completely clueless.",
-      "difficulty": "★★☆",
-      "chinese_note": "给人留下...印象。常用于描述他人如何看待你。"
-    },
-    {
-      "word": "clueless",
-      "context_sentence": "you don't want to come across completely clueless.",
-      "difficulty": "★★☆",
-      "chinese_note": "一无所知的，摸不着头脑的。口语常用。"
-    },
-    {
-      "word": "ramble",
-      "context_sentence": "you start speaking your thoughts out loud causing you to go in circles and ramble.",
-      "difficulty": "★★☆",
-      "chinese_note": "漫无目的地闲聊，东拉西扯。形容说话没有重点。"
-    },
-    {
-      "word": "counterintuitive",
-      "context_sentence": "I know how counterintuitive this feels because again, you feel like you should respond immediately.",
-      "difficulty": "★★☆",
-      "chinese_note": "违反直觉的。形容看似不合理但实际有效。"
-    },
-    {
-      "word": "analysis paralysis",
-      "context_sentence": "it allows you to respond faster because of the focus, and not get stuck in analysis paralysis.",
-      "difficulty": "★★☆",
-      "chinese_note": "分析瘫痪，过度思考导致无法行动。"
-    },
-    {
-      "word": "solidify",
-      "context_sentence": "This helps solidify and add more credibility to the thought that you just shared.",
-      "difficulty": "★★☆",
-      "chinese_note": "巩固，使更坚实。常用于加强观点。"
-    }
-  ],
-  "golden_sentences": [
-    {
-      "pattern": "The one thought that comes to mind is ...",
-      "example": "The one thought that comes to mind is that we can create a skit where we passively speak to the audience about the importance of why they should subscribe.",
-      "usage_scenario": "当被问及观点时，用这个句型来聚焦一个想法，显得有条理。",
-      "chinese_explanation": "这个句型用来引出你最重要的一个想法，避免东拉西扯。"
-    },
-    {
-      "pattern": "What I know is that ...",
-      "example": "What I know is that AI has gotten scary good at the narrow and repetitive stuff, the tasks that follow really clear rules.",
-      "usage_scenario": "在讨论不熟悉的话题时，先说明自己知道的部分。",
-      "chinese_explanation": "用于表达你确定的事情，展示你的知识范围。"
-    },
-    {
-      "pattern": "The part that I'm still trying to work out myself is ...",
-      "example": "And the part that I'm still trying to work out myself is where's the limit?",
-      "usage_scenario": "承认自己还在思考的部分，显得诚实且谦逊。",
-      "chinese_explanation": "用于表达你还在探索的方面，增加可信度。"
-    },
-    {
-      "pattern": "Can I ask what's your take?",
-      "example": "And can I ask what's your take? Do you see it as a tool that replaces just tasks or do you think it's gradually going to replace people in their roles?",
-      "usage_scenario": "在对话中询问对方观点，促进交流。",
-      "chinese_explanation": "礼貌地询问对方看法，常用于讨论中。"
-    },
-    {
-      "pattern": "I don't know the answer to that.",
-      "example": "I don't know the answer to that. And I believe it's very important for me to clearly state that when I don't know it.",
-      "usage_scenario": "当不知道答案时，诚实表达，建立信任。",
-      "chinese_explanation": "直接承认不知道，比胡编乱造更好。"
-    },
-    {
-      "pattern": "Let me give you an example.",
-      "example": "Let me give you an example. Because when we do it directly to the camera, people tend to resist because they don't want to be told what to do.",
-      "usage_scenario": "在解释观点时，用例子来支撑。",
-      "chinese_explanation": "用于引出具体例子，使观点更清晰。"
-    },
-    {
-      "pattern": "The art of ... is the art of ...",
-      "example": "The art of writing is the art of making your thoughts visible.",
-      "usage_scenario": "用于强调某个技能的本质。",
-      "chinese_explanation": "这个句型用来表达两个事物之间的内在联系。"
-    },
-    {
-      "pattern": "You can't do one without the other.",
-      "example": "You can't do one without the other.",
-      "usage_scenario": "强调两个事物相互依赖。",
-      "chinese_explanation": "用于说明两者缺一不可。"
-    }
-  ],
-  "summary": {
-    "summary_en": "In this video, Vin, a communication coach, shares three frameworks to help people become more articulate and well-spoken. The first scenario is when you know your topic but can't explain it simply. He introduces a four-step loop: capture (write down your thoughts), structure (organize them), practice (speak out loud), and iterate (refine). The second scenario is when you don't know much about the topic. He suggests naming what you know, what you're still working out, and asking a question to move the conversation forward. He also emphasizes that saying 'I don't know' is acceptable if you've already shown credibility. The third scenario is when you know the answer but go blank under pressure. He introduces the POP framework: Pause, One thought, and Proof. Pausing gives you time to think, focusing on one thought prevents rambling, and providing proof adds credibility. He encourages viewers to practice these frameworks to improve their communication skills.",
-    "summary_zh": "视频中，沟通教练Vin分享了三个框架帮助人们更清晰地表达。第一个场景是当你了解话题但无法简单解释时，他提出了四步循环：捕捉（写下来）、结构化（组织）、练习（大声说）、迭代（改进）。第二个场景是当你不了解话题时，他建议说出你知道的、还在思考的，并提问推进对话。他还强调，如果你已经展示了可信度，说“我不知道”是可以的。第三个场景是当你知道答案但压力下大脑空白时，他介绍了POP框架：暂停、一个想法、证明。暂停给你思考时间，专注一个想法避免漫谈，提供证明增加可信度。他鼓励观众练习这些框架以提高沟通技巧。",
-    "retelling_hints": [
+  "meta": {
+    "language": "en",
+    "source_type": "subtitle",
+    "title": "How to Be Disgustingly Articulate",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "表达不清的根源是思维混乱，而非口才问题，提升表达力的核心是提升思考清晰度。\n针对三种常见场景给出框架：懂但讲不清时用“捕捉-结构-练习-迭代”四步循环。\n遇到不懂的话题时，用“说出已知-说出待解-提问推进”三步法，并敢于说“我不知道”。\n当众被问导致大脑空白时，用“POP”框架：暂停、聚焦一个想法、用证据支撑。\n写作是让思维可视化的关键，练习和迭代是成为优秀表达者的必经之路。\n沟通能力是可以通过刻意练习提升的，不要被当下的自己限制。",
+    "summary_en": "Unclear speech stems from messy thinking, not poor speaking skills; the core skill is thinking clearly.\nThree common scenarios are addressed: knowing but unable to explain simply, unfamiliar topics, and blanking under pressure.\nFor scenario one, use a four-step loop: capture, structure, practice, iterate.\nFor scenario two, name what you know, name what you're still working out, and ask a forward-moving question; saying \"I don't know\" can build trust.\nFor scenario three, use the POP framework: pause, one thought, proof.\nWriting makes thoughts visible; practice and iteration are essential; communication skills are improvable.",
+    "script_zh": [
+      "你有没有过这种经历：说着说着就忘了自己要讲什么，脑子里一团乱麻？其实，表达不清的根本原因不是口才，而是思维混乱。今天分享的三个框架，能帮你在各种场合下把话说清楚、讲明白。",
+      "第一种情况，你明明很懂，却讲不清楚。这时候，你需要一个四步循环：捕捉、结构、练习、迭代。先把想法写下来，让思维可视化；然后调整结构，用比喻简化；接着大声练习，录下来回听；最后不断修改，直到简单清晰。",
+      "第二种情况，遇到不懂的话题。别慌，也别装懂。你可以说：我知道的是……，我还在琢磨的是……，然后问一个推进对话的问题。如果真不知道，就大方承认，前提是你之前已经展现了价值。这样反而能赢得信任。",
+      "第三种情况，当众被问，大脑一片空白。记住POP框架：先暂停几秒，让思绪沉淀；然后说“我想到的一个点是……”，强迫自己聚焦一个想法；最后用一个例子或数据来支撑它。这样你就能从容应对。",
+      "这三个框架的核心，都是让你在压力下依然能清晰思考。而提升思考清晰度最好的方法，就是写作和练习。别怕麻烦，每一次刻意练习，都在重塑你的表达能力。",
+      "记住，你现在的表达方式不是固定的，它是可以改变的。别让当下的自己，限制了未来的你。去练习吧，你会看到自己的进步。"
+    ],
+    "script_en": [
+      "Have you ever been mid-sentence and completely lost track of your point? The root cause isn't your mouth; it's your thinking. Today, I'll share three frameworks to help you articulate clearly in any situation.",
+      "Scenario one: you know your stuff but can't explain it simply. Use a four-step loop: capture, structure, practice, iterate. Write your thoughts down to make them visible, then restructure with analogies, practice out loud, and refine until it's simple and clear.",
+      "Scenario two: you're asked about something unfamiliar. Don't panic or fake it. Say what you know, what you're still figuring out, and ask a question that moves the conversation forward. If you truly don't know, admit it—especially if you've already shown value. It builds trust.",
+      "Scenario three: your mind goes blank under pressure. Remember POP: pause for a few seconds, then say 'The one thought that comes to mind is...' to focus on a single point, and back it up with an example or data. This keeps you composed.",
+      "These frameworks all center on thinking clearly under pressure. And the best way to improve your thinking clarity is through writing and practice. It takes effort, but every deliberate practice reshapes your ability to communicate.",
+      "Remember, your current communication style isn't fixed—it's changeable. Don't let who you are now limit who you can become. Go practice, and you'll see the difference."
+    ]
+  },
+  "deconstruction": {
+    "overview": "文章以问题开场，直接切入痛点，然后提出核心观点（表达不清源于思维混乱），接着按三种常见场景逐一给出框架，每个框架都配有示例和演示，最后以挑战和鼓励收尾。整体结构清晰，逻辑递进，风格亲切口语化，大量使用第二人称和对话式表达，增强代入感。",
+    "sections": [
       {
-        "hint": "Vin's introduction: coach, three frameworks, improve communication",
-        "reference_answer": "Vin is a communication coach who has helped millions of people improve their communication skills. In this video, he shares three frameworks to help you sound more articulate and well-spoken in professional and personal conversations. The frameworks address three common scenarios: when you know your stuff but can't explain it simply, when you don't know much about the topic, and when you know the answer but go blank under pressure."
+        "title": "开场：抛出痛点与核心观点",
+        "role": "引入",
+        "argument": "表达不清的根源是思维混乱，而非口才问题。",
+        "evidence": "以“说话说到一半不知道要点”的常见场景引发共鸣，并指出“messy words come from messy thinking”。",
+        "technique": "设问、共鸣式开场"
       },
       {
-        "hint": "First framework: four-step loop: capture, structure, practice, iterate",
-        "reference_answer": "The first framework is for when you know your topic but struggle to explain it. Vin suggests a four-step loop: capture, which means writing down your thoughts to make them visible; structure, where you organize and reorder your ideas; practice, where you speak out loud and record yourself; and iterate, where you refine and improve. This loop helps you simplify complex ideas and become a better explainer."
+        "title": "场景一：懂但讲不清——四步循环框架",
+        "role": "提出论点并论证",
+        "argument": "懂但讲不清是因为缺乏解释的练习，需要掌握“蒸馏”艺术。",
+        "evidence": "指出专家（工程师、医生、律师）常陷入此困境，并强调“学习和解释是两种技能”。",
+        "technique": "分类、对比、权威暗示"
       },
       {
-        "hint": "Second framework: name what you know, what you're working out, ask a question",
-        "reference_answer": "The second framework is for when you're in a conversation about a topic you don't know much about. Vin advises to name what you know, name what you're still working out, and then ask a question that moves the conversation forward. This way, you come across as thoughtful and competent, even if you're not an expert. He also mentions that saying 'I don't know' is okay if you've already shown credibility."
+        "title": "四步循环详解：捕捉、结构、练习、迭代",
+        "role": "论证与例证",
+        "argument": "通过写作让思维可见，再结构优化、练习反馈、迭代改进，才能清晰表达。",
+        "evidence": "以自己每周写新闻信为例，说明写作的价值；并给出具体操作步骤。",
+        "technique": "步骤拆解、个人案例、比喻（拼图）"
       },
       {
-        "hint": "Third framework: POP: Pause, One thought, Proof",
-        "reference_answer": "The third framework is for when you know the answer but go blank under pressure. Vin introduces POP: Pause, which means taking a few seconds to think before responding; One thought, which means focusing on a single point to share; and Proof, which means backing up your thought with an example or evidence. This framework helps you respond clearly and confidently in high-pressure situations."
+        "title": "场景二：不懂的话题——三步法",
+        "role": "转折与例证",
+        "argument": "面对不熟悉的话题，可以承认无知，但要用框架展现思考过程。",
+        "evidence": "演示对话示例，展示“说出已知-说出待解-提问推进”的应用。",
+        "technique": "情景模拟、对话演示"
       },
       {
-        "hint": "Challenge: practice the first framework with a topic you know",
-        "reference_answer": "Vin challenges viewers to pick a topic they know well and take it through the first framework. Write down everything that comes to mind, restructure it, practice speaking it out loud, and then iterate. This practice helps you develop the habit of thinking and speaking clearly. Remember, you're not stuck with your current communication style; you can improve with practice."
+        "title": "关于“我不知道”的补充",
+        "role": "深化论点",
+        "argument": "在建立价值后说“我不知道”能增加信任和尊重。",
+        "evidence": "以自己工作坊经历为例，说明效果。",
+        "technique": "个人经历、对比"
+      },
+      {
+        "title": "场景三：大脑空白——POP框架",
+        "role": "论证与例证",
+        "argument": "用暂停、聚焦一个想法、提供证据来应对压力下的空白。",
+        "evidence": "演示工作坊中暂停的实例，以及回答订阅问题的示例。",
+        "technique": "演示、比喻（浏览器标签）"
+      },
+      {
+        "title": "结尾：挑战与鼓励",
+        "role": "结论",
+        "argument": "沟通能力可通过练习提升，鼓励读者采取行动。",
+        "evidence": "给出本周挑战：选一个话题走完四步循环。",
+        "technique": "行动号召、金句收尾"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "共鸣式开场",
+        "example": "You know that moment when you're talking halfway through your sentence and you don't even know what point you're trying to make.",
+        "effect": "迅速拉近与读者距离，让读者觉得“这说的就是我”，从而愿意继续听下去。"
+      },
+      {
+        "name": "框架化表达",
+        "example": "The first is when you do know your stuff... The second is when you don't know much... And the third...",
+        "effect": "将复杂问题拆解为清晰模块，让读者容易记忆和跟随。"
+      },
+      {
+        "name": "对比与转折",
+        "example": "Learning and explaining are two completely separate skills.",
+        "effect": "通过对比强化观点，让读者意识到问题本质。"
+      },
+      {
+        "name": "个人案例与演示",
+        "example": "Watch this example of me at one of my workshops...",
+        "effect": "用真实场景和视频演示增强可信度和代入感。"
+      },
+      {
+        "name": "比喻与类比",
+        "example": "It's like when you accidentally open all the browser tabs in one click causing your browser to lag.",
+        "effect": "用熟悉的事物解释抽象概念，让理解更直观。"
+      },
+      {
+        "name": "行动号召与金句收尾",
+        "example": "You're not stuck with the way you communicate.",
+        "effect": "激励读者采取行动，留下深刻印象。"
       }
     ]
   },
-  "shadowing": [
-    {
-      "chunk_text": "How do you articulate your thoughts clearly without overthinking every single word?",
-      "pause_after": "medium",
-      "stress_hints": "stress on 'articulate' and 'clearly'; link 'without' and 'overthinking'"
-    },
-    {
-      "chunk_text": "Messy words come from messy thinking.",
-      "pause_after": "short",
-      "stress_hints": "stress on 'messy' and 'thinking'"
-    },
-    {
-      "chunk_text": "The art of writing is the art of making your thoughts visible.",
-      "pause_after": "medium",
-      "stress_hints": "stress on 'art' and 'visible'"
-    },
-    {
-      "chunk_text": "Capture it, write it down, everything that comes to mind.",
-      "pause_after": "short",
-      "stress_hints": "stress on 'capture' and 'write'"
-    },
-    {
-      "chunk_text": "Then, when your thoughts are visible, restructure it, remix it, add stuff, mix it all around.",
-      "pause_after": "medium",
-      "stress_hints": "stress on 'visible', 'restructure', 'remix'"
-    },
-    {
-      "chunk_text": "Most people stop there, but without the next step of practice and reading your thoughts out loud, you'll never be able to explain anything simply and articulately.",
-      "pause_after": "long",
-      "stress_hints": "stress on 'stop', 'practice', 'simply', 'articulately'"
-    },
-    {
-      "chunk_text": "And finally, iterate. That's how you start practicing the habit of thinking and speaking clearly.",
-      "pause_after": "medium",
-      "stress_hints": "stress on 'iterate', 'habit', 'clearly'"
-    },
-    {
-      "chunk_text": "You can't do one without the other.",
-      "pause_after": "short",
-      "stress_hints": "stress on 'can't', 'one', 'other'"
-    }
-  ],
-  "difficult_spots": [
-    {
-      "sentence": "You know that moment when you're talking halfway through your sentence and you don't even know what point you're trying to make.",
-      "difficulty_point": "口语化表达，'halfway through' 意为'说到一半'，'what point you're trying to make' 意为'你想表达什么'。",
-      "chinese_note": "这句话描述了一种常见的尴尬时刻：说话说到一半突然忘了自己要说什么。'halfway through' 是'中途'的意思。"
-    },
-    {
-      "sentence": "It's like when you accidentally open all the browser tabs in one click causing your browser to lag.",
-      "difficulty_point": "使用比喻，'browser tabs' 和 'lag' 是计算机术语，但这里用来比喻大脑超载。",
-      "chinese_note": "这里用电脑浏览器打开太多标签页导致卡顿来比喻大脑同时处理太多想法而卡壳。'lag' 是'卡顿'的意思。"
-    },
-    {
-      "sentence": "Did you catch what happened in the skit though?",
-      "difficulty_point": "'catch' 在这里是'理解、注意到'的意思，'skit' 是'短剧'。",
-      "chinese_note": "'catch' 在口语中常表示'听懂、抓住'，'skit' 指幽默短剧。这句话问对方是否注意到了短剧中的要点。"
-    },
-    {
-      "sentence": "That was premature.",
-      "difficulty_point": "'premature' 意为'过早的'，这里指动作发生得太早，有点尴尬。",
-      "chinese_note": "在对话中，Peter 提前打了个响指，Vin 说 'That was premature' 意思是'那太早了'，带有幽默感。"
-    },
-    {
-      "sentence": "I'm not going to fire Peter and replace him with AI.",
-      "difficulty_point": "'fire' 是'解雇'，'replace' 是'取代'，这里用幽默的方式回应关于AI取代工作的担忧。",
-      "chinese_note": "这句话是开玩笑说不会解雇Peter，因为AI不能像Peter那样为他做咖啡等。"
-    }
-  ],
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "四步循环法（捕捉-结构-练习-迭代）",
+        "how_to_apply": "选一个你想讲清楚的话题，先写下你目前的解释，然后调整结构、加入比喻，再大声练习并录音，最后回听修改。",
+        "example": "比如你想向同事解释“区块链”，先写一段话，然后拆成几个要点，用“账本”做比喻，再录下来听哪里卡壳，修改后再录。"
+      },
+      {
+        "skill": "三步法应对不熟悉话题",
+        "how_to_apply": "当被问到不熟悉的话题时，先说“我知道的是……”，再说“我还在琢磨的是……”，最后问一个推进对话的问题。",
+        "example": "被问“怎么看AI取代工作”，可以说：“我知道AI在重复性任务上很强，但我还在想它的边界在哪里，你觉得它会取代任务还是整个岗位？”"
+      },
+      {
+        "skill": "POP框架应对大脑空白",
+        "how_to_apply": "被提问时先停顿2-3秒，然后说“我想到的一个点是……”，接着用一个例子或数据支撑。",
+        "example": "被问“如何提高订阅量”，停顿后说：“我想到的一个点是，用间接的方式引导，比如通过一个小品，而不是直接对着镜头喊订阅。因为直接要求会让人反感，间接暗示更有效。”"
+      },
+      {
+        "skill": "写作练习提升思维清晰度",
+        "how_to_apply": "每周写一篇短文或日记，把某个想法完整写下来，然后修改到简洁清晰。",
+        "example": "每周日写一篇“本周学到的一件事”，用300字讲清楚，然后删减到200字，再读出来听是否流畅。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "思维可视化",
+        "explanation": "将脑中模糊的想法通过写作或画图变成可见的实体，才能进行修改和优化。",
+        "how_to_use": "当你想不清楚一件事时，把它写下来或画出来，然后观察结构，找出逻辑漏洞。"
+      },
+      {
+        "model": "蒸馏思维",
+        "explanation": "从复杂信息中提炼核心，用简单语言表达，就像蒸馏一样去除杂质。",
+        "how_to_use": "在解释复杂概念时，先问自己“最核心的一点是什么”，然后用一个比喻或例子说明。"
+      },
+      {
+        "model": "价值前置",
+        "explanation": "在说“我不知道”之前，先展示自己的价值和能力，这样承认无知反而增加信任。",
+        "how_to_use": "在会议或对话中，先贡献一个有用的观点或数据，再对不懂的部分坦诚说“我不确定”。"
+      },
+      {
+        "model": "聚焦单一想法",
+        "explanation": "面对压力时，大脑容易信息过载，强制自己只选择一个点来回应，能避免混乱。",
+        "how_to_use": "被提问时，用“我想到的一个点是……”开头，强迫自己只讲一个点，再展开。"
+      }
+    ]
+  },
+  "golden_words": {
+    "golden_sentences": [
+      {
+        "sentence": "Messy words come from messy thinking.",
+        "why_good": "简洁有力，用对仗结构点明核心观点，易于记忆。",
+        "chinese_meaning": "混乱的语言源于混乱的思维。"
+      },
+      {
+        "sentence": "Learning and explaining are two completely separate skills.",
+        "why_good": "对比鲜明，打破常见误区，让人印象深刻。",
+        "chinese_meaning": "学习和解释是两种完全不同的技能。"
+      },
+      {
+        "sentence": "The art of writing is the art of making your thoughts visible.",
+        "why_good": "用“艺术”一词提升写作的价值，比喻精妙。",
+        "chinese_meaning": "写作的艺术就是让你的思维可见的艺术。"
+      },
+      {
+        "sentence": "You can only put the puzzle together once you can see the puzzle pieces.",
+        "why_good": "用拼图比喻，形象说明先有素材才能组织。",
+        "chinese_meaning": "只有看到拼图碎片，你才能拼出完整的图。"
+      },
+      {
+        "sentence": "That's how you stop being the expert that nobody understands and you start becoming the expert that everybody understands.",
+        "why_good": "对比句式，强调转变，富有感染力。",
+        "chinese_meaning": "这样你就不再是无人理解的专家，而是人人都懂的专家。"
+      },
+      {
+        "sentence": "You're not stuck with the way you communicate.",
+        "why_good": "直接肯定读者，给予希望，简洁有力。",
+        "chinese_meaning": "你并非被困在当前的沟通方式中。"
+      },
+      {
+        "sentence": "Don't be so attached to who you are in the present that you don't give the future version of you a chance.",
+        "why_good": "用“未来的你”激发改变动力，富有哲理。",
+        "chinese_meaning": "不要过于执着于现在的自己，以至于不给未来的你一个机会。"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "articulate",
+        "context_sentence": "How do you articulate your thoughts clearly without overthinking every single word?",
+        "difficulty": "★★☆",
+        "chinese_note": "清晰表达；善于表达的。常用于描述沟通能力。"
+      },
+      {
+        "word": "distillation",
+        "context_sentence": "They have mastered the art of distillation.",
+        "difficulty": "★★★",
+        "chinese_note": "蒸馏；提炼。这里指从复杂中提取精华。"
+      },
+      {
+        "word": "jumbled",
+        "context_sentence": "When a thought is in your head, it's floating around, it's jumbled, it's disjointed.",
+        "difficulty": "★★☆",
+        "chinese_note": "混乱的，杂乱无章的。形容思绪不清。"
+      },
+      {
+        "word": "disjointed",
+        "context_sentence": "When a thought is in your head, it's floating around, it's jumbled, it's disjointed.",
+        "difficulty": "★★☆",
+        "chinese_note": "不连贯的，支离破碎的。"
+      },
+      {
+        "word": "iterate",
+        "context_sentence": "And then finally, you've got iterate.",
+        "difficulty": "★★☆",
+        "chinese_note": "迭代，反复改进。常用于产品开发或流程优化。"
+      },
+      {
+        "word": "coherent",
+        "context_sentence": "They've learned to take their messy thoughts and deliver it in a clear and concise and coherent way.",
+        "difficulty": "★★☆",
+        "chinese_note": "连贯的，有条理的。"
+      },
+      {
+        "word": "relatability",
+        "context_sentence": "Now, here's an unexpected thing you can do that will increase your relatability, likability, and even respect.",
+        "difficulty": "★★★",
+        "chinese_note": "亲和力，共鸣感。指让人感到 relatable。"
+      },
+      {
+        "word": "humanizes",
+        "context_sentence": "If these things have already been established and you say the words I don't know, it humanizes you.",
+        "difficulty": "★★☆",
+        "chinese_note": "使……人性化，使显得更有人情味。"
+      },
+      {
+        "word": "counterintuitive",
+        "context_sentence": "I know how counterintuitive this feels because again, you feel like you should respond immediately.",
+        "difficulty": "★★★",
+        "chinese_note": "违反直觉的。"
+      },
+      {
+        "word": "analysis paralysis",
+        "context_sentence": "And by doing this, it allows you to respond faster because of the focus, and not get stuck in analysis paralysis.",
+        "difficulty": "★★★",
+        "chinese_note": "分析瘫痪，指过度分析导致无法决策。"
+      },
+      {
+        "word": "ramble",
+        "context_sentence": "And then you start speaking your thoughts out loud causing you to go in circles and ramble.",
+        "difficulty": "★★☆",
+        "chinese_note": "漫无目的地闲聊，东拉西扯。"
+      },
+      {
+        "word": "credibility",
+        "context_sentence": "This helps solidify and add more credibility to the thought that you just shared.",
+        "difficulty": "★★☆",
+        "chinese_note": "可信度，可靠性。"
+      }
+    ]
+  },
   "usage": {
-    "prompt_tokens": 5060,
-    "completion_tokens": 3465,
-    "total_tokens": 8525,
-    "cost_cny": 0.01199
+    "prompt_tokens": 5316,
+    "completion_tokens": 3909,
+    "total_tokens": 9225,
+    "cost_cny": 0.013134
   }
 }

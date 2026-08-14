@@ -1,14 +1,14 @@
 {
-  "name": "YouTube Speak - 英语口语练习册",
-  "short_name": "口语练习",
-  "description": "从 YouTube 字幕生成交互式英语口语练习册",
+  "name": "智读 - 深度解读 · 口播总结 · 解构 · 实际应用 · 金句单词",
+  "short_name": "智读",
+  "description": "从中文/英文文章、博客、视频字幕或文档生成深度解读材料",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#e94560",
   "icons": [
     {
-      "src": "/static/speak_icon.png",
+      "src": "/static/brain.png",
       "sizes": "256x256",
       "type": "image/png"
     }

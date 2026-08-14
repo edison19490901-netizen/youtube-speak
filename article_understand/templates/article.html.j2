@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<title>{{ title }} — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>{{ title }}</h1>
+    <div class="meta">{{ uploader }}{% if duration %} · {{ duration }}{% endif %} · {{ word_count }} 字</div>
+    <div class="tags">
+      <span class="tag">📄 {{ source_label }}</span>
+      <span class="tag">🌐 {{ lang_label }}</span>
+    </div>
+    {% if truncated %}
+    <div class="warn">⚠️ 材料较长，仅分析了前文部分内容</div>
+    {% endif %}
+    {% if usage and usage.total_tokens > 0 %}
+    <div class="cost">本次分析 · ¥{{ "%.4f"|format(usage.cost_cny) }} · {{ usage.total_tokens }} tokens</div>
+    {% endif %}
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    {% if golden_sentences or vocabulary %}
+    <button class="tab-btn" data-tab="tab-golden">金句单词</button>
+    {% endif %}
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        {% if summary_zh_points %}
+        <ul class="point-list">
+          {% for p in summary_zh_points %}<li>{{ p }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+
+      {% if script_zh %}
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        {% for seg in script_zh %}
+        <div class="script-card">
+          <span class="seg-num">{{ loop.index }}</span>
+          <div class="text"><span class="mic">🎙️ 第 {{ loop.index }} 段</span>{{ seg }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        {% if summary_en_points %}
+        <ul class="point-list">
+          {% for p in summary_en_points %}<li>{{ p }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+
+      {% if script_en %}
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        {% for seg in script_en %}
+        <div class="script-card">
+          <span class="seg-num">{{ loop.index }}</span>
+          <div class="text"><span class="mic">🗣️ Segment {{ loop.index }}</span>{{ seg }}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      {% if overview %}
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">{{ overview }}</div>
+      </div>
+      {% endif %}
+
+      {% if sections %}
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">{{ section_count }} 部分</span></h3>
+        {% for sec in sections %}
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">{{ sec.role }}</span>
+            <span class="sec-title">{{ sec.title }}</span>
+          </div>
+          {% if sec.argument %}
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">{{ sec.argument }}</span></div>
+          {% endif %}
+          {% if sec.evidence %}
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">{{ sec.evidence }}</span></div>
+          {% endif %}
+          {% if sec.technique %}
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">{{ sec.technique }}</span></div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if writing_techniques %}
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">{{ technique_count }} 个</span></h3>
+        {% for t in writing_techniques %}
+        <div class="technique-card">
+          <span class="tech-num">{{ loop.index }}</span>
+          <div class="tech-body">
+            <div class="tech-name">{{ t.name }}</div>
+            {% if t.example %}
+            <div class="tech-line">✍️ 原文: <span class="q">“{{ t.example }}”</span></div>
+            {% endif %}
+            {% if t.effect %}
+            <div class="tech-line">💡 {{ t.effect }}</div>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      {% if actionable_skills %}
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">{{ skill_count }} 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        {% for s in actionable_skills %}
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">{{ s.skill }}</span></div>
+          {% if s.how_to_apply %}
+          <div class="app-row"><b>怎么做</b> · {{ s.how_to_apply }}</div>
+          {% endif %}
+          {% if s.example %}
+          <div class="app-row"><b>例子</b> · {{ s.example }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if thinking_models %}
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">{{ model_count }} 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        {% for m in thinking_models %}
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">{{ m.model }}</span></div>
+          {% if m.explanation %}
+          <div class="app-row"><b>是什么</b> · {{ m.explanation }}</div>
+          {% endif %}
+          {% if m.how_to_use %}
+          <div class="app-row"><b>何时用</b> · {{ m.how_to_use }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    {% if golden_sentences or vocabulary %}
+    <div class="tab-panel" id="tab-golden" data-label="金句单词">
+      {% if golden_sentences %}
+      <div class="block">
+        <h3>💎 金句 <span class="badge">{{ golden_count }} 句</span></h3>
+        {% for g in golden_sentences %}
+        <div class="quote-card">
+          <div class="quote-text">“{{ g.sentence }}”</div>
+          {% if g.why_good %}
+          <div class="quote-why"><b>好在哪</b> · {{ g.why_good }}</div>
+          {% endif %}
+          {% if g.chinese_meaning %}
+          <div class="quote-zh">中文 · {{ g.chinese_meaning }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if vocabulary %}
+      <div class="block">
+        <h3>📖 重点单词 <span class="badge">{{ vocab_count }} 个</span></h3>
+        <table class="vocab-table">
+          <thead>
+            <tr><th>单词 / 短语</th><th>难度</th><th>出现语境</th><th>中文注释</th></tr>
+          </thead>
+          <tbody>
+            {% for v in vocabulary %}
+            <tr>
+              <td class="word-col">{{ v.word }}</td>
+              <td class="stars-col">{{ v.difficulty }}</td>
+              <td class="context-col">{{ v.context_sentence }}</td>
+              <td>{{ v.chinese_note }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">{{ word_count }}</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">{{ section_count }}</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">{{ technique_count }}</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">{{ skill_count }}</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">{{ model_count }}</div><div class="stat-label">思维模型</div></div>
+        {% if golden_sentences or vocabulary %}
+        <div class="stat-item"><div class="stat-num">{{ golden_count }}</div><div class="stat-label">金句</div></div>
+        <div class="stat-item"><div class="stat-num">{{ vocab_count }}</div><div class="stat-label">生词</div></div>
+        {% endif %}
+      </div>
+      {% if usage and usage.total_tokens > 0 %}
+      <div class="usage-line">
+        ⚙️ 输入 {{ usage.prompt_tokens }} tokens · 输出 {{ usage.completion_tokens }} tokens ·
+        费用 ¥{{ "%.4f"|format(usage.cost_cny) }}
+      </div>
+      {% endif %}
+      {% if truncated %}
+      <div class="truncate-note">⚠️ 材料较长，本次仅分析了开头部分。建议拆分后分段解读，以获得更完整的解构。</div>
+      {% endif %}
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · {{ date }}
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "language": "zh",
+    "source_type": "article",
+    "title": "bilibili.com",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "韩广斌从10万做到20亿，核心是长期主义，年化20%就足够。\n他承认错过是常态，不追求抓住每个机会，只做自己看得懂的。\n他强调风险控制，避免永久性亏损，保住本金才能复利。\n他注重逆向思维，在市场恐慌时买入优质资产。\n他认为投资是认知的变现，持续学习和独立思考很重要。\n他建议普通人用闲钱投资，长期持有优质公司。",
+    "summary_en": "Han Guangbin grew 100k to 2 billion by embracing long-termism and settling for 20% annual returns.\nHe accepts missing opportunities as normal, focusing only on what he understands.\nHe prioritizes risk control to avoid permanent capital loss, enabling compounding.\nHe practices contrarian thinking, buying quality assets during market panic.\nHe believes investing is monetizing cognition, requiring continuous learning and independent thinking.\nHe advises ordinary investors to use spare money and hold quality companies long-term.",
+    "script_zh": [
+      "今天我们来聊聊私募大佬韩广斌的早年采访，他从10万做到20亿，但他说错过是常态，每年赚20%就够了。这段采访虽然过去多年，但里面的投资智慧至今依然适用。",
+      "韩广斌最核心的观点是长期主义，他不追求暴利，而是追求稳定的复利增长。他认为年化20%已经非常优秀，长期坚持就能创造奇迹。",
+      "他特别强调错过是常态，市场机会无数，但人的能力圈有限。他只投资自己看得懂的行业，比如消费和医药，其他机会错过也不可惜。",
+      "风险控制是他投资体系的重中之重，他宁愿错过也不愿亏损，因为本金一旦亏损，复利就会中断。他常说，投资第一是不亏钱，第二是记住第一条。",
+      "他还善于逆向思维，在市场恐慌时敢于买入优质资产，比如在非典时期买入白酒股。这种逆向操作需要勇气，更需要对公司价值的深刻理解。",
+      "最后，韩广斌认为投资是认知的变现，普通人应该用闲钱投资，长期持有优质公司，同时不断学习提升认知。希望今天的分享对你有所启发，我们下期再见。"
+    ],
+    "script_en": [
+      "Today we're diving into an early interview with private equity legend Han Guangbin, who grew 100,000 yuan to 2 billion. He says missing opportunities is normal, and earning 20% a year is enough. His wisdom remains relevant today.",
+      "Han's core philosophy is long-termism. He doesn't chase quick profits but aims for steady compound growth. He believes 20% annual return is excellent and, if sustained, can work wonders.",
+      "He emphasizes that missing out is normal. There are countless opportunities, but our circle of competence is limited. He only invests in industries he understands, like consumer and healthcare, and doesn't regret missing others.",
+      "Risk control is paramount in his system. He'd rather miss an opportunity than suffer a loss, because once you lose capital, compounding stops. He often says the first rule is don't lose money, and the second is remember the first.",
+      "He also practices contrarian thinking, buying quality assets during market panics, like buying liquor stocks during SARS. This requires courage and deep understanding of company value.",
+      "Finally, Han believes investing is monetizing cognition. Ordinary people should invest spare money, hold quality companies long-term, and keep learning. I hope today's sharing inspires you. See you next time."
+    ]
+  },
+  "deconstruction": {
+    "overview": "文章以私募大佬韩广斌的早年采访为素材，通过其个人经历和投资理念，传递长期主义、风险控制和逆向思维等核心观点。结构上采用引言、分论点、例证和总结的经典叙事方式，风格平实但富有感染力，多用直接引语和具体数据增强可信度。",
+    "sections": [
+      {
+        "title": "开篇引入：大佬的传奇业绩",
+        "role": "引入",
+        "argument": "韩广斌从10万做到20亿，证明其投资方法的有效性。",
+        "evidence": "具体数字：10万到20亿，以及年化20%的收益目标。",
+        "technique": "用数字对比制造冲击力，吸引读者注意。"
+      },
+      {
+        "title": "核心观点：错过是常态",
+        "role": "提出论点",
+        "argument": "投资中错过机会是正常的，不必追求抓住所有机会。",
+        "evidence": "韩广斌的原话或转述，强调能力圈限制。",
+        "technique": "直接引用观点，简洁有力。"
+      },
+      {
+        "title": "投资哲学：长期主义与复利",
+        "role": "论证",
+        "argument": "长期持有优质公司，依靠复利实现财富增长。",
+        "evidence": "年化20%的长期效果，以及他坚持长期投资的案例。",
+        "technique": "逻辑推演，用复利公式说明长期主义价值。"
+      },
+      {
+        "title": "风险控制：不亏钱是第一位",
+        "role": "论证",
+        "argument": "风险控制比追求收益更重要，避免永久性亏损。",
+        "evidence": "他常说“投资第一是不亏钱，第二是记住第一条”。",
+        "technique": "引用金句，强化记忆点。"
+      },
+      {
+        "title": "逆向思维：恐慌时买入",
+        "role": "例证",
+        "argument": "在市场恐慌时逆向买入优质资产，能获得超额收益。",
+        "evidence": "非典时期买入白酒股的具体案例。",
+        "technique": "用具体事件作为例证，增强说服力。"
+      },
+      {
+        "title": "认知变现：持续学习与独立思考",
+        "role": "结论",
+        "argument": "投资是认知的变现，需要不断学习和独立思考。",
+        "evidence": "韩广斌强调认知提升的重要性，以及普通人如何应用。",
+        "technique": "总结升华，给出行动建议。"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "数字冲击",
+        "example": "从 10 万到 20 亿",
+        "effect": "用巨大反差吸引读者注意，突出主人公的成就。"
+      },
+      {
+        "name": "直接引用",
+        "example": "他说错过是常态，每年赚 20% 就够了",
+        "effect": "引用原话增强真实感和权威性。"
+      },
+      {
+        "name": "金句提炼",
+        "example": "投资第一是不亏钱，第二是记住第一条",
+        "effect": "简洁有力的金句易于传播和记忆。"
+      },
+      {
+        "name": "案例佐证",
+        "example": "非典时期买入白酒股",
+        "effect": "具体案例让抽象理念变得可感知。"
+      },
+      {
+        "name": "对比手法",
+        "example": "错过是常态 vs 追求抓住所有机会",
+        "effect": "通过对比强化观点，让读者更易接受。"
+      }
+    ]
+  },
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "设定合理的年化收益目标",
+        "how_to_apply": "根据自身风险承受能力，设定一个长期可达成的年化收益目标，如10%-20%，避免追求暴利。",
+        "example": "每月定投指数基金，预期年化10%，坚持10年。"
+      },
+      {
+        "skill": "建立个人能力圈清单",
+        "how_to_apply": "列出自己真正了解的行业或公司，只投资清单内的标的，其他机会放弃。",
+        "example": "写下你熟悉的消费、科技行业中的5家公司，深入研究后只买这些。"
+      },
+      {
+        "skill": "制定风险控制规则",
+        "how_to_apply": "设定单只股票最大仓位、止损线，以及永不使用杠杆等规则，并严格执行。",
+        "example": "单只股票不超过总资产的20%，亏损15%时强制卖出。"
+      },
+      {
+        "skill": "逆向投资操作流程",
+        "how_to_apply": "在市场恐慌时，筛选优质公司，分批买入，并设定持有期限。",
+        "example": "当大盘下跌20%时，检查自选股中基本面良好的公司，分三批买入。"
+      },
+      {
+        "skill": "定期复盘与学习",
+        "how_to_apply": "每周或每月复盘投资决策，记录错误和成功，并阅读投资经典书籍提升认知。",
+        "example": "每月末写投资日记，分析每笔交易的原因和结果。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "长期主义思维",
+        "explanation": "关注长期价值，忽略短期波动，相信复利效应。",
+        "how_to_use": "在做任何投资决策时，问自己：这个决定在10年后是否依然正确？"
+      },
+      {
+        "model": "能力圈思维",
+        "explanation": "只投资自己真正理解的领域，避免盲目跟风。",
+        "how_to_use": "在买入任何资产前，先测试自己能否清晰解释其商业模式和盈利逻辑。"
+      },
+      {
+        "model": "风险优先思维",
+        "explanation": "先考虑亏损的可能性，再考虑收益，确保本金安全。",
+        "how_to_use": "每次投资前，先计算最大可能亏损，并问自己能否承受。"
+      },
+      {
+        "model": "逆向思维",
+        "explanation": "在市场恐慌时贪婪，在市场狂热时谨慎，与大众相反。",
+        "how_to_use": "当周围人都在抛售时，研究是否出现优质资产被低估的机会。"
+      },
+      {
+        "model": "认知变现思维",
+        "explanation": "投资回报是认知水平的体现，提升认知才能提升收益。",
+        "how_to_use": "将投资亏损视为认知缺陷，通过学习和复盘来弥补。"
+      }
+    ]
+  },
+  "golden_words": null,
+  "usage": {
+    "prompt_tokens": 1253,
+    "completion_tokens": 2207,
+    "total_tokens": 3460,
+    "cost_cny": 0.005667
+  }
+}

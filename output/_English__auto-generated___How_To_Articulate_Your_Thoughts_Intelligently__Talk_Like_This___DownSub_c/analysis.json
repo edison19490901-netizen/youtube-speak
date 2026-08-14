@@ -1,322 +1,282 @@
 {
-  "vocabulary": [
-    {
-      "word": "drawn to",
-      "context_sentence": "When I was young, I was always drawn to people that sounded intelligent.",
-      "difficulty": "★★☆",
-      "chinese_note": "被吸引；口语中常用，表示对某人或某物感兴趣。"
-    },
-    {
-      "word": "palatable",
-      "context_sentence": "who could explain deep ideas in an exciting yet palatable way.",
-      "difficulty": "★★☆",
-      "chinese_note": "易于接受的，合口味的；这里指讲解方式让人容易理解。"
-    },
-    {
-      "word": "articulate",
-      "context_sentence": "I never thought that I could be articulate.",
-      "difficulty": "★★☆",
-      "chinese_note": "善于表达的，口齿伶俐的；动词形式表示清晰地表达。"
-    },
-    {
-      "word": "inherently",
-      "context_sentence": "I thought that those people were just inherently more intelligent than I was.",
-      "difficulty": "★★☆",
-      "chinese_note": "天生地，固有地；强调某种特质是与生俱来的。"
-    },
-    {
-      "word": "stringing together",
-      "context_sentence": "being good at stringing together coherent thoughts",
-      "difficulty": "★★☆",
-      "chinese_note": "把...串联起来；这里指把想法连贯地组织起来。"
-    },
-    {
-      "word": "recite",
-      "context_sentence": "I felt like I had to memorize entire books worth of information so that I could recite it on the spot",
-      "difficulty": "★★☆",
-      "chinese_note": "背诵，朗诵；这里指当场复述出来。"
-    },
-    {
-      "word": "attribute to",
-      "context_sentence": "I can, however, attribute most of that success to being able to articulate valuable ideas",
-      "difficulty": "★★☆",
-      "chinese_note": "把...归因于；常用搭配 attribute A to B。"
-    },
-    {
-      "word": "stumble over",
-      "context_sentence": "Maybe you're going on a podcast and don't want to stumble over your words",
-      "difficulty": "★★☆",
-      "chinese_note": "结结巴巴地说，绊倒；这里指说话不流畅。"
-    },
-    {
-      "word": "command respect",
-      "context_sentence": "Maybe you want to command respect in a company meeting or a sales call.",
-      "difficulty": "★★☆",
-      "chinese_note": "赢得尊重；command 在这里表示“博得”。"
-    },
-    {
-      "word": "nerve-wracking",
-      "context_sentence": "where people spend thousands to tens of thousands of dollars on the production quality of their actual podcast, that's nerve-wracking.",
-      "difficulty": "★★☆",
-      "chinese_note": "伤脑筋的，令人紧张的；形容让人焦虑的事情。"
-    },
-    {
-      "word": "riffing",
-      "context_sentence": "but usually you're just riffing.",
-      "difficulty": "★★★",
-      "chinese_note": "即兴发挥；源自爵士乐，指即兴演奏，这里指即兴说话。"
-    },
-    {
-      "word": "kicking myself",
-      "context_sentence": "I'm just like kicking myself because I knew that I could have responded to certain questions better.",
-      "difficulty": "★★☆",
-      "chinese_note": "自责，后悔；字面是踢自己，表示对自己不满。"
-    },
-    {
-      "word": "mental hurdle",
-      "context_sentence": "But that's my biggest mental hurdle.",
-      "difficulty": "★★☆",
-      "chinese_note": "心理障碍；hurdle 是跨栏，比喻障碍。"
-    },
-    {
-      "word": "mind goes blank",
-      "context_sentence": "my mind kind of goes blank",
-      "difficulty": "★★☆",
-      "chinese_note": "大脑一片空白；常用表达，表示突然想不起来。"
-    },
-    {
-      "word": "hammer this home",
-      "context_sentence": "Now, a question to further hammer this home.",
-      "difficulty": "★★★",
-      "chinese_note": "把...讲透彻；hammer home 是习语，表示反复强调使理解。"
-    }
-  ],
-  "golden_sentences": [
-    {
-      "pattern": "I was always drawn to [something/someone].",
-      "example": "When I was young, I was always drawn to people that sounded intelligent.",
-      "usage_scenario": "表达对某人或某事的长期兴趣或吸引力。",
-      "chinese_explanation": "表示“我总是被...吸引”，用于描述一贯的喜好。"
-    },
-    {
-      "pattern": "I never thought that I could [do something].",
-      "example": "I never thought that I could be articulate.",
-      "usage_scenario": "表达过去认为自己不可能做到某事。",
-      "chinese_explanation": "“我从没想过我能...”，用于表达自我怀疑或惊喜。"
-    },
-    {
-      "pattern": "Being good at [A] is a lot different from being good at [B].",
-      "example": "being good at taking tests is a lot different from being good at stringing together coherent thoughts",
-      "usage_scenario": "对比两种能力或情况的不同。",
-      "chinese_explanation": "“擅长A和擅长B是很不同的”，用于强调差异。"
-    },
-    {
-      "pattern": "I can attribute [something] to [something].",
-      "example": "I can, however, attribute most of that success to being able to articulate valuable ideas",
-      "usage_scenario": "说明某事的成因或归功于什么。",
-      "chinese_explanation": "“我可以把...归因于...”，用于解释成功或结果的原因。"
-    },
-    {
-      "pattern": "Maybe you want to [do something].",
-      "example": "Maybe you want to command respect in a company meeting or a sales call.",
-      "usage_scenario": "提出建议或猜测对方的意图。",
-      "chinese_explanation": "“也许你想...”，用于委婉地提出可能性。"
-    },
-    {
-      "pattern": "It's obvious that [statement].",
-      "example": "It's obvious to me which ideas are the most valuable.",
-      "usage_scenario": "表达某事的明显性。",
-      "chinese_explanation": "“很明显...”，用于强调显而易见的事实。"
-    },
-    {
-      "pattern": "I don't want to sound like I'm [doing something].",
-      "example": "I don't want to sound like I'm repeating myself.",
-      "usage_scenario": "表达不想给人某种印象。",
-      "chinese_explanation": "“我不想听起来像在...”，用于避免误解。"
-    },
-    {
-      "pattern": "If you wish to [do something], you need to [do something].",
-      "example": "If you wish to articulate yourself and you do not have a body of work that is continuing to be refined and continues to grow, then you have a lot of work to do",
-      "usage_scenario": "提出条件或建议。",
-      "chinese_explanation": "“如果你想...，你需要...”，用于给出实现目标的必要条件。"
-    },
-    {
-      "pattern": "The same applies to [something].",
-      "example": "The same applies to being a creator, a speaker, a writer, or just a person who wants to be able to articulate themselves.",
-      "usage_scenario": "说明某个道理同样适用于其他情况。",
-      "chinese_explanation": "“同样适用于...”，用于类推。"
-    },
-    {
-      "pattern": "Not only does [A], but it also [B].",
-      "example": "Not only does this keep the listener engaged, leading to the podcast doing better, and then more podcast wanting you to have on, increasing your success, but it's also a clippable moment.",
-      "usage_scenario": "强调一个行为的双重好处。",
-      "chinese_explanation": "“不仅...而且...”，用于递进强调。"
-    },
-    {
-      "pattern": "If you've watched any [something] with [someone], you know that [statement].",
-      "example": "If you've watched any podcast with Alex Foros, you know that he's very good at this.",
-      "usage_scenario": "引用例子来支持观点。",
-      "chinese_explanation": "“如果你看过任何...，你就知道...”，用于举例说明。"
-    },
-    {
-      "pattern": "That has nothing to do with [something].",
-      "example": "That has nothing to do with actual like skill acquisition that's on people's mind.",
-      "usage_scenario": "表示某事与另一件事无关。",
-      "chinese_explanation": "“那与...无关”，用于澄清或反驳。"
-    }
-  ],
-  "summary": {
-    "summary_en": "The speaker shares his journey from feeling inarticulate to becoming a successful communicator. He emphasizes the importance of building a 'greatest hits' album of 8-10 core ideas that can be connected to any topic. He introduces three frameworks for articulation: the micro story (PAS: problem, amplification, solution), the pyramid principle (answer first, then supporting arguments), and cross-domain synthesis (combining concepts from different fields). He also stresses the value of writing as a practice tool, and provides practical tips like using pain points, examples, and metaphors to fill content. The overall message is that articulation is a skill that can be developed through deliberate practice and repetition.",
-    "summary_zh": "演讲者分享了自己从不会表达到成为成功沟通者的经历。他强调建立8-10个核心想法（即“最热门作品”）的重要性，这些想法可以连接到任何话题。他介绍了三个表达框架：微故事（PAS：问题、放大、解决方案）、金字塔原理（先给答案，再给支持论点）、跨领域综合（结合不同领域的概念）。他还强调了写作作为练习工具的价值，并提供了实用技巧，如使用痛点、例子和隐喻来填充内容。总体信息是，表达是一种可以通过刻意练习和重复来发展的技能。",
-    "retelling_hints": [
+  "meta": {
+    "language": "en",
+    "source_type": "subtitle",
+    "title": "[English (auto-generated)] How To Articulate Your Thoughts Intelligently (Talk Like This) [DownSub.c.srt",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "作者从自身经历出发，说明善于表达并非天生，而是可以通过刻意练习获得。\n核心前提是建立自己的\"思想库\"，积累8到10个反复打磨的核心观点。\n提供三个表达框架：初级的故事框架（PAS）、中级的金字塔原理、高级的跨领域综合。\n写作是练习表达的最佳方式，因为写作即思考，且能获得反馈。\n表达时不必直接回答对方问题，而是自信地抛出自己最有力的观点，再展开论证。\n通过不断重复和打磨核心观点，表达会越来越自然，形成个人风格。",
+    "summary_en": "The author shares personal experience to show that articulate speech is not innate but can be developed through deliberate practice.\nThe key prerequisite is building a 'library' of 8-10 core ideas that are refined repeatedly.\nThree frameworks are provided: beginner's micro-story (PAS), intermediate pyramid principle, and advanced cross-domain synthesis.\nWriting is the best way to practice articulation because writing is thinking and provides feedback.\nInstead of directly answering questions, articulate speakers confidently share their best relevant idea and expand on it.\nBy repeating and refining core ideas, expression becomes natural and develops a personal style.",
+    "script_zh": [
+      "今天想和大家聊聊怎么把话说得更有条理、更聪明。很多人觉得能言善道是天生的，但作者用自己的经历告诉我们，这其实是可以练出来的。他从小羡慕那些说话有深度的人，但觉得自己做不到，直到后来通过写作和积累，慢慢成了别人眼中会表达的人。",
+      "作者提出了一个关键前提：你得先有自己的\"思想库\"，也就是8到10个你反复思考、打磨过的核心观点。这样无论遇到什么问题，你都能从库里调出最合适的观点，而不是临时硬想。就像音乐人都有自己的风格，你也要有自己的\"代表作\"。",
+      "接下来是三个表达框架。初级的是\"微故事\"，其实就是问题-放大-解决的结构，用一个痛点开头，说清不解决的后果，再给出方案。中级的是\"金字塔原理\"，先抛出核心观点，再用几个论据支撑，最后补充例子和数据。高级的是\"跨领域综合\"，把其他领域的知识融进来，让你的观点更有新意。",
+      "作者特别强调，写作是练习表达最好的方式。因为写作就是思考，你每天写一点，慢慢就能把想法理清楚。而且发到网上还能得到反馈，知道哪些观点受欢迎。写作就像搭乐高，用各种小技巧把想法拼起来。",
+      "最后记住，表达时不要慌着回答对方的问题，而是自信地抛出你最有力的观点，再展开说。这样不仅显得有主见，还能让对话更有深度。希望这些方法对你有帮助，下次开口前，先想想你的\"思想库\"里有什么。"
+    ],
+    "script_en": [
+      "Today I want to talk about how to articulate your thoughts more clearly and intelligently. Many people think being articulate is a natural talent, but the author shows us it's actually a skill you can develop. He used to admire people who spoke with depth, but never thought he could do it himself, until through writing and practice, he became someone others saw as articulate.",
+      "The author emphasizes a key prerequisite: you need to build your own 'library' of 8-10 core ideas that you've thought through and refined repeatedly. That way, no matter what question comes up, you can pull the most relevant idea from your library instead of trying to think on the spot. Just like musicians have their own style, you need your own 'greatest hits'.",
+      "Then he offers three frameworks. The beginner one is the 'micro-story', which is basically a problem-amplify-solution structure: start with a relatable pain point, show what happens if it's not solved, then give your solution. The intermediate one is the 'pyramid principle': state your main idea first, support it with a few key arguments, then add examples and data. The advanced one is 'cross-domain synthesis': bring in concepts from other fields to make your point more novel.",
+      "The author stresses that writing is the best way to practice articulation. Because writing is thinking, and if you write a little every day, you'll gradually clarify your thoughts. Plus, posting online gives you feedback on which ideas resonate. Writing is like building with Legos, using various small techniques to piece ideas together.",
+      "Finally, remember: when you speak, don't rush to answer the question directly. Instead, confidently share your strongest relevant idea and expand on it. This not only makes you sound more authoritative but also makes the conversation more interesting. Hope these methods help you. Next time you speak, think about what's in your 'library'."
+    ]
+  },
+  "deconstruction": {
+    "overview": "文章采用个人叙事与教学结合的结构，先以自身经历建立可信度，再提出核心观点（需要思想库），然后分三个框架（微故事、金字塔原理、跨领域综合）展开，最后以写作作为练习途径收尾。风格口语化、亲切，善用设问和类比，逻辑清晰，层层递进。",
+    "sections": [
       {
-        "hint": "Speaker's initial belief about articulate people",
-        "reference_answer": "When the speaker was young, he admired people who sounded intelligent, like Alan Watts and Jordan Peterson. He thought they were inherently smarter and that he could never be articulate himself. He felt that being good at tests was different from being able to string thoughts together coherently."
+        "title": "个人经历引入",
+        "role": "引入",
+        "argument": "善于表达不是天生的，而是可以通过练习获得的。",
+        "evidence": "作者小时候羡慕能言善道的人，但认为自己做不到；后来通过写作和练习，成为被数百万人关注的内容创作者。",
+        "technique": "个人故事开场，建立可信度和共鸣。"
       },
       {
-        "hint": "The importance of having a 'greatest hits' album of ideas",
-        "reference_answer": "The speaker explains that to articulate well, you need a pool of 8-10 big ideas that you can connect to almost any topic. These ideas should be refined over time through writing and speaking. He gives the example of his own content pillars, like the one-person business model and lifestyle design."
+        "title": "核心前提：建立思想库",
+        "role": "提出核心论点",
+        "argument": "要善于表达，必须先积累8-10个反复打磨的核心观点，作为表达的起点。",
+        "evidence": "作者写了两本书、数百篇通讯和视频，发现真正有价值的只有8-10个核心观点；乔丹·彼得森因有大量作品而显得善于表达。",
+        "technique": "用自身数据和权威人物例子支撑论点。"
       },
       {
-        "hint": "The problem of repeating yourself and the mental hurdle",
-        "reference_answer": "The speaker admits that his biggest mental hurdle is not wanting to sound repetitive. When on podcasts, he avoids saying things he's already said, which makes his mind go blank. He realizes that ideas need time to be dissected and refined, and repetition is necessary for mastery."
+        "title": "表达策略：不直接回答问题",
+        "role": "论证",
+        "argument": "优秀的表达者不直接回答对方问题，而是自信地抛出自己最有力的相关观点，再展开论证。",
+        "evidence": "以Alex Hormozi为例，他被问到最该学什么技能时，回答的是关于保持好心情的观点，而非直接答案。",
+        "technique": "举例说明，对比普通回答和高手回答。"
       },
       {
-        "hint": "The analogy of musicians and their style",
-        "reference_answer": "He compares creators to musicians: just as fans love a musician's consistent style, audiences appreciate a creator's repeated themes. If an EDM artist suddenly switched to country, it would be terrible. Similarly, you need to repeat your best ideas to refine them and build your brand."
+        "title": "初级框架：微故事（PAS）",
+        "role": "方法论一",
+        "argument": "用问题-放大-解决的结构来组织表达，能有效吸引听众。",
+        "evidence": "作者指出这是经典的PAS文案框架，并演示如何用在自己身上。",
+        "technique": "直接给出框架，并现场演示。"
       },
       {
-        "hint": "The three frameworks for articulation",
-        "reference_answer": "The speaker introduces three frameworks: the micro story (PAS: problem, amplification, solution), the pyramid principle (start with the main idea, then support with key arguments and evidence), and cross-domain synthesis (combine concepts from different fields to create unique insights)."
+        "title": "中级框架：金字塔原理",
+        "role": "方法论二",
+        "argument": "先给出核心结论，再用论据支撑，使信息更易理解和接受。",
+        "evidence": "以Hormozi的回答为例，说明如何用金字塔结构展开。",
+        "technique": "引用权威框架，结合实例。"
       },
       {
-        "hint": "The role of writing in practicing articulation",
-        "reference_answer": "He emphasizes that writing is the foundation of articulation. Writing helps you think clearly and refine your ideas. He writes for 1-2 hours every morning, and he suggests that posting your writing publicly gives you feedback on which ideas resonate."
+        "title": "高级框架：跨领域综合",
+        "role": "方法论三",
+        "argument": "将其他领域的知识融入表达，使内容更有新意和深度。",
+        "evidence": "作者举例用物理学中的熵来解释深度工作中的干扰。",
+        "technique": "类比和跨学科引用。"
       },
       {
-        "hint": "Practical tips for filling content (Legos of writing)",
-        "reference_answer": "He provides 'Legos' for writing: use pain points, examples, personal stories, statistics, metaphors, quotes, reframes, or ask what/how/why. These are building blocks to keep your writing or speaking flowing."
+        "title": "写作作为练习途径",
+        "role": "结论与行动建议",
+        "argument": "写作是练习表达的最佳方式，因为写作即思考，且能获得反馈。",
+        "evidence": "作者每天写作1-2小时，并创建了写作系统；写作是媒体和营销的基础。",
+        "technique": "强调行动，给出具体建议。"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "个人故事开场",
+        "example": "When I was young, I was always drawn to people that sounded intelligent.",
+        "effect": "建立亲切感和可信度，让读者产生共鸣。"
+      },
+      {
+        "name": "设问引导",
+        "example": "Why do you listen to your favorite musician?",
+        "effect": "引发读者思考，增强互动性。"
+      },
+      {
+        "name": "类比说明",
+        "example": "writing is like Legos with ideas.",
+        "effect": "用熟悉的事物解释抽象概念，使内容更易懂。"
+      },
+      {
+        "name": "权威引用",
+        "example": "Jordan Peterson, regardless of your opinion, is known for his articulation.",
+        "effect": "借助权威人物增强说服力。"
+      },
+      {
+        "name": "框架演示",
+        "example": "So you'd have the title of your piece, the introduction with the problem, a section that teaches a concept from another interest or discipline, then a unique way to solve the problem...",
+        "effect": "直接展示框架应用，让读者能立刻模仿。"
       }
     ]
   },
-  "shadowing": [
-    {
-      "chunk_text": "When I was young, I was always drawn to people that sounded intelligent.",
-      "pause_after": "short",
-      "stress_hints": "Stress 'young', 'drawn', 'intelligent'."
-    },
-    {
-      "chunk_text": "I never thought that I could be articulate.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'never', 'thought', 'articulate'."
-    },
-    {
-      "chunk_text": "Being good at taking tests is a lot different from being good at stringing together coherent thoughts.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'good', 'tests', 'different', 'stringing', 'coherent'."
-    },
-    {
-      "chunk_text": "But now over a decade later, people ask me how I write and speak so well.",
-      "pause_after": "short",
-      "stress_hints": "Stress 'decade', 'ask', 'write', 'speak'."
-    },
-    {
-      "chunk_text": "I can attribute most of that success to being able to articulate valuable ideas in a way that people are drawn to.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'attribute', 'success', 'articulate', 'valuable', 'drawn'."
-    },
-    {
-      "chunk_text": "You need a pool of 8 to 10 of your biggest ideas that can be connected to almost any topic.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'pool', 'biggest', 'connected', 'any'."
-    },
-    {
-      "chunk_text": "It's obvious that I really only have eight to ten big ideas that illustrate the value that my brand provides.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'obvious', 'eight', 'ten', 'big', 'value', 'brand'."
-    },
-    {
-      "chunk_text": "I don't want to sound like I'm repeating myself.",
-      "pause_after": "short",
-      "stress_hints": "Stress 'don't', 'sound', 'repeating'."
-    },
-    {
-      "chunk_text": "Ideas require time to dissect and explore.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'require', 'time', 'dissect', 'explore'."
-    },
-    {
-      "chunk_text": "If you wish to articulate yourself, you need a body of work that is continuing to be refined.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'wish', 'articulate', 'body', 'work', 'refined'."
-    },
-    {
-      "chunk_text": "The best speakers don't answer the question directly; they speak their best idea with confidence.",
-      "pause_after": "medium",
-      "stress_hints": "Stress 'best', 'speakers', 'answer', 'directly', 'speak', 'confidence'."
-    },
-    {
-      "chunk_text": "Writing is like Legos with ideas.",
-      "pause_after": "short",
-      "stress_hints": "Stress 'writing', 'Legos', 'ideas'."
-    },
-    {
-      "chunk_text": "If you don't know what to write, start with a relevant pain point.",
-      "pause_after": "short",
-      "stress_hints": "Stress 'don't', 'know', 'write', 'relevant', 'pain'."
-    },
-    {
-      "chunk_text": "Once you get the hang of this, it becomes second nature.",
-      "pause_after": "long",
-      "stress_hints": "Stress 'get', 'hang', 'becomes', 'second', 'nature'."
-    }
-  ],
-  "difficult_spots": [
-    {
-      "sentence": "I was always drawn to people that sounded intelligent.",
-      "difficulty_point": "短语 'drawn to' 可能不熟悉，且 'that' 引导定语从句修饰 people。",
-      "chinese_note": "这句话意思是“我总是被听起来聪明的人吸引”。'drawn to' 是“被吸引”的意思。"
-    },
-    {
-      "sentence": "being good at taking tests is a lot different from being good at stringing together coherent thoughts",
-      "difficulty_point": "动名词短语作主语，且 'stringing together' 是固定搭配。",
-      "chinese_note": "“擅长考试和擅长把连贯的想法串联起来是很不同的。” 'stringing together' 意思是“把...串起来”。"
-    },
-    {
-      "sentence": "I felt like I had to memorize entire books worth of information so that I could recite it on the spot",
-      "difficulty_point": "'books worth of' 是口语化表达，表示“整整一本书那么多的”。",
-      "chinese_note": "“我觉得我必须记住整本书那么多的信息，以便当场背诵出来。” 'on the spot' 是“当场”的意思。"
-    },
-    {
-      "sentence": "I can, however, attribute most of that success to being able to articulate valuable ideas",
-      "difficulty_point": "'attribute A to B' 结构，且 'however' 插入语。",
-      "chinese_note": "“然而，我可以把大部分成功归因于能够清晰表达有价值的想法。” 'attribute to' 是“归因于”。"
-    },
-    {
-      "sentence": "Maybe you're going on a podcast and don't want to stumble over your words",
-      "difficulty_point": "'stumble over' 是短语动词，表示“结结巴巴地说”。",
-      "chinese_note": "“也许你要上播客，不想说话结结巴巴。” 'stumble over your words' 是“说话磕巴”的意思。"
-    },
-    {
-      "sentence": "It's like I want to somehow have this mindblowing idea on the spot when I know that's not how ideas work.",
-      "difficulty_point": "'mindblowing' 是俚语，表示“令人惊叹的”；'on the spot' 再次出现。",
-      "chinese_note": "“就好像我想当场想出这个惊人的想法，但我知道想法不是这样产生的。” 'mindblowing' 是“令人震撼的”。"
-    },
-    {
-      "sentence": "If an EDM artist immediately decided to switch to country music, their first track would be horrible, as most first iterations are",
-      "difficulty_point": "EDM 和 country music 是音乐类型，可能不熟悉；'iterations' 是“迭代”。",
-      "chinese_note": "“如果一个电子音乐艺术家突然转向乡村音乐，他们的第一首歌会很糟糕，就像大多数第一次尝试一样。” 'iterations' 指“版本，尝试”。"
-    },
-    {
-      "sentence": "So, by Horoszi just making the decision to say that idea, he sets himself and the podcast host up for a very interesting conversation",
-      "difficulty_point": "'sets up for' 是固定搭配，表示“为...做好准备”；人名 Horoszi 可能不熟悉。",
-      "chinese_note": "“所以，通过做出说那个想法的决定，他让自己和播客主持人为一场非常有趣的对话做好了准备。” 'set up for' 是“为...做准备”。"
-    }
-  ],
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "建立个人思想库",
+        "how_to_apply": "回顾自己写过的内容或思考过的话题，找出8-10个最核心、最常被认可的观点，写下来并反复打磨。",
+        "example": "每周复盘自己的社交媒体帖子或日记，找出点赞最多的观点，整理成清单。"
+      },
+      {
+        "skill": "使用PAS框架组织表达",
+        "how_to_apply": "在写作或发言前，先想清楚：问题是什么？不解决会怎样？解决方案是什么？按这个顺序组织内容。",
+        "example": "写一篇关于时间管理的文章：先写'你总是觉得时间不够用'，再写'这导致你焦虑、效率低下'，最后写'用番茄工作法可以解决'。"
+      },
+      {
+        "skill": "用金字塔原理回答提问",
+        "how_to_apply": "当被问到问题时，先给出核心结论，再列出2-3个支持理由，最后补充例子或数据。",
+        "example": "被问'如何提升职场竞争力'，先答'提升沟通能力'，再解释'因为沟通影响协作和领导力'，最后举例说明。"
+      },
+      {
+        "skill": "跨领域综合练习",
+        "how_to_apply": "每周学习一个其他领域的核心概念，尝试用它来解释自己领域的问题。",
+        "example": "用物理学的'熵增'概念来解释为什么房间容易乱，从而引出整理的方法。"
+      },
+      {
+        "skill": "每日写作练习",
+        "how_to_apply": "每天固定时间写作1-2小时，内容可以是日记、观点或对某个话题的思考，并尝试发布到社交媒体获取反馈。",
+        "example": "每天早上用30分钟写一段关于当天工作挑战的思考，发布到朋友圈或微博。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "思想库思维",
+        "explanation": "积累并反复打磨少量核心观点，作为应对各种问题的弹药库。",
+        "how_to_use": "在表达前，先想想自己的核心观点是什么，而不是临时想新观点。"
+      },
+      {
+        "model": "答案先行思维",
+        "explanation": "在沟通中先给出结论，再展开论证，提高信息传递效率。",
+        "how_to_use": "在写报告或发言时，第一句就给出核心结论，后续再解释原因。"
+      },
+      {
+        "model": "跨领域类比思维",
+        "explanation": "用其他领域的知识来解释本领域的问题，产生新见解。",
+        "how_to_use": "遇到复杂问题时，想想其他领域有没有类似现象，用类比来简化理解。"
+      },
+      {
+        "model": "反馈驱动迭代思维",
+        "explanation": "通过发布内容获取反馈，不断优化自己的观点和表达。",
+        "how_to_use": "每次发布内容后，分析互动数据，找出哪些观点受欢迎，然后深化这些观点。"
+      }
+    ]
+  },
+  "golden_words": {
+    "golden_sentences": [
+      {
+        "sentence": "The single greatest skill you can develop is the ability to stay in a great mood in the absence of things to be in a great mood about.",
+        "why_good": "观点精炼有力，用词精准，富有哲理，且具有反差感，容易让人记住。",
+        "chinese_meaning": "你能培养的最伟大技能，是在没有值得高兴的事情时，依然保持好心情的能力。"
+      },
+      {
+        "sentence": "Writing is like Legos with ideas.",
+        "why_good": "用简单的比喻形象地说明写作的本质，通俗易懂。",
+        "chinese_meaning": "写作就像用乐高积木搭建想法。"
+      },
+      {
+        "sentence": "By nature, you must repeat yourself because the most important ideas deserve to be repeated.",
+        "why_good": "用'deserve'一词赋予重复以价值，观点鲜明，有说服力。",
+        "chinese_meaning": "本质上，你必须重复自己，因为最重要的观点值得被重复。"
+      },
+      {
+        "sentence": "Ideas require time to dissect and explore. They have to be a part of you.",
+        "why_good": "简洁地表达出好观点需要时间沉淀，用'part of you'强调内化。",
+        "chinese_meaning": "观点需要时间去剖析和探索，它们必须成为你的一部分。"
+      },
+      {
+        "sentence": "Writing teaches you how to think, how to learn, and how to inspire people to care about what you do.",
+        "why_good": "排比结构，层层递进，概括了写作的三大价值。",
+        "chinese_meaning": "写作教会你如何思考、如何学习，以及如何激励人们关心你所做的事。"
+      },
+      {
+        "sentence": "When all else fails, writing and speaking are just thinking and thinking is questioning.",
+        "why_good": "用'just'和'questioning'点明本质，简洁有力。",
+        "chinese_meaning": "当所有方法都失效时，写作和说话其实就是思考，而思考就是提问。"
+      },
+      {
+        "sentence": "The human mind is a story engine.",
+        "why_good": "用'engine'比喻，生动形象，强调故事对大脑的吸引力。",
+        "chinese_meaning": "人类的大脑是一台故事引擎。"
+      },
+      {
+        "sentence": "You need to write or speak thousands of times until your best ideas are obvious.",
+        "why_good": "用'thousands of times'强调练习的必要性，'obvious'点出目标。",
+        "chinese_meaning": "你需要写作或演讲数千次，直到你最好的观点变得显而易见。"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "articulate",
+        "context_sentence": "How To Articulate Your Thoughts Intelligently",
+        "difficulty": "★★☆",
+        "chinese_note": "清晰地表达；善于表达的。常用于形容表达能力。"
+      },
+      {
+        "word": "palatable",
+        "context_sentence": "who could explain deep ideas in an exciting yet palatable way",
+        "difficulty": "★★☆",
+        "chinese_note": "可口的；合口味的；引申为易于接受的。"
+      },
+      {
+        "word": "inherently",
+        "context_sentence": "I thought that those people were just inherently more intelligent than I was.",
+        "difficulty": "★★☆",
+        "chinese_note": "内在地；固有地。强调本质上的。"
+      },
+      {
+        "word": "string together",
+        "context_sentence": "being good at stringing together coherent thoughts",
+        "difficulty": "★★☆",
+        "chinese_note": "把...串联起来；组织（语言、想法）。"
+      },
+      {
+        "word": "nerve-wracking",
+        "context_sentence": "that's nerve-wracking",
+        "difficulty": "★★☆",
+        "chinese_note": "伤脑筋的；令人紧张的。"
+      },
+      {
+        "word": "riffing",
+        "context_sentence": "usually you're just riffing",
+        "difficulty": "★★★",
+        "chinese_note": "即兴发挥；随口说。常用于音乐或谈话。"
+      },
+      {
+        "word": "dissect",
+        "context_sentence": "Ideas require time to dissect and explore.",
+        "difficulty": "★★☆",
+        "chinese_note": "剖析；仔细分析。"
+      },
+      {
+        "word": "compound",
+        "context_sentence": "that's only going to compound your success more",
+        "difficulty": "★★☆",
+        "chinese_note": "使复合；加剧；积累。"
+      },
+      {
+        "word": "pattern interrupt",
+        "context_sentence": "So, that's a pattern interrupt as well.",
+        "difficulty": "★★★",
+        "chinese_note": "模式中断；打破常规的举动。常用于心理学和营销。"
+      },
+      {
+        "word": "cross-domain synthesis",
+        "context_sentence": "which is just cross-domain synthesis",
+        "difficulty": "★★★",
+        "chinese_note": "跨领域综合；将不同领域的知识融合。"
+      },
+      {
+        "word": "entropy",
+        "context_sentence": "I can use the concept of entropy from physics to illustrate how distractions work.",
+        "difficulty": "★★★",
+        "chinese_note": "熵；物理学概念，引申为混乱度。"
+      },
+      {
+        "word": "reframe",
+        "context_sentence": "You can use a reframe.",
+        "difficulty": "★★☆",
+        "chinese_note": "重新定义；换个角度解释。"
+      }
+    ]
+  },
   "usage": {
-    "prompt_tokens": 6900,
-    "completion_tokens": 4471,
-    "total_tokens": 11371,
-    "cost_cny": 0.015842
+    "prompt_tokens": 6488,
+    "completion_tokens": 3973,
+    "total_tokens": 10461,
+    "cost_cny": 0.014434
   }
 }
