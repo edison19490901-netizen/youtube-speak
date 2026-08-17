@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<title>26-3-10 战争阴霾下的新世界.docx — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>26-3-10 战争阴霾下的新世界.docx</h1>
+    <div class="meta">本地文件 · 14968 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0159 · 13633 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>美国退出全球秩序，安全成本上升，世界进入新的大时代。</li><li>硬资产（矿产、能源、粮食）价值凸显，软资产（品牌、合约）面临挑战。</li><li>AI将取代大量坐着不动和站着不动的工作，个人需多元化发展。</li><li>成功的定义随时代变化，生存比优秀更重要。</li><li>矫情（对感受的错误认知）是生存的障碍，要像做回溯测试一样理性决策。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们来聊聊战争阴霾下的新世界，这篇文章分析了全球宏观形势的变化，以及个人该如何应对。无论你是投资者还是普通职场人，都值得一听。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>文章首先指出，美国正在退出它自己构建的安全体系，导致全球安全成本上升。这意味着贸易、运输、商业规则都会增加额外成本，最终由消费者买单。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>接着，文章对比了硬资产和软资产。在安全成本低的时候，软资产如品牌、合约更有价值；但现在，硬资产如矿产、能源、粮食变得更重要，因为供应短缺时难以快速扩产。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>AI的冲击也是重点。文章认为，AI将取代大量坐着不动和站着不动的工作，所以个人要避免单一维度的竞争，要培养多元化能力，比如沟通、协调、动手能力。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>最后，文章强调生存比优秀更重要。成功的定义随时代变化，而矫情——即对感受的错误认知——是生存的障碍。我们要像做回溯测试一样，用数据理性决策，而不是凭一时感受。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>总之，面对新世界，我们要降低安全成本的影响，拥抱硬资产，提升多元能力，克服矫情，才能笑到最后。希望这期内容对你有所启发。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The US withdrawal from global order raises security costs, ushering in a new era.</li><li>Hard assets (minerals, energy, food) gain value, while soft assets (brands, contracts) face challenges.</li><li>AI will replace many sedentary and standing jobs, so individuals need diversified skills.</li><li>The definition of success changes with times; survival matters more than excellence.</li><li>Sentimentality (misperception of feelings) is an obstacle; make decisions like backtesting.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re talking about the new world under the shadow of war. This article analyzes global macro changes and how individuals should respond. Whether you&#39;re an investor or an ordinary worker, it&#39;s worth listening.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>The article first points out that the US is withdrawing from its own security system, raising global security costs. This means extra costs in trade, transportation, and business rules, ultimately borne by consumers.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>Then it compares hard and soft assets. In low-security-cost times, soft assets like brands and contracts were valuable; but now hard assets like minerals, energy, and food become more important because they&#39;re hard to expand quickly when supply is short.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>The impact of AI is also key. The article argues that AI will replace many sedentary and standing jobs, so individuals should avoid single-dimensional competition and cultivate diversified skills like communication, coordination, and hands-on ability.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Finally, it emphasizes that survival matters more than excellence. The definition of success changes with times, and sentimentality—misperception of feelings—is an obstacle. We should make rational decisions like backtesting, not based on fleeting feelings.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>In short, to face the new world, we need to reduce the impact of security costs, embrace hard assets, enhance diversified abilities, and overcome sentimentality to laugh last. Hope this episode inspires you.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以宏观分析为主线，结合历史、经济、科技和个人发展，层层递进。结构清晰：先讲安全成本上升，再讲硬资产崛起，然后转向个人生存策略，最后批判矫情。风格口语化、比喻丰富，常引历史典故和自身经历，说服力强。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入并提出核心论点</span>
+            <span class="sec-title">安全成本上升：大时代结束</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">美国退出全球安全体系，导致安全成本上升，世界进入新的大时代。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">历史对比（古代旅游昂贵）、个人经历（缝内裤带现金）、西班牙商船被抢、美国制造业外移、特里芬悖论。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">历史类比、个人故事、设问</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证安全成本的影响</span>
+            <span class="sec-title">安全成本传导至消费者</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">安全成本上升最终由消费者买单，导致物价上涨或失业。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">海盗损失导致油价翻倍、商业规则被破坏（港口被占）、高房价导致失业的案例。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">逻辑推演、案例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出新投资方向</span>
+            <span class="sec-title">硬资产与软资产对比</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">安全成本上升和AI发展使硬资产价值凸显，软资产面临挑战。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">日本战国乐市乐座、铀矿不等于核能、AI取代工作、各国增持黄金。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比、比喻</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转向个人层面</span>
+            <span class="sec-title">AI冲击与个人选择</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">AI将取代单一维度的工作，个人应多元化发展，避免做做题家。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">段永平观点、嵌入式研发因打杂而留下、非标蓝领有出路。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用权威、举例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">深化个人生存策略</span>
+            <span class="sec-title">成功的定义随时代变化</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">成功的定义随环境变化，生存比优秀更重要。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">80年代有钱不等于成功、90年代强调组织协调、董宇辉和小孙的对比。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">时间线对比、案例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论与行动建议</span>
+            <span class="sec-title">矫情是生存的障碍</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">矫情（对感受的错误认知）是生存的障碍，要理性决策。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">交易回溯测试例子、张三李四对比、富二代和学霸的案例。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻、对比、现身说法</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">6 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">历史类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你看金瓶梅里面，西门大官人那么有钱，家里假山层峦叠嶂，日日宴饮不休，你让他天天旅游，他也扛不住的。”</span></div>
+            
+            
+            <div class="tech-line">💡 用古代例子说明安全成本，使抽象概念具体化，增强说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">个人经历</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“我08年做研发的时候，绝大多数同事都是前五所学校计算机，信电系毕业的。”</span></div>
+            
+            
+            <div class="tech-line">💡 增加可信度，拉近与读者距离。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">设问与反问</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你难道没有发现，几乎所有人都在追求体面光鲜亮丽的赚钱么？”</span></div>
+            
+            
+            <div class="tech-line">💡 引发读者思考，强化观点。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">对比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“硬资产与软资产的对比、张三李四的对比。”</span></div>
+            
+            
+            <div class="tech-line">💡 突出差异，使论点更鲜明。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">引用权威</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你用段永平的话讲，一切坐着不动的工作，包括站着不动的工作，都将不保。”</span></div>
+            
+            
+            <div class="tech-line">💡 借助权威增强说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">6</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“人脑就是一台老款的MMX，那种根本跑不动的烂怂电脑。”</span></div>
+            
+            
+            <div class="tech-line">💡 形象生动，易于理解。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">做回溯测试</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在做重要决策前，收集历史数据，模拟不同选择的结果，而不是凭感觉。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 比如考虑职业转型，可以列出过去5年该行业就业数据、薪资趋势，模拟自己进入后的发展路径。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">多元化能力培养</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 不要只专注于单一技能，刻意练习沟通、协调、动手等跨领域能力。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 每周安排时间学习一项新技能，如公开演讲、基础维修，并参与跨部门项目。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">识别矫情</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当对某件事产生强烈情绪时，问自己：这是基于事实还是基于感受？用数据验证。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 觉得某个职业丢人时，查一下该职业的平均收入和前景，而不是直接否定。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">配置硬资产</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在投资组合中增加黄金、能源、粮食等实物资产的比例，以对冲安全成本上升。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 将个人资产的10%-20%配置到黄金ETF或能源类基金。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">安全成本思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 任何交易或决策都隐含安全成本，要考虑秩序缺失带来的额外损耗。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在做商业决策或投资时，评估潜在的安全风险，如运输中断、规则破坏，并计入成本。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">生存优先思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 在变化的环境中，生存比追求优秀更重要，要适应环境而非固守旧标准。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当面临职业选择时，优先考虑稳定性，而不是光鲜亮丽。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">回溯测试思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 用历史数据验证决策，而不是依赖短期感受。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在重大决策前，收集类似案例，分析长期趋势，避免被短期波动左右。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">AI替代思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 评估自己的工作是否容易被AI替代，单一维度的工作风险高。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 定期审视自己的技能组合，增加非标准化、需要人际互动的能力。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">14968</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 11371 tokens · 输出 2262 tokens ·
+        费用 ¥0.0159
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-08-17
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+</script>
+
+</body>
+</html>

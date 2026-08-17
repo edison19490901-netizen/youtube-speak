@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "language": "zh",
+    "source_type": "article",
+    "title": "26-3-10 战争阴霾下的新世界.docx",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "美国退出全球秩序，安全成本上升，世界进入新的大时代。\n硬资产（矿产、能源、粮食）价值凸显，软资产（品牌、合约）面临挑战。\nAI将取代大量坐着不动和站着不动的工作，个人需多元化发展。\n成功的定义随时代变化，生存比优秀更重要。\n矫情（对感受的错误认知）是生存的障碍，要像做回溯测试一样理性决策。",
+    "summary_en": "The US withdrawal from global order raises security costs, ushering in a new era.\nHard assets (minerals, energy, food) gain value, while soft assets (brands, contracts) face challenges.\nAI will replace many sedentary and standing jobs, so individuals need diversified skills.\nThe definition of success changes with times; survival matters more than excellence.\nSentimentality (misperception of feelings) is an obstacle; make decisions like backtesting.",
+    "script_zh": [
+      "今天我们来聊聊战争阴霾下的新世界，这篇文章分析了全球宏观形势的变化，以及个人该如何应对。无论你是投资者还是普通职场人，都值得一听。",
+      "文章首先指出，美国正在退出它自己构建的安全体系，导致全球安全成本上升。这意味着贸易、运输、商业规则都会增加额外成本，最终由消费者买单。",
+      "接着，文章对比了硬资产和软资产。在安全成本低的时候，软资产如品牌、合约更有价值；但现在，硬资产如矿产、能源、粮食变得更重要，因为供应短缺时难以快速扩产。",
+      "AI的冲击也是重点。文章认为，AI将取代大量坐着不动和站着不动的工作，所以个人要避免单一维度的竞争，要培养多元化能力，比如沟通、协调、动手能力。",
+      "最后，文章强调生存比优秀更重要。成功的定义随时代变化，而矫情——即对感受的错误认知——是生存的障碍。我们要像做回溯测试一样，用数据理性决策，而不是凭一时感受。",
+      "总之，面对新世界，我们要降低安全成本的影响，拥抱硬资产，提升多元能力，克服矫情，才能笑到最后。希望这期内容对你有所启发。"
+    ],
+    "script_en": [
+      "Today we're talking about the new world under the shadow of war. This article analyzes global macro changes and how individuals should respond. Whether you're an investor or an ordinary worker, it's worth listening.",
+      "The article first points out that the US is withdrawing from its own security system, raising global security costs. This means extra costs in trade, transportation, and business rules, ultimately borne by consumers.",
+      "Then it compares hard and soft assets. In low-security-cost times, soft assets like brands and contracts were valuable; but now hard assets like minerals, energy, and food become more important because they're hard to expand quickly when supply is short.",
+      "The impact of AI is also key. The article argues that AI will replace many sedentary and standing jobs, so individuals should avoid single-dimensional competition and cultivate diversified skills like communication, coordination, and hands-on ability.",
+      "Finally, it emphasizes that survival matters more than excellence. The definition of success changes with times, and sentimentality—misperception of feelings—is an obstacle. We should make rational decisions like backtesting, not based on fleeting feelings.",
+      "In short, to face the new world, we need to reduce the impact of security costs, embrace hard assets, enhance diversified abilities, and overcome sentimentality to laugh last. Hope this episode inspires you."
+    ]
+  },
+  "deconstruction": {
+    "overview": "文章以宏观分析为主线，结合历史、经济、科技和个人发展，层层递进。结构清晰：先讲安全成本上升，再讲硬资产崛起，然后转向个人生存策略，最后批判矫情。风格口语化、比喻丰富，常引历史典故和自身经历，说服力强。",
+    "sections": [
+      {
+        "title": "安全成本上升：大时代结束",
+        "role": "引入并提出核心论点",
+        "argument": "美国退出全球安全体系，导致安全成本上升，世界进入新的大时代。",
+        "evidence": "历史对比（古代旅游昂贵）、个人经历（缝内裤带现金）、西班牙商船被抢、美国制造业外移、特里芬悖论。",
+        "technique": "历史类比、个人故事、设问"
+      },
+      {
+        "title": "安全成本传导至消费者",
+        "role": "论证安全成本的影响",
+        "argument": "安全成本上升最终由消费者买单，导致物价上涨或失业。",
+        "evidence": "海盗损失导致油价翻倍、商业规则被破坏（港口被占）、高房价导致失业的案例。",
+        "technique": "逻辑推演、案例"
+      },
+      {
+        "title": "硬资产与软资产对比",
+        "role": "提出新投资方向",
+        "argument": "安全成本上升和AI发展使硬资产价值凸显，软资产面临挑战。",
+        "evidence": "日本战国乐市乐座、铀矿不等于核能、AI取代工作、各国增持黄金。",
+        "technique": "对比、比喻"
+      },
+      {
+        "title": "AI冲击与个人选择",
+        "role": "转向个人层面",
+        "argument": "AI将取代单一维度的工作，个人应多元化发展，避免做做题家。",
+        "evidence": "段永平观点、嵌入式研发因打杂而留下、非标蓝领有出路。",
+        "technique": "引用权威、举例"
+      },
+      {
+        "title": "成功的定义随时代变化",
+        "role": "深化个人生存策略",
+        "argument": "成功的定义随环境变化，生存比优秀更重要。",
+        "evidence": "80年代有钱不等于成功、90年代强调组织协调、董宇辉和小孙的对比。",
+        "technique": "时间线对比、案例"
+      },
+      {
+        "title": "矫情是生存的障碍",
+        "role": "结论与行动建议",
+        "argument": "矫情（对感受的错误认知）是生存的障碍，要理性决策。",
+        "evidence": "交易回溯测试例子、张三李四对比、富二代和学霸的案例。",
+        "technique": "比喻、对比、现身说法"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "历史类比",
+        "example": "你看金瓶梅里面，西门大官人那么有钱，家里假山层峦叠嶂，日日宴饮不休，你让他天天旅游，他也扛不住的。",
+        "effect": "用古代例子说明安全成本，使抽象概念具体化，增强说服力。"
+      },
+      {
+        "name": "个人经历",
+        "example": "我08年做研发的时候，绝大多数同事都是前五所学校计算机，信电系毕业的。",
+        "effect": "增加可信度，拉近与读者距离。"
+      },
+      {
+        "name": "设问与反问",
+        "example": "你难道没有发现，几乎所有人都在追求体面光鲜亮丽的赚钱么？",
+        "effect": "引发读者思考，强化观点。"
+      },
+      {
+        "name": "对比",
+        "example": "硬资产与软资产的对比、张三李四的对比。",
+        "effect": "突出差异，使论点更鲜明。"
+      },
+      {
+        "name": "引用权威",
+        "example": "你用段永平的话讲，一切坐着不动的工作，包括站着不动的工作，都将不保。",
+        "effect": "借助权威增强说服力。"
+      },
+      {
+        "name": "比喻",
+        "example": "人脑就是一台老款的MMX，那种根本跑不动的烂怂电脑。",
+        "effect": "形象生动，易于理解。"
+      }
+    ]
+  },
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "做回溯测试",
+        "how_to_apply": "在做重要决策前，收集历史数据，模拟不同选择的结果，而不是凭感觉。",
+        "example": "比如考虑职业转型，可以列出过去5年该行业就业数据、薪资趋势，模拟自己进入后的发展路径。"
+      },
+      {
+        "skill": "多元化能力培养",
+        "how_to_apply": "不要只专注于单一技能，刻意练习沟通、协调、动手等跨领域能力。",
+        "example": "每周安排时间学习一项新技能，如公开演讲、基础维修，并参与跨部门项目。"
+      },
+      {
+        "skill": "识别矫情",
+        "how_to_apply": "当对某件事产生强烈情绪时，问自己：这是基于事实还是基于感受？用数据验证。",
+        "example": "觉得某个职业丢人时，查一下该职业的平均收入和前景，而不是直接否定。"
+      },
+      {
+        "skill": "配置硬资产",
+        "how_to_apply": "在投资组合中增加黄金、能源、粮食等实物资产的比例，以对冲安全成本上升。",
+        "example": "将个人资产的10%-20%配置到黄金ETF或能源类基金。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "安全成本思维",
+        "explanation": "任何交易或决策都隐含安全成本，要考虑秩序缺失带来的额外损耗。",
+        "how_to_use": "在做商业决策或投资时，评估潜在的安全风险，如运输中断、规则破坏，并计入成本。"
+      },
+      {
+        "model": "生存优先思维",
+        "explanation": "在变化的环境中，生存比追求优秀更重要，要适应环境而非固守旧标准。",
+        "how_to_use": "当面临职业选择时，优先考虑稳定性，而不是光鲜亮丽。"
+      },
+      {
+        "model": "回溯测试思维",
+        "explanation": "用历史数据验证决策，而不是依赖短期感受。",
+        "how_to_use": "在重大决策前，收集类似案例，分析长期趋势，避免被短期波动左右。"
+      },
+      {
+        "model": "AI替代思维",
+        "explanation": "评估自己的工作是否容易被AI替代，单一维度的工作风险高。",
+        "how_to_use": "定期审视自己的技能组合，增加非标准化、需要人际互动的能力。"
+      }
+    ]
+  },
+  "golden_words": null,
+  "usage": {
+    "prompt_tokens": 11371,
+    "completion_tokens": 2262,
+    "total_tokens": 13633,
+    "cost_cny": 0.015895
+  }
+}

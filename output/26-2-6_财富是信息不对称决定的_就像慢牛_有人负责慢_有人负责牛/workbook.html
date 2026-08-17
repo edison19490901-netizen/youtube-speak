@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<title>26-2-6 财富是信息不对称决定的，就像慢牛，有人负责慢，有人负责牛.docx — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>26-2-6 财富是信息不对称决定的，就像慢牛，有人负责慢，有人负责牛.docx</h1>
+    <div class="meta">本地文件 · 14654 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0167 · 13962 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>财富分配的本质是信息不对称，处于信息高地的人能获得更多资源。</li><li>人生如电影，关键在于营造让别人记住的“镜头”，而不是平铺直叙。</li><li>向上爬需要闯过四关：认识世界、保持镇定、在信息隔离中坚守、敢于在不会时硬上。</li><li>利用信息不对称，通过拆解问题、借力打力，可以在非标领域快速成为专家。</li><li>即使最终失败，只要进入过资源高地，也能“贼不走空”，获得巨大收益。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们要聊的这篇文章，讲的是财富的本质和向上爬的秘诀。很多人觉得财富是努力换来的，但作者一针见血地指出，财富其实是信息不对称决定的。你站在信息高地上，就像站在西瓜上，掉块皮都比芝麻大。这篇文章不仅分析了这个现象，还给出了具体的闯关方法，非常值得一听。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>文章的核心观点是，人生就像拍电影，你不需要面面俱到，只需要营造几个让人印象深刻的镜头。就像张艺谋的电影，几十年后你可能只记得一个画面，但这就够了。在职场上也一样，老板不会盯着你一年，他记住的只是你给他留下的几个瞬间。所以，你要主动设计自己的“镜头”，让别人记住你。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>接下来，作者提出了向上爬需要闯过的四关。第一关是认识世界，你得先看清游戏规则，别在井底瞎努力。第二关是保持镇定，不要暴露自己的底牌，学会听而不是说。第三关是信息隔离，当外界只有坏消息时，你还能坚持自己的节奏，就像许三多一样。第四关是敢于在不会的时候硬上，抢到话筒再学开飞机。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>在战术层面，作者分享了自己的经验：选择非标领域，避开高手，然后通过拆解问题、向不同人请教，快速成为专家。他当年连编程都不会，却敢冒充NPU专家，靠的就是把大问题拆成小问题，分别问不同的人，最后拼凑出完整的解决方案。这种方法虽然有点冒险，但非常有效。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>最后，作者提醒我们，即使最终失败了，只要进入过资源高地，也能“贼不走空”。就像银行家过手油，你拿不住猪肉，也能沾一手油。所以，不要害怕尝试，越早开始练手，成本越低。希望这篇文章能给你带来启发，让你在人生的牌桌上，找到自己的位置。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Wealth distribution is determined by information asymmetry; those on the information high ground gain more resources.</li><li>Life is like a movie; the key is to create memorable &#39;scenes&#39; for others, not to narrate flatly.</li><li>Climbing up requires passing four levels: understanding the world, staying calm, persisting under information isolation, and daring to act when unprepared.</li><li>Leverage information asymmetry by breaking down problems and borrowing strength to quickly become an expert in non-standard fields.</li><li>Even if you ultimately fail, once you&#39;ve entered the resource high ground, you can still gain substantial benefits.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re going to talk about an article that reveals the essence of wealth and the secrets of climbing up. Many people think wealth comes from hard work, but the author points out that wealth is actually determined by information asymmetry. If you&#39;re on the information high ground, you&#39;re like standing on a watermelon—even a falling piece of rind is bigger than a sesame seed. This article not only analyzes this phenomenon but also provides specific strategies to break through. It&#39;s definitely worth listening to.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>The core idea is that life is like making a movie—you don&#39;t need to cover everything, just create a few memorable scenes. Like Zhang Yimou&#39;s films, you might only remember one image decades later, but that&#39;s enough. In the workplace, your boss doesn&#39;t watch you all year; he only remembers the moments you leave him. So, you need to actively design your &#39;scenes&#39; to make yourself memorable.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>The author then proposes four levels to climb. The first is understanding the world—you need to see the rules of the game, not just work hard blindly. The second is staying calm—don&#39;t reveal your cards, learn to listen rather than speak. The third is information isolation—when the outside world only brings bad news, you still stick to your rhythm, like Xu Sanduo. The fourth is daring to act when you&#39;re not ready—grab the microphone and learn to fly the plane while it&#39;s falling.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>On the tactical side, the author shares his experience: choose non-standard fields to avoid fierce competition, then break down problems and ask different people for help to quickly become an expert. He once pretended to be an NPU expert without even knowing how to code, by breaking big problems into small ones and asking different colleagues, finally piecing together a complete solution. It&#39;s a bit risky but very effective.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Finally, the author reminds us that even if we fail, once we&#39;ve entered the resource high ground, we can still gain benefits. Like bankers&#39; &#39;hand oil&#39; theory—if you can&#39;t hold the pork, you still get oil on your hands. So don&#39;t be afraid to try; the earlier you start practicing, the lower the cost. I hope this article inspires you to find your place at the table of life.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以“财富是信息不对称决定的”为核心论点，通过层层递进的四关模型，结合个人经历、影视案例和经典故事，生动阐述了向上爬的认知与战术。风格犀利、口语化，善用比喻和设问，逻辑清晰，富有煽动性。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">8 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">引入：财富与信息不对称</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">财富分配不按付出，而是由信息不对称决定。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">西瓜与芝麻的比喻；慢牛比喻。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻、设问</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">第一关：认识世界</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">向上走的第一步是认识世界，否则努力无效。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">穷字的拆解；天道台词；与读者的对话。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">拆字、引用、对话</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">人生如电影：镜头理论</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人生是电影，人们只记住几个镜头，所以要营造画面感。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">张艺谋电影例子；年终总结例子；2011年撞公交故事。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">讲故事、对比、案例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">第二关：保持镇定</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">上位者考察性格底色，要装镇定，不暴露底牌。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">买东西报价例子；红楼梦黛玉、小红例子；沉默施压策略。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">类比、引用经典</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">第三关：信息隔离</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">在信息隔离下坚守自我，才能过关。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">士兵突击许三多例子；成才对比；马斯克例子。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">影视案例、对比</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">第四关：敢于硬上</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">抢到话筒后要敢于在不会时硬上，边做边学。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">创世纪例子；庞青云例子；作者实习经历。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用影视、个人经历</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">战术：借力打力</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">通过拆解问题、向不同人请教，快速成为专家。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">七个馒头例子；08年换工作例子。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">具体案例、步骤分解</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">结论：贼不走空</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">即使失败，进入资源高地也能获益。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">红烧肉例子；银行家过手油理论。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用、比喻</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“就像慢牛，有人负责慢，有人负责牛。”</span></div>
+            
+            
+            <div class="tech-line">💡 将抽象概念具象化，增强理解与记忆。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">讲故事</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“2011年我讲了一个撞公交车的小故事，大领导就记住了我。”</span></div>
+            
+            
+            <div class="tech-line">💡 用个人经历拉近距离，使论点更具说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">设问引导</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“怎么才能闯关呢？我们今天一共要闯过四个关卡。”</span></div>
+            
+            
+            <div class="tech-line">💡 设置悬念，引导读者思考，增强阅读兴趣。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">引用经典</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“用天道里的台词说，你要趴到井口，爬到洞穴的门口，向外看一眼。”</span></div>
+            
+            
+            <div class="tech-line">💡 借助权威作品增强说服力，引发共鸣。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">对比反差</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“许三多和成才的对比，一个坚守，一个投机。”</span></div>
+            
+            
+            <div class="tech-line">💡 通过对比突出论点，使观点更鲜明。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">营造个人镜头</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在关键场合（如汇报、面试）设计一个独特、易记的故事或画面，突出自己的核心特质。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 面试时讲一个自己如何解决棘手问题的故事，而不是罗列技能。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">拆解问题，借力打力</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 遇到大问题，拆成小部分，分别向不同的人请教，避免暴露无知。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 把“如何完成项目”拆成“如何做A”“如何做B”，分别问不同同事。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">选择非标领域</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在职业或项目选择上，避开竞争激烈的成熟领域，选择新兴或交叉领域。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 选择NPU多核处理器而不是通用CPU，因为前者少有人做。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">先跳上飞机再学开飞机</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在机会来临时，即使能力不足也要先抓住，然后边做边学。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 接受一个超出能力范围的任务，然后利用公司资源快速学习。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">广撒网，多尝试</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 投递大量简历或尝试多个方向，增加获得机会的概率。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 作者撒100份简历，获得30次面试，最终拿到多个offer。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">信息不对称思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 认识到信息差是财富和权力的来源，主动获取和利用信息优势。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在谈判、求职、投资时，先收集信息，判断对方的信息盲区，制定策略。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">镜头思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 别人对你的认知基于你呈现的片段，而非全貌。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在重要场合刻意设计自己的表现，让别人记住你想让他们记住的点。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">游戏规则思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 世界是一场猴戏，规则由上位者制定，但你可以学会利用规则。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 观察并理解所在环境的潜规则，然后顺应或巧妙利用。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">风险收益思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 即使失败，只要进入高价值环境，也能获得收益（贼不走空）。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在机会面前，评估最坏情况，如果损失有限而收益巨大，就大胆尝试。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">借力思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 利用他人的资源和知识来成就自己，而不是单打独斗。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在项目中，主动寻求合作，拆解任务，向不同人学习，快速提升。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">14654</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 11226 tokens · 输出 2736 tokens ·
+        费用 ¥0.0167
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-08-17
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    var targetId = btn.getAttribute('data-tab');
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+    var target = document.getElementById(targetId);
+    if (target) target.classList.add('active');
+  });
+</script>
+
+</body>
+</html>
