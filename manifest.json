@@ -1,16 +1,17 @@
 {
-  "name": "智读 - 深度解读 · 口播总结 · 解构 · 实际应用 · 金句单词",
-  "short_name": "智读",
-  "description": "从中文/英文文章、博客、视频字幕或文档生成深度解读材料",
+  "name": "智读 · 深度解读与背诵打卡",
+  "short_name": "智读·背诵",
+  "description": "读懂材料（口播总结/解构/实际应用/金句）并生成意群分块背诵材料与艾宾浩斯复习计划",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1a1a2e",
   "theme_color": "#e94560",
   "icons": [
     {
-      "src": "/static/brain.png",
+      "src": "/static/understand_recite.png",
       "sizes": "256x256",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

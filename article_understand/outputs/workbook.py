@@ -25,6 +25,7 @@ def generate(
     subtitle_info: SubtitleInfo,
     parsed: ParsedSubtitle,
     output_path: Path,
+    recite: dict | None = None,
 ) -> Path:
     """生成交互式解读看板 HTML。
 
@@ -33,6 +34,7 @@ def generate(
         subtitle_info: 材料来源信息。
         parsed: 解析后的文本。
         output_path: 输出文件路径 (.html)。
+        recite: 可选背诵版上下文；提供时看板内嵌「背诵」Tab，否则显示生成入口。
 
     Returns:
         生成的 HTML 文件路径。
@@ -55,6 +57,8 @@ def generate(
 
     context = {
         "title": subtitle_info.video_title,
+        "material_id": subtitle_info.video_id,
+        "recite": recite,
         "uploader": subtitle_info.uploader,
         "duration": duration_str,
         "date": date.today().isoformat(),

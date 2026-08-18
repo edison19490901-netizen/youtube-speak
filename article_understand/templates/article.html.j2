@@ -6,6 +6,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
 <title>{{ title }} — 智读</title>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,7 +43,6 @@
   }
   .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
   .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
-
   /* ── 横向 Tab 导航 ── */
   .tab-bar {
     display: flex;
@@ -291,6 +292,65 @@
     color: #8a6d1a;
   }
 
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
   /* ── 页脚 ── */
   .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
 
@@ -342,6 +402,7 @@
     {% if golden_sentences or vocabulary %}
     <button class="tab-btn" data-tab="tab-golden">金句单词</button>
     {% endif %}
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
     <button class="tab-btn" data-tab="tab-stats">统计</button>
   </div>
 
@@ -532,6 +593,92 @@
     </div>
     {% endif %}
 
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      {% if recite %}
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">{{ recite.chunk_count }} 块 · 预计背诵 {{ recite.est_minutes }} 分钟</span></h3>
+        <p class="sub-hint">间隔复习：{% for i in recite.schedule.intervals %}第 {{ i }} 天{% if not loop.last %} / {% endif %}{% endfor %} · 每天新背 {{ recite.schedule.chunks_per_day }} 块</p>
+        {% if recite.advice %}
+        <div class="recite-advice">{{ recite.advice }}</div>
+        {% endif %}
+        <p class="recite-extra"><a href="/recite/result/{{ recite.material_id }}">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">{{ recite.chunk_count }} 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        {% for c in recite.chunks %}
+        <div class="rc-chunk" id="rc-chunk-{{ c.index }}">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 {{ c.index }}</span>
+            <span class="rc-size">{{ c.word_count }} 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">{{ c.text }}</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">{{ c.hint }}</div>
+            {% if c.first_hint %}<div class="rc-hint-letters">{{ c.first_hint }}</div>{% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：{% for i in recite.schedule.intervals %}D+{{ i }}{% if not loop.last %} / {% endif %}{% endfor %}）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                {% for d in recite.schedule.intervals %}<th>复习 D+{{ d }}</th>{% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for r in recite.schedule.per_chunk %}
+              <tr>
+                <td class="word-col">块 {{ r.index }}</td>
+                <td class="context-col">第 {{ r.learn_day }} 天<span class="lbl">{{ r.learn_date }} {{ r.learn_weekday }}</span></td>
+                {% for d in recite.schedule.intervals %}
+                <td class="context-col">{{ r.review_dates[loop.index0] }}<span class="lbl">第 {{ r.review_days[loop.index0] }} 天</span></td>
+                {% endfor %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            {% for n in [1,2,3,4,5,6] %}
+            <option value="{{ n }}"{% if n == recite.schedule.chunks_per_day %} selected{% endif %}>{{ n }} 块</option>
+            {% endfor %}
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      {% else %}
+      <div class="block">
+        <h3>📖 背诵版 <span class="badge">意群分块 + 艾宾浩斯复习</span></h3>
+        <p class="sub-hint">把这篇材料切成意群块 + 提示卡 + 遮罩自测 + 逐块复习表 + 每日打卡，帮你真正背下来。</p>
+        <a class="recite-gen-btn" href="/recite/{{ material_id }}">🚀 生成背诵版</a>
+      </div>
+      {% endif %}
+    </div>
+
     <!-- 统计 -->
     <div class="tab-panel" id="tab-stats" data-label="统计">
       <div class="stats-grid">
@@ -571,18 +718,134 @@
 <script>
   // Tab 切换
   var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
   tabBar.addEventListener('click', function(e) {
     var btn = e.target.closest('.tab-btn');
     if (!btn) return;
-
-    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-
-    var targetId = btn.getAttribute('data-tab');
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-    var target = document.getElementById(targetId);
-    if (target) target.classList.add('active');
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
   });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+{% if recite %}
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "{{ recite.material_id }}",
+      chunkCount: {{ recite.chunk_count }},
+      startDate: "{{ recite.schedule.start_date }}",
+      intervals: [{{ recite.schedule.intervals | join(', ') }}],
+      defaultCpd: {{ recite.schedule.chunks_per_day }}
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+{% endif %}
 </script>
 
 </body>

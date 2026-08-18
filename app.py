@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import tempfile
+from datetime import date
 from pathlib import Path
 
 from flask import Flask, render_template_string, request, redirect, url_for, send_file
@@ -29,8 +30,20 @@ from article_understand.downloader import (
     SubtitleInfo,
 )
 from article_understand.parser import parse_srt, parse_file, parse_article, detect_language
-from article_understand.analyzer import analyze, save_analysis
+from article_understand.analyzer import analyze, save_analysis, load_analysis
 from article_understand.outputs.workbook import generate as generate_workbook
+from article_understand.recite.analyzer import (
+    analyze as recite_analyze,
+    save_material as save_recite_material,
+    ReciteMaterial,
+    Chunk,
+    UsageInfo,
+)
+from article_understand.recite.planner import build_schedule
+from article_understand.recite.outputs.recite_book import (
+    generate as generate_recite_book,
+    build_context as build_recite_context,
+)
 
 app = Flask(__name__)
 
@@ -49,7 +62,8 @@ HOME_HTML = """<!DOCTYPE html>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="智读">
-<link rel="apple-touch-icon" href="/static/brain.png">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
 <link rel="manifest" href="/manifest.json">
 <title>智读 — 深度解读 · 口播总结 · 解构 · 实际应用 · 金句单词</title>
 <style>
@@ -120,6 +134,9 @@ HOME_HTML = """<!DOCTYPE html>
   <div class="msg err" style="display:block">{{ error }}</div>
   {% endif %}
 </div>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
 </body>
 </html>"""
 
@@ -146,6 +163,31 @@ WORKING_HTML = """<!DOCTYPE html>
   <h2>AI 正在解读材料...</h2>
   <p>{{ status }}</p>
   <p class="meta">通常需要 10-60 秒，请耐心等候</p>
+</div>
+</body>
+</html>"""
+
+RECITE_ERROR_HTML = """<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>背诵版生成失败</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"PingFang SC","Microsoft YaHei",sans-serif; background:#f5f5f5; display:flex; justify-content:center; align-items:center; min-height:100vh; }
+  .box { max-width:520px; width:100%; margin:24px 16px; background:#fff; border-radius:12px; padding:28px 24px; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  h2 { font-size:17px; color:#1a1a2e; margin-bottom:10px; }
+  .err { font-size:14px; color:#a33; line-height:1.7; margin-bottom:16px; white-space:pre-wrap; }
+  a { display:inline-block; font-size:13px; color:#e94560; text-decoration:none; font-weight:700; margin-right:14px; }
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>⚠️ 背诵版生成失败</h2>
+  <div class="err">{{ error }}</div>
+  <a href="/result/{{ video_id }}">← 返回智读看板</a>
+  <a href="/recite/{{ video_id }}?force=1">♻️ 重试</a>
 </div>
 </body>
 </html>"""
@@ -211,6 +253,20 @@ def process():
         video_dir.mkdir(parents=True, exist_ok=True)
         save_analysis(analysis, video_dir / "analysis.json")
 
+        # ── 持久化原文，供「生成背诵版」复用 ──
+        (video_dir / "source.json").write_text(
+            json.dumps({
+                "title": info.video_title,
+                "uploader": info.uploader,
+                "duration_seconds": info.duration_seconds,
+                "language": lang,
+                "source_type": info.subtitle_type,
+                "word_count": parsed.word_count,
+                "full_text": parsed.full_text,
+            }, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+
         # ── 生成看板 ──
         workbook_path = video_dir / "workbook.html"
         generate_workbook(analysis, info, parsed, workbook_path)
@@ -236,6 +292,160 @@ def result(video_id):
     if not workbook_path.exists():
         return "Workbook not found. It may have been cleaned up. Please generate again.", 404
     return send_file(str(workbook_path), mimetype="text/html; charset=utf-8")
+
+
+def _load_recite_material(out_dir: Path):
+    """从 material.json 恢复背诵数据（供把背诵内容嵌入看板）。"""
+    data = json.loads((out_dir / "material.json").read_text(encoding="utf-8"))
+    mat = data["material"]
+    material = ReciteMaterial(
+        title_suggested=mat.get("title_suggested", ""),
+        chunks=[
+            Chunk(index=c.get("index", i + 1), text=c.get("text", ""), hint=c.get("hint", ""))
+            for i, c in enumerate(mat.get("chunks", []))
+        ],
+        advice=mat.get("advice", ""),
+        language=mat.get("language", "en"),
+    )
+    usage = data.get("usage") or {}
+    usage_info = UsageInfo(
+        prompt_tokens=usage.get("prompt_tokens", 0),
+        completion_tokens=usage.get("completion_tokens", 0),
+        total_tokens=usage.get("total_tokens", 0),
+        cost_cny=usage.get("cost_cny", 0.0),
+    )
+    return material, data.get("meta", {}), usage_info
+
+
+def _embed_recite_into_workbook(video_id: str) -> bool:
+    """把背诵内容重新渲染进 workbook.html（看板内「背诵」Tab）。
+
+    Returns:
+        是否成功。失败时不阻塞背诵版本身（回退到独立背诵页）。
+    """
+    out_dir = OUTPUT_ROOT / video_id
+    source_path = out_dir / "source.json"
+    analysis_path = out_dir / "analysis.json"
+    material_path = out_dir / "material.json"
+    if not (source_path.exists() and analysis_path.exists() and material_path.exists()):
+        return False
+    try:
+        source = json.loads(source_path.read_text(encoding="utf-8"))
+        analysis = load_analysis(analysis_path)
+        parsed = parse_article(source.get("full_text", ""))
+        info = SubtitleInfo(
+            video_id=video_id,
+            video_title=source.get("title", ""),
+            uploader=source.get("uploader", ""),
+            duration_seconds=source.get("duration_seconds", 0),
+            subtitle_path=out_dir / "input.txt",
+            subtitle_type=source.get("source_type", "article"),
+            language=source.get("language", "en"),
+        )
+        material, meta, usage = _load_recite_material(out_dir)
+        schedule = build_schedule(len(material.chunks))
+        recite_ctx = build_recite_context(material, meta, parsed, schedule, usage)
+        generate_workbook(analysis, info, parsed, out_dir / "workbook.html", recite=recite_ctx)
+        return True
+    except Exception as e:
+        app.logger.warning(f"未能把背诵内容嵌入看板: {e}")
+        return False
+
+
+@app.route("/recite/<video_id>")
+def recite(video_id):
+    """生成（或复用）该材料的背诵版，并把背诵内容嵌入智读看板。"""
+    out_dir = OUTPUT_ROOT / video_id
+    recite_path = out_dir / "recite.html"
+
+    # 已生成：直接嵌入看板并跳回（无 API 调用）
+    if recite_path.exists() and request.args.get("force") != "1":
+        if _embed_recite_into_workbook(video_id):
+            return redirect(url_for("result", video_id=video_id) + "#tab-recite")
+        return redirect(url_for("recite_result", video_id=video_id))
+
+    source_path = out_dir / "source.json"
+    if not source_path.exists():
+        return render_template_string(
+            RECITE_ERROR_HTML,
+            error="未找到该材料的原文，请先在智读生成解读看板。",
+            video_id=video_id,
+        )
+
+    api_key = _load_api_key()
+    if not api_key:
+        return render_template_string(
+            RECITE_ERROR_HTML,
+            error="未设置 DEEPSEEK_API_KEY。请在 .env 或环境变量中配置。",
+            video_id=video_id,
+        )
+
+    try:
+        source = json.loads(source_path.read_text(encoding="utf-8"))
+        lang = source.get("language", "en")
+        source_type = source.get("source_type", "article")
+        parsed = parse_article(source.get("full_text", ""))
+        if parsed.word_count < 20:
+            raise ValueError("材料内容过短（不足 20 字/词），无法有效分块。")
+
+        result = recite_analyze(
+            full_text=parsed.full_text,
+            title=source.get("title", ""),
+            language=lang,
+            source_type=source_type,
+            api_key=api_key,
+            model="deepseek-chat",
+        )
+        material = result.material
+        if not material.chunks:
+            raise RuntimeError("AI 未能从材料中切分出有效意群块，请稍后重试。")
+
+        schedule = build_schedule(len(material.chunks))
+        meta = {
+            "material_id": video_id,
+            "title": source.get("title") or material.title_suggested,
+            "language": lang,
+            "source_type": source_type,
+            "truncated": result.truncated,
+            "created": date.today().isoformat(),
+        }
+        out_dir.mkdir(parents=True, exist_ok=True)
+        save_recite_material(material, meta, result.usage, out_dir / "material.json")
+        generate_recite_book(material, meta, parsed, schedule, result.usage, recite_path)
+
+        if _embed_recite_into_workbook(video_id):
+            return redirect(url_for("result", video_id=video_id) + "#tab-recite")
+        return redirect(url_for("recite_result", video_id=video_id))
+
+    except (ValueError, RuntimeError) as e:
+        return render_template_string(RECITE_ERROR_HTML, error=str(e), video_id=video_id)
+    except Exception as e:
+        return render_template_string(
+            RECITE_ERROR_HTML,
+            error=f"未知错误: {e}",
+            video_id=video_id,
+        )
+
+
+@app.route("/recite/result/<video_id>")
+def recite_result(video_id):
+    """直接提供生成的 recite.html。"""
+    recite_path = OUTPUT_ROOT / video_id / "recite.html"
+    if not recite_path.exists():
+        return "背诵版不存在，请先在智读看板点击「生成背诵版」。", 404
+    return send_file(str(recite_path), mimetype="text/html; charset=utf-8")
+
+
+@app.route("/sw.js")
+def service_worker():
+    """根路径提供 service worker（scope=根，否则 404 导致 PWA 不可安装）。
+    Service-Worker-Allowed + no-cache 保证更新能及时生效。"""
+    resp = send_file(
+        str(Path(__file__).parent / "static" / "sw.js"), mimetype="text/javascript"
+    )
+    resp.headers["Service-Worker-Allowed"] = "/"
+    resp.headers["Cache-Control"] = "no-cache"
+    return resp
 
 
 @app.route("/library")
@@ -272,6 +482,7 @@ def library():
                     "golden_count": len(gw.get("golden_sentences", [])),
                     "cost_cny": cost_cny,
                     "total_tokens": total_tokens,
+                    "has_recite": (subdir / "recite.html").exists(),
                 })
             except Exception:
                 pass
@@ -287,7 +498,8 @@ LIBRARY_HTML = """<!DOCTYPE html>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="智读">
-<link rel="apple-touch-icon" href="/static/brain.png">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
 <link rel="manifest" href="/manifest.json">
 <title>文库 — 智读</title>
 <style>
@@ -331,6 +543,7 @@ LIBRARY_HTML = """<!DOCTYPE html>
       <div class="badges">
         <span class="badge lang-{{ item.lang }}">🌐 {{ item.lang_label }}</span>
         <span class="badge">📄 {{ item.source_label }}</span>
+        {% if item.has_recite %}<span class="badge">📖 已生成背诵版</span>{% endif %}
       </div>
       <div class="meta">
         <span>📐 {{ item.section_count }} 部分</span>
@@ -351,6 +564,9 @@ LIBRARY_HTML = """<!DOCTYPE html>
 
   <div class="footer">智读</div>
 </div>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
 </body>
 </html>"""
 

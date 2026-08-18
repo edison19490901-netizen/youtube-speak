@@ -41,7 +41,6 @@
   }
   .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
   .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
-
   /* ── 横向 Tab 导航 ── */
   .tab-bar {
     display: flex;
@@ -291,6 +290,65 @@
     color: #8a6d1a;
   }
 
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
   /* ── 页脚 ── */
   .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
 
@@ -328,7 +386,7 @@
     </div>
     
     
-    <div class="cost">本次分析 · ¥0.0103 · 6183 tokens</div>
+    <div class="cost">本次分析 · ¥0.0099 · 5999 tokens</div>
     
   </div>
 
@@ -340,6 +398,7 @@
     
     <button class="tab-btn" data-tab="tab-golden">金句单词</button>
     
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
     <button class="tab-btn" data-tab="tab-stats">统计</button>
   </div>
 
@@ -353,7 +412,7 @@
         <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
         
         <ul class="point-list">
-          <li>美国多年制裁华为，但华为不仅存活，还推出了第二代三折叠手机，引发抢购。</li><li>华为产品线覆盖手机、平板、笔记本、汽车等，其汽车品牌Aito和Maystro分别面向大众和豪华市场。</li><li>中国手机品牌Oppo推出了全球公认最好的折叠屏手机，并发布了可物理吸附的300mm长焦镜头。</li><li>上海街头90%的汽车品牌不为美国人所知，如理想、极氪、仰望、小鹏、比亚迪等。</li><li>小米作为手机公司，其SU7汽车在性价比上超越保时捷Taycan，销量超过特斯拉Model 3。</li><li>中国日常生活已全面数字化，支付宝和微信集支付、点餐、交通等功能于一体，而美国还在争论。</li>
+          <li>美国多年制裁华为，但华为不仅生存下来，还推出了第二代三折叠手机，引发抢购热潮。</li><li>华为的产品线覆盖手机、平板、笔记本、汽车等多个领域，其汽车品牌Aito和Maystro分别对标大众市场和豪华市场。</li><li>中国品牌如Oppo、小米等也在创新，Oppo推出了可物理吸附的300mm长焦镜头，小米的SU7电动车销量超过特斯拉Model 3。</li><li>上海街头90%的汽车品牌是本土品牌，如理想、极氪、仰望、小鹏、比亚迪等。</li><li>中国的日常生活高度数字化，支付宝和微信集支付、点餐、交通、租车、配送于一体，成为超级应用。</li><li>中国制造不再是廉价的代名词，2026年的上海展现的是一个持续建设、不断创新的国家，差距正在扩大。</li>
         </ul>
         
       </div>
@@ -365,32 +424,32 @@
         
         <div class="script-card">
           <span class="seg-num">1</span>
-          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们要聊一个让美国科技高管睡不着觉的话题。美国花了多年时间想摧毁华为，但华为不仅活了下来，还造出了让全世界排队抢购的产品。</div>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们要聊一个让美国科技高管坐立不安的话题。美国花了多年时间想摧毁华为，但华为不仅活了下来，还造出了让全世界排队抢购的产品。这背后，是中国科技产业的一次全面崛起。</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">2</span>
-          <div class="text"><span class="mic">🎙️ 第 2 段</span>华为做了什么？他们造出了第二代三折叠手机，在中国引发排队热潮。但这只是开始，华为还有平板、笔记本，甚至一款能完全折叠成平板的巨型屏幕，还能吸附物理键盘变成笔记本电脑。</div>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>先看华为。没有谷歌服务，没有美国芯片，华为硬是造出了第二代三折叠手机，在中国引发抢购潮。但这只是开始，华为还有平板、笔记本，甚至还有一款从平板变笔记本电脑的折叠屏设备，合上后完全平整，还能吸附物理键盘。</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">3</span>
-          <div class="text"><span class="mic">🎙️ 第 3 段</span>华为还进军汽车领域，Aito面向大众，Maystro对标迈巴赫。而美国消费者没听过的Oppo，造出了全球公认最好的折叠屏手机，还发布了能物理吸附在手机上的300毫米长焦镜头。</div>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>华为的野心远不止手机。他们做智能家居、音频设备，还造车。Aito主打大众市场，Maystro对标迈巴赫，从技术到内饰再到外观，全是高端配置。与此同时，美国消费者没听过的Oppo，做出了全球公认最好的折叠屏手机，还发布了能物理吸附在手机上的300mm长焦镜头，秒变专业摄影系统。</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">4</span>
-          <div class="text"><span class="mic">🎙️ 第 4 段</span>走出上海街头，90%的汽车品牌你都没听过：理想、极氪、仰望、小鹏、比亚迪。小米这家手机公司，其SU7跑车外观媲美保时捷Taycan，价格却便宜得多，销量还超过了特斯拉Model 3。</div>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>走出上海街头，你会发现90%的车都是你没听过的品牌：理想、极氪、仰望、小鹏、比亚迪……小米这家手机公司，推出的SU7跑车，比例神似保时捷Taycan，价格却便宜得多，销量在中国和欧洲都超过了特斯拉Model 3。</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">5</span>
-          <div class="text"><span class="mic">🎙️ 第 5 段</span>再看日常生活，上海打车只要一美元，没人用现金或信用卡，一切都在支付宝和微信里完成。马斯克多年承诺的超级应用，中国已经有了两个，而且用了十多年。</div>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>再看日常生活。上海打车只要1美元，没人用现金或信用卡，一切都通过支付宝和微信完成——支付、点餐、交通卡、租滑板车、叫外卖，全在一个应用里。马斯克多年想做的超级应用，中国早就有了两个，而且用了十多年。</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">6</span>
-          <div class="text"><span class="mic">🎙️ 第 6 段</span>过去我们说中国制造等于便宜，但2026年的上海告诉你，这里没有便宜，只有持续的建设。差距没有缩小，而是在单向扩大。这就是今天的中国，一个值得你重新认识的中国。</div>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>过去我们说中国制造等于便宜，但2026年的上海告诉你，这里没有便宜，只有持续建设。当全世界还在争论要不要认真对待中国时，中国一直在埋头苦干。差距不是在缩小，而是在向一个方向移动。这就是今天的内容，你怎么看？欢迎在评论区聊聊。</div>
         </div>
         
       </div>
@@ -400,7 +459,7 @@
         <h3>📌 English Key Points</h3>
         
         <ul class="point-list">
-          <li>Despite years of US sanctions, Huawei survived and launched its second-generation trifold phone, causing long queues in China.</li><li>Huawei&#39;s product range spans phones, tablets, laptops, and cars, with Aito for mass market and Maystro for luxury.</li><li>Oppo, a brand unknown to most Americans, makes the best foldable phone and just released a 300mm telephoto lens that snaps onto the phone.</li><li>% of cars on Shanghai streets are from brands like Li Auto, Zeeker, Yangwang, Xpeng, and BYD, unknown to Americans.</li><li>Xiaomi, a phone company, sells the SU7 sports car at a fraction of a Porsche Taycan&#39;s cost, outselling Tesla Model 3 in China and Europe.</li><li>Daily life in China runs on Alipay and WeChat, which combine payment, menus, transit, and more, while America still debates an everything app.</li>
+          <li>Despite years of US sanctions, Huawei not only survived but launched a second-generation trifold phone that sparked buying frenzies across China.</li><li>Huawei&#39;s product line spans phones, tablets, laptops, and cars, with its Aito and Maystro brands targeting mass and luxury markets respectively.</li><li>Chinese brands like Oppo and Xiaomi are innovating too: Oppo released a 300mm telephoto lens that snaps onto a phone, and Xiaomi&#39;s SU7 outsells Tesla&#39;s Model 3 in China and Europe.</li><li>% of cars on Shanghai streets are local brands like Li Auto, Zeekr, Yangwang, Xpeng, and BYD.</li><li>Daily life in China is highly digital: Alipay and WeChat serve as payment, restaurant menus, transit passes, scooter rentals, and delivery services.</li><li>Made in China no longer means cheap; walking through Shanghai in 2026 reveals a country that kept building while the world debated, and the gap is widening.</li>
         </ul>
         
       </div>
@@ -412,32 +471,32 @@
         
         <div class="script-card">
           <span class="seg-num">1</span>
-          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re talking about something that should keep American tech executives up at night. America spent years trying to destroy Huawei, but Huawei not only survived, it built products that people queue up for.</div>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re talking about something that should make every American tech executive uncomfortable. America spent years trying to destroy Huawei, but Huawei not only survived—they built products people line up for. This is the story of China&#39;s tech rise, and it&#39;s bigger than one company.</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">2</span>
-          <div class="text"><span class="mic">🗣️ Segment 2</span>What did Huawei do? They built a second-generation trifold phone that caused a frenzy in China. But that&#39;s just the beginning. They also make tablets, laptops, and a massive foldable screen that turns from a tablet into a laptop, with a snap-on physical keyboard.</div>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Start with Huawei. No Google services, no American chips, no access to the tech Washington thought they needed. What did they do? They built a second-generation trifold phone that sparked buying frenzies across China. But that&#39;s just the beginning. They also make tablets, laptops, and a massive foldable screen that goes from tablet to laptop, closes completely flat, and runs a virtual keyboard. You can even snap on a physical keyboard to make it feel like a real laptop.</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">3</span>
-          <div class="text"><span class="mic">🗣️ Segment 3</span>Huawei also entered the car market with Aito for the masses and Maystro to rival Maybach. Meanwhile, Oppo, a brand most Americans have never heard of, makes the best foldable phone on Earth and just released a 300mm telephoto lens that physically snaps onto the phone.</div>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>Huawei&#39;s ambitions go beyond phones. They make home products, audio, and cars. Aito targets the mass market, Maystro goes head-to-head with Maybach—high-end tech, interior, and exterior. Meanwhile, Oppo, a brand most Americans have never heard of, makes what many consider the best foldable phone on Earth. And they just released a 300mm telephoto lens that physically snaps onto the phone, turning it into a professional telephoto system in seconds.</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">4</span>
-          <div class="text"><span class="mic">🗣️ Segment 4</span>Step outside in Shanghai, and 90% of the cars are from brands you&#39;ve never heard of: Li Auto, Zeeker, Yangwang, Xpeng, BYD. Xiaomi, a phone company, sells the SU7 sports car that looks like a Porsche Taycan but costs a fraction, and it&#39;s outselling Tesla&#39;s Model 3.</div>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Step outside in Shanghai, and 90% of the cars are brands you&#39;ve never heard of: Li Auto, Zeekr, Yangwang, Xpeng, BYD, and dozens more. Then there&#39;s Xiaomi, the phone company whose SU7 sports car has the proportions of a Porsche Taycan, costs a fraction of the price, and outsells Tesla&#39;s Model 3 in China and Europe. A phone company outselling Tesla.</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">5</span>
-          <div class="text"><span class="mic">🗣️ Segment 5</span>And daily life? A ride across Shanghai costs about a dollar. Nobody uses cash or credit cards. Everything runs through Alipay and WeChat, which combine payment, menus, transit, and more. Elon Musk has promised an everything app for years, but China has had two for over a decade.</div>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>And daily life? Rides across Shanghai cost around $1. Nobody uses cash or credit cards. Everything runs through Alipay and WeChat—payment, restaurant menus, transit passes, scooter rentals, and delivery services. Elon Musk has spent years promising an everything app. China has had two for over a decade.</div>
         </div>
         
         <div class="script-card">
           <span class="seg-num">6</span>
-          <div class="text"><span class="mic">🗣️ Segment 6</span>Made in China used to mean cheap. But walk through Shanghai in 2026, and you won&#39;t find cheap. You&#39;ll find a country that kept building while the world debated. The gap isn&#39;t closing; it&#39;s moving in one direction. That&#39;s the China you need to know.</div>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Made in China used to mean cheap. Walk through Shanghai in 2026, and you won&#39;t find cheap. You&#39;ll find a country that kept building while the rest of the world debated whether to take it seriously. The gap isn&#39;t closing—it&#39;s moving in one direction. That&#39;s the story. What do you think? Let us know in the comments.</div>
         </div>
         
       </div>
@@ -450,107 +509,123 @@
       
       <div class="block">
         <h3>🏗️ 写法总览</h3>
-        <div class="overview-text">文章以华为被制裁为引子，通过一系列具体产品、品牌和日常场景的对比，展现中国科技与生活的快速进步，强调美国制裁反而加速了中国自主创新。结构上采用层层递进：从华为手机到产品生态，再到汽车和日常应用，最后总结差距单向扩大。风格上多用短句、具体数据和生动细节，营造紧迫感和冲击力。</div>
+        <div class="overview-text">本文以华为被制裁为切入点，通过层层递进的例证（手机、汽车、日常应用），展现中国科技产业的全面崛起。结构上采用“总-分-总”模式，先抛出震撼观点，再分领域展开，最后升华主题。风格上多用对比、设问和具体数据，营造紧迫感和冲击力。</div>
       </div>
       
 
       
       <div class="block">
-        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        <h3>📐 结构拆解 <span class="badge">7 部分</span></h3>
         
         <div class="section-card">
           <div class="sec-head">
             <span class="role-badge">引入</span>
-            <span class="sec-title">开篇设问：华为的逆袭</span>
+            <span class="sec-title">开场：华为的逆袭</span>
           </div>
           
           <div class="field-row"><span class="field-label">论点</span><span class="field-val">美国制裁未能摧毁华为，反而促使华为推出创新产品。</span></div>
           
           
-          <div class="field-row"><span class="field-label">论据</span><span class="field-val">华为推出第二代三折叠手机，在中国引发排队抢购。</span></div>
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">华为推出第二代三折叠手机，引发中国抢购潮。</span></div>
           
           
-          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问与对比：用&#39;美国花了多年时间试图摧毁&#39;与&#39;华为幸存并推出新品&#39;形成强烈反差。</span></div>
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问+对比（美国制裁 vs 华为生存）</span></div>
           
         </div>
         
         <div class="section-card">
           <div class="sec-head">
             <span class="role-badge">论证</span>
-            <span class="sec-title">产品矩阵：从手机到生态</span>
+            <span class="sec-title">华为产品线扩展</span>
           </div>
           
-          <div class="field-row"><span class="field-label">论点</span><span class="field-val">华为不仅做手机，还构建了涵盖平板、笔记本、汽车等全场景生态。</span></div>
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">华为不仅做手机，还涉足平板、笔记本、折叠屏设备。</span></div>
           
           
-          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举折叠屏、平板、笔记本、可折叠屏幕、物理键盘、汽车品牌Aito和Maystro。</span></div>
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举折叠屏、平板、笔记本，以及可吸附物理键盘的折叠屏。</span></div>
           
           
-          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列举法：通过密集的产品罗列展示华为的多元化布局。</span></div>
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列举法</span></div>
           
         </div>
         
         <div class="section-card">
           <div class="sec-head">
             <span class="role-badge">例证</span>
-            <span class="sec-title">对手崛起：Oppo的惊艳</span>
+            <span class="sec-title">华为的汽车布局</span>
           </div>
           
-          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国其他品牌同样具备全球竞争力。</span></div>
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">华为进入汽车领域，覆盖大众和豪华市场。</span></div>
           
           
-          <div class="field-row"><span class="field-label">论据</span><span class="field-val">Oppo被公认为最佳折叠屏手机，并推出300mm物理吸附长焦镜头。</span></div>
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">Aito和Maystro品牌，Maystro对标迈巴赫。</span></div>
           
           
-          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比与细节：用&#39;美国消费者从未听说&#39;与&#39;全球最佳&#39;形成反差，突出认知差距。</span></div>
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比（大众 vs 豪华）</span></div>
           
         </div>
         
         <div class="section-card">
           <div class="sec-head">
             <span class="role-badge">例证</span>
-            <span class="sec-title">街头即景：中国汽车品牌</span>
+            <span class="sec-title">其他中国品牌的创新</span>
           </div>
           
-          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国汽车市场被本土品牌主导，且高端化趋势明显。</span></div>
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">Oppo和小米等品牌也在全球领先。</span></div>
           
           
-          <div class="field-row"><span class="field-label">论据</span><span class="field-val">上海街头90%汽车品牌不为人知，列举理想、极氪、仰望、小鹏、比亚迪；小米SU7对标保时捷Taycan并超越特斯拉。</span></div>
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">Oppo的折叠屏和300mm长焦镜头；小米SU7销量超特斯拉Model 3。</span></div>
           
           
-          <div class="field-row"><span class="field-label">写法</span><span class="field-val">数据与案例：用具体品牌和销量数据增强说服力。</span></div>
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">举例+数据</span></div>
           
         </div>
         
         <div class="section-card">
           <div class="sec-head">
-            <span class="role-badge">转折</span>
-            <span class="sec-title">生活日常：数字化渗透</span>
+            <span class="role-badge">例证</span>
+            <span class="sec-title">上海街头的本土品牌</span>
           </div>
           
-          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国日常生活的数字化程度远超美国。</span></div>
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国本土汽车品牌占据主导地位。</span></div>
           
           
-          <div class="field-row"><span class="field-label">论据</span><span class="field-val">打车约1美元，无现金支付，支付宝和微信集支付、菜单、交通、租赁、配送于一体。</span></div>
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">90%的汽车是理想、极氪、仰望、小鹏、比亚迪等。</span></div>
           
           
-          <div class="field-row"><span class="field-label">写法</span><span class="field-val">场景描写：用&#39;上海街头&#39;的具体场景让读者身临其境。</span></div>
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">数据+列举</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">日常生活的数字化</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国日常生活高度数字化，超级应用普及。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">支付宝和微信集支付、点餐、交通、租车、配送于一体。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比（美国 vs 中国）</span></div>
           
         </div>
         
         <div class="section-card">
           <div class="sec-head">
             <span class="role-badge">结论</span>
-            <span class="sec-title">结论：差距单向扩大</span>
+            <span class="sec-title">结论：差距在扩大</span>
           </div>
           
-          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国制造已从&#39;廉价&#39;转向&#39;高端&#39;，差距在扩大而非缩小。</span></div>
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">中国制造不再是廉价代名词，差距在扩大。</span></div>
           
           
-          <div class="field-row"><span class="field-label">论据</span><span class="field-val">2026年上海没有&#39;便宜&#39;，只有持续建设；差距单向移动。</span></div>
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">2026年上海没有便宜，只有持续建设。</span></div>
           
           
-          <div class="field-row"><span class="field-label">写法</span><span class="field-val">总结与警句：用&#39;差距没有缩小，而是在单向扩大&#39;强化观点。</span></div>
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">升华+警示</span></div>
           
         </div>
         
@@ -559,17 +634,17 @@
 
       
       <div class="block">
-        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">6 个</span></h3>
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
         
         <div class="technique-card">
           <span class="tech-num">1</span>
           <div class="tech-body">
-            <div class="tech-name">设问与反差</div>
+            <div class="tech-name">设问开篇</div>
             
-            <div class="tech-line">✍️ 原文: <span class="q">“America spent years trying to destroy this company. Huawei survived, and what they&#39;ve built should make every American tech executive uncomfortable.”</span></div>
+            <div class="tech-line">✍️ 原文: <span class="q">“No Google services, no American chips, no access to the technologies Washington thought they needed to survive. What did Huawei do?”</span></div>
             
             
-            <div class="tech-line">💡 通过&#39;摧毁&#39;与&#39;幸存&#39;的强烈对比，迅速抓住读者注意力，奠定全文基调。</div>
+            <div class="tech-line">💡 通过设问引发读者好奇，自然过渡到答案，增强叙事张力。</div>
             
           </div>
         </div>
@@ -577,12 +652,12 @@
         <div class="technique-card">
           <span class="tech-num">2</span>
           <div class="tech-body">
-            <div class="tech-name">具体细节与数据</div>
+            <div class="tech-name">对比反差</div>
             
-            <div class="tech-line">✍️ 原文: <span class="q">“Rides across Shanghai cost around $1. Nobody uses cash or credit cards.”</span></div>
+            <div class="tech-line">✍️ 原文: <span class="q">“Made in China used to mean cheap. Walk through Shanghai in 2026 and you won&#39;t find cheap.”</span></div>
             
             
-            <div class="tech-line">💡 用具体数字和场景让观点更可信，增强代入感。</div>
+            <div class="tech-line">💡 通过过去与现在的对比，强化中国制造形象转变的冲击力。</div>
             
           </div>
         </div>
@@ -590,12 +665,12 @@
         <div class="technique-card">
           <span class="tech-num">3</span>
           <div class="tech-body">
-            <div class="tech-name">列举与排比</div>
+            <div class="tech-name">数据支撑</div>
             
-            <div class="tech-line">✍️ 原文: <span class="q">“Foldables, flip phones, tablets, laptops, and then this, a massive foldable screen...”</span></div>
+            <div class="tech-line">✍️ 原文: <span class="q">“90% of the cars, brands you&#39;ve never heard of.”</span></div>
             
             
-            <div class="tech-line">💡 通过密集列举展示产品线之广，形成气势，强化&#39;中国制造&#39;的全面性。</div>
+            <div class="tech-line">💡 用具体数据增强说服力，让读者直观感受中国品牌的统治力。</div>
             
           </div>
         </div>
@@ -603,12 +678,12 @@
         <div class="technique-card">
           <span class="tech-num">4</span>
           <div class="tech-body">
-            <div class="tech-name">对比与反差</div>
+            <div class="tech-name">排比列举</div>
             
-            <div class="tech-line">✍️ 原文: <span class="q">“A phone company outselling Tesla.”</span></div>
+            <div class="tech-line">✍️ 原文: <span class="q">“No Google services, no American chips, no access to the technologies...”</span></div>
             
             
-            <div class="tech-line">💡 用&#39;手机公司&#39;与&#39;特斯拉&#39;的对比，突出小米的意外成功，制造冲击力。</div>
+            <div class="tech-line">💡 排比句式增强气势，突出华为面临的困境与突破。</div>
             
           </div>
         </div>
@@ -616,25 +691,12 @@
         <div class="technique-card">
           <span class="tech-num">5</span>
           <div class="tech-body">
-            <div class="tech-name">场景化描写</div>
+            <div class="tech-name">以小见大</div>
             
-            <div class="tech-line">✍️ 原文: <span class="q">“Step outside onto the streets of Shanghai. 90% of the cars, brands you&#39;ve never heard of.”</span></div>
-            
-            
-            <div class="tech-line">💡 让读者仿佛置身上海街头，增强真实感和说服力。</div>
-            
-          </div>
-        </div>
-        
-        <div class="technique-card">
-          <span class="tech-num">6</span>
-          <div class="tech-body">
-            <div class="tech-name">警句收尾</div>
-            
-            <div class="tech-line">✍️ 原文: <span class="q">“The gap is not closing. It&#39;s moving in one direction.”</span></div>
+            <div class="tech-line">✍️ 原文: <span class="q">“Rides across Shanghai cost around $1. Nobody uses cash or credit cards.”</span></div>
             
             
-            <div class="tech-line">💡 用简洁有力的句子总结全文，留下深刻印象。</div>
+            <div class="tech-line">💡 从日常细节切入，展现中国数字化的深度，让宏大主题更接地气。</div>
             
           </div>
         </div>
@@ -647,56 +709,46 @@
     <div class="tab-panel" id="tab-apply" data-label="应用">
       
       <div class="block">
-        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
         <p class="sub-hint">看完就能照着做的具体方法。</p>
         
         <div class="app-card">
-          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用&#39;反差&#39;构建开场白</span></div>
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“困境-突破”框架讲述品牌故事</span></div>
           
-          <div class="app-row"><b>怎么做</b> · 在演讲或文章开头，先描述一个普遍认知或预期，然后立即用事实打破它，制造认知冲突。</div>
+          <div class="app-row"><b>怎么做</b> · 先描述外部压力或困境，再展示如何通过创新突破，最后强调成果。</div>
           
           
-          <div class="app-row"><b>例子</b> · 比如写中国科技，先写&#39;美国制裁让华为陷入绝境&#39;，再写&#39;华为却推出了全球首款三折叠手机&#39;。</div>
+          <div class="app-row"><b>例子</b> · 写产品介绍时，先写“没有XX，我们怎么活？”，再写“我们做了XX”，最后写“结果XX”。</div>
           
         </div>
         
         <div class="app-card">
           <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用具体数据增强说服力</span></div>
           
-          <div class="app-row"><b>怎么做</b> · 在论证观点时，尽量使用具体数字、价格、比例或时间，而不是模糊的形容词。</div>
+          <div class="app-row"><b>怎么做</b> · 在关键论点处引用具体数字或百分比，让观点更可信。</div>
           
           
-          <div class="app-row"><b>例子</b> · 不说&#39;打车很便宜&#39;，而说&#39;打车只要1美元&#39;。</div>
-          
-        </div>
-        
-        <div class="app-card">
-          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用场景化描写让读者身临其境</span></div>
-          
-          <div class="app-row"><b>怎么做</b> · 描述一个具体场景，包括地点、人物、动作和细节，让读者仿佛亲眼所见。</div>
-          
-          
-          <div class="app-row"><b>例子</b> · 写&#39;走出上海街头，90%的汽车品牌你都没听过&#39;，比&#39;中国汽车品牌很多&#39;更有画面感。</div>
+          <div class="app-row"><b>例子</b> · 不说“很多车”，而是说“90%的汽车是本土品牌”。</div>
           
         </div>
         
         <div class="app-card">
-          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用对比突出差异</span></div>
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用对比制造冲击力</span></div>
           
-          <div class="app-row"><b>怎么做</b> · 将两个看似不相关的事物放在一起比较，突出其差异，制造意外感。</div>
+          <div class="app-row"><b>怎么做</b> · 将过去与现在、中国与美国、便宜与高端进行对比，突出变化。</div>
           
           
-          <div class="app-row"><b>例子</b> · &#39;手机公司小米的汽车销量超过了特斯拉&#39;，对比&#39;手机&#39;与&#39;汽车&#39;、&#39;小米&#39;与&#39;特斯拉&#39;。</div>
+          <div class="app-row"><b>例子</b> · “Made in China used to mean cheap. Walk through Shanghai in 2026 and you won&#39;t find cheap.”</div>
           
         </div>
         
         <div class="app-card">
-          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用警句收尾强化记忆</span></div>
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用设问引导读者思考</span></div>
           
-          <div class="app-row"><b>怎么做</b> · 在文章或演讲结尾，用一句简短有力、概括核心观点的话，让听众印象深刻。</div>
+          <div class="app-row"><b>怎么做</b> · 在关键转折处提出问题，然后给出答案，增强互动感。</div>
           
           
-          <div class="app-row"><b>例子</b> · &#39;差距没有缩小，而是在单向扩大&#39;，比&#39;中国进步很快&#39;更有力。</div>
+          <div class="app-row"><b>例子</b> · “What did Huawei do? They built a trifold phone...”</div>
           
         </div>
         
@@ -705,56 +757,46 @@
 
       
       <div class="block">
-        <h3>🧠 思维模型 <span class="badge">5 个</span></h3>
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
         <p class="sub-hint">可迁移到其他领域的思考方式。</p>
         
         <div class="app-card">
           <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">逆向思维</span></div>
           
-          <div class="app-row"><b>是什么</b> · 从相反方向思考问题，比如&#39;制裁反而促进了创新&#39;。</div>
+          <div class="app-row"><b>是什么</b> · 从结果反推原因，或从困境中寻找机会。</div>
           
           
-          <div class="app-row"><b>何时用</b> · 当遇到困境或限制时，思考&#39;这个限制可能带来什么机会&#39;。</div>
+          <div class="app-row"><b>何时用</b> · 当面临限制时，思考“如果没有XX，我还能怎么做？”</div>
           
         </div>
         
         <div class="app-card">
-          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">系统思维</span></div>
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">全局视角</span></div>
           
-          <div class="app-row"><b>是什么</b> · 将产品、品牌、生态看作一个整体，而非孤立个体。</div>
+          <div class="app-row"><b>是什么</b> · 从单一产品扩展到整个生态，看到更大的图景。</div>
           
           
-          <div class="app-row"><b>何时用</b> · 分析一个企业时，不仅看单一产品，还要看其产品线、生态链和战略布局。</div>
+          <div class="app-row"><b>何时用</b> · 分析一个公司时，不仅看其核心产品，还要看其上下游布局。</div>
           
         </div>
         
         <div class="app-card">
           <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">对比思维</span></div>
           
-          <div class="app-row"><b>是什么</b> · 通过对比不同对象（如中国与美国、小米与特斯拉）来发现差异和趋势。</div>
+          <div class="app-row"><b>是什么</b> · 通过对比不同对象或时间点，发现趋势和差异。</div>
           
           
-          <div class="app-row"><b>何时用</b> · 在分析市场或竞争时，列出对比维度（价格、性能、销量等），找出关键差异。</div>
-          
-        </div>
-        
-        <div class="app-card">
-          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">场景化思维</span></div>
-          
-          <div class="app-row"><b>是什么</b> · 从具体场景出发理解抽象概念，如用&#39;上海街头&#39;理解中国数字化。</div>
-          
-          
-          <div class="app-row"><b>何时用</b> · 在解释复杂现象时，先描述一个具体场景，再提炼规律。</div>
+          <div class="app-row"><b>何时用</b> · 评估一个市场时，对比本土品牌与国际品牌的表现。</div>
           
         </div>
         
         <div class="app-card">
-          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">趋势判断</span></div>
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">以小见大</span></div>
           
-          <div class="app-row"><b>是什么</b> · 从当前现象推断未来走向，如&#39;差距单向扩大&#39;。</div>
+          <div class="app-row"><b>是什么</b> · 从日常细节中洞察宏观趋势。</div>
           
           
-          <div class="app-row"><b>何时用</b> · 在决策时，不仅看现状，还要分析趋势的方向和速度。</div>
+          <div class="app-row"><b>何时用</b> · 观察一个社会的数字化程度，可以从支付方式、出行方式等细节入手。</div>
           
         </div>
         
@@ -772,17 +814,17 @@
         <div class="quote-card">
           <div class="quote-text">“America spent years trying to destroy this company. Huawei survived, and what they&#39;ve built should make every American tech executive uncomfortable.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 用&#39;摧毁&#39;与&#39;幸存&#39;的强烈对比，以及&#39;让美国科技高管不安&#39;的挑衅性表达，瞬间抓住读者注意力。</div>
+          <div class="quote-why"><b>好在哪</b> · 开篇即用对比和冲击性语言，制造紧张感，吸引读者。</div>
           
           
-          <div class="quote-zh">中文 · 美国花了多年时间试图摧毁这家公司。华为幸存了下来，而他们打造的一切应该让每一位美国科技高管感到不安。</div>
+          <div class="quote-zh">中文 · 美国花了多年时间试图摧毁这家公司。华为幸存下来，他们建造的东西应该让每一位美国科技高管感到不安。</div>
           
         </div>
         
         <div class="quote-card">
           <div class="quote-text">“No Google services, no American chips, no access to the technologies Washington thought they needed to survive.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 排比结构，三个&#39;no&#39;强调华为面临的极端限制，为后文的&#39;逆袭&#39;做铺垫。</div>
+          <div class="quote-why"><b>好在哪</b> · 排比句式，强调华为面临的极端困境，为后文逆袭做铺垫。</div>
           
           
           <div class="quote-zh">中文 · 没有谷歌服务，没有美国芯片，无法获得华盛顿认为他们生存所需的技术。</div>
@@ -790,19 +832,19 @@
         </div>
         
         <div class="quote-card">
-          <div class="quote-text">“What did Huawei do? They built a trifold phone, now on its second generation.”</div>
+          <div class="quote-text">“What did Huawei do? They built a trifold phone, now on its second generation. People lined up for it across China.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 设问句，自问自答，简洁有力，突出华为的应对方式。</div>
+          <div class="quote-why"><b>好在哪</b> · 设问+具体行动，简洁有力，突出华为的应对策略。</div>
           
           
-          <div class="quote-zh">中文 · 华为做了什么？他们造出了一款三折叠手机，如今已是第二代。</div>
+          <div class="quote-zh">中文 · 华为做了什么？他们造了一款三折叠手机，现在已经出到第二代。全中国的人都排队购买。</div>
           
         </div>
         
         <div class="quote-card">
           <div class="quote-text">“A phone company outselling Tesla.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 极简短句，用&#39;手机公司&#39;与&#39;特斯拉&#39;的对比，制造巨大反差，冲击力强。</div>
+          <div class="quote-why"><b>好在哪</b> · 短句独立成段，极具冲击力，强调小米的惊人成就。</div>
           
           
           <div class="quote-zh">中文 · 一家手机公司的销量超过了特斯拉。</div>
@@ -810,32 +852,32 @@
         </div>
         
         <div class="quote-card">
-          <div class="quote-text">“Nobody uses cash or credit cards. Everything runs through Alipay and WeChat apps that function as payment, restaurant menu, transit pass, scooter rental, and delivery services.”</div>
+          <div class="quote-text">“Elon Musk has spent years promising America an everything app. China has had two of them for over a decade.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 用具体场景和列举，生动展现中国数字化的普及程度，与美国的&#39;争论&#39;形成对比。</div>
+          <div class="quote-why"><b>好在哪</b> · 对比马斯克的承诺与中国的现实，讽刺意味强，突出中国领先。</div>
           
           
-          <div class="quote-zh">中文 · 没人使用现金或信用卡。一切都通过支付宝和微信应用运行，这些应用集支付、餐厅菜单、交通卡、滑板车租赁和配送服务于一体。</div>
+          <div class="quote-zh">中文 · 埃隆·马斯克多年来一直承诺给美国一个超级应用。中国拥有两个这样的应用已经十多年了。</div>
           
         </div>
         
         <div class="quote-card">
           <div class="quote-text">“Made in China used to mean cheap. Walk through Shanghai in 2026 and you won&#39;t find cheap.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 对比过去与现在，用&#39;便宜&#39;一词的双关，简洁有力。</div>
+          <div class="quote-why"><b>好在哪</b> · 对比过去与现在，简洁有力，颠覆刻板印象。</div>
           
           
-          <div class="quote-zh">中文 · 中国制造曾经意味着便宜。但2026年走在上海街头，你不会找到便宜。</div>
+          <div class="quote-zh">中文 · 中国制造曾经意味着廉价。2026年走在上海街头，你不会找到廉价。</div>
           
         </div>
         
         <div class="quote-card">
           <div class="quote-text">“The gap is not closing. It&#39;s moving in one direction.”</div>
           
-          <div class="quote-why"><b>好在哪</b> · 警句，用&#39;不是缩小&#39;与&#39;单向移动&#39;的对比，强调趋势的不可逆性，留下深刻印象。</div>
+          <div class="quote-why"><b>好在哪</b> · 短句收尾，语气坚定，强调差距扩大的趋势，留下深刻印象。</div>
           
           
-          <div class="quote-zh">中文 · 差距没有缩小，而是在单向移动。</div>
+          <div class="quote-zh">中文 · 差距没有在缩小。它正朝着一个方向移动。</div>
           
         </div>
         
@@ -855,70 +897,70 @@
               <td class="word-col">trifold</td>
               <td class="stars-col">★★☆</td>
               <td class="context-col">They built a trifold phone, now on its second generation.</td>
-              <td>三折的，指可折叠两次的手机。用于描述新型折叠屏设备。</td>
+              <td>三折叠的；指可折叠三次的手机。</td>
             </tr>
             
             <tr>
-              <td class="word-col">toe-to-toe</td>
+              <td class="word-col">line up</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">People lined up for it across China.</td>
+              <td>排队；表示人们争相购买。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">clamshell</td>
               <td class="stars-col">★★☆</td>
+              <td class="context-col">Apple is reportedly working on a clamshell foldable.</td>
+              <td>翻盖式的；指像贝壳一样开合的设备。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">go toe-to-toe with</td>
+              <td class="stars-col">★★★</td>
               <td class="context-col">Positioned to go toe-to-toe with Maybach.</td>
-              <td>旗鼓相当地竞争，面对面。常用于商业竞争描述。</td>
+              <td>与……正面交锋；表示实力相当。</td>
             </tr>
             
             <tr>
               <td class="word-col">teleconverter</td>
               <td class="stars-col">★★★</td>
               <td class="context-col">They just dropped this, a 300 mm teleconverter lens that physically snaps onto the phone.</td>
-              <td>增距镜，远摄转换器。摄影术语，这里指外接长焦镜头。</td>
+              <td>增距镜；一种附加镜头，用于增加焦距。</td>
             </tr>
             
             <tr>
-              <td class="word-col">snaps onto</td>
+              <td class="word-col">snap onto</td>
               <td class="stars-col">★★☆</td>
               <td class="context-col">a 300 mm teleconverter lens that physically snaps onto the phone.</td>
-              <td>啪嗒一声扣上，物理吸附。常用于描述配件安装。</td>
+              <td>咔哒一声装上；表示快速、牢固地连接。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">proportions</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">the SU7 sports car has the proportions of a Porsche Taycan</td>
+              <td>比例；指外形尺寸和比例。</td>
             </tr>
             
             <tr>
               <td class="word-col">fraction</td>
               <td class="stars-col">★★☆</td>
               <td class="context-col">costing a fraction of what a Taycan costs</td>
-              <td>一小部分，几分之一。常用于比较价格。</td>
-            </tr>
-            
-            <tr>
-              <td class="word-col">outselling</td>
-              <td class="stars-col">★★☆</td>
-              <td class="context-col">and is outselling Tesla&#39;s Model 3 in China and Europe.</td>
-              <td>销量超过，比……卖得好。商业常用词。</td>
+              <td>一小部分；表示价格远低于。</td>
             </tr>
             
             <tr>
               <td class="word-col">everything app</td>
               <td class="stars-col">★★☆</td>
               <td class="context-col">Elon Musk has spent years promising America an everything app.</td>
-              <td>超级应用，集多种功能于一体的应用。如微信、支付宝。</td>
-            </tr>
-            
-            <tr>
-              <td class="word-col">kept building</td>
-              <td class="stars-col">★☆☆</td>
-              <td class="context-col">You will find a country that kept building while the rest of the world was still debating whether to take it seriously.</td>
-              <td>持续建设，不断前进。强调不间断的行动。</td>
+              <td>超级应用；指集多种功能于一体的应用。</td>
             </tr>
             
             <tr>
               <td class="word-col">debating</td>
               <td class="stars-col">★☆☆</td>
               <td class="context-col">while the rest of the world was still debating whether to take it seriously.</td>
-              <td>争论，辩论。常用于讨论决策或观点。</td>
-            </tr>
-            
-            <tr>
-              <td class="word-col">gap</td>
-              <td class="stars-col">★☆☆</td>
-              <td class="context-col">The gap is not closing. It&#39;s moving in one direction.</td>
-              <td>差距，鸿沟。常用于比较发展水平。</td>
+              <td>争论；表示犹豫不决。</td>
             </tr>
             
           </tbody>
@@ -928,14 +970,607 @@
     </div>
     
 
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">16 块 · 预计背诵 5 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 3 块</p>
+        
+        <div class="recite-advice">This material is dense with product names and comparisons. Practice chunk 4 and 5 together to master the foldable screen description. Use chunk 9&#39;s car brand list as a memory anchor for the Shanghai street scene. For chunk 10, note the parallel structure &#39;costing a fraction... and is outselling&#39; to keep the flow.</div>
+        
+        <p class="recite-extra"><a href="/recite/result/_English__auto-generated___America_Banned_Huawei__China_Built_This_Instead__DownSub_com_">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">16 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">22 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">America spent years trying to destroy this company. Huawei survived, and what they&#39;ve built should make every American tech executive uncomfortable.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">America&#39;s failed attempt</div>
+            <div class="rc-hint-letters">A S Y T T D T C H S A W T B S M E A T E U</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">21 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">No Google services, no American chips, no access to the technologies Washington thought they needed to survive. What did Huawei do?</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Huawei&#39;s constraints</div>
+            <div class="rc-hint-letters">N G S N A C N A T T T W T T N T S W D H D</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">17 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">They built a trifold phone, now on its second generation. People lined up for it across China.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Trifold phone success</div>
+            <div class="rc-hint-letters">T B A T P N O I S G P L U F I A C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">32 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Foldables, flip phones, tablets, laptops, and then this, a massive foldable screen that goes from tablet to laptop, closes completely flat, and runs a virtual keyboard on one half of the screen.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Foldable screen features</div>
+            <div class="rc-hint-letters">F F P T L A T T A M F S T G F T T L C C F A R A V K O O H O T S</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">37 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And then, you snap on a physical keyboard to make it feel like a laptop entirely. Apple is reportedly working on a clamshell foldable. Huawei has been selling one for years, but phones are just the start.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Physical keyboard and Apple comparison</div>
+            <div class="rc-hint-letters">A T Y S O A P K T M I F L A L E A I R W O A C F H H B S O F Y B P A J T S</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">22 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Huawei makes home products, audio, and cars. Aito for mass market, Maystro for luxury. Positioned to go toe-to-toe with Maybach.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Huawei&#39;s product range</div>
+            <div class="rc-hint-letters">H M H P A A C A F M M M F L P T G T T T W M</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">32 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Technology inside, interior, exterior, all high-end. Meanwhile, Oppo, a brand most Americans have never heard of, currently makes what many consider the best foldable phone you can buy anywhere on Earth.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Oppo&#39;s best foldable</div>
+            <div class="rc-hint-letters">T I I E A H E M O A B M A H N H O C M W M C T B F P Y C B A O E</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">34 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And they just dropped this, a 300 mm teleconverter lens that physically snaps onto the phone. No separate camera, no bag to carry, just a phone that becomes a professional telephoto system in seconds.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Oppo&#39;s telephoto lens</div>
+            <div class="rc-hint-letters">A T J D T A M T L T P S O T P N S C N B T C J A P T B A P T S I S</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">32 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Step outside onto the streets of Shanghai. 90% of the cars, brands you&#39;ve never heard of. Not Toyota, Ford, or Tesla, but Li Auto, Zeeker, Yangwang, Xpeng, BYD, and dozens more.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Shanghai&#39;s car brands</div>
+            <div class="rc-hint-letters">S O O T S O S O T C B Y N H O N T F O T B L A Z Y X B A D M</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">37 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Then, there is Xiaomi, the phone company whose SU7 sports car has the proportions of a Porsche Taycan, costing a fraction of what a Taycan costs, and is outselling Tesla&#39;s Model 3 in China and Europe.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Xiaomi&#39;s SU7 success</div>
+            <div class="rc-hint-letters">T T I X T P C W S S C H T P O A P T C A F O W A T C A I O T M I C A E</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">31 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">A phone company outselling Tesla. And deep in Shanghai, End of Stay Studios went viral building mini Porsche 911S, Defenders, Broncos, fully functional, hitting 140 km/h, used for food delivery.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Mini cars for delivery</div>
+            <div class="rc-hint-letters">A P C O T A D I S E O S S W V B M P S D B F F H K H U F F D</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">25 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And here is what daily life inside China actually looks like right now. Rides across Shanghai cost around $1. Nobody uses cash or credit cards.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Daily life in China</div>
+            <div class="rc-hint-letters">A H I W D L I C A L L R N R A S C A N U C O C C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">20 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Everything runs through Alipay and WeChat apps that function as payment, restaurant menu, transit pass, scooter rental, and delivery services.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Alipay and WeChat apps</div>
+            <div class="rc-hint-letters">E R T A A W A T F A P R M T P S R A D S</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">20 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Elon Musk has spent years promising America an everything app. China has had two of them for over a decade.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Everything app comparison</div>
+            <div class="rc-hint-letters">E M H S Y P A A E A C H H T O T F O A D</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">40 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Made in China used to mean cheap. Walk through Shanghai in 2026 and you won&#39;t find cheap. You will find a country that kept building while the rest of the world was still debating whether to take it seriously.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Made in China evolution</div>
+            <div class="rc-hint-letters">M I C U T M C W T S I A Y W F C Y W F A C T K B W T R O T W W S D W T T I S</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">11 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">The gap is not closing. It&#39;s moving in one direction.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">The gap is widening</div>
+            <div class="rc-hint-letters">T G I N C I M I O D</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-08-18 周二</span></td>
+                
+                <td class="context-col">2026-08-19<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-08-20<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-08-18 周二</span></td>
+                
+                <td class="context-col">2026-08-19<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-08-20<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-08-18 周二</span></td>
+                
+                <td class="context-col">2026-08-19<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-08-20<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-08-19 周三</span></td>
+                
+                <td class="context-col">2026-08-20<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-08-21<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-26<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-08-19 周三</span></td>
+                
+                <td class="context-col">2026-08-20<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-08-21<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-26<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-08-19 周三</span></td>
+                
+                <td class="context-col">2026-08-20<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-08-21<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-26<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-08-20 周四</span></td>
+                
+                <td class="context-col">2026-08-21<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-27<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-08-20 周四</span></td>
+                
+                <td class="context-col">2026-08-21<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-27<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-08-20 周四</span></td>
+                
+                <td class="context-col">2026-08-21<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-27<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-08-21 周五</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-08-28<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-08-21 周五</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-08-28<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-08-21 周五</span></td>
+                
+                <td class="context-col">2026-08-22<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-08-28<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-08-22 周六</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-26<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-08-29<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-08-22 周六</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-26<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-08-29<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-08-22 周六</span></td>
+                
+                <td class="context-col">2026-08-23<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-26<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-08-29<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-08-23 周日</span></td>
+                
+                <td class="context-col">2026-08-24<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-08-25<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-08-27<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-08-30<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3" selected>3 块</option>
+            
+            <option value="4">4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
     <!-- 统计 -->
     <div class="tab-panel" id="tab-stats" data-label="统计">
       <div class="stats-grid">
         <div class="stat-item"><div class="stat-num">433</div><div class="stat-label">总字数</div></div>
-        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
-        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">写作技巧</div></div>
-        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
-        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">思维模型</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
         
         <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">金句</div></div>
         <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">生词</div></div>
@@ -943,8 +1578,8 @@
       </div>
       
       <div class="usage-line">
-        ⚙️ 输入 2074 tokens · 输出 4109 tokens ·
-        费用 ¥0.0103
+        ⚙️ 输入 2074 tokens · 输出 3925 tokens ·
+        费用 ¥0.0099
       </div>
       
       
@@ -965,18 +1600,134 @@
 <script>
   // Tab 切换
   var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
   tabBar.addEventListener('click', function(e) {
     var btn = e.target.closest('.tab-btn');
     if (!btn) return;
-
-    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-
-    var targetId = btn.getAttribute('data-tab');
-    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
-    var target = document.getElementById(targetId);
-    if (target) target.classList.add('active');
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
   });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "_English__auto-generated___America_Banned_Huawei__China_Built_This_Instead__DownSub_com_",
+      chunkCount: 16,
+      startDate: "2026-08-18",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 3
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
 </script>
 
 </body>

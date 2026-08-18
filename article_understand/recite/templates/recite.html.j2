@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读 · 背诵">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<link rel="manifest" href="/manifest.json">
+<title>背诵 · {{ title }}</title>
+<style>
+:root{
+  --teal:#0e7c6b; --teal-dark:#0a5f52; --teal-soft:#e4f4ef;
+  --amber:#d97706; --amber-soft:#fdf1dd;
+  --bg:#f3faf7; --card:#ffffff; --text:#22332f; --muted:#86a09a;
+  --line:#e2efe9; --warn:#b03a4e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); font-size:15px; line-height:1.7;
+}
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(120deg,var(--teal),#0f8f7b);
+  color:#fff; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.topbar .brand{font-weight:800; font-size:17px; letter-spacing:.5px;}
+.topbar .brand span{opacity:.85; font-weight:400; font-size:12px; margin-left:8px;}
+.btn-print{
+  background:rgba(255,255,255,.18); color:#fff; border:none;
+  padding:6px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+}
+.btn-print:hover{background:rgba(255,255,255,.3);}
+.wrap{max-width:680px; margin:0 auto; padding:14px 12px 40px;}
+.card{
+  background:var(--card); border-radius:14px; padding:18px 16px;
+  margin-bottom:14px; box-shadow:0 1px 5px rgba(14,124,107,.07);
+}
+.card h2{font-size:15px; color:var(--teal-dark); margin-bottom:10px;}
+.hint-line{font-size:12px; color:var(--muted); margin-bottom:8px;}
+
+/* ── hero ── */
+.hero .badges{margin-bottom:8px;}
+.badge{
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:12px;
+  background:var(--teal-soft); color:var(--teal-dark); margin-right:6px; font-weight:600;
+}
+.badge.lang-en{background:#e8f4fd; color:#1a6aaa;}
+.hero h1{font-size:20px; color:var(--text); margin-bottom:4px; line-height:1.4;}
+.hero .meta{font-size:12px; color:var(--muted); margin-bottom:14px;}
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat{background:var(--bg); border-radius:10px; padding:10px 6px; text-align:center;}
+.stat b{display:block; font-size:18px; color:var(--teal-dark);}
+.stat span{font-size:11px; color:var(--muted);}
+
+/* ── steps ── */
+.steps{display:flex; gap:8px; flex-wrap:wrap;}
+.step{
+  flex:1 1 150px; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:12.5px;
+}
+.step b{color:var(--teal-dark); display:block; margin-bottom:2px; font-size:13px;}
+
+/* ── warn / advice ── */
+.warn{
+  background:#fdecee; color:var(--warn); border-radius:10px; padding:10px 14px;
+  font-size:12.5px; margin-bottom:14px;
+}
+.advice{font-size:13.5px; color:#33453f; background:#fbfdfc; border-left:3px solid var(--teal); padding:8px 12px; border-radius:4px;}
+
+/* ── chunks ── */
+.chunk{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+  overflow:hidden; background:#fff;
+}
+.chunk-head{
+  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  background:#f7fbf9; border-bottom:1px solid var(--line);
+}
+.chunk-no{
+  background:var(--teal); color:#fff; font-weight:700; font-size:12px;
+  padding:2px 10px; border-radius:12px;
+}
+.chunk-size{font-size:11px; color:var(--muted);}
+.chunk-head .spacer{flex:1;}
+.chunk .btn{
+  font-size:12px; border:none; border-radius:8px; padding:5px 10px; cursor:pointer;
+  background:var(--teal-soft); color:var(--teal-dark); font-weight:600;
+}
+.chunk .btn:hover{background:#d3ece4;}
+.chunk .btn.btn-amber{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn.btn-amber:hover{background:#fae6c4;}
+.chunk-text{padding:12px 14px; font-size:16.5px; line-height:1.95;}
+.chunk .btn-blank{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn-blank:hover{background:#fae6c4;}
+.chunk.blanked .chunk-text{display:none;}
+.chunk.blanked .blank-cover{display:flex;}
+.blank-cover{
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px 14px; gap:10px; color:var(--muted); font-size:13px;
+  background:repeating-linear-gradient(45deg,#f6faf8,#f6faf8 8px,#eef6f2 8px,#eef6f2 16px);
+}
+.blank-cover .lock{font-size:22px;}
+.hint-card{display:none; padding:10px 14px 12px; background:var(--amber-soft); border-top:1px dashed #f0d9a8;}
+.chunk.blanked .hint-card{display:block;}
+.hint-card .hint-label{font-size:11px; color:var(--amber); font-weight:700; margin-bottom:4px;}
+.hint-card .hint-kw{font-size:14px; color:#7a4a00; font-weight:600; margin-bottom:6px;}
+.hint-card .hint-letters{
+  font-size:13px; color:#9a7b4f; letter-spacing:1.5px; line-height:1.9;
+  border-top:1px dashed #f0d9a8; padding-top:6px;
+}
+.chunk.reveal-hint .hint-card{display:block;}
+
+/* ── review table ── */
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.review-table{border-collapse:collapse; width:100%; font-size:12px; min-width:560px;}
+.review-table th,.review-table td{
+  border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap;
+}
+.review-table th{background:var(--teal-soft); color:var(--teal-dark); font-weight:700;}
+.review-table td:first-child{font-weight:700; color:var(--teal-dark); background:#f7fbf9;}
+.review-table .lbl{display:block; color:var(--muted); font-size:10px;}
+
+/* ── daily plan ── */
+.cpd-row{display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
+.cpd-row label{font-size:13px; color:var(--text);}
+.cpd-row select{
+  padding:6px 8px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--teal-dark); font-size:14px; font-weight:700;
+}
+.progress{
+  flex:1; min-width:80px; height:8px; background:var(--line); border-radius:6px; overflow:hidden;
+}
+.progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),#14a58f); transition:width .3s;}
+#progress-text{font-size:12px; color:var(--muted); white-space:nowrap;}
+.day-card{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden;
+}
+.day-card.today{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal);}
+.day-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 12px; background:#f7fbf9;
+}
+.day-no{font-weight:800; color:var(--teal-dark); font-size:14px;}
+.day-date{font-size:12px; color:var(--muted);}
+.day-row{display:flex; align-items:center; gap:6px; padding:6px 12px; flex-wrap:wrap;}
+.day-row + .day-row{border-top:1px dashed var(--line);}
+.row-label{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; flex-shrink:0;}
+.row-label.new{background:var(--teal-soft); color:var(--teal-dark);}
+.row-label.review{background:var(--amber-soft); color:var(--amber);}
+.chip{
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  border-radius:10px; padding:4px 10px; font-size:12.5px; cursor:pointer;
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on.new{background:var(--teal); border-color:var(--teal); color:#fff;}
+.chip.on.review{background:var(--amber); border-color:var(--amber); color:#fff;}
+.chip.done{opacity:.55; text-decoration:line-through;}
+.empty-day{font-size:12px; color:var(--muted); padding:8px 12px;}
+
+/* ── footer ── */
+.footer{text-align:center; color:#9ab5ad; font-size:11px; padding:10px 0 30px;}
+
+@media print{
+  .topbar,.cpd-row,.btn,.no-print{display:none !important;}
+  body{background:#fff; font-size:12px;}
+  .card{box-shadow:none; border:1px solid #ddd; break-inside:avoid;}
+  .chunk-text{display:block !important;}
+  .hint-card,.blank-cover{display:none !important;}
+  .review-table th{background:#f0f0f0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📖 背诵<span>智读 · {{ lang_label }} · {{ source_label }}</span></div>
+  <a class="btn-print" href="/result/{{ material_id }}" style="text-decoration:none">🧠 智读看板</a>
+  <button class="btn-print" onclick="window.print()">🖨 打印/存 PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── 头部 ── -->
+  <section class="card hero">
+    <div class="badges">
+      <span class="badge lang-{{ lang }}">🌐 {{ lang_label }}</span>
+      <span class="badge">📄 {{ source_label }}</span>
+      <span class="badge">🗓 生成于 {{ date }}</span>
+    </div>
+    <h1>{{ title }}</h1>
+    <div class="meta">
+      {{ word_count }} 字 · {{ chunk_count }} 块 · 预计背诵 {{ est_minutes }} 分钟
+      {% if truncated %}· <span style="color:var(--warn)">材料超长已截断</span>{% endif %}
+    </div>
+    <div class="stats">
+      <div class="stat"><b>{{ word_count }}</b><span>总字数</span></div>
+      <div class="stat"><b>{{ chunk_count }}</b><span>意群块</span></div>
+      <div class="stat"><b>{{ est_minutes }}</b><span>背诵/分钟</span></div>
+      <div class="stat"><b>{{ schedule.intervals|length * chunk_count }}</b><span>复习次数</span></div>
+    </div>
+  </section>
+
+  <!-- ── 怎么背 ── -->
+  <section class="card">
+    <h2>📖 三步背诵法</h2>
+    <div class="steps">
+      <div class="step"><b>① 看提示卡</b>先读每块下方的 💡 提示卡，用关键词/首字回忆内容</div>
+      <div class="step"><b>② 遮住自测</b>点「🙈 遮住自测」把原文盖住，看着提示卡试着背出来</div>
+      <div class="step"><b>③ 按时复习</b>按下方艾宾浩斯清单打卡，第 1/2/4/7/15 天复习巩固</div>
+    </div>
+  </section>
+
+  {% if advice %}
+  <section class="card">
+    <h2>💡 背诵建议</h2>
+    <div class="advice">{{ advice }}</div>
+  </section>
+  {% endif %}
+
+  {% if truncated %}
+  <div class="warn">⚠️ 材料较长，已截断到前 {{ word_count }} 字左右进行分析。完整背诵可先分段处理。</div>
+  {% endif %}
+
+  <!-- ── 原文分块 ── -->
+  <section class="card" id="chunks">
+    <h2>🧱 原文分块（{{ chunk_count }} 块）</h2>
+    <p class="hint-line">每块是完整语义单元。先通读，再逐块「遮住自测」。</p>
+    {% for c in chunks %}
+    <article class="chunk" id="chunk-{{ c.index }}">
+      <div class="chunk-head">
+        <span class="chunk-no">块 {{ c.index }}</span>
+        <span class="chunk-size">{{ c.word_count }} 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">{{ c.text }}</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">{{ c.hint }}</div>
+        {% if c.first_hint %}<div class="hint-letters">{{ c.first_hint }}</div>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+
+  <!-- ── 逐块复习表 ── -->
+  <section class="card" id="review">
+    <h2>🗓 逐块复习表</h2>
+    <p class="hint-line">块 {{ schedule.per_chunk[0].index if schedule.per_chunk else '' }}…背完后，在以下间隔日复习（间隔：{% for i in schedule.intervals %}D+{{ i }}{% if not loop.last %} / {% endif %}{% endfor %}）。</p>
+    <div class="table-scroll">
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>块</th><th>背诵日</th>
+            {% for d in schedule.intervals %}<th>复习 D+{{ d }}</th>{% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in schedule.per_chunk %}
+          <tr>
+            <td>块 {{ r.index }}</td>
+            <td>第{{ r.learn_day }}天<span class="lbl">{{ r.learn_date }} {{ r.learn_weekday }}</span></td>
+            {% for d in schedule.intervals %}
+            <td>{{ r.review_dates[loop.index0] }}<span class="lbl">第{{ r.review_days[loop.index0] }}天</span></td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 每日打卡清单 ── -->
+  <section class="card" id="daily">
+    <h2>✅ 每日打卡清单</h2>
+    <p class="hint-line">点一下块号打卡完成，进度自动保存到本机。每天「新背」若干块 + 复习之前背过的块。</p>
+    <div class="cpd-row">
+      <label>每天新背</label>
+      <select id="cpd-select" onchange="setCpd(this.value)">
+        {% for n in [1,2,3,4,5,6] %}
+        <option value="{{ n }}" {% if n == schedule.chunks_per_day %}selected{% endif %}>{{ n }} 块</option>
+        {% endfor %}
+      </select>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <span id="progress-text">0/0</span>
+    </div>
+    <div id="daily-list"></div>
+  </section>
+
+  <div class="footer">智读 · 背诵 · 意群分块 + 艾宾浩斯复习 · 学习进度保存在本机浏览器<br>
+    <a href="/recite/{{ material_id }}?force=1" style="color:#9ab5ad; text-decoration:underline;">♻️ 重新生成</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = {
+    materialId: "{{ material_id }}",
+    chunkCount: {{ chunk_count }},
+    startDate: "{{ schedule.start_date }}",
+    intervals: [{{ schedule.intervals | join(', ') }}],
+    defaultCpd: {{ schedule.chunks_per_day }}
+  };
+  var WEEKDAYS = ["周日","周一","周二","周三","周四","周五","周六"];
+
+  function parseISO(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function addDays(d,n){ var r=new Date(d); r.setDate(r.getDate()+n); return r; }
+  function iso(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function fmt(d){ return (d.getMonth()+1)+"月"+d.getDate()+"日"; }
+
+  function buildSchedule(cpd){
+    var perChunk=[], maxDay=0, i, day;
+    for(i=0;i<CFG.chunkCount;i++){
+      var learnDay=Math.floor(i/cpd)+1;
+      var reviewDays=CFG.intervals.map(function(d){return learnDay+d;});
+      maxDay=Math.max(maxDay, learnDay, reviewDays[reviewDays.length-1]);
+      perChunk.push({index:i+1, learnDay:learnDay, reviewDays:reviewDays});
+    }
+    var daily=[];
+    for(day=1;day<=maxDay;day++){
+      daily.push({
+        day:day,
+        learn: perChunk.filter(function(c){return c.learnDay===day;}).map(function(c){return c.index;}),
+        review: perChunk.filter(function(c){return c.reviewDays.indexOf(day)!==-1;}).map(function(c){return c.index;})
+      });
+    }
+    return {perChunk:perChunk, daily:daily, totalDays:maxDay};
+  }
+
+  function storageKey(cpd){ return "recite-"+CFG.materialId+"-cpd"+cpd; }
+  function loadChecks(cpd){
+    try{ return new Set(JSON.parse(localStorage.getItem(storageKey(cpd))||"[]")); }
+    catch(e){ return new Set(); }
+  }
+  function saveChecks(cpd,set){ localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+  function chipKey(day,idx,type){ return day+":"+idx+":"+type; }
+
+  function todayIndex(){
+    var diff = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - parseISO(CFG.startDate);
+    return Math.floor(diff/86400000)+1;
+  }
+
+  function renderDaily(cpd){
+    var data=buildSchedule(cpd), checks=loadChecks(cpd);
+    var list=document.getElementById("daily-list");
+    list.innerHTML="";
+    var total=0, done=0, today=todayIndex();
+
+    data.daily.forEach(function(dp){
+      var card=document.createElement("div");
+      card.className="day-card"+(dp.day===today?" today":"");
+      var date=addDays(parseISO(CFG.startDate), dp.day-1);
+
+      var head=document.createElement("div");
+      head.className="day-head";
+      var no=document.createElement("span"); no.className="day-no"; no.textContent="第 "+dp.day+" 天";
+      var dt=document.createElement("span"); dt.className="day-date"; dt.textContent=fmt(date)+" "+WEEKDAYS[date.getDay()];
+      head.appendChild(no); head.appendChild(dt);
+      card.appendChild(head);
+
+      function addRow(label,cls,indices,type){
+        var row=document.createElement("div");
+        row.className="day-row";
+        var lab=document.createElement("span"); lab.className="row-label "+cls; lab.textContent=label;
+        row.appendChild(lab);
+        if(!indices.length){
+          var e=document.createElement("span"); e.className="empty-day"; e.textContent="今日无"+label;
+          row.appendChild(e);
+        } else {
+          indices.forEach(function(idx){
+            var key=chipKey(dp.day,idx,type), checked=checks.has(key);
+            total++;
+            if(checked) done++;
+            var chip=document.createElement("button");
+            chip.className="chip "+cls+(checked?" on":"");
+            chip.textContent="块 "+idx;
+            chip.onclick=function(){
+              if(checks.has(key)) checks.delete(key); else checks.add(key);
+              saveChecks(cpd,checks);
+              renderDaily(cpd);
+            };
+            row.appendChild(chip);
+          });
+        }
+        card.appendChild(row);
+      }
+
+      addRow("新背","new",dp.learn,"new");
+      addRow("复习","review",dp.review,"review");
+      list.appendChild(card);
+    });
+
+    var fill=document.getElementById("progress-fill");
+    fill.style.width = total? (done/total*100)+"%" : "0%";
+    document.getElementById("progress-text").textContent=done+"/"+total;
+  }
+
+  window.setCpd=function(v){ renderDaily(parseInt(v,10)||2); };
+  renderDaily(CFG.defaultCpd);
+})();
+
+function toggleBlank(btn){
+  var card=btn.closest(".chunk");
+  card.classList.toggle("blanked");
+  btn.textContent = card.classList.contains("blanked") ? "👀 显示原文" : "🙈 遮住自测";
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
+</body>
+</html>

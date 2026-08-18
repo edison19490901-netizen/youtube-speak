@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读 · 背诵">
+<link rel="icon" type="image/png" href="/static/recite.png">
+<link rel="apple-touch-icon" href="/static/recite-180.png">
+<link rel="manifest" href="/manifest.json">
+<title>背诵 · [English (auto-generated)] Speak 10X Clearer Do These 3 Vocal Exercises Daily! [DownSub.com].srt</title>
+<style>
+:root{
+  --teal:#0e7c6b; --teal-dark:#0a5f52; --teal-soft:#e4f4ef;
+  --amber:#d97706; --amber-soft:#fdf1dd;
+  --bg:#f3faf7; --card:#ffffff; --text:#22332f; --muted:#86a09a;
+  --line:#e2efe9; --warn:#b03a4e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); font-size:15px; line-height:1.7;
+}
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(120deg,var(--teal),#0f8f7b);
+  color:#fff; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.topbar .brand{font-weight:800; font-size:17px; letter-spacing:.5px;}
+.topbar .brand span{opacity:.85; font-weight:400; font-size:12px; margin-left:8px;}
+.btn-print{
+  background:rgba(255,255,255,.18); color:#fff; border:none;
+  padding:6px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+}
+.btn-print:hover{background:rgba(255,255,255,.3);}
+.wrap{max-width:680px; margin:0 auto; padding:14px 12px 40px;}
+.card{
+  background:var(--card); border-radius:14px; padding:18px 16px;
+  margin-bottom:14px; box-shadow:0 1px 5px rgba(14,124,107,.07);
+}
+.card h2{font-size:15px; color:var(--teal-dark); margin-bottom:10px;}
+.hint-line{font-size:12px; color:var(--muted); margin-bottom:8px;}
+
+/* ── hero ── */
+.hero .badges{margin-bottom:8px;}
+.badge{
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:12px;
+  background:var(--teal-soft); color:var(--teal-dark); margin-right:6px; font-weight:600;
+}
+.badge.lang-en{background:#e8f4fd; color:#1a6aaa;}
+.hero h1{font-size:20px; color:var(--text); margin-bottom:4px; line-height:1.4;}
+.hero .meta{font-size:12px; color:var(--muted); margin-bottom:14px;}
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat{background:var(--bg); border-radius:10px; padding:10px 6px; text-align:center;}
+.stat b{display:block; font-size:18px; color:var(--teal-dark);}
+.stat span{font-size:11px; color:var(--muted);}
+
+/* ── steps ── */
+.steps{display:flex; gap:8px; flex-wrap:wrap;}
+.step{
+  flex:1 1 150px; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:12.5px;
+}
+.step b{color:var(--teal-dark); display:block; margin-bottom:2px; font-size:13px;}
+
+/* ── warn / advice ── */
+.warn{
+  background:#fdecee; color:var(--warn); border-radius:10px; padding:10px 14px;
+  font-size:12.5px; margin-bottom:14px;
+}
+.advice{font-size:13.5px; color:#33453f; background:#fbfdfc; border-left:3px solid var(--teal); padding:8px 12px; border-radius:4px;}
+
+/* ── chunks ── */
+.chunk{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+  overflow:hidden; background:#fff;
+}
+.chunk-head{
+  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  background:#f7fbf9; border-bottom:1px solid var(--line);
+}
+.chunk-no{
+  background:var(--teal); color:#fff; font-weight:700; font-size:12px;
+  padding:2px 10px; border-radius:12px;
+}
+.chunk-size{font-size:11px; color:var(--muted);}
+.chunk-head .spacer{flex:1;}
+.chunk .btn{
+  font-size:12px; border:none; border-radius:8px; padding:5px 10px; cursor:pointer;
+  background:var(--teal-soft); color:var(--teal-dark); font-weight:600;
+}
+.chunk .btn:hover{background:#d3ece4;}
+.chunk .btn.btn-amber{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn.btn-amber:hover{background:#fae6c4;}
+.chunk-text{padding:12px 14px; font-size:16.5px; line-height:1.95;}
+.chunk .btn-blank{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn-blank:hover{background:#fae6c4;}
+.chunk.blanked .chunk-text{display:none;}
+.chunk.blanked .blank-cover{display:flex;}
+.blank-cover{
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px 14px; gap:10px; color:var(--muted); font-size:13px;
+  background:repeating-linear-gradient(45deg,#f6faf8,#f6faf8 8px,#eef6f2 8px,#eef6f2 16px);
+}
+.blank-cover .lock{font-size:22px;}
+.hint-card{display:none; padding:10px 14px 12px; background:var(--amber-soft); border-top:1px dashed #f0d9a8;}
+.chunk.blanked .hint-card{display:block;}
+.hint-card .hint-label{font-size:11px; color:var(--amber); font-weight:700; margin-bottom:4px;}
+.hint-card .hint-kw{font-size:14px; color:#7a4a00; font-weight:600; margin-bottom:6px;}
+.hint-card .hint-letters{
+  font-size:13px; color:#9a7b4f; letter-spacing:1.5px; line-height:1.9;
+  border-top:1px dashed #f0d9a8; padding-top:6px;
+}
+.chunk.reveal-hint .hint-card{display:block;}
+
+/* ── review table ── */
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.review-table{border-collapse:collapse; width:100%; font-size:12px; min-width:560px;}
+.review-table th,.review-table td{
+  border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap;
+}
+.review-table th{background:var(--teal-soft); color:var(--teal-dark); font-weight:700;}
+.review-table td:first-child{font-weight:700; color:var(--teal-dark); background:#f7fbf9;}
+.review-table .lbl{display:block; color:var(--muted); font-size:10px;}
+
+/* ── daily plan ── */
+.cpd-row{display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
+.cpd-row label{font-size:13px; color:var(--text);}
+.cpd-row select{
+  padding:6px 8px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--teal-dark); font-size:14px; font-weight:700;
+}
+.progress{
+  flex:1; min-width:80px; height:8px; background:var(--line); border-radius:6px; overflow:hidden;
+}
+.progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),#14a58f); transition:width .3s;}
+#progress-text{font-size:12px; color:var(--muted); white-space:nowrap;}
+.day-card{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden;
+}
+.day-card.today{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal);}
+.day-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 12px; background:#f7fbf9;
+}
+.day-no{font-weight:800; color:var(--teal-dark); font-size:14px;}
+.day-date{font-size:12px; color:var(--muted);}
+.day-row{display:flex; align-items:center; gap:6px; padding:6px 12px; flex-wrap:wrap;}
+.day-row + .day-row{border-top:1px dashed var(--line);}
+.row-label{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; flex-shrink:0;}
+.row-label.new{background:var(--teal-soft); color:var(--teal-dark);}
+.row-label.review{background:var(--amber-soft); color:var(--amber);}
+.chip{
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  border-radius:10px; padding:4px 10px; font-size:12.5px; cursor:pointer;
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on.new{background:var(--teal); border-color:var(--teal); color:#fff;}
+.chip.on.review{background:var(--amber); border-color:var(--amber); color:#fff;}
+.chip.done{opacity:.55; text-decoration:line-through;}
+.empty-day{font-size:12px; color:var(--muted); padding:8px 12px;}
+
+/* ── footer ── */
+.footer{text-align:center; color:#9ab5ad; font-size:11px; padding:10px 0 30px;}
+
+@media print{
+  .topbar,.cpd-row,.btn,.no-print{display:none !important;}
+  body{background:#fff; font-size:12px;}
+  .card{box-shadow:none; border:1px solid #ddd; break-inside:avoid;}
+  .chunk-text{display:block !important;}
+  .hint-card,.blank-cover{display:none !important;}
+  .review-table th{background:#f0f0f0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📖 背诵<span>智读 · English · 字幕</span></div>
+  <a class="btn-print" href="/result/_English__auto-generated___Speak_10X_Clearer_Do_These_3_Vocal_Exercises_Daily___DownSub_com_" style="text-decoration:none">🧠 智读看板</a>
+  <button class="btn-print" onclick="window.print()">🖨 打印/存 PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── 头部 ── -->
+  <section class="card hero">
+    <div class="badges">
+      <span class="badge lang-en">🌐 English</span>
+      <span class="badge">📄 字幕</span>
+      <span class="badge">🗓 生成于 2026-08-18</span>
+    </div>
+    <h1>[English (auto-generated)] Speak 10X Clearer Do These 3 Vocal Exercises Daily! [DownSub.com].srt</h1>
+    <div class="meta">
+      1947 字 · 26 块 · 预计背诵 22 分钟
+      
+    </div>
+    <div class="stats">
+      <div class="stat"><b>1947</b><span>总字数</span></div>
+      <div class="stat"><b>26</b><span>意群块</span></div>
+      <div class="stat"><b>22</b><span>背诵/分钟</span></div>
+      <div class="stat"><b>130</b><span>复习次数</span></div>
+    </div>
+  </section>
+
+  <!-- ── 怎么背 ── -->
+  <section class="card">
+    <h2>📖 三步背诵法</h2>
+    <div class="steps">
+      <div class="step"><b>① 看提示卡</b>先读每块下方的 💡 提示卡，用关键词/首字回忆内容</div>
+      <div class="step"><b>② 遮住自测</b>点「🙈 遮住自测」把原文盖住，看着提示卡试着背出来</div>
+      <div class="step"><b>③ 按时复习</b>按下方艾宾浩斯清单打卡，第 1/2/4/7/15 天复习巩固</div>
+    </div>
+  </section>
+
+  
+  <section class="card">
+    <h2>💡 背诵建议</h2>
+    <div class="advice">This material is a spoken transcript with many repetitions, filler words, and long run-on sentences. Focus on chunking by breath groups and practice each chunk aloud, paying attention to the rhythm. Use the hints as memory anchors, and don&#39;t worry about the filler words—they are part of the natural speech pattern. For the counting chunks, practice them with a steady rhythm to internalize breath support.</div>
+  </section>
+  
+
+  
+
+  <!-- ── 原文分块 ── -->
+  <section class="card" id="chunks">
+    <h2>🧱 原文分块（26 块）</h2>
+    <p class="hint-line">每块是完整语义单元。先通读，再逐块「遮住自测」。</p>
+    
+    <article class="chunk" id="chunk-1">
+      <div class="chunk-head">
+        <span class="chunk-no">块 1</span>
+        <span class="chunk-size">84 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The common flaw that people tend to have while they&#39;re speaking every day is they don&#39;t give the word at the beginning and the last word they say before they breathe the same amount of breath support. So it often sounds like this when people are talking. Hi everyone, it&#39;s really good to be here and I&#39;m really excited to take you through uh really excited to take you through the content that we&#39;re about to speak on now.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">common flaw and breath support</div>
+        <div class="hint-letters">T C F T P T T H W T S E D I T D G T W A T B A T L W T S B T B T S A O B S S I O S L T W P A T H E I R G T B H A I R E T T Y T U R E T T Y T T C T W A T S O N</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-2">
+      <div class="chunk-head">
+        <span class="chunk-no">块 2</span>
+        <span class="chunk-size">72 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And what I want to do now is I really want to be able to share with you uh some of the key components. So they start with great breath support and then towards the end they trail off and they go into what&#39;s known as vocal fry. Vocal fry is that you know, that sound when I&#39;m sounding like this and that&#39;s when there&#39;s not enough air.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">key components and vocal fry</div>
+        <div class="hint-letters">A W I W T D N I I R W T B A T S W Y U S O T K C S T S W G B S A T T T E T T O A T G I W K A V F V F I T Y K T S W I S L T A T W T N E A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-3">
+      <div class="chunk-head">
+        <span class="chunk-no">块 3</span>
+        <span class="chunk-size">61 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">This three-part practice session takes about 9 minutes. This is one of the biggest secrets to sounding like you&#39;ve got lots of vitality, there&#39;s energy, there&#39;s enthusiasm, your life your voice just has a zest to it, right? That&#39;s what happens when you give it good breath support from the first word to the last word.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">three-part session and vitality</div>
+        <div class="hint-letters">T T P P S T A M T I O O T B S T S L Y G L O V T E T E Y L Y V J H A Z T I R T W H W Y G I G B S F T F W T T L W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-4">
+      <div class="chunk-head">
+        <span class="chunk-no">块 4</span>
+        <span class="chunk-size">81 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Exercise number one, the foundational breath. People sometimes think to themselves, &#34;Oh, I know how to breathe. This is lame. &#34; Talk about another topic then. Well, no, let&#39;s focus on this because you have to understand that breathing gives you life and without it it takes away your life. You take 20,000 plus breaths a day. So if you can improve this one thing, there is a compounding benefit that&#39;s just staggering. So let&#39;s focus on this.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">foundational breath and compounding benefit</div>
+        <div class="hint-letters">E N O T F B P S T T T O I K H T B T I L T A A T T W N L F O T B Y H T U T B G Y L A W I I T A Y L Y T P B A D S I Y C I T O T T I A C B T J S S L F O T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-5">
+      <div class="chunk-head">
+        <span class="chunk-no">块 5</span>
+        <span class="chunk-size">103 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The first thing is I want you to just take a seat for me, okay? Take a seat at the table and then we&#39;re going to work from the head down. First thing we&#39;re going to do is we&#39;re just going to relax everything. So first I want you to just focus on your head and then the first thing I want you to really lean into now and think about is is your jaw clenched? Think about this for a moment. Is is is your jaw clenched? If it is, unlock your jaw. All right? Just unlock your jaw.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">take a seat and relax jaw</div>
+        <div class="hint-letters">T F T I I W Y T J T A S F M O T A S A T T A T W G T W F T H D F T W G T D I W J G T R E S F I W Y T J F O Y H A T T F T I W Y T R L I N A T A I I Y J C T A T F A M I I I Y J C I I I U Y J A R J U Y J</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-6">
+      <div class="chunk-head">
+        <span class="chunk-no">块 6</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Move your jaw from side to side. Open your jaw up and close it again. Just ah mm and just pretend you&#39;re chewing gum. Mhm. Unlock your jaw. Relax the jaw. Make sure there&#39;s no tension in your jaw. All right? That&#39;s the first thing I want you to pay attention to.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">jaw exercises and no tension</div>
+        <div class="hint-letters">M Y J F S T S O Y J U A C I A J A M A J P Y C G M U Y J R T J M S T N T I Y J A R T T F T I W Y T P A T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-7">
+      <div class="chunk-head">
+        <span class="chunk-no">块 7</span>
+        <span class="chunk-size">73 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now, the second thing I want you to pay attention to now as we go go the body is your neck. Make sure there&#39;s no tension in your neck. And the placement of your neck, if you were to think about the alignment of your body, imagine your head being positioned just on top of your spine. Another way to imagine it is a string pulling your head up towards the wall.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">neck tension and alignment</div>
+        <div class="hint-letters">N T S T I W Y T P A T N A W G G T B I Y N M S T N T I Y N A T P O Y N I Y W T T A T A O Y B I Y H B P J O T O Y S A W T I I I A S P Y H U T T W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-8">
+      <div class="chunk-head">
+        <span class="chunk-no">块 8</span>
+        <span class="chunk-size">71 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, again, jaw, no tension, neck, relaxed, and head positioned just on top of on top of the spine. And then next, as we go down the body, shoulders. Make sure they don&#39;t look like this. Okay, make sure your shoulders don&#39;t look like that. That&#39;s ridiculous, okay? Make sure your shoulders are down and back. All right? Make sure you there&#39;s no tension in your shoulders.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">shoulders down and back</div>
+        <div class="hint-letters">S A J N T N R A H P J O T O O T O T S A T N A W G D T B S M S T D L L T O M S Y S D L L T T R O M S Y S A D A B A R M S Y T N T I Y S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-9">
+      <div class="chunk-head">
+        <span class="chunk-no">块 9</span>
+        <span class="chunk-size">82 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And And a lot of the times what you&#39;ll notice is when there is tension in your shoulders, when you&#39;re like this, when you lock your jaw, when your neck feels really stiff and you&#39;re jutting it forward, what that often leads to is is poor breathing. So, when your body&#39;s more relaxed, you&#39;re able to take in more air, you create a more resonant voice. Very beneficial, so shoulders down, back, neck relaxed, jaw, no tension.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">tension leads to poor breathing</div>
+        <div class="hint-letters">A A A L O T T W Y N I W T I T I Y S W Y L T W Y L Y J W Y N F R S A Y J I F W T O L T I I P B S W Y B M R Y A T T I M A Y C A M R V V B S S D B N R J N T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-10">
+      <div class="chunk-head">
+        <span class="chunk-no">块 10</span>
+        <span class="chunk-size">71 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And then we go down further in your body, just make sure your feet are firmly planted on the ground. This is foundational as we go into the exercise, okay? This first exercise, I want you to do for 3 minutes. So, this first exercise, focus on this, everything relaxed, like I said in the first step. Now, this you do for 3 minutes, but pay attention to these three things.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">feet planted and 3 minutes</div>
+        <div class="hint-letters">A T W G D F I Y B J M S Y F A F P O T G T I F A W G I T E O T F E I W Y T D F M S T F E F O T E R L I S I T F S N T Y D F M B P A T T T T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-11">
+      <div class="chunk-head">
+        <span class="chunk-no">块 11</span>
+        <span class="chunk-size">64 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">First thing is breathing through your nose only, no mouth breathing. When you breathe through your mouth, it&#39;s not good for your vocal cords, right? When you breathe through your nose, it moistens the air, it optimizes the oxygen intake. It It&#39;s It&#39;s a much better way of breathing. So, while you&#39;re doing this exercise, only breathe through your nose.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">nose breathing only</div>
+        <div class="hint-letters">F T I B T Y N O N M B W Y B T Y M I N G F Y V C R W Y B T Y N I M T A I O T O I I I I A M B W O B S W Y D T E O B T Y N</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-12">
+      <div class="chunk-head">
+        <span class="chunk-no">块 12</span>
+        <span class="chunk-size">81 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Next, I want to share with you, too, that you need to engage in diaphragmatic breathing. And what that means is you need to pop your belly out every time you take a breath in. Right? So, every time you take a deep breath in with your nose, you make good you you have to make sure you pop your belly out. Okay? And don&#39;t tell you I don&#39;t have a belly. We all have bellies. We all do.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">diaphragmatic breathing and belly pop</div>
+        <div class="hint-letters">N I W T S W Y T T Y N T E I D B A W T M I Y N T P Y B O E T Y T A B I R S E T Y T A D B I W Y N Y M G Y Y H T M S Y P Y B O O A D T Y I D H A B W A H B W A D</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-13">
+      <div class="chunk-head">
+        <span class="chunk-no">块 13</span>
+        <span class="chunk-size">75 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And as you&#39;re popping your belly out on every breath in, also just imagine yourself expanding your rib cage. Just imagine it and then it happens in reality. Just imagine your your rib cage also expanding as your belly is popping out as you&#39;re doing this. And I just want you to do this with me for for for three breaths. Okay, just do it for three breaths and see how you feel.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">rib cage expansion and three breaths</div>
+        <div class="hint-letters">A A Y P Y B O O E B I A J I Y E Y R C J I I A T I H I R J I Y Y R C A E A Y B I P O A Y D T A I J W Y T D T W M F F F T B O J D I F T B A S H Y F</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-14">
+      <div class="chunk-head">
+        <span class="chunk-no">块 14</span>
+        <span class="chunk-size">63 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">There&#39;s a lot of things to remember. Shoulders down, back, neck, and head positioned right. Unlock the tension in the jaw. Okay, so deep breaths. We&#39;ll just do three together, okay? Breathe in through the nose, popping belly out, rib cage expanding. Got it? Okay, here we go. Ah. I&#39;ve just done it three times and it&#39;s just beautiful.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">remember posture and deep breaths</div>
+        <div class="hint-letters">T A L O T T R S D B N A H P R U T T I T J O S D B W J D T T O B I T T N P B O R C E G I O H W G A I J D I T T A I J B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-15">
+      <div class="chunk-head">
+        <span class="chunk-no">块 15</span>
+        <span class="chunk-size">92 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You want to learn to do this all throughout the day. Whereas often what happens for most people through the day is shoulders starts to lift as they&#39;re sitting at the computer, neck starts to jut out, and then they shallow breathe, right? They breathe only in the into the upper lungs. They don&#39;t really breathe into the diaphragm, into the belly, as my vocal coach used to say all the time. So, please make sure you do that for 3 minutes. That&#39;s the first part of the exercise.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">practice throughout the day</div>
+        <div class="hint-letters">Y W T L T D T A T T D W O W H F M P T T D I S S T L A T S A T C N S T J O A T T S B R T B O I T I T U L T D R B I T D I T B A M V C U T S A T T S P M S Y D T F M T T F P O T E</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-16">
+      <div class="chunk-head">
+        <span class="chunk-no">块 16</span>
+        <span class="chunk-size">57 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">If you&#39;re interested in becoming a better conversationalist, I&#39;ve actually recorded a free 2-hour masterclass on conversational frameworks that help you become better at this. So, if you want to access that, just click the first link you see in the description, or click the first link that&#39;s in the pinned comment below.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">free masterclass and links</div>
+        <div class="hint-letters">I Y I I B A B C I A R A F H M O C F T H Y B B A T S I Y W T A T J C T F L Y S I T D O C T F L T I T P C B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-17">
+      <div class="chunk-head">
+        <span class="chunk-no">块 17</span>
+        <span class="chunk-size">67 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The second part of the exercise to really help you develop what we call breath support is now that you&#39;re starting to take good quality breaths and you&#39;re you&#39;re you&#39;re you&#39;re taking a diaphragmatic breath, now you want to create again what vocal coaches will call breath support. And you practice that by hissing. This second activity is also for 3 minutes.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">second part and hissing</div>
+        <div class="hint-letters">T S P O T E T R H Y D W W C B S I N T Y S T T G Q B A Y Y Y Y T A D B N Y W T C A W V C W C B S A Y P T B H T S A I A F M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-18">
+      <div class="chunk-head">
+        <span class="chunk-no">块 18</span>
+        <span class="chunk-size">88 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And as you&#39;re doing your diaphragmatic breaths, on the breath out, instead of just breathing out through your nose, you&#39;re going to breathe it out as a hiss. So, you take a diaphragmatic breath in, shoulders down, back, and everything relaxed, and you go Deep breath in again. Get the picture, right? And you go until you&#39;re completely out of breath, and you can barely You take a diaphragmatic breath in again, belly pops out, rib cage expands, and you do that for 3 minutes.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">hiss on exhale and repeat</div>
+        <div class="hint-letters">A A Y D Y D B O T B O I O J B O T Y N Y G T B I O A A H S Y T A D B I S D B A E R A Y G D B I A G T P R A Y G U Y C O O B A Y C B Y T A D B I A B P O R C E A Y D T F M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-19">
+      <div class="chunk-head">
+        <span class="chunk-no">块 19</span>
+        <span class="chunk-size">97 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And what you&#39;re doing there is you&#39;re learning to get the right amount of breath and a consistent amount of breath while you&#39;re hissing. And what you&#39;re training that for is so that when you&#39;re speaking, you&#39;ve got constant air flow. What people don&#39;t realize about constant air flow is that a steady stream of air, that is the foundations of having more stamina. That is the foundations of stronger volume. That is the foundations of a more resonant voice. All of that requires the foundation of steady air flow.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">constant airflow and foundations</div>
+        <div class="hint-letters">A W Y D T I Y L T G T R A O B A A C A O B W Y H A W Y T T F I S T W Y S Y G C A F W P D R A C A F I T A S S O A T I T F O H M S T I T F O S V T I T F O A M R V A O T R T F O S A F</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-20">
+      <div class="chunk-head">
+        <span class="chunk-no">块 20</span>
+        <span class="chunk-size">90 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And then you can transfer that hissing sound into a third activity. And this third activity, you&#39;re doing pretty much the same thing as the hissing, except now you&#39;re replacing the hiss sound with numbers. So, now we&#39;re trying to train it so that we can create that consistent breath support while we&#39;re speaking. So, the way you do this, same thing. So, remember each one of these activities, where the first one was the breathing, second one is the hissing, third one now is counting.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">third activity and counting</div>
+        <div class="hint-letters">A T Y C T T H S I A T A A T T A Y D P M T S T A T H E N Y R T H S W N S N W T T T I S T W C C T C B S W W S S T W Y D T S T S R E O O T A W T F O W T B S O I T H T O N I C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-21">
+      <div class="chunk-head">
+        <span class="chunk-no">块 21</span>
+        <span class="chunk-size">80 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, you take a diaphragmatic breath in, right? Again, shoulders relaxed. I&#39;m reminding you because I&#39;m being an annoying teacher, but all of this is important. So, shoulders down, back, head positioned highest and high on top of the spine, jaw release the tension, diaphragmatic breath in, pop the belly out, rib cage expands. So, breathe in and you do this you go 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">counting with proper posture</div>
+        <div class="hint-letters">S Y T A D B I R A S R I R Y B I B A A T B A O T I I S S D B H P H A H O T O T S J R T T D B I P T B O R C E S B I A Y D T Y G</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-22">
+      <div class="chunk-head">
+        <span class="chunk-no">块 22</span>
+        <span class="chunk-size">59 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, as you run out of breath, whatever number you end on, stop, diaphragmatic breath in again. 1 2 3 4 5 6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 1 2 3 4 5 6 7 8 9 10 11 12 13 14</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">repeat counting until breath out</div>
+        <div class="hint-letters">S A Y R O O B W N Y E O S D B I A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-23">
+      <div class="chunk-head">
+        <span class="chunk-no">块 23</span>
+        <span class="chunk-size">70 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now, notice what I&#39;m doing there, right? The amount of breath support that I give the number one is the exact amount of breath support that I give the last number that I count. Once again, 3 minutes of breathing because we&#39;re trying to make that foundational form of diaphragmatic breathing habitual, right? So, practicing 3 minutes a day, it just starts to get you focused on it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">consistent breath support and habit</div>
+        <div class="hint-letters">N N W I D T R T A O B S T I G T N O I T E A O B S T I G T L N T I C O A M O B B W T T M T F F O D B H R S P M A D I J S T G Y F O I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-24">
+      <div class="chunk-head">
+        <span class="chunk-no">块 24</span>
+        <span class="chunk-size">85 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You you&#39;re spending 3 minutes of consciousness on it and as you do it more and more and more, that behavior starts to become unconscious and you start to hopefully do it throughout the day. Diaphragmatic breathing, a way better fuel source for your voice, right? Second thing, hiss. Practice that hissing, right? And while you&#39;re practicing that hissing, I really want you to focus on your your your your stomach going in as you&#39;re hissing. You&#39;ll start to notice this.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">unconscious habit and stomach in</div>
+        <div class="hint-letters">Y Y S M O C O I A A Y D I M A M A M T B S T B U A Y S T H D I T T D D B A W B F S F Y V R S T H P T H R A W Y P T H I R W Y T F O Y Y Y Y S G I A Y H Y S T N T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-25">
+      <div class="chunk-head">
+        <span class="chunk-no">块 25</span>
+        <span class="chunk-size">95 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The second, third, fourth, fifth time you do it, you&#39;ll go, &#34;Oh, it&#39;s kind of like a gas pedal. It&#39;s kind of like as I, you know, I can hiss stronger. &#34; You go And if you were to hiss harder, then that&#39;s you stepping on the gas pedal, right? And you&#39;ll start to form this this mind and body connection to how your voice and your entire instrument works. But again, I won&#39;t I won&#39;t go into much detail here. Practice it. Practice the hissing. Good breath support.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">gas pedal analogy and practice</div>
+        <div class="hint-letters">T S T F F T Y D I Y G O I K O L A G P I K O L A I Y K I C H S Y G A I Y W T H H T T Y S O T G P R A Y S T F T T M A B C T H Y V A Y E I W B A I W I W G I M D H P I P T H G B S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-26">
+      <div class="chunk-head">
+        <span class="chunk-no">块 26</span>
+        <span class="chunk-size">31 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And then, practice it the same thing with numbers and you&#39;re counting numbers. This allows you just to transfer all of these behaviors that you&#39;re practicing into everyday speech.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">transfer to everyday speech</div>
+        <div class="hint-letters">A T P I T S T W N A Y C N T A Y J T T A O T B T Y P I E S</div>
+      </div>
+    </article>
+    
+  </section>
+
+  <!-- ── 逐块复习表 ── -->
+  <section class="card" id="review">
+    <h2>🗓 逐块复习表</h2>
+    <p class="hint-line">块 1…背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+    <div class="table-scroll">
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>块</th><th>背诵日</th>
+            <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>块 1</td>
+            <td>第1天<span class="lbl">2026-08-18 周二</span></td>
+            
+            <td>2026-08-19<span class="lbl">第2天</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 2</td>
+            <td>第1天<span class="lbl">2026-08-18 周二</span></td>
+            
+            <td>2026-08-19<span class="lbl">第2天</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 3</td>
+            <td>第1天<span class="lbl">2026-08-18 周二</span></td>
+            
+            <td>2026-08-19<span class="lbl">第2天</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 4</td>
+            <td>第1天<span class="lbl">2026-08-18 周二</span></td>
+            
+            <td>2026-08-19<span class="lbl">第2天</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 5</td>
+            <td>第2天<span class="lbl">2026-08-19 周三</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 6</td>
+            <td>第2天<span class="lbl">2026-08-19 周三</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 7</td>
+            <td>第2天<span class="lbl">2026-08-19 周三</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 8</td>
+            <td>第2天<span class="lbl">2026-08-19 周三</span></td>
+            
+            <td>2026-08-20<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 9</td>
+            <td>第3天<span class="lbl">2026-08-20 周四</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-09-04<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 10</td>
+            <td>第3天<span class="lbl">2026-08-20 周四</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-09-04<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 11</td>
+            <td>第3天<span class="lbl">2026-08-20 周四</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-09-04<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 12</td>
+            <td>第3天<span class="lbl">2026-08-20 周四</span></td>
+            
+            <td>2026-08-21<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-09-04<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 13</td>
+            <td>第4天<span class="lbl">2026-08-21 周五</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第11天</span></td>
+            
+            <td>2026-09-05<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 14</td>
+            <td>第4天<span class="lbl">2026-08-21 周五</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第11天</span></td>
+            
+            <td>2026-09-05<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 15</td>
+            <td>第4天<span class="lbl">2026-08-21 周五</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第11天</span></td>
+            
+            <td>2026-09-05<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 16</td>
+            <td>第4天<span class="lbl">2026-08-21 周五</span></td>
+            
+            <td>2026-08-22<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第11天</span></td>
+            
+            <td>2026-09-05<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 17</td>
+            <td>第5天<span class="lbl">2026-08-22 周六</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-08-29<span class="lbl">第12天</span></td>
+            
+            <td>2026-09-06<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 18</td>
+            <td>第5天<span class="lbl">2026-08-22 周六</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-08-29<span class="lbl">第12天</span></td>
+            
+            <td>2026-09-06<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 19</td>
+            <td>第5天<span class="lbl">2026-08-22 周六</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-08-29<span class="lbl">第12天</span></td>
+            
+            <td>2026-09-06<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 20</td>
+            <td>第5天<span class="lbl">2026-08-22 周六</span></td>
+            
+            <td>2026-08-23<span class="lbl">第6天</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-08-29<span class="lbl">第12天</span></td>
+            
+            <td>2026-09-06<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 21</td>
+            <td>第6天<span class="lbl">2026-08-23 周日</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第13天</span></td>
+            
+            <td>2026-09-07<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 22</td>
+            <td>第6天<span class="lbl">2026-08-23 周日</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第13天</span></td>
+            
+            <td>2026-09-07<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 23</td>
+            <td>第6天<span class="lbl">2026-08-23 周日</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第13天</span></td>
+            
+            <td>2026-09-07<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 24</td>
+            <td>第6天<span class="lbl">2026-08-23 周日</span></td>
+            
+            <td>2026-08-24<span class="lbl">第7天</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-27<span class="lbl">第10天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第13天</span></td>
+            
+            <td>2026-09-07<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 25</td>
+            <td>第7天<span class="lbl">2026-08-24 周一</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第11天</span></td>
+            
+            <td>2026-08-31<span class="lbl">第14天</span></td>
+            
+            <td>2026-09-08<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 26</td>
+            <td>第7天<span class="lbl">2026-08-24 周一</span></td>
+            
+            <td>2026-08-25<span class="lbl">第8天</span></td>
+            
+            <td>2026-08-26<span class="lbl">第9天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第11天</span></td>
+            
+            <td>2026-08-31<span class="lbl">第14天</span></td>
+            
+            <td>2026-09-08<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 每日打卡清单 ── -->
+  <section class="card" id="daily">
+    <h2>✅ 每日打卡清单</h2>
+    <p class="hint-line">点一下块号打卡完成，进度自动保存到本机。每天「新背」若干块 + 复习之前背过的块。</p>
+    <div class="cpd-row">
+      <label>每天新背</label>
+      <select id="cpd-select" onchange="setCpd(this.value)">
+        
+        <option value="1" >1 块</option>
+        
+        <option value="2" >2 块</option>
+        
+        <option value="3" >3 块</option>
+        
+        <option value="4" selected>4 块</option>
+        
+        <option value="5" >5 块</option>
+        
+        <option value="6" >6 块</option>
+        
+      </select>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <span id="progress-text">0/0</span>
+    </div>
+    <div id="daily-list"></div>
+  </section>
+
+  <div class="footer">智读 · 背诵 · 意群分块 + 艾宾浩斯复习 · 学习进度保存在本机浏览器<br>
+    <a href="/recite/_English__auto-generated___Speak_10X_Clearer_Do_These_3_Vocal_Exercises_Daily___DownSub_com_?force=1" style="color:#9ab5ad; text-decoration:underline;">♻️ 重新生成</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = {
+    materialId: "_English__auto-generated___Speak_10X_Clearer_Do_These_3_Vocal_Exercises_Daily___DownSub_com_",
+    chunkCount: 26,
+    startDate: "2026-08-18",
+    intervals: [1, 2, 4, 7, 15],
+    defaultCpd: 4
+  };
+  var WEEKDAYS = ["周日","周一","周二","周三","周四","周五","周六"];
+
+  function parseISO(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function addDays(d,n){ var r=new Date(d); r.setDate(r.getDate()+n); return r; }
+  function iso(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function fmt(d){ return (d.getMonth()+1)+"月"+d.getDate()+"日"; }
+
+  function buildSchedule(cpd){
+    var perChunk=[], maxDay=0, i, day;
+    for(i=0;i<CFG.chunkCount;i++){
+      var learnDay=Math.floor(i/cpd)+1;
+      var reviewDays=CFG.intervals.map(function(d){return learnDay+d;});
+      maxDay=Math.max(maxDay, learnDay, reviewDays[reviewDays.length-1]);
+      perChunk.push({index:i+1, learnDay:learnDay, reviewDays:reviewDays});
+    }
+    var daily=[];
+    for(day=1;day<=maxDay;day++){
+      daily.push({
+        day:day,
+        learn: perChunk.filter(function(c){return c.learnDay===day;}).map(function(c){return c.index;}),
+        review: perChunk.filter(function(c){return c.reviewDays.indexOf(day)!==-1;}).map(function(c){return c.index;})
+      });
+    }
+    return {perChunk:perChunk, daily:daily, totalDays:maxDay};
+  }
+
+  function storageKey(cpd){ return "recite-"+CFG.materialId+"-cpd"+cpd; }
+  function loadChecks(cpd){
+    try{ return new Set(JSON.parse(localStorage.getItem(storageKey(cpd))||"[]")); }
+    catch(e){ return new Set(); }
+  }
+  function saveChecks(cpd,set){ localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+  function chipKey(day,idx,type){ return day+":"+idx+":"+type; }
+
+  function todayIndex(){
+    var diff = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - parseISO(CFG.startDate);
+    return Math.floor(diff/86400000)+1;
+  }
+
+  function renderDaily(cpd){
+    var data=buildSchedule(cpd), checks=loadChecks(cpd);
+    var list=document.getElementById("daily-list");
+    list.innerHTML="";
+    var total=0, done=0, today=todayIndex();
+
+    data.daily.forEach(function(dp){
+      var card=document.createElement("div");
+      card.className="day-card"+(dp.day===today?" today":"");
+      var date=addDays(parseISO(CFG.startDate), dp.day-1);
+
+      var head=document.createElement("div");
+      head.className="day-head";
+      var no=document.createElement("span"); no.className="day-no"; no.textContent="第 "+dp.day+" 天";
+      var dt=document.createElement("span"); dt.className="day-date"; dt.textContent=fmt(date)+" "+WEEKDAYS[date.getDay()];
+      head.appendChild(no); head.appendChild(dt);
+      card.appendChild(head);
+
+      function addRow(label,cls,indices,type){
+        var row=document.createElement("div");
+        row.className="day-row";
+        var lab=document.createElement("span"); lab.className="row-label "+cls; lab.textContent=label;
+        row.appendChild(lab);
+        if(!indices.length){
+          var e=document.createElement("span"); e.className="empty-day"; e.textContent="今日无"+label;
+          row.appendChild(e);
+        } else {
+          indices.forEach(function(idx){
+            var key=chipKey(dp.day,idx,type), checked=checks.has(key);
+            total++;
+            if(checked) done++;
+            var chip=document.createElement("button");
+            chip.className="chip "+cls+(checked?" on":"");
+            chip.textContent="块 "+idx;
+            chip.onclick=function(){
+              if(checks.has(key)) checks.delete(key); else checks.add(key);
+              saveChecks(cpd,checks);
+              renderDaily(cpd);
+            };
+            row.appendChild(chip);
+          });
+        }
+        card.appendChild(row);
+      }
+
+      addRow("新背","new",dp.learn,"new");
+      addRow("复习","review",dp.review,"review");
+      list.appendChild(card);
+    });
+
+    var fill=document.getElementById("progress-fill");
+    fill.style.width = total? (done/total*100)+"%" : "0%";
+    document.getElementById("progress-text").textContent=done+"/"+total;
+  }
+
+  window.setCpd=function(v){ renderDaily(parseInt(v,10)||2); };
+  renderDaily(CFG.defaultCpd);
+})();
+
+function toggleBlank(btn){
+  var card=btn.closest(".chunk");
+  card.classList.toggle("blanked");
+  btn.textContent = card.classList.contains("blanked") ? "👀 显示原文" : "🙈 遮住自测";
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
+</body>
+</html>
