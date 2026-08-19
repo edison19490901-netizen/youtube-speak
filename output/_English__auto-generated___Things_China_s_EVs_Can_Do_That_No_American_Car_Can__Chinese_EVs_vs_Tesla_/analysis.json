@@ -1,0 +1,227 @@
+{
+  "meta": {
+    "language": "en",
+    "source_type": "subtitle",
+    "title": "[English (auto-generated)] Things China's EVs Can Do That No American Car Can, Chinese EVs vs Tesla .srt",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "中国电动汽车拥有美国汽车无法实现的三项功能：原地360度旋转、主动悬架跳跃、以及水上漂浮。\n小米SU7提供模块化驾驶舱，可磁吸配件、自定义按钮，且无需订阅费，而特斯拉连CarPlay都不支持。\n中国电动汽车充电速度极快，10%到80%仅需不到11分钟，而美国最快充电桩仅350千瓦，中国已部署1兆瓦充电。\n这些功能并非概念，而是量产车上的真实配置，且价格更低。\n美国禁止这些汽车进入市场，不是因为安全或需求问题，而是政策选择。",
+    "summary_en": "Chinese EVs offer three capabilities American cars lack: 360-degree tank turn, active suspension jump, and water floating.\\nXiaomi SU7 features a modular cockpit with magnetic accessories and custom buttons, no subscription fees, while Tesla lacks CarPlay.\\nChinese EVs charge from 10% to 80% in under 11 minutes, with 1 MW charging deployed, vs. America's 350 kW peak.\\nThese are production features, not concepts, and at lower prices.\\nThe ban in America is a policy decision, not due to safety or demand.",
+    "script_zh": [
+      "今天我们要聊一个让美国车主眼红的话题：中国电动汽车有哪些美国车做不到的功能？而且这些车在美国根本买不到。",
+      "先看比亚迪仰望U8，它能原地360度转圈，还能跳过坑洼，甚至能在水面上漂浮。这不是概念车，而是你今天就买得到的量产车。",
+      "再看小米SU7，它的仪表盘可以磁吸配件，自定义按钮，还能免费连接手机。而特斯拉连CarPlay都不支持，还什么都想收订阅费。",
+      "最震撼的是充电速度：10%到80%不到11分钟。美国最快的充电桩才350千瓦，中国今年已经部署了1兆瓦的充电。",
+      "这些车不是没通过安全测试，也不是美国人不想买，而是政策不让买。技术是真的，价格更低，但选择权被剥夺了。",
+      "所以，下次有人跟你说中国电动车只是便宜，你可以告诉他：不，它们还更先进，只是你买不到。"
+    ],
+    "script_en": [
+      "Today we're talking about something that would make American car owners jealous: what Chinese EVs can do that American cars can't, and why you can't buy them in the US.\\nFirst, the BYD Yangwang U8 can spin 360 degrees on the spot, jump over potholes, and even float on water. This isn't a concept car—it's a production vehicle you can buy today.\\nThen there's the Xiaomi SU7, with a modular cockpit that lets you magnetically attach accessories, customize buttons, and mirror your phone for free. Meanwhile, Tesla doesn't even offer CarPlay and charges subscriptions for everything.\\nThe most stunning part is charging speed: 10 to 80 percent in under 11 minutes. America's fastest chargers peak at 350 kW, while China deployed 1 MW charging this year.\\nThese cars aren't banned because they failed safety tests or because Americans don't want them. It's a policy decision. The tech is real, the price is lower, but the choice is taken away.\\nSo next time someone says Chinese EVs are just cheap, tell them: no, they're also more advanced—you just can't buy one."
+    ]
+  },
+  "deconstruction": {
+    "overview": "文章采用对比结构，通过三个具体功能展示中国电动汽车的先进性，并指出美国市场的缺失。开篇直接抛出核心观点，随后用具体案例和数据支撑，最后以政策原因收尾，形成强烈反差。风格犀利，带有讽刺意味，通过细节描写和对比增强说服力。",
+    "sections": [
+      {
+        "title": "开篇：中国电动汽车的三大绝技",
+        "role": "引入",
+        "argument": "中国电动汽车拥有美国汽车无法实现的功能，且美国消费者无法购买。",
+        "evidence": "列举比亚迪U8的360度旋转、跳跃、漂浮功能，以及Cybertruck在洗车店卡住的对比。",
+        "technique": "对比、悬念设置"
+      },
+      {
+        "title": "比亚迪U8：功能展示",
+        "role": "例证",
+        "argument": "U8的功能是量产特性，而非概念。",
+        "evidence": "详细描述U8的旋转、跳跃、漂浮功能，并强调是生产特性。",
+        "technique": "细节描写、强调"
+      },
+      {
+        "title": "小米SU7：模块化驾驶舱",
+        "role": "例证",
+        "argument": "小米提供免费模块化功能，而特斯拉收费且不支持CarPlay。",
+        "evidence": "磁吸配件、自定义按钮、免费手机镜像，对比特斯拉的订阅费。",
+        "technique": "对比、讽刺"
+      },
+      {
+        "title": "充电速度：技术差距",
+        "role": "论证",
+        "argument": "中国充电技术远超美国。",
+        "evidence": "10-80%充电时间不到11分钟，对比美国350千瓦，中国1兆瓦。",
+        "technique": "数据对比"
+      },
+      {
+        "title": "结论：政策限制",
+        "role": "结论",
+        "argument": "美国禁止这些车不是因为安全或需求，而是政策决定。",
+        "evidence": "安全测试通过，价格更低，但选择被剥夺。",
+        "technique": "反转、强调"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "对比反差",
+        "example": "Meanwhile, the Cybertruck, which cost more, got stuck in a car wash.",
+        "effect": "通过对比突出中国车的先进和特斯拉的尴尬，增强讽刺效果。"
+      },
+      {
+        "name": "具体数据支撑",
+        "example": "10 to 80% in under 11 minutes.",
+        "effect": "用具体数据增强说服力，让观点更可信。"
+      },
+      {
+        "name": "排比列举",
+        "example": "It can jump over potholes... And it floats on water.",
+        "effect": "连续列举功能，形成节奏感，强调多样性。"
+      },
+      {
+        "name": "设问与反问",
+        "example": "Apple CarPlay? Tesla still doesn't offer it at any price.",
+        "effect": "用设问引出话题，引发思考，强化对比。"
+      },
+      {
+        "name": "讽刺语气",
+        "example": "Washington just decided you shouldn't have the choice.",
+        "effect": "用讽刺语气表达政策限制，增强批判性。"
+      }
+    ]
+  },
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "用对比框架分析产品优势",
+        "how_to_apply": "列出竞品的弱点，与自身优势进行对比，突出差异化。",
+        "example": "在写产品评测时，先列举竞品缺陷，再展示自家产品的独特功能。"
+      },
+      {
+        "skill": "用数据增强说服力",
+        "how_to_apply": "收集具体数据（如时间、价格、性能指标），在关键论点处引用。",
+        "example": "在汇报中，用'充电时间从10%到80%仅需11分钟'代替'充电很快'。"
+      },
+      {
+        "skill": "用讽刺或反转制造记忆点",
+        "how_to_apply": "在结尾处用反转或讽刺句，让读者印象深刻。",
+        "example": "在文章结尾说'不是不能，而是不让'，引发思考。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "对比思维",
+        "explanation": "通过对比不同事物的优劣，突出核心观点。",
+        "how_to_use": "在分析问题时，列出对比项，找出差异点，用于决策或说服。"
+      },
+      {
+        "model": "数据驱动思维",
+        "explanation": "用数据支持观点，避免空泛。",
+        "how_to_use": "在提出观点时，寻找相关数据，增强可信度。"
+      },
+      {
+        "model": "政策影响思维",
+        "explanation": "考虑政策对市场和技术的影响。",
+        "how_to_use": "在分析行业趋势时，考虑政策因素，预测市场变化。"
+      }
+    ]
+  },
+  "golden_words": {
+    "golden_sentences": [
+      {
+        "sentence": "Three things China's EVs can do that no American car can.",
+        "why_good": "开篇直接点题，简洁有力，引发好奇心。",
+        "chinese_meaning": "中国电动汽车能做的三件事，美国车做不到。"
+      },
+      {
+        "sentence": "And Americans aren't allowed to buy any of them.",
+        "why_good": "用'allowed'暗示政策限制，制造悬念。",
+        "chinese_meaning": "而美国人连买都买不到。"
+      },
+      {
+        "sentence": "It floats on water. Not as a gimmick or a concept, but as a production feature on a car you can buy today.",
+        "why_good": "强调真实性，用'not as a gimmick'排除质疑。",
+        "chinese_meaning": "它能漂浮在水上。不是噱头或概念，而是你今天就能买到的量产车功能。"
+      },
+      {
+        "sentence": "Meanwhile, the Cybertruck, which cost more, got stuck in a car wash.",
+        "why_good": "对比鲜明，讽刺意味强，用'stuck'形象生动。",
+        "chinese_meaning": "与此同时，更贵的Cybertruck却卡在了洗车店里。"
+      },
+      {
+        "sentence": "Yes, a subscription fee. Tesla would charge for everything, including features your car already has built in.",
+        "why_good": "用'Yes'强调，讽刺特斯拉的收费模式。",
+        "chinese_meaning": "是的，订阅费。特斯拉什么都收费，包括车本身已有的功能。"
+      },
+      {
+        "sentence": "By the time a Tesla owner finishes plugging into a supercharger, this car is already charged and moving.",
+        "why_good": "用时间对比，形象生动，突出速度差异。",
+        "chinese_meaning": "特斯拉车主刚插上超充，这车已经充满开走了。"
+      },
+      {
+        "sentence": "Washington just decided you shouldn't have the choice.",
+        "why_good": "用'decided'和'shouldn't'表达政策武断，讽刺强烈。",
+        "chinese_meaning": "华盛顿只是决定你不该有这个选择。"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "gimmick",
+        "context_sentence": "Not as a gimmick or a concept, but as a production feature on a car you can buy today.",
+        "difficulty": "★★☆",
+        "chinese_note": "噱头，指为了吸引注意而搞的花招。"
+      },
+      {
+        "word": "production feature",
+        "context_sentence": "Not as a gimmick or a concept, but as a production feature on a car you can buy today.",
+        "difficulty": "★★☆",
+        "chinese_note": "量产功能，指实际生产车辆上具备的功能。"
+      },
+      {
+        "word": "snap onto",
+        "context_sentence": "The Xiaomi SU7 lets you physically snap accessories onto the dashboard.",
+        "difficulty": "★★☆",
+        "chinese_note": "咔哒一声装上，指快速安装。"
+      },
+      {
+        "word": "modular cockpit",
+        "context_sentence": "Xiaomi and others gives you a modular cockpit and charges you nothing extra.",
+        "difficulty": "★★☆",
+        "chinese_note": "模块化驾驶舱，指可自由组合的驾驶舱设计。"
+      },
+      {
+        "word": "subscription fee",
+        "context_sentence": "Yes, a subscription fee. Tesla would charge for everything, including features your car already has built in.",
+        "difficulty": "★☆☆",
+        "chinese_note": "订阅费，指定期支付的费用。"
+      },
+      {
+        "word": "peak at",
+        "context_sentence": "America's fastest public chargers peak at 350 kW.",
+        "difficulty": "★★☆",
+        "chinese_note": "达到峰值，指最高达到某个数值。"
+      },
+      {
+        "word": "deploy",
+        "context_sentence": "And China deployed 1 MW charging this year.",
+        "difficulty": "★★☆",
+        "chinese_note": "部署，指正式投入使用。"
+      },
+      {
+        "word": "flawlessly",
+        "context_sentence": "Not because they failed a safety test, which they passed flawlessly.",
+        "difficulty": "★★☆",
+        "chinese_note": "完美地，指毫无瑕疵地。"
+      },
+      {
+        "word": "choice",
+        "context_sentence": "Washington just decided you shouldn't have the choice.",
+        "difficulty": "★☆☆",
+        "chinese_note": "选择权，指自由选择的权利。"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1869,
+    "completion_tokens": 2953,
+    "total_tokens": 4822,
+    "cost_cny": 0.007775
+  }
+}
