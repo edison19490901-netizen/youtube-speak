@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读 · 背诵">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<link rel="manifest" href="/manifest.json">
+<title>背诵 · [English (auto-generated)] Rolls-Royce Just Lost an Argument It Didn&#39;t Know It Was In [DownSub.com].srt</title>
+<style>
+:root{
+  --teal:#0e7c6b; --teal-dark:#0a5f52; --teal-soft:#e4f4ef;
+  --amber:#d97706; --amber-soft:#fdf1dd;
+  --bg:#f3faf7; --card:#ffffff; --text:#22332f; --muted:#86a09a;
+  --line:#e2efe9; --warn:#b03a4e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); font-size:15px; line-height:1.7;
+}
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(120deg,var(--teal),#0f8f7b);
+  color:#fff; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.topbar .brand{font-weight:800; font-size:17px; letter-spacing:.5px;}
+.topbar .brand span{opacity:.85; font-weight:400; font-size:12px; margin-left:8px;}
+.btn-print{
+  background:rgba(255,255,255,.18); color:#fff; border:none;
+  padding:6px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+}
+.btn-print:hover{background:rgba(255,255,255,.3);}
+.wrap{max-width:680px; margin:0 auto; padding:14px 12px 40px;}
+.card{
+  background:var(--card); border-radius:14px; padding:18px 16px;
+  margin-bottom:14px; box-shadow:0 1px 5px rgba(14,124,107,.07);
+}
+.card h2{font-size:15px; color:var(--teal-dark); margin-bottom:10px;}
+.hint-line{font-size:12px; color:var(--muted); margin-bottom:8px;}
+
+/* ── hero ── */
+.hero .badges{margin-bottom:8px;}
+.badge{
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:12px;
+  background:var(--teal-soft); color:var(--teal-dark); margin-right:6px; font-weight:600;
+}
+.badge.lang-en{background:#e8f4fd; color:#1a6aaa;}
+.hero h1{font-size:20px; color:var(--text); margin-bottom:4px; line-height:1.4;}
+.hero .meta{font-size:12px; color:var(--muted); margin-bottom:14px;}
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat{background:var(--bg); border-radius:10px; padding:10px 6px; text-align:center;}
+.stat b{display:block; font-size:18px; color:var(--teal-dark);}
+.stat span{font-size:11px; color:var(--muted);}
+
+/* ── steps ── */
+.steps{display:flex; gap:8px; flex-wrap:wrap;}
+.step{
+  flex:1 1 150px; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:12.5px;
+}
+.step b{color:var(--teal-dark); display:block; margin-bottom:2px; font-size:13px;}
+
+/* ── warn / advice ── */
+.warn{
+  background:#fdecee; color:var(--warn); border-radius:10px; padding:10px 14px;
+  font-size:12.5px; margin-bottom:14px;
+}
+.advice{font-size:13.5px; color:#33453f; background:#fbfdfc; border-left:3px solid var(--teal); padding:8px 12px; border-radius:4px;}
+
+/* ── chunks ── */
+.chunk{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+  overflow:hidden; background:#fff;
+}
+.chunk-head{
+  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  background:#f7fbf9; border-bottom:1px solid var(--line);
+}
+.chunk-no{
+  background:var(--teal); color:#fff; font-weight:700; font-size:12px;
+  padding:2px 10px; border-radius:12px;
+}
+.chunk-size{font-size:11px; color:var(--muted);}
+.chunk-head .spacer{flex:1;}
+.chunk .btn{
+  font-size:12px; border:none; border-radius:8px; padding:5px 10px; cursor:pointer;
+  background:var(--teal-soft); color:var(--teal-dark); font-weight:600;
+}
+.chunk .btn:hover{background:#d3ece4;}
+.chunk .btn.btn-amber{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn.btn-amber:hover{background:#fae6c4;}
+.chunk-text{padding:12px 14px; font-size:16.5px; line-height:1.95;}
+.chunk .btn-blank{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn-blank:hover{background:#fae6c4;}
+.chunk.blanked .chunk-text{display:none;}
+.chunk.blanked .blank-cover{display:flex;}
+.blank-cover{
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px 14px; gap:10px; color:var(--muted); font-size:13px;
+  background:repeating-linear-gradient(45deg,#f6faf8,#f6faf8 8px,#eef6f2 8px,#eef6f2 16px);
+}
+.blank-cover .lock{font-size:22px;}
+.hint-card{display:none; padding:10px 14px 12px; background:var(--amber-soft); border-top:1px dashed #f0d9a8;}
+.chunk.blanked .hint-card{display:block;}
+.hint-card .hint-label{font-size:11px; color:var(--amber); font-weight:700; margin-bottom:4px;}
+.hint-card .hint-kw{font-size:14px; color:#7a4a00; font-weight:600; margin-bottom:6px;}
+.hint-card .hint-letters{
+  font-size:13px; color:#9a7b4f; letter-spacing:1.5px; line-height:1.9;
+  border-top:1px dashed #f0d9a8; padding-top:6px;
+}
+.chunk.reveal-hint .hint-card{display:block;}
+
+/* ── review table ── */
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.review-table{border-collapse:collapse; width:100%; font-size:12px; min-width:560px;}
+.review-table th,.review-table td{
+  border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap;
+}
+.review-table th{background:var(--teal-soft); color:var(--teal-dark); font-weight:700;}
+.review-table td:first-child{font-weight:700; color:var(--teal-dark); background:#f7fbf9;}
+.review-table .lbl{display:block; color:var(--muted); font-size:10px;}
+
+/* ── daily plan ── */
+.cpd-row{display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
+.cpd-row label{font-size:13px; color:var(--text);}
+.cpd-row select{
+  padding:6px 8px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--teal-dark); font-size:14px; font-weight:700;
+}
+.progress{
+  flex:1; min-width:80px; height:8px; background:var(--line); border-radius:6px; overflow:hidden;
+}
+.progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),#14a58f); transition:width .3s;}
+#progress-text{font-size:12px; color:var(--muted); white-space:nowrap;}
+.day-card{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden;
+}
+.day-card.today{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal);}
+.day-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 12px; background:#f7fbf9;
+}
+.day-no{font-weight:800; color:var(--teal-dark); font-size:14px;}
+.day-date{font-size:12px; color:var(--muted);}
+.day-row{display:flex; align-items:center; gap:6px; padding:6px 12px; flex-wrap:wrap;}
+.day-row + .day-row{border-top:1px dashed var(--line);}
+.row-label{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; flex-shrink:0;}
+.row-label.new{background:var(--teal-soft); color:var(--teal-dark);}
+.row-label.review{background:var(--amber-soft); color:var(--amber);}
+.chip{
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  border-radius:10px; padding:4px 10px; font-size:12.5px; cursor:pointer;
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on.new{background:var(--teal); border-color:var(--teal); color:#fff;}
+.chip.on.review{background:var(--amber); border-color:var(--amber); color:#fff;}
+.chip.done{opacity:.55; text-decoration:line-through;}
+.empty-day{font-size:12px; color:var(--muted); padding:8px 12px;}
+
+/* ── footer ── */
+.footer{text-align:center; color:#9ab5ad; font-size:11px; padding:10px 0 30px;}
+
+@media print{
+  .topbar,.cpd-row,.btn,.no-print{display:none !important;}
+  body{background:#fff; font-size:12px;}
+  .card{box-shadow:none; border:1px solid #ddd; break-inside:avoid;}
+  .chunk-text{display:block !important;}
+  .hint-card,.blank-cover{display:none !important;}
+  .review-table th{background:#f0f0f0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📖 背诵<span>智读 · English · 字幕</span></div>
+  <a class="btn-print" href="/result/_English__auto-generated___Rolls-Royce_Just_Lost_an_Argument_It_Didn_t_Know_It_Was_In__DownSub_com_" style="text-decoration:none">🧠 智读看板</a>
+  <button class="btn-print" onclick="window.print()">🖨 打印/存 PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── 头部 ── -->
+  <section class="card hero">
+    <div class="badges">
+      <span class="badge lang-en">🌐 English</span>
+      <span class="badge">📄 字幕</span>
+      <span class="badge">🗓 生成于 2026-08-26</span>
+    </div>
+    <h1>[English (auto-generated)] Rolls-Royce Just Lost an Argument It Didn&#39;t Know It Was In [DownSub.com].srt</h1>
+    <div class="meta">
+      263 字 · 9 块 · 预计背诵 3 分钟
+      
+    </div>
+    <div class="stats">
+      <div class="stat"><b>263</b><span>总字数</span></div>
+      <div class="stat"><b>9</b><span>意群块</span></div>
+      <div class="stat"><b>3</b><span>背诵/分钟</span></div>
+      <div class="stat"><b>45</b><span>复习次数</span></div>
+    </div>
+  </section>
+
+  <!-- ── 怎么背 ── -->
+  <section class="card">
+    <h2>📖 三步背诵法</h2>
+    <div class="steps">
+      <div class="step"><b>① 看提示卡</b>先读每块下方的 💡 提示卡，用关键词/首字回忆内容</div>
+      <div class="step"><b>② 遮住自测</b>点「🙈 遮住自测」把原文盖住，看着提示卡试着背出来</div>
+      <div class="step"><b>③ 按时复习</b>按下方艾宾浩斯清单打卡，第 1/2/4/7/15 天复习巩固</div>
+    </div>
+  </section>
+
+  
+  <section class="card">
+    <h2>💡 背诵建议</h2>
+    <div class="advice">This material is argumentative and uses parallel structures (e.g., Japanese cars vs. Chinese phones). Watch out for long sentences with multiple clauses (chunk 1 and 4). Practice chunk 1 as two breaths: first the wrong question, then the right question. Use the keywords &#39;wrong/right&#39; and &#39;losing an argument&#39; as anchors. For chunk 4, note the numbers (65,000, 900-V, 3 seconds) to keep the specs straight. Chunk 8 and 9 contrast heritage vs. software, so emphasize that contrast.</div>
+  </section>
+  
+
+  
+
+  <!-- ── 原文分块 ── -->
+  <section class="card" id="chunks">
+    <h2>🧱 原文分块（9 块）</h2>
+    <p class="hint-line">每块是完整语义单元。先通读，再逐块「遮住自测」。</p>
+    
+    <article class="chunk" id="chunk-1">
+      <div class="chunk-head">
+        <span class="chunk-no">块 1</span>
+        <span class="chunk-size">41 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Everyone&#39;s asking if a Chinese SUV can compete with a Rolls-Royce. That&#39;s the wrong question. The right question is, why does a car that costs 1/8 the price have technology Rolls-Royce doesn&#39;t even offer yet?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">wrong question vs right question</div>
+        <div class="hint-letters">E A I A C S C C W A R R T T W Q T R Q I W D A C T C T P H T R R D E O Y</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-2">
+      <div class="chunk-head">
+        <span class="chunk-no">块 2</span>
+        <span class="chunk-size">25 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Because here&#39;s what nobody&#39;s saying. Rolls-Royce isn&#39;t losing a car comparison. It&#39;s losing an argument about what luxury even means.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">losing an argument</div>
+        <div class="hint-letters">B H W N S R R I L A C C I L A A A W L E M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-3">
+      <div class="chunk-head">
+        <span class="chunk-no">块 3</span>
+        <span class="chunk-size">23 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">For 100 years, luxury meant hand-stitched leather and a badge that took decades to earn. Nobody&#39;s questioned that definition until now.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">100 years definition</div>
+        <div class="hint-letters">F Y L M H S L A A B T T D T E N Q T D U N</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-4">
+      <div class="chunk-head">
+        <span class="chunk-no">块 4</span>
+        <span class="chunk-size">29 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The Zeekr 9X starts at $65,000. 900-V 0 to 60 in 3 seconds in a six-seat SUV. And it updates itself after you&#39;ve bought it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Zeekr 9X specs</div>
+        <div class="hint-letters">T Z X S A V T I S I A S S S A I U I A Y B I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-5">
+      <div class="chunk-head">
+        <span class="chunk-no">块 5</span>
+        <span class="chunk-size">34 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">A Rolls-Royce Cullinan starts around 400,000 and options push it past half a million. And it will be exactly as smart the day you sell it as the day you bought it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Cullinan price and static</div>
+        <div class="hint-letters">A R R C S A A O P I P H A M A I W B E A S T D Y S I A T D Y B I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-6">
+      <div class="chunk-head">
+        <span class="chunk-no">块 6</span>
+        <span class="chunk-size">31 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And before you say, &#34;But it&#39;s Chinese. &#34; Remember, you&#39;ve lived this before. Japanese cars were cheap knockoffs in the &#39;70s. Then Lexus outsold half of Europe&#39;s luxury brands.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Japanese precedent</div>
+        <div class="hint-letters">A B Y S B I C R Y L T B J C W C K I T &#39; S T L O H O E L B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-7">
+      <div class="chunk-head">
+        <span class="chunk-no">块 7</span>
+        <span class="chunk-size">27 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Chinese phones were knockoffs a decade ago. Now Xiaomi outsells Samsung in half the world. You already know how this story ends. You watched it happen twice.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Chinese phones precedent</div>
+        <div class="hint-letters">C P W K A D A N X O S I H T W Y A K H T S E Y W I H T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-8">
+      <div class="chunk-head">
+        <span class="chunk-no">块 8</span>
+        <span class="chunk-size">24 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">100 years of craftsmanship built the Rolls-Royce badge. It didn&#39;t prepare them for a competitor who updates the car while you sleep.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">craftsmanship vs software</div>
+        <div class="hint-letters">Y O C B T R R B I D P T F A C W U T C W Y S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-9">
+      <div class="chunk-head">
+        <span class="chunk-no">块 9</span>
+        <span class="chunk-size">29 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, the real question isn&#39;t whether China can build a luxury SUV. It&#39;s whether an industry built on heritage can survive one that&#39;s built on software.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">heritage vs software</div>
+        <div class="hint-letters">S T R Q I W C C B A L S I W A I B O H C S O T B O S</div>
+      </div>
+    </article>
+    
+  </section>
+
+  <!-- ── 逐块复习表 ── -->
+  <section class="card" id="review">
+    <h2>🗓 逐块复习表</h2>
+    <p class="hint-line">块 1…背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+    <div class="table-scroll">
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>块</th><th>背诵日</th>
+            <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>块 1</td>
+            <td>第1天<span class="lbl">2026-08-26 周三</span></td>
+            
+            <td>2026-08-27<span class="lbl">第2天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第5天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-10<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 2</td>
+            <td>第1天<span class="lbl">2026-08-26 周三</span></td>
+            
+            <td>2026-08-27<span class="lbl">第2天</span></td>
+            
+            <td>2026-08-28<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第5天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-10<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 3</td>
+            <td>第2天<span class="lbl">2026-08-27 周四</span></td>
+            
+            <td>2026-08-28<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-29<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-31<span class="lbl">第6天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-11<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 4</td>
+            <td>第2天<span class="lbl">2026-08-27 周四</span></td>
+            
+            <td>2026-08-28<span class="lbl">第3天</span></td>
+            
+            <td>2026-08-29<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-31<span class="lbl">第6天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-11<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 5</td>
+            <td>第3天<span class="lbl">2026-08-28 周五</span></td>
+            
+            <td>2026-08-29<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第5天</span></td>
+            
+            <td>2026-09-01<span class="lbl">第7天</span></td>
+            
+            <td>2026-09-04<span class="lbl">第10天</span></td>
+            
+            <td>2026-09-12<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 6</td>
+            <td>第3天<span class="lbl">2026-08-28 周五</span></td>
+            
+            <td>2026-08-29<span class="lbl">第4天</span></td>
+            
+            <td>2026-08-30<span class="lbl">第5天</span></td>
+            
+            <td>2026-09-01<span class="lbl">第7天</span></td>
+            
+            <td>2026-09-04<span class="lbl">第10天</span></td>
+            
+            <td>2026-09-12<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 7</td>
+            <td>第4天<span class="lbl">2026-08-29 周六</span></td>
+            
+            <td>2026-08-30<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-31<span class="lbl">第6天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-05<span class="lbl">第11天</span></td>
+            
+            <td>2026-09-13<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 8</td>
+            <td>第4天<span class="lbl">2026-08-29 周六</span></td>
+            
+            <td>2026-08-30<span class="lbl">第5天</span></td>
+            
+            <td>2026-08-31<span class="lbl">第6天</span></td>
+            
+            <td>2026-09-02<span class="lbl">第8天</span></td>
+            
+            <td>2026-09-05<span class="lbl">第11天</span></td>
+            
+            <td>2026-09-13<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 9</td>
+            <td>第5天<span class="lbl">2026-08-30 周日</span></td>
+            
+            <td>2026-08-31<span class="lbl">第6天</span></td>
+            
+            <td>2026-09-01<span class="lbl">第7天</span></td>
+            
+            <td>2026-09-03<span class="lbl">第9天</span></td>
+            
+            <td>2026-09-06<span class="lbl">第12天</span></td>
+            
+            <td>2026-09-14<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 每日打卡清单 ── -->
+  <section class="card" id="daily">
+    <h2>✅ 每日打卡清单</h2>
+    <p class="hint-line">点一下块号打卡完成，进度自动保存到本机。每天「新背」若干块 + 复习之前背过的块。</p>
+    <div class="cpd-row">
+      <label>每天新背</label>
+      <select id="cpd-select" onchange="setCpd(this.value)">
+        
+        <option value="1" >1 块</option>
+        
+        <option value="2" selected>2 块</option>
+        
+        <option value="3" >3 块</option>
+        
+        <option value="4" >4 块</option>
+        
+        <option value="5" >5 块</option>
+        
+        <option value="6" >6 块</option>
+        
+      </select>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <span id="progress-text">0/0</span>
+    </div>
+    <div id="daily-list"></div>
+  </section>
+
+  <div class="footer">智读 · 背诵 · 意群分块 + 艾宾浩斯复习 · 学习进度保存在本机浏览器<br>
+    <a href="/recite/_English__auto-generated___Rolls-Royce_Just_Lost_an_Argument_It_Didn_t_Know_It_Was_In__DownSub_com_?force=1" style="color:#9ab5ad; text-decoration:underline;">♻️ 重新生成</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = {
+    materialId: "_English__auto-generated___Rolls-Royce_Just_Lost_an_Argument_It_Didn_t_Know_It_Was_In__DownSub_com_",
+    chunkCount: 9,
+    startDate: "2026-08-26",
+    intervals: [1, 2, 4, 7, 15],
+    defaultCpd: 2
+  };
+  var WEEKDAYS = ["周日","周一","周二","周三","周四","周五","周六"];
+
+  function parseISO(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function addDays(d,n){ var r=new Date(d); r.setDate(r.getDate()+n); return r; }
+  function iso(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function fmt(d){ return (d.getMonth()+1)+"月"+d.getDate()+"日"; }
+
+  function buildSchedule(cpd){
+    var perChunk=[], maxDay=0, i, day;
+    for(i=0;i<CFG.chunkCount;i++){
+      var learnDay=Math.floor(i/cpd)+1;
+      var reviewDays=CFG.intervals.map(function(d){return learnDay+d;});
+      maxDay=Math.max(maxDay, learnDay, reviewDays[reviewDays.length-1]);
+      perChunk.push({index:i+1, learnDay:learnDay, reviewDays:reviewDays});
+    }
+    var daily=[];
+    for(day=1;day<=maxDay;day++){
+      daily.push({
+        day:day,
+        learn: perChunk.filter(function(c){return c.learnDay===day;}).map(function(c){return c.index;}),
+        review: perChunk.filter(function(c){return c.reviewDays.indexOf(day)!==-1;}).map(function(c){return c.index;})
+      });
+    }
+    return {perChunk:perChunk, daily:daily, totalDays:maxDay};
+  }
+
+  function storageKey(cpd){ return "recite-"+CFG.materialId+"-cpd"+cpd; }
+  function loadChecks(cpd){
+    try{ return new Set(JSON.parse(localStorage.getItem(storageKey(cpd))||"[]")); }
+    catch(e){ return new Set(); }
+  }
+  function saveChecks(cpd,set){ localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+  function chipKey(day,idx,type){ return day+":"+idx+":"+type; }
+
+  function todayIndex(){
+    var diff = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - parseISO(CFG.startDate);
+    return Math.floor(diff/86400000)+1;
+  }
+
+  function renderDaily(cpd){
+    var data=buildSchedule(cpd), checks=loadChecks(cpd);
+    var list=document.getElementById("daily-list");
+    list.innerHTML="";
+    var total=0, done=0, today=todayIndex();
+
+    data.daily.forEach(function(dp){
+      var card=document.createElement("div");
+      card.className="day-card"+(dp.day===today?" today":"");
+      var date=addDays(parseISO(CFG.startDate), dp.day-1);
+
+      var head=document.createElement("div");
+      head.className="day-head";
+      var no=document.createElement("span"); no.className="day-no"; no.textContent="第 "+dp.day+" 天";
+      var dt=document.createElement("span"); dt.className="day-date"; dt.textContent=fmt(date)+" "+WEEKDAYS[date.getDay()];
+      head.appendChild(no); head.appendChild(dt);
+      card.appendChild(head);
+
+      function addRow(label,cls,indices,type){
+        var row=document.createElement("div");
+        row.className="day-row";
+        var lab=document.createElement("span"); lab.className="row-label "+cls; lab.textContent=label;
+        row.appendChild(lab);
+        if(!indices.length){
+          var e=document.createElement("span"); e.className="empty-day"; e.textContent="今日无"+label;
+          row.appendChild(e);
+        } else {
+          indices.forEach(function(idx){
+            var key=chipKey(dp.day,idx,type), checked=checks.has(key);
+            total++;
+            if(checked) done++;
+            var chip=document.createElement("button");
+            chip.className="chip "+cls+(checked?" on":"");
+            chip.textContent="块 "+idx;
+            chip.onclick=function(){
+              if(checks.has(key)) checks.delete(key); else checks.add(key);
+              saveChecks(cpd,checks);
+              renderDaily(cpd);
+            };
+            row.appendChild(chip);
+          });
+        }
+        card.appendChild(row);
+      }
+
+      addRow("新背","new",dp.learn,"new");
+      addRow("复习","review",dp.review,"review");
+      list.appendChild(card);
+    });
+
+    var fill=document.getElementById("progress-fill");
+    fill.style.width = total? (done/total*100)+"%" : "0%";
+    document.getElementById("progress-text").textContent=done+"/"+total;
+  }
+
+  window.setCpd=function(v){ renderDaily(parseInt(v,10)||2); };
+  renderDaily(CFG.defaultCpd);
+})();
+
+function toggleBlank(btn){
+  var card=btn.closest(".chunk");
+  card.classList.toggle("blanked");
+  btn.textContent = card.classList.contains("blanked") ? "👀 显示原文" : "🙈 遮住自测";
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
+</body>
+</html>

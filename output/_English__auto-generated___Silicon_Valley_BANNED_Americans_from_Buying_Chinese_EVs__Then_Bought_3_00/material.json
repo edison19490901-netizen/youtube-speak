@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "material_id": "_English__auto-generated___Silicon_Valley_BANNED_Americans_from_Buying_Chinese_EVs__Then_Bought_3_00",
+    "title": "[English (auto-generated)] Silicon Valley BANNED Americans from Buying Chinese EVs… Then Bought 3,00.srt",
+    "language": "en",
+    "source_type": "subtitle",
+    "truncated": false,
+    "created": "2026-08-25"
+  },
+  "material": {
+    "title_suggested": "[English (auto-generated)] Silicon Valley BANNED Americans from Buying Chinese EVs… Then Bought 3,00.srt",
+    "language": "en",
+    "advice": "This material has long sentences with multiple clauses, so practice pausing at commas and conjunctions. The key contrast is between 'banned' and 'Waymo bought'—use that as your memory anchor. Also, watch out for numbers like 127% and 3,200; say them aloud to lock them in.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "You are legally banned from buying this car, unless of course you are Google, because they just imported 3,200 of them.",
+        "hint": "banned unless Google"
+      },
+      {
+        "index": 2,
+        "text": "It's built by Zeekr, a Chinese automaker owned by Geely.",
+        "hint": "Zeekr by Geely"
+      },
+      {
+        "index": 3,
+        "text": "Right now, Chinese EVs face a 127% tariff designed to keep them out of America completely.",
+        "hint": "127% tariff"
+      },
+      {
+        "index": 4,
+        "text": "Waymo paid it anyway, 3,200 times.",
+        "hint": "Waymo paid"
+      },
+      {
+        "index": 5,
+        "text": "Here's what should actually bother you.",
+        "hint": "what bothers you"
+      },
+      {
+        "index": 6,
+        "text": "It's not like it's hidden or a loophole, the ban only applies to cars sold to regular people.",
+        "hint": "not hidden, applies to people"
+      },
+      {
+        "index": 7,
+        "text": "Waymo doesn't sell cars, it sells rides.",
+        "hint": "sells rides"
+      },
+      {
+        "index": 8,
+        "text": "So, the same government that says this car is too risky for your driveway is fine with you riding in the back of one.",
+        "hint": "same government risky"
+      },
+      {
+        "index": 9,
+        "text": "A US senator already called Waymo out over this in a hearing, and that didn't change anything.",
+        "hint": "senator called out"
+      },
+      {
+        "index": 10,
+        "text": "Each van costs Waymo over $100,000 once tariffs and sensors are added.",
+        "hint": "over $100k"
+      },
+      {
+        "index": 11,
+        "text": "Even with the massive tax penalty, a fully loaded Chinese EV platform is still cheaper and better built than anything Ford, GM, or Tesla can deliver.",
+        "hint": "cheaper better built"
+      },
+      {
+        "index": 12,
+        "text": "And they're doing it anyway, because it's still cheaper than the Jaguar they used to run.",
+        "hint": "cheaper than Jaguar"
+      },
+      {
+        "index": 13,
+        "text": "So, the next time someone tells you Chinese cars are banned for your safety, ask them why you're already riding in one.",
+        "hint": "ask why riding"
+      },
+      {
+        "index": 14,
+        "text": "You just don't own it.",
+        "hint": "don't own it"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 870,
+    "completion_tokens": 662,
+    "total_tokens": 1532,
+    "cost_cny": 0.002194
+  }
+}

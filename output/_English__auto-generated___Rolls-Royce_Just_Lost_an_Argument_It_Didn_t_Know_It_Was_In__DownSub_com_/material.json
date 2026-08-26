@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "material_id": "_English__auto-generated___Rolls-Royce_Just_Lost_an_Argument_It_Didn_t_Know_It_Was_In__DownSub_com_",
+    "title": "[English (auto-generated)] Rolls-Royce Just Lost an Argument It Didn't Know It Was In [DownSub.com].srt",
+    "language": "en",
+    "source_type": "subtitle",
+    "truncated": false,
+    "created": "2026-08-26"
+  },
+  "material": {
+    "title_suggested": "[English (auto-generated)] Rolls-Royce Just Lost an Argument It Didn't Know It Was In [DownSub.com].srt",
+    "language": "en",
+    "advice": "This material is argumentative and uses parallel structures (e.g., Japanese cars vs. Chinese phones). Watch out for long sentences with multiple clauses (chunk 1 and 4). Practice chunk 1 as two breaths: first the wrong question, then the right question. Use the keywords 'wrong/right' and 'losing an argument' as anchors. For chunk 4, note the numbers (65,000, 900-V, 3 seconds) to keep the specs straight. Chunk 8 and 9 contrast heritage vs. software, so emphasize that contrast.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "Everyone's asking if a Chinese SUV can compete with a Rolls-Royce. That's the wrong question. The right question is, why does a car that costs 1/8 the price have technology Rolls-Royce doesn't even offer yet?",
+        "hint": "wrong question vs right question"
+      },
+      {
+        "index": 2,
+        "text": "Because here's what nobody's saying. Rolls-Royce isn't losing a car comparison. It's losing an argument about what luxury even means.",
+        "hint": "losing an argument"
+      },
+      {
+        "index": 3,
+        "text": "For 100 years, luxury meant hand-stitched leather and a badge that took decades to earn. Nobody's questioned that definition until now.",
+        "hint": "100 years definition"
+      },
+      {
+        "index": 4,
+        "text": "The Zeekr 9X starts at $65,000. 900-V 0 to 60 in 3 seconds in a six-seat SUV. And it updates itself after you've bought it.",
+        "hint": "Zeekr 9X specs"
+      },
+      {
+        "index": 5,
+        "text": "A Rolls-Royce Cullinan starts around 400,000 and options push it past half a million. And it will be exactly as smart the day you sell it as the day you bought it.",
+        "hint": "Cullinan price and static"
+      },
+      {
+        "index": 6,
+        "text": "And before you say, \"But it's Chinese. \" Remember, you've lived this before. Japanese cars were cheap knockoffs in the '70s. Then Lexus outsold half of Europe's luxury brands.",
+        "hint": "Japanese precedent"
+      },
+      {
+        "index": 7,
+        "text": "Chinese phones were knockoffs a decade ago. Now Xiaomi outsells Samsung in half the world. You already know how this story ends. You watched it happen twice.",
+        "hint": "Chinese phones precedent"
+      },
+      {
+        "index": 8,
+        "text": "100 years of craftsmanship built the Rolls-Royce badge. It didn't prepare them for a competitor who updates the car while you sleep.",
+        "hint": "craftsmanship vs software"
+      },
+      {
+        "index": 9,
+        "text": "So, the real question isn't whether China can build a luxury SUV. It's whether an industry built on heritage can survive one that's built on software.",
+        "hint": "heritage vs software"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 940,
+    "completion_tokens": 686,
+    "total_tokens": 1626,
+    "cost_cny": 0.002312
+  }
+}
