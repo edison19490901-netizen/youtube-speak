@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>人生心法.srt — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>人生心法.srt</h1>
+    <div class="meta">本地文件 · 1m 50s · 810 字</div>
+    <div class="tags">
+      <span class="tag">📄 字幕</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0068 · 4288 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>人生短暂，如同麦子成熟两千多次，但很多人却纠结于过去的遗憾。</li><li>庄子说万物没有绝对的对错，你以为的错过可能是另一种成全。</li><li>用现在的尺子量过去的自己是不公平的，因为正是过去的局限成就了现在的感悟。</li><li>一直盯着过去看，会亲手制造未来的遗憾，这是逆势而为。</li><li>遗憾会传染，命运会重复出题，直到你做出不同的答案。</li><li>放过自己，向前看，因为麦子是一轮一轮成熟的，人也得一点一点向前。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>朋友们，你有没有想过，人生其实很短，短到就像地里的麦子，成熟两千多次而已。但很多人却把时间花在纠结过去的遗憾上，今天我们就来聊聊如何放下过去，向前看。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>庄子早就说过，万物没有绝对的对错。你以为的错过，换个角度可能是另一种成全。就像小时候忘戴红领巾，当时觉得天塌了，其实什么也不会发生。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>我们总喜欢用现在的尺子去量过去的自己，怪自己不够勇敢，却忘了正是过去的那些局限，才让现在的我们有了这些感悟。所以，过去的遗憾就让它翻篇吧。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>但要注意，如果你一直站在现在，盯着过去的遗憾看，那么你未来的遗憾，很可能正在被你现在的状态亲手制造出来。这就是道家讲的顺势和逆势。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>遗憾是会传染的，命运会不断给你出同一道题，直到你做出不同的答案。如果你只回头看，就会看不见前面的路，把未来的路也走得磕磕绊绊。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>麦子熟是一轮一轮的，人也得一点一点向前。那些搁置的抉择、回避的本心，不会永远等你。放过自己，向前看，因为多年后回头，我们只会后悔当年不够勇敢。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Life is short, like wheat ripening two thousand times, yet many people dwell on past regrets.</li><li>Zhuangzi said nothing is absolutely right or wrong; what you think is a miss may be a form of fulfillment.</li><li>Measuring your past self with today&#39;s ruler is unfair, because past limitations enabled present insights.</li><li>Constantly looking back at regrets creates future regrets, which is going against the flow.</li><li>Regret is contagious; fate repeats the same question until you give a different answer.</li><li>Let go and move forward, for wheat ripens in cycles, and people must advance step by step.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Friends, have you ever realized that life is actually very short, as short as wheat ripening two thousand times. Yet many people spend time dwelling on past regrets. Today, let&#39;s talk about how to let go of the past and move forward.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Zhuangzi said long ago that nothing is absolutely right or wrong. What you think is a miss might be a form of fulfillment from another angle. Like forgetting to wear a red scarf as a child, it felt like the end of the world, but nothing really happened.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>We tend to measure our past selves with today&#39;s ruler, blaming ourselves for not being brave enough, but forgetting that it was those past limitations that gave us the insights we have now. So, let past regrets turn the page.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>But be careful: if you keep standing in the present, staring at past regrets, you are likely to create future regrets with your current state. This is what Taoism calls going with or against the flow.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Regret is contagious; fate will keep giving you the same question until you give a different answer. If you only look back, you won&#39;t see the road ahead, and you&#39;ll stumble on the future path.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Wheat ripens in cycles, and people must advance step by step. Those postponed decisions and avoided true feelings won&#39;t wait forever. Forgive yourself and look forward, because years later, we&#39;ll only regret not being brave enough then.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以时间尺度开篇，用麦子成熟的比喻引出人生短暂，然后直指人们纠结过去的普遍现象，引用庄子观点进行哲学论证，再通过逻辑推演指出纠结过去的危害，最后以劝诫收尾。整体风格口语化、富有感染力，运用比喻、对比、设问等技巧，层层递进，引导读者放下过去、向前看。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">时间尺度与人生短暂</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人生在历史长河中极其短暂，如同麦子成熟两千多次。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用麦子成熟次数和人生七十岁对比，强调短暂。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻、对比</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">指出纠结过去的普遍现象</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">很多人天天纠结过去的选择、遗憾，并归咎于命运。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举纠结选错路、没开口、吵架没低头等例子。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">排比、列举</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">引用庄子观点</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">万物没有绝对的对错，错过可能是另一种成全。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用庄子的话，并用忘戴红领巾的例子说明。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引权威、举例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">分析纠结的根源</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人们用现在的尺子量过去的自己，忽略了过去的局限成就了现在的感悟。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">逻辑推演：现在的感悟得益于过去的经历。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">逻辑推演、对比</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">警示纠结未来的危害</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">一直盯着过去会亲手制造未来的遗憾，这是逆势。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">提出“遗憾会传染”和“命运重复出题”的观点。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">警示、比喻</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">劝诫放下过去向前看</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">麦子一轮轮成熟，人也应一点一点向前，放过自己。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用麦子成熟比喻人生进程，劝诫放下。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">呼应开头、比喻、劝诫</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">6 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“从秦朝统一到现在，说白了，也不过是地里的麦子熟了2,000多次而已。”</span></div>
+            
+            
+            <div class="tech-line">💡 将抽象的时间概念具象化，让读者直观感受人生的短暂。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">对比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“用现在的这把尺子，去量当时那个还在物理的自己”</span></div>
+            
+            
+            <div class="tech-line">💡 突出过去与现在的差异，引发读者反思。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">设问</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“但为什么你还会觉得痛？”</span></div>
+            
+            
+            <div class="tech-line">💡 引发读者思考，增强互动感。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">排比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“他会纠结当年选错了路，后悔没敢跟那个人开口，同时也会懊恼哪一次吵架没有先低头”</span></div>
+            
+            
+            <div class="tech-line">💡 增强语势，列举多种遗憾，引起共鸣。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">引用权威</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“庄子早就讲透了，物无非闭，物无非事”</span></div>
+            
+            
+            <div class="tech-line">💡 借助庄子哲学增加说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">6</span>
+          <div class="tech-body">
+            <div class="tech-name">警示</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“遗憾是会传染的，朋友们，命运也会不断地给你出同一道题”</span></div>
+            
+            
+            <div class="tech-line">💡 用警示性语言引起重视，促使行动。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“时间尺度”视角看待问题</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当遇到纠结的事情时，问自己：这件事在十年后还重要吗？用更长的时间尺度来评估当前烦恼的权重。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 比如因为一次工作失误而自责，可以想：十年后我还会记得这次失误吗？如果不会，就放下它。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">练习“换框”思维</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当觉得错过或失败时，尝试从另一个角度寻找积极意义，问自己：这件事教会了我什么？它可能带来什么新的机会？</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 错过一次晋升，可以想：这让我有时间提升技能，为下一次机会做准备。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">停止用现在的尺子量过去的自己</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当回忆过去并自责时，提醒自己：当时的我已经尽力了，现在的感悟是后来的经历带来的。写下当时的背景和限制，理解自己。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 写日记：当时我只有那些信息，做出那样的选择是合理的。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">识别“逆势”行为并调整</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当发现自己因为害怕选错而停滞不前时，问自己：这是谨慎还是逃避？如果是逃避，就迈出一小步，哪怕是不完美的行动。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 想创业但怕失败，先做市场调研或写商业计划书，而不是空想。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“命运重复出题”提醒自己改变</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当发现自己反复遇到类似问题（如总是拖延、总是错过机会）时，意识到这是同一个课题，主动做出不同的选择。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 如果总是因为犹豫而错过机会，下次遇到机会时，先行动再完善。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">时间尺度思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 将事件放在更长的时间维度中评估其重要性，从而减少对短期得失的过度反应。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在决策或情绪波动时，问自己：这件事在一年、五年、十年后还重要吗？用于缓解焦虑和纠结。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">相对性思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 认识到事物没有绝对的对错，角度不同结论不同，从而更开放地看待选择。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当后悔某个决定时，尝试列出这个决定带来的好处，或者想象另一种选择可能带来的坏处。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">因果链思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 理解现在的状态是过去经历的结果，从而接纳过去，而不是苛责。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当对过去不满时，思考：如果没有那段经历，我会有现在的认知吗？接纳过去是成长的必经之路。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">顺势而为思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 识别什么是顺应自然规律（如向前看），什么是逆势（如停滞不前），并选择顺势。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当感到迷茫时，问自己：我是在顺应生命的流动，还是在抗拒？选择那些能推动自己前进的行动。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">遗憾传染模型</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 认识到遗憾会累积并影响未来，因此要及时止损，避免陷入恶性循环。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当发现自己反复后悔时，提醒自己：现在的后悔正在制造未来的遗憾。立即转移注意力到当下可做的行动上。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">22 块 · 预计背诵 7 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">材料中有几个超长句（如第2、9、10块），建议先按标点拆成小段分别背诵，再连起来。注意“物无非闭，物无非事”等文言表达，可先理解其义再记。第18块“遗憾是会传染的”是转折点，可作记忆锚点。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/人生心法">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">22 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">29 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">从秦朝统一到现在，说白了，也不过是地里的麦子熟了2,000多次而已。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">麦子熟两千次</div>
+            <div class="rc-hint-letters">从说也0</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">36 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而一个人能活70多岁，这漫长的2,000多年里，其实也就是30多个人头尾相连过了一辈子，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">三十代人</div>
+            <div class="rc-hint-letters">而这0其</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">35 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">放在天地这个大熔炉里呢。人的一辈子，短的就像一起庄稼一样，就这十几次迈出。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天地熔炉</div>
+            <div class="rc-hint-letters">放人短就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">30 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而有的人却天天在纠结，他会纠结当年选错了路，后悔没敢跟那个人开口，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">纠结选错路</div>
+            <div class="rc-hint-letters">而他后</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">35 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">同时也会懊恼哪一次吵架没有先低头，觉得这是命不好，觉得是老天爷的惩罚。放屁！</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">懊恼吵架</div>
+            <div class="rc-hint-letters">同觉觉放</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">31 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">因为庄子早就讲透了，物无非闭，物无非事，万事万物呢？没有什么绝对的对错，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">庄子无对错</div>
+            <div class="rc-hint-letters">因物物万没</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">24 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">有时候你以为的错过，换一种角度看，恰恰是另一种成全。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">错过成全</div>
+            <div class="rc-hint-letters">有换恰</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">33 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">就像有人小时候忘记戴红领巾，以为那是天塌的大事，但是其实什么也不会发生，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">红领巾小事</div>
+            <div class="rc-hint-letters">就以但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">37 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">但为什么你还会觉得痛？因为总喜欢拿着现在的这把尺子，去量当时那个还在物理的自己，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">现在尺子量过去</div>
+            <div class="rc-hint-letters">但因去</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">怪自己当时不够勇敢，怪自己太懦弱，却忘了现在的自己能有这些感悟，是得益于当时的他所经历过这些事，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">怪自己忘了感悟</div>
+            <div class="rc-hint-letters">怪怪却是</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">34 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">是曾经他的局限，让如今的自己不那么局限。所以过去的遗憾翻篇了也就翻篇了，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">局限翻篇</div>
+            <div class="rc-hint-letters">是让所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">28 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">不要跟自己计较，也不要跟老天爷计较。但是有一件事咱们得警惕，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">不计较警惕</div>
+            <div class="rc-hint-letters">不也但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">29 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">如果你一直站在现在，天天盯着过去的遗憾看，天天为了当年的事后悔，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">盯着遗憾</div>
+            <div class="rc-hint-letters">如天天</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">40 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么你未来的遗憾很大概率正在被你现在的状态亲手制造出来。这个就是道家所讲的顺势。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">未来遗憾顺势</div>
+            <div class="rc-hint-letters">那这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">39 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而且今天因为害怕选错，所以站在原地不敢动，你因为觉得没准备好，所以想把说的话又咽回去，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">害怕选错</div>
+            <div class="rc-hint-letters">而所你所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">36 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这不叫谨慎，这叫逆势。过去的那个你呢，已经替你背了一次锅，所以变成了现在的你。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">逆势背锅</div>
+            <div class="rc-hint-letters">这这过已所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">45 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而现在的你呢，会用犹豫去给未来再挖一个一模一样的坑。因为有一定阅历的人会发现一个很浅显的道理，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">犹豫挖坑</div>
+            <div class="rc-hint-letters">而会因</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">35 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">遗憾是会传染的，朋友们，命运也会不断地给你出同一道题，直到你做出不同的答案。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">遗憾传染</div>
+            <div class="rc-hint-letters">遗朋命直</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">50 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">如果你只回头看呢，你就是看不见前面的路。只能这样，你不仅会错过过去的风景，你还会把未来的路走得也磕磕绊绊。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">只看回头</div>
+            <div class="rc-hint-letters">如你只你你</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">因为麦子熟是一轮一轮递减的，人也得一点一点向前。你搁置的抉择，回避的本心，迟迟不敢迈出的那一步，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">麦子递减</div>
+            <div class="rc-hint-letters">因人你回迟</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">41 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">并不会永远为你停留，因为往事发生了，他就没办法改写，像那些属于救人的命运，就随他随他而去吧，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">往事不改</div>
+            <div class="rc-hint-letters">并因他像就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">43 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">就当是给我个面子，放过你自己。因为说到底，多年之后回头忘了我们，也只会后悔当年的自己足够用。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">放过自己</div>
+            <div class="rc-hint-letters">就放因多也</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-01 周二</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-01 周二</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-01 周二</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-01 周二</span></td>
+                
+                <td class="context-col">2026-09-02<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-02 周三</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-02 周三</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-02 周三</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-02 周三</span></td>
+                
+                <td class="context-col">2026-09-03<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-03 周四</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-03 周四</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-03 周四</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-03 周四</span></td>
+                
+                <td class="context-col">2026-09-04<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-04 周五</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-04 周五</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-04 周五</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-04 周五</span></td>
+                
+                <td class="context-col">2026-09-05<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-06 周日</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-06 周日</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">810</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 1801 tokens · 输出 2487 tokens ·
+        费用 ¥0.0068
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-09-01
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "人生心法",
+      chunkCount: 22,
+      startDate: "2026-09-01",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>
