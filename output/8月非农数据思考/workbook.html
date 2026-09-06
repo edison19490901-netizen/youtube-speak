@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>8月非农数据思考.srt — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>8月非农数据思考.srt</h1>
+    <div class="meta">本地文件 · 7m 30s · 2764 字</div>
+    <div class="tags">
+      <span class="tag">📄 字幕</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0077 · 5447 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>月非农数据远超预期，但7月数据被大幅下修，数据可信度存疑。</li><li>特朗普公开要求降息至0.5%，而美联储主席沃什坚持抗通胀，双方对峙。</li><li>月是否加息的关键在于9月11日发布的CPI数据。</li><li>若CPI符合或高于预期，加息概率大增；若略低，则可能维持利率不变。</li><li>PCE统计口径调整可能使通胀数据回落，为未来降息铺路。</li><li>作者预测9月可能不加息，但需等待数据验证。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天咱们来聊聊最近闹得沸沸扬扬的美国非农数据和美联储的加息悬念。8月非农数据一出，市场又坐上了过山车，特朗普和美联储主席沃什直接公开对峙，这瓜可太精彩了。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>先说说数据本身，8月非农新增16.2万，远超预期的5.6万，但7月数据却被大幅下修，两个月合计还多出5.5万个岗位。这数据发布跟闹着玩似的，难怪大家都骂不靠谱。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>特朗普一看数据这么好，立马喊话要降息到0.5%，理由是经济够强，高利率不利于贸易和财政。但美联储主席沃什态度强硬，说通胀必须控制在2%以内，否则一切免谈。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>所以9月到底加不加息，关键就看9月11号发布的CPI数据。如果CPI符合或高于预期，那沃什就下不来台，加息概率大增；如果略低，那就能拖一拖，等PCE口径调整后再看。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>我个人觉得，9月加息的可能性不大，因为高利率会加重债务压力，而且PCE统计口径调整后通胀数据可能会更好看，到时候顺水推舟降息才是皆大欢喜。咱们就等着看数据打脸还是验证吧。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>August nonfarm payrolls beat expectations sharply, but July data was revised down, raising credibility concerns.</li><li>Trump publicly demanded rate cuts to 0.5%, while Fed Chair Warsh insisted on fighting inflation, creating a standoff.</li><li>The key to September rate decision lies in the CPI data due September 11.</li><li>If CPI meets or exceeds expectations, a hike is likely; if slightly below, rates may stay unchanged.</li><li>PCE methodology changes may lower inflation readings, paving the way for future cuts.</li><li>The author predicts no hike in September, but awaits data confirmation.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today let&#39;s talk about the recent US nonfarm payrolls and the suspense around the Fed&#39;s rate decision. The August jobs report sent markets on a rollercoaster, with Trump and Fed Chair Warsh openly at odds – it&#39;s quite a show.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>First, the data itself: August nonfarm payrolls surged by 162,000, far above the expected 56,000, but July&#39;s figure was revised down sharply, with the two months combined adding 55,000 more jobs than initially reported. It&#39;s like they&#39;re making it up as they go.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>Trump, seeing the strong data, immediately called for rate cuts to 0.5%, arguing the economy is strong enough and high rates hurt trade and fiscal health. But Fed Chair Warsh remains hawkish, insisting inflation must be under 2% before any cuts.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>So the key to September&#39;s decision lies in the CPI report due September 11. If CPI meets or exceeds expectations, Warsh will be cornered and a hike becomes likely; if it comes in slightly below, they can delay and wait for the PCE methodology change.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Personally, I think a September hike is unlikely because high rates would worsen debt pressure, and the PCE revision might make inflation look better, paving the way for a cut later. Let&#39;s wait and see if the data proves me right or wrong.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以口语化、调侃的风格，围绕8月非农数据和美联储9月利率决议展开分析。结构上先吐槽数据不可靠，再引出特朗普与沃什的对峙，然后提出关键变量CPI，最后给出作者预测。主线清晰，层层递进，语言生动，善用比喻和反讽。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">吐槽非农数据</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">8月非农数据远超预期，但7月数据被下修，数据可信度低。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">8月非农16.2万 vs 预期5.6万；7月数据被大幅下修，两个月合计多出5.5万岗位。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">使用夸张和反讽，如&#39;摇色子摇出来的&#39;，增强批判性。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">特朗普与沃什的对峙</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">特朗普要求降息，沃什坚持抗通胀，形成对峙。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">特朗普公开喊话降息至0.5%；沃什在杰克逊霍尔年会上的鹰派言论。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比手法，突出两人立场差异。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">关键变量：CPI数据</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">9月是否加息取决于9月11日发布的CPI数据。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">CPI预期：整体同比3.4%，核心同比2.4%；时间间隔短，数据影响直接。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">逻辑推演，强调CPI的重要性。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">两种情景分析</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">若CPI符合或高于预期，加息概率高；若略低，则可能维持利率不变。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用沃什原话&#39;我们必须要确信底层通胀正在明确&#39;；分析加息不可持续性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">假设推演，分情况讨论。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">PCE口径调整的玄机</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">PCE统计口径调整可能使通胀数据回落，为降息铺路。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">9月30日PCE统计规则调整，涉及投资、电脑软件和法律服务。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">揭示潜在机制，增加分析深度。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">作者预测与收尾</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">作者预测9月可能不加息，但需数据验证。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">高利率债务压力、PCE调整利好、各方皆大欢喜。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">以&#39;意淫&#39;自嘲，增加亲和力，并邀请读者验证。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">反讽与调侃</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你们几个字，别以为跑到美利坚去就可以跟全世界整好莱坞那一套，演呗。”</span></div>
+            
+            
+            <div class="tech-line">💡 增强批判性，吸引读者注意，使内容更生动。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">对比手法</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“一个呢，叽里呱啦地不停地说要降息，另外一个呢，守身如玉，铿锵有力地说要压通胀。”</span></div>
+            
+            
+            <div class="tech-line">💡 突出双方立场对立，制造戏剧张力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">设问与悬念</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“那么也就是说，如果我们现在要去判断美联储9月份是否加息，最关键的一个数字是什么呢？”</span></div>
+            
+            
+            <div class="tech-line">💡 引导读者思考，增强互动性。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">数据与逻辑推演</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“8月非农新增16.2万，远超预期的5.6万。”</span></div>
+            
+            
+            <div class="tech-line">💡 用数据支撑观点，增强说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">口语化表达</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“那峨眉山的猴子可比你们老实多了。”</span></div>
+            
+            
+            <div class="tech-line">💡 拉近与读者距离，使内容更接地气。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用数据对比拆解新闻事件</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当看到新闻数据时，不要只看表面，要对比历史数据、预期值，并关注后续修正。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 分析非农数据时，对比8月实际值16.2万与预期5.6万，同时查看7月修正值，发现数据波动大，从而质疑其可靠性。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">识别关键决策点</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在分析复杂事件时，找出影响最终结果的关键变量或时间点。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 判断美联储9月是否加息，关键看9月11日CPI数据，因为它是决议前最后一个重要数据。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">分情景推演预测</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 对不确定的未来，列出几种可能情景，并分析每种情景下的结果。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 假设CPI符合预期，则加息概率高；若低于预期，则可能维持利率不变。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">利用规则变化分析影响</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 关注统计口径、政策规则的变化，它们可能改变数据表现。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · PCE统计口径调整后，历史数据重算，可能使通胀读数下降，影响政策决策。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">第一性原理思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 抛开表面现象，回归事物本质。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 分析美联储决策时，思考其核心目标（通胀控制）而非短期数据波动。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">博弈论思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 考虑多方参与者（总统、美联储、市场）的立场和策略。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 理解特朗普与沃什的对峙，预测他们可能采取的行动。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">概率思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 用概率而非确定性思考问题。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 评估加息可能性时，根据数据发布概率调整判断。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">逆向思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 从结果反推原因或条件。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 如果PCE调整后通胀下降，那么美联储可能降息，从而提前布局。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">31 块 · 预计背诵 24 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">这份材料口语化强，长句多，且夹杂不少谐音错别字（如飞农、飞龙、沃乐、卧室等），背诵时容易卡壳。建议先通读理解大意，再按意群逐块背诵；遇到超长句可先拆成短句，用提示词串联；注意区分相似人名（沃什/沃乐/卧室）和术语（CPI/PCE），可结合上下文记忆。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/8月非农数据思考">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">31 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">61 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">唉，你们可真行啊， 要不然大家都骂你们假的？这7月份飞农是负数， 远远低于预期。8月的飞农呢？又大爆16.2万，远远高于市场预期的5.6万人对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">非农数据反差</div>
+            <div class="rc-hint-letters">唉你要这远8又2远6</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">71 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">敢去你们这坐国山车呢？你说7月份世界杯结束，就业回落我可以理解， 8月份凭啥对吧？还主要是靠餐饮服务拉动， 等于你们美国人上个月失业了，都得下馆子去庆祝一下呗？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">质疑8月数据</div>
+            <div class="rc-hint-letters">敢你就8还等都</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">67 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">还有啊， 上个月的数据就不准， 那起始是不准，简直离谱。这次飞龙大幅修正了6月、7月两个月的数据， 两个月呢，合计新增的岗位比最初统计的多出了5.5万个。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">数据修正离谱</div>
+            <div class="rc-hint-letters">还上那简这7两合5</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">50 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">等于你们发布数据都是靠猜呗？连估都算不上估，哪有那么大偏差呀？这么大的偏差，我只能认为你们是摇色子摇出来的。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">数据靠猜</div>
+            <div class="rc-hint-letters">等连哪这我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">84 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这还没完， 这数据一出啊，老特就直接开始公开喊话，说利率应该降到0.5%甚至更低，看把你们总统大人给吓了， 要知道上周沃什才在杰克逊霍尔年会上吓了他一大跳， 大放鹰眼加剧预期骤升到了60%以上。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">老特喊话降息</div>
+            <div class="rc-hint-letters">这这老说5看要大</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">76 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">然后呢，这周美颜处理是沃乐又突然放歌说通胀又有降温的迹象， 9月份通胀预期呢，这才下降到了50%左右， 然后昨天这非农数据出来， 加息的概率我看又回到60%了。是不是眼花缭乱的？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">预期反复波动</div>
+            <div class="rc-hint-letters">然这9这然加是</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">95 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我跟你们说啊， 那峨眉山的猴子可比你们老实多了， 你们几个字，别以为跑到美利坚去就可以跟全世界整好莱坞那一套，演呗， 我看你们要怎么演， 反正这几个月下来啊，我相信大家都免疫了，对吧？都得徐哦，好，那现在是演到哪一幕了呢？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">讽刺表演</div>
+            <div class="rc-hint-letters">我那你别演我反我对都好那</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">85 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">就是总统和他亲自提名的这位美联储的主席，在9月的莉莉决议上，形成了这种双边对峙的局面。一个呢，叽里呱啦地不停地说要降息， 另外一个呢，守身如玉，铿锵有力地说要压通胀，要夹洗。有画面感了吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">总统与主席对峙</div>
+            <div class="rc-hint-letters">就在形一叽另守铿要有</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">90 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你说你俩这么紧张的氛围，不得来点音乐， 我们吃瓜群众怕啥呀，我们就是要看你们这场戏接下来怎么演好。那接下来呢，就给大家整点观影指南啊，给大家拆解一下，他们俩的这个瓜，我们接下来应该从哪些角度去吃。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">观影指南</div>
+            <div class="rc-hint-letters">你不我我那就给他我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">74 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">首先，老特这个人有一说一， 这点还是好， 他不会绕弯子对吧？想啥说啥， 他说要降息到0.5%的，这个理由呢，很直接，就说美国现在的经济足够强，所以说没有必要把利率搞得那么高对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">老特直接理由</div>
+            <div class="rc-hint-letters">首老这他想他5这很就所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">美元走得太强了，不利于贸易嘛， 毕竟他骨子里是个商人啊。用他的原话说就是，高利率会让美国在全球的竞争当中处于极其不公平的劣势。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">美元太强不利</div>
+            <div class="rc-hint-letters">美不毕用高</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">102 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">此外呢，过高利息支出肯定还会放大整个联邦政府的财政斥资压力，对吧？特别是债务的压力。当然，以他的性格，我觉得这个可能不是什么问题。所以说对于商人来说的话， 永远希望能够用最低的成本去做生意， 这个才是他最核心的江西的主张。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">财政压力与商人本性</div>
+            <div class="rc-hint-letters">此过对特当以我所永这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">76 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">但是这位美联储主席凯文沃什啊，现在的底线，或者至少说他表现出来的这种底线，非常的清晰， 那就是通胀必须要控制在2%以内， 否则一切免谈，对吧？姿态无比强硬， 守身如玉，寸步不让。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">沃什底线</div>
+            <div class="rc-hint-letters">但现或非那否对姿守寸</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">98 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说即使是现在的这个非农数据很抢眼， 经济的韧性看起来很足， 但是呢，你这些东西在我面前都没有压通胀来得更重要，只要核心通胀回落的速度不及预期，没有向着2%的目标去前进的话，那么不好意思，在9月份我都会考虑去加息。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">通胀优先于数据</div>
+            <div class="rc-hint-letters">所经但你只没那在</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">62 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么也就是说，如果我们现在要去判断美联储9月份是否加息，最关键的一个数字是什么呢？那就是下周五，也就是9月11号啊，911当天发布的 CPI 的数据。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">关键CPI日期</div>
+            <div class="rc-hint-letters">那如最那也9C的</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">150 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这个数据呢，也是9月15号美联储一期会议召开以前的最后一个重要的数据发布。所以说这个数据我们把它看成是今年全年最重要的一个经济数据发布也不为过， 因为这相当于全年利率走向和资产价格走势的一个分水利上个月发布 CPI 的时候呢，咱们单独的做过节目， 我用了精准两个字， 就感觉所有的数据都像是精心编排好的一样， 完美的符合市场的预期。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">CPI重要性</div>
+            <div class="rc-hint-letters">这也所因C的咱我就完</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">92 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么8月份的这个数据，他们又会怎么搞呢？当前大家对于整个8月 CPI 整体同比增长的预期是3.4%，环比呢是增长0.4跟百分之。那更为关键的核心 CPI， 也就是剔除掉能源和食品以后的 CPI 的数据， 这个呢就更有参考意义。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">8月CPI预期</div>
+            <div class="rc-hint-letters">那他当C整4环4那C也C的这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">106 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那市场的预期呢是同比增长2.4%， 环比预期会增长0.3%。那么如果说8月份的数据仍然是像7月数据发布的一样，完美的符合整个市场的预期的话， 甚至是高于这个市场的预期的话，那么其实就是符合像沃石所说的看不到核心通胀有向2%靠近的迹象，对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">核心CPI预期</div>
+            <div class="rc-hint-letters">那4环3那完甚那对</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">90 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么这样一来，9月份的加息概率就很高了， 因为这两个时间隔得太近了呀， 你9月11号发布的数据，9月15号，你不可能说我搞忘了吧，对吧？中间只隔了三天，你也不可能说现在情况已经发生改变，三天过后通知又下来了，对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">加息概率高</div>
+            <div class="rc-hint-letters">那9因你9你对中你三对</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">95 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说如果是真的符合或者是高于市场预期的话， 那卧室他还真下不来这个台， 硬着头皮那也得加呀。所以说如果真的如此的话，我们就可以说卧室这哥们真是可以啊， 那真的是保持独立性，真的是可以不鸟提名他的总统大人。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">沃什硬加息</div>
+            <div class="rc-hint-letters">所那硬所我那真</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">136 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么这样一来呢， 美在和美元又再次走强， 竞价再次下跌， 股市的波动呢，又继续持续地加剧。但是与此同时，我们也要看到，即便是9月份，它真的是加息了， 能持久吗？肯定不能， 因为当前的利率本来就在一个很高的位置上面， 你要是真的下不来台霸王硬上弓的家了， 势必就会进一步的提升美国财政本来就叫苦不迭的债务压力，对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">加息后果</div>
+            <div class="rc-hint-letters">那美竞股又但我即它能肯因你势对</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">83 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">老特怎么想怎么不好说， 但是贝森特肯定是想手撕握实的， 一点面子不给啊，你这小老弟。所以说我个人认为啊，这种情况发生的可能性其实是不大的。别忘了在杰克逊霍尔年会上面卧室的原画师。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">贝森特不满</div>
+            <div class="rc-hint-letters">老但一你所这别</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-23">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 23</span>
+            <span class="rc-size">90 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我们必须要确信底层通胀正在明确， 并且以足够快的速度向目标回落，否则我们就还有工作要做。那这个工作到底是不是嘉喜？那他也没说呀。所以说呢，我个人认为第二种情况发生的概率就会比较高， 那就是什么呢？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">沃什原话</div>
+            <div class="rc-hint-letters">我并否那那所我那</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-24">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 24</span>
+            <span class="rc-size">107 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那就是十一号发布的这个八月份的 CPI 的数字呀， 很有可能会略微的低于市场的预期。比如说你核心 CPI 的市场预期同比是增长2.4%， 那很有可能发布出来的数据就是2.3 或者2.2，而环比呢，可能就是增长0.2 或者是0.1啊，甚至是和上个月持平都有可能。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">预测CPI略低</div>
+            <div class="rc-hint-letters">那C的很比C的4那3或2而可2或1甚</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-25">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 25</span>
+            <span class="rc-size">110 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这么一来呢， 虽然说通胀还是有一点高， 但是也正在向着2%的通胀的目标在前进了呀， 那就说明咱们的工作还是见到了效果的， 只不过这个效果可能还需要进一步的确认。所以说最稳妥的办法还是咱们9月份先维持当前3.5-3.75这个利率不变， 然后呢，我们再做观察，</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">维持利率观察</div>
+            <div class="rc-hint-letters">这虽但那只所57然我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-26">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 26</span>
+            <span class="rc-size">96 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">大家不要忘了，这个月，也就是9月的月底，9月30号， PCE 的统计口径就会发生调整， 投资、电脑软件和法律服务这三个大项的统计规则呢，将会做出调整， 从2021年到现在的全部的 PCE 的历史数值，都会按照新的算法重新去计算和发布一遍。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">PCE口径调整</div>
+            <div class="rc-hint-letters">大这也9P的投电将从P的都</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-27">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 27</span>
+            <span class="rc-size">100 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而最关键的，8月份的 PCE 也会按照这个新的规则口径发布。那这么一来，那就不需要任何的人为操作，就可以从这个客观的规则统计出来的历史数据上面，让整体的通胀毒术全部下沉， 那不就可以进一步的回落到2%的这个目标以内了吗？对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">PCE调整效果</div>
+            <div class="rc-hint-letters">而8P也那那就让那对</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-28">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 28</span>
+            <span class="rc-size">78 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">要知道，相对于核心的 CPI 来说， 核心的 PC1才是美联储更为关注的一个通胀的数值。所以说， 能拖咱们就先拖一拖嘛，等最新的体检报告出来了，咱们再去考虑动不动手术不是更合理更稳妥嘛？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">拖字诀</div>
+            <div class="rc-hint-letters">要相C来核P所能等咱</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-29">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 29</span>
+            <span class="rc-size">84 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">并且这么一来，通胀也回落了，数据也好看了， 也可以顺水推舟地去考虑降息了，总统也不着急了，财长也不着急了，还能够促进经济的增长， 降低全社会的融资成本，对一个月以后的总统的中期选取也有利。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">皆大欢喜</div>
+            <div class="rc-hint-letters">并通数也总财还降对</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-30">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 30</span>
+            <span class="rc-size">118 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而且对于屏幕前的各位来说，你们不就是盼着金价涨吗？你说这么一来不是大家都皆大欢喜吗？何必要现在嘉熙搞得所有人都不开心了， 你说是吧？当然，我这纯属意淫啊， 但是咱们看戏总要有个代入感吧， 就像你看球一样， 即便你是中立的球迷， 你选择其中的一边，你看着也要带劲一点，对吧？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">金价与代入感</div>
+            <div class="rc-hint-letters">而你你何你当我但就即你你对</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-31">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 31</span>
+            <span class="rc-size">66 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么具体的事情发展会不会真的如我所料呢？大家可以收藏一个，要是我说准了，你可以回来夸我，当然，要是我说错了，你就回来打我脸呗！好，那么就10一号再见喽！</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">结尾互动</div>
+            <div class="rc-hint-letters">那大要你当要你好那</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-05 周六</span></td>
+                
+                <td class="context-col">2026-09-06<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-06 周日</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-06 周日</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-06 周日</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-06 周日</span></td>
+                
+                <td class="context-col">2026-09-07<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-07 周一</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-07 周一</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-07 周一</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-07 周一</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 23</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 24</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 25</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 26</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 27</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 28</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 29</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 30</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 31</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">2764</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 3145 tokens · 输出 2302 tokens ·
+        费用 ¥0.0077
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-09-05
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "8月非农数据思考",
+      chunkCount: 31,
+      startDate: "2026-09-05",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

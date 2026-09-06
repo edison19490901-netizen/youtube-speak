@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "material_id": "_English__auto-generated___Why_China_and_not_America_Won_The_EV_Race_BYD_Tesla_Battery_and_Electric_",
+    "title": "[English (auto-generated)] Why China and not America Won The EV Race BYD Tesla Battery and Electric .srt",
+    "language": "en",
+    "source_type": "subtitle",
+    "truncated": false,
+    "created": "2026-09-01"
+  },
+  "material": {
+    "title_suggested": "Why China and not America Won The EV Race BYD Tesla Battery and Electric",
+    "language": "en",
+    "advice": "This material is dense with parallel structures and contrasts (e.g., 'not...but', 'didn't...forced'). Watch out for long sentences with multiple clauses, like chunk 7 and 15. Practice by chunking each into two breaths, and use the hint keywords as anchors. Pay special attention to the list in chunk 15 (lithium, battery, etc.) to avoid missing items.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "Chinese EVs are flooding the world with cars that look like they came from 2035, sometimes for half the price of Western competitors.",
+        "hint": "flooding with futuristic cars"
+      },
+      {
+        "index": 2,
+        "text": "But here's the real question. Why did the EV revolution happen in China and not in America, Germany, or Japan?",
+        "hint": "real question: why China?"
+      },
+      {
+        "index": 3,
+        "text": "For more than 100 years, the global automotive industry was built around one thing, the internal combustion engine, and Western automakers were incredibly good at it.",
+        "hint": "100 years of combustion engine"
+      },
+      {
+        "index": 4,
+        "text": "China tried to catch up, but instead of beating the West at its own game, China eventually realized something much more important. It didn't have to.",
+        "hint": "realized it didn't have to"
+      },
+      {
+        "index": 5,
+        "text": "Because the question was never how do we build a better gasoline car? The question was, what if we build a completely different kind of car?",
+        "hint": "different question: different car"
+      },
+      {
+        "index": 6,
+        "text": "An electric vehicle isn't a car without an engine. It's a giant battery, thousands of electronic components, and increasingly, a computer on wheels.",
+        "hint": "EV is battery, electronics, computer"
+      },
+      {
+        "index": 7,
+        "text": "So, China moved the battlefield away from engine patents the West had spent a century building toward batteries, software, electronics, and manufacturing.",
+        "hint": "moved battlefield to new areas"
+      },
+      {
+        "index": 8,
+        "text": "Decades of Western combustion engine expertise suddenly mattered far less. China didn't beat the West at their game. It forced the world to play a new one.",
+        "hint": "forced new game"
+      },
+      {
+        "index": 9,
+        "text": "Then China did something unexpected. In 2019, it invited Tesla to build its first overseas Gigafactory in Shanghai.",
+        "hint": "invited Tesla to Shanghai"
+      },
+      {
+        "index": 10,
+        "text": "China essentially dropped the world's most aggressive EV company directly into its own market, and the effect was immediate.",
+        "hint": "dropped aggressive EV company"
+      },
+      {
+        "index": 11,
+        "text": "Chinese automakers suddenly had a global benchmark in their backyard. Tesla pushed them. They pushed each other. The competition became brutal.",
+        "hint": "benchmark and brutal competition"
+      },
+      {
+        "index": 12,
+        "text": "Tesla eventually localized roughly 95% of its parts inside China, building out supplier networks and manufacturing density that the entire industry then used.",
+        "hint": "Tesla localized 95% parts"
+      },
+      {
+        "index": 13,
+        "text": "BYD, NIO, XPeng didn't learn from Tesla. They competed against Tesla, and they survived.",
+        "hint": "Chinese EV makers competed and survived"
+      },
+      {
+        "index": 14,
+        "text": "But here's where China's advantage becomes almost impossible to reverse. Western automakers import parts from thousands of miles away.",
+        "hint": "advantage impossible to reverse"
+      },
+      {
+        "index": 15,
+        "text": "China built everything inside one closed-loop system. Lithium mining, battery cells, semiconductors, motors, softwares, assembly, all connected, domestic, and fast.",
+        "hint": "closed-loop system: mining to assembly"
+      },
+      {
+        "index": 16,
+        "text": "That's why a Chinese EV company can go from concept to production vehicle in the time it takes a Western automaker to schedule a board meeting.",
+        "hint": "concept to production quickly"
+      },
+      {
+        "index": 17,
+        "text": "Tariffs can raise the price at the border, but cannot move a supply chain.",
+        "hint": "tariffs can't move supply chain"
+      },
+      {
+        "index": 18,
+        "text": "China didn't necessarily invent every technology inside an EV. It built the industrial system capable of making those technologies inevitable.",
+        "hint": "built system making tech inevitable"
+      },
+      {
+        "index": 19,
+        "text": "Having great technology is one thing. Having the factories, suppliers, materials, and scale to produce millions of them cheaply is something else entirely.",
+        "hint": "technology vs. scale to produce cheaply"
+      },
+      {
+        "index": 20,
+        "text": "That's why the EV revolution happened in China, and the next phase of this battle is already starting.",
+        "hint": "revolution happened, next phase starts"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1132,
+    "completion_tokens": 1094,
+    "total_tokens": 2226,
+    "cost_cny": 0.00332
+  }
+}

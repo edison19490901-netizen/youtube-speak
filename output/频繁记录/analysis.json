@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "language": "zh",
+    "source_type": "video",
+    "title": "频繁记录.mp4",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "频繁且大量记录自己，是改变习惯和命运的有效方法，但需要避开盲目记录的陷阱。\n记录要区分工作类和生活类，工作类结果导向，生活类情绪导向。\n工作类记录五步法：列目标、列行为、列流程、列结果、列优化，能提升工作效率和全局思维。\n生活类记录五步法：列事件、列感受、观感受、评价感受、列结论，能帮助觉察情绪、减少内耗。\n记录周期不必每天，可选择一周或一月，记录印象最深的事，避免压力。\n坚持记录能发现人生规律，实现自我成长。",
+    "summary_en": "Frequent and massive self-recording is an effective way to change habits and destiny, but avoid the trap of blind recording.\nSeparate work-related and life-related records: work records are result-oriented, life records are emotion-oriented.\nWork record five-step method: list goals, list actions, list processes, list results, list optimizations, improving efficiency and holistic thinking.\nLife record five-step method: list events, list feelings, observe feelings, evaluate feelings, list conclusions, helping emotional awareness and reducing internal friction.\nRecording frequency can be weekly or monthly, focusing on the most impressive events to avoid pressure.\nConsistent recording reveals life patterns and fosters self-growth.",
+    "script_zh": [
+      "大家好，今天我想和大家聊聊一个特别有效但常被误解的习惯——频繁且大量地记录自己。我自己坚持了十三年，从自卑到高能量，从迷茫到提前实现人生目标，所以特别有底气分享。",
+      "首先，我们要避开一个误区：记录不是让你每天写流水账，也不是发朋友圈或微博。盲目记录只会让你更焦虑。正确的记录要分板块，工作类和生活类必须分开，因为它们的逻辑完全不同。",
+      "工作类记录是结果导向，我总结为五步：列目标、列行为、列流程、列结果、列优化。比如我转行运营后，用这个方法两年工资翻四倍，成长飞快。",
+      "生活类记录是情绪导向，也分五步：列事件、列感受、观感受、评价感受、列结论。这能帮你觉察情绪，减少内耗。比如我和家人因工作争吵后，用这个方法复盘，后来就很少再吵了。",
+      "记录不需要每天做，可以选一周或一月，记录印象最深的事。这样没有压力，还能集中精力。每个月给自己半天时间，倾听自己的声音，你会发现自己的规律，慢慢变强。",
+      "如果你真的想改变，从现在开始记录自己，坚持一年，你一定会发现全新的自己。期待明年在评论区看到你的变化！"
+    ],
+    "script_en": [
+      "Hi everyone, today I want to talk about a powerful yet often misunderstood habit: frequent and massive self-recording. I've been doing this for thirteen years, and it transformed me from insecure to high-energy, from lost to achieving my life goals early. So I feel confident sharing this.",
+      "First, let's avoid a common trap: recording is not about writing daily journals or posting on social media. Blind recording only increases anxiety. The right way is to separate work and life records, because they follow different logics.",
+      "Work records are result-oriented. I use a five-step method: list goals, list actions, list processes, list results, and list optimizations. For example, after switching to operations, I quadrupled my salary in two years using this method.",
+      "Life records are emotion-oriented. Another five-step method: list events, list feelings, observe feelings, evaluate feelings, and list conclusions. This helps you become aware of your emotions and reduce internal friction. For instance, after a fight with my family about work, I used this to reflect, and we rarely argue about it now.",
+      "You don't need to record every day. Choose a weekly or monthly cycle, and record the most impressive events. This avoids pressure and keeps you focused. Give yourself half a day each month to listen to your inner voice, and you'll discover your own patterns and grow stronger.",
+      "If you truly want to change, start recording yourself now. Stick with it for a year, and you'll find a brand new you. I look forward to seeing your progress in the comments next year!"
+    ]
+  },
+  "deconstruction": {
+    "overview": "文章以个人经验为背书，先破后立，指出常见误区，再提出分板块记录的核心原则，并分别给出工作与生活记录的五步法，最后强调记录周期与坚持的意义。结构清晰，逻辑层层递进，语言口语化且富有感染力，善用对比和案例。",
+    "sections": [
+      {
+        "title": "个人背书与主题引入",
+        "role": "引入",
+        "argument": "作者有资格分享记录经验，因为坚持十三年且效果显著。",
+        "evidence": "作者自称全网最精准最落地的博主之一，有十三年记录经验，从自卑到高能量，从迷茫到提前实现人生状态。",
+        "technique": "自我权威建立（个人经历背书）"
+      },
+      {
+        "title": "指出误区",
+        "role": "提出论点（反面论证）",
+        "argument": "市面上教的大量记录方法是错误的，盲目记录只会增加焦虑。",
+        "evidence": "举例：发抖音、微博、朋友圈，写流水账日记，每日复盘变成日报周报，没有意义且难坚持。",
+        "technique": "列举反面案例，对比"
+      },
+      {
+        "title": "核心原则：分板块记录",
+        "role": "提出核心论点",
+        "argument": "记录必须分板块，工作类和生活类要分开，因为逻辑和目的不同。",
+        "evidence": "工作类结果导向，生活类情感导向；用理性对待感性会难过，用感性对待理性会出错。",
+        "technique": "对比论证，逻辑推演"
+      },
+      {
+        "title": "工作类记录五步法",
+        "role": "论证（方法论）",
+        "argument": "工作类记录采用结果导向的五步法，能提升工作效率和全局思维。",
+        "evidence": "作者转行运营两年工资翻四倍，以一个月做一万粉丝为例，详细说明五步：列目标、列行为、列流程、列结果、列优化。",
+        "technique": "案例教学，步骤分解"
+      },
+      {
+        "title": "生活类记录五步法",
+        "role": "论证（方法论）",
+        "argument": "生活类记录采用情绪导向的五步法，能帮助觉察情绪、减少内耗。",
+        "evidence": "作者从INFP变为INTJ，以和家人因工作争吵为例，说明五步：列事件、列感受、观感受、评价感受、列结论。",
+        "technique": "案例教学，步骤分解"
+      },
+      {
+        "title": "记录周期与坚持",
+        "role": "转折与结论",
+        "argument": "记录不需要每天做，可选择周期，记录印象最深的事，坚持才能见效。",
+        "evidence": "作者自己每月记录一次，记录印象最深的事，给自己半天时间倾听自己，找到人生规律。",
+        "technique": "个人经验总结，呼吁行动"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "个人经历背书",
+        "example": "我记录自己已经有十三年之久，从自卑成长为高能量，从迷茫无措到提前实现自己的人生状态。",
+        "effect": "建立信任感，让读者觉得方法有实证，增强说服力。"
+      },
+      {
+        "name": "先破后立",
+        "example": "首先我要说一个误区……盲目的大量记录只会让你的生活更加焦虑。",
+        "effect": "先否定常见错误做法，再引出正确方法，形成对比，加深印象。"
+      },
+      {
+        "name": "对比论证",
+        "example": "工作类的记录是结果导向……而生活类的记录是情感导向……",
+        "effect": "清晰区分两种记录的本质，避免混淆，让读者理解为什么必须分开。"
+      },
+      {
+        "name": "步骤分解",
+        "example": "工作类记录的原则是结果导向，分为五步……第一步是列目标……",
+        "effect": "将复杂方法拆解成可执行步骤，便于读者模仿和操作。"
+      },
+      {
+        "name": "案例教学",
+        "example": "为了帮大家更好的理解，我会以自己一个月做一万粉丝的这个故事为例……",
+        "effect": "用具体案例说明抽象方法，让读者更容易理解和应用。"
+      },
+      {
+        "name": "呼吁行动",
+        "example": "非常期待大家从现在就可以开始记录自己，坚持一年，你一定会发现一个全新的自己。",
+        "effect": "激发读者立即行动，增强视频的转化力。"
+      }
+    ]
+  },
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "工作复盘五步法",
+        "how_to_apply": "每次完成一个项目或阶段性工作后，按五步记录：列目标（当初想达成什么）、列行为（实际做了哪些事）、列流程（精简关键步骤）、列结果（与目标的差距）、列优化（下次如何改进）。",
+        "example": "假设你负责一个公众号涨粉项目，目标是一个月涨粉1000。记录实际行为：发布了10篇文章，做了3次互推。流程：选题、写作、推广。结果：涨粉800，差距200。优化：增加短视频引流。"
+      },
+      {
+        "skill": "情绪复盘五步法",
+        "how_to_apply": "当经历强烈情绪事件后，找个安静时间，写下：列事件（发生了什么）、列感受（当时的情绪）、观感受（深挖情绪根源）、评价感受（以旁观者视角看待）、列结论（下次如何应对）。",
+        "example": "和同事发生冲突，写下事件：同事在会议上否定我的方案。感受：愤怒、委屈。观察：其实是因为我觉得被轻视。评价：同事可能只是就事论事。结论：以后先冷静，再沟通。"
+      },
+      {
+        "skill": "定期自我倾听",
+        "how_to_apply": "设定固定周期（如每月一次），留出半天时间，回顾这段时间内印象最深的工作和生活事件，用上述方法记录，并总结规律。",
+        "example": "每月最后一个周末的下午，关闭手机，拿出笔记本，写下本月最开心的三件事和最困扰的三件事，分别用工作法和生活法复盘。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "结果导向思维",
+        "explanation": "做任何事都先明确目标，然后倒推行为，以结果衡量成效。",
+        "how_to_use": "适用于工作项目、学习计划等有明确目标的场景。在行动前先问：我要达到什么结果？然后设计行为路径，事后用结果对比目标，找出差距。"
+      },
+      {
+        "model": "情绪觉察思维",
+        "explanation": "把情绪当作观察对象，而不是被情绪控制，通过记录和反思来理解情绪背后的原因。",
+        "how_to_use": "适用于情绪波动时，如争吵、焦虑、沮丧。先暂停，写下感受，然后问自己：为什么会有这种情绪？它反映了什么深层需求？如何理性应对？"
+      },
+      {
+        "model": "全局视角思维",
+        "explanation": "通过梳理流程和步骤，跳出细节，看到整个系统的运作，从而优化决策。",
+        "how_to_use": "适用于复杂任务或团队协作。定期将工作步骤流程化，找出冗余环节，优化整体效率。"
+      },
+      {
+        "model": "自我教练思维",
+        "explanation": "把自己当作被教练的对象，通过提问和反思引导自己成长，而不是依赖他人。",
+        "how_to_use": "在遇到困难或迷茫时，像教练一样问自己：我的目标是什么？我有哪些资源？下一步最小行动是什么？"
+      }
+    ]
+  },
+  "golden_words": null,
+  "usage": {
+    "prompt_tokens": 2776,
+    "completion_tokens": 2623,
+    "total_tokens": 5399,
+    "cost_cny": 0.008022
+  }
+}
