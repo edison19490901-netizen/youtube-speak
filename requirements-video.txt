@@ -1,0 +1,4 @@
+# 本地视频/音频转写（可选）——只有需要「上传视频/音频」输入时才安装
+#   pip install -r requirements-video.txt
+# 另需系统 ffmpeg（抽音频），Windows: winget install ffmpeg
+faster-whisper>=1.2.0

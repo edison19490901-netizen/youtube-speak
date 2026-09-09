@@ -27,9 +27,12 @@
 ### 在线使用（无需安装）
 
 部署到 [Render](https://render.com) 后，浏览器打开即可使用：
-1. 粘贴文本 / 输入视频或文章链接 / 上传文档（.srt / .txt / .md / .docx / .pdf）
-2. 等待 AI 解读（约 10-60 秒）
+1. 粘贴文本 / 输入视频或文章链接 / 上传文档（.srt / .txt / .md / .docx / .pdf） / 上传本地视频或音频
+2. 等待 AI 解读（文本/链接/文档约 10-60 秒；上传的视频会先在本机转写，耗时随时长与机器性能而定）
 3. 在线查看 / 打印解读看板
+
+> 上传视频/音频的转写发生在服务器所在机器（faster-whisper 本地转写），
+> 需要该机器装有 ffmpeg 与 faster-whisper。Render 免费实例内存有限，建议主要在本机使用此功能。
 
 ### 本地运行
 
@@ -65,6 +68,22 @@ cat article.txt | python -m article_understand -t "标题"
 | 粘贴文本 | 直接把文章/博客正文粘贴到网页或 stdin |
 | 链接 | 视频链接自动获取字幕；网页文章链接自动抓取正文 |
 | 文件 | `.srt` 按字幕处理；`.txt` / `.md` / `.docx` / `.pdf` 按文章处理 |
+| 视频/音频文件 | 上传 `.mp4/.mov/.mkv/.webm/.mp3/.m4a/.wav/…` 视频或音频，先本地转写为字幕再解读（需 ffmpeg + faster-whisper，见下） |
+
+### 上传本地视频 / 音频
+
+网页里的「上传视频 / 音频」用 [faster-whisper](https://github.com/SYSTRAN/faster-whisper) 在**本地**做语音转写，免费、无需额外密钥：
+
+```bash
+# 1. 安装转写依赖（可选；不影响文本/链接/文档输入）
+pip install -r requirements-video.txt
+# 2. 确保系统装了 ffmpeg（抽音频用）
+#    Windows: winget install ffmpeg     macOS: brew install ffmpeg
+```
+
+- 首次转写会自动从 HuggingFace 下载识别模型（默认 `small`，约 460MB），之后复用缓存
+- 常用环境变量：`WHISPER_MODEL`（tiny/base/small/medium）、`WHISPER_DEVICE`（cuda/cpu）、`WHISPER_COMPUTE_TYPE`
+- 模型下载若因网络受限失败，可设镜像：`set HF_ENDPOINT=https://hf-mirror.com`（Windows）或 `export HF_ENDPOINT=...`（macOS/Linux）
 
 语言自动检测（中文材料不生成「金句单词」板块）。
 
@@ -84,3 +103,5 @@ cat article.txt | python -m article_understand -t "标题"
 - **DeepSeek API** — AI 解读（OpenAI 兼容，成本极低）
 - **Jinja2** — 模板渲染
 - **Click** — CLI 框架
+- **faster-whisper**（可选）— 本地视频/音频转写，`pip install -r requirements-video.txt`
+- **ffmpeg**（可选，系统级）— 上传视频时抽音频

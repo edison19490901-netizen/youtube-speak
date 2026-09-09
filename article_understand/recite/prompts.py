@@ -11,6 +11,7 @@ _SOURCE_LABELS = {
     "blog": "博客",
     "speech": "演讲稿",
     "subtitle": "字幕文本",
+    "video": "视频口播（转写字幕）",
 }
 
 

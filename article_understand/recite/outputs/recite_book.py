@@ -30,6 +30,7 @@ _SOURCE_LABELS = {
     "blog": "博客",
     "speech": "演讲稿",
     "subtitle": "字幕",
+    "video": "视频",
 }
 
 

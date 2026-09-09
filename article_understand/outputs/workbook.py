@@ -17,7 +17,7 @@ from ..utils import format_duration
 TEMPLATE_DIR = Path(__file__).parent.parent / "templates"
 
 _LANG_LABELS = {"zh": "中文", "en": "English"}
-_SOURCE_LABELS = {"article": "文章", "blog": "博客", "subtitle": "字幕"}
+_SOURCE_LABELS = {"article": "文章", "blog": "博客", "subtitle": "字幕", "video": "视频"}
 
 
 def generate(
@@ -46,7 +46,7 @@ def generate(
     template = env.get_template("article.html.j2")
 
     duration_str = format_duration(subtitle_info.duration_seconds)
-    if subtitle_info.subtitle_type != "subtitle":
+    if subtitle_info.subtitle_type not in ("subtitle", "video"):
         duration_str = ""  # 文章/博客不显示（无实际时长）
     lang = analysis.meta.language
 

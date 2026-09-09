@@ -9,6 +9,9 @@ __pycache__/
 # Subtitles (downloaded / local)
 *.srt
 
+# Local whisper models (downloaded, ~460MB each, not committed)
+models/
+
 # IDE
 .vscode/
 .idea/

@@ -30,6 +30,10 @@ from article_understand.downloader import (
     SubtitleInfo,
 )
 from article_understand.parser import parse_srt, parse_file, parse_article, detect_language
+from article_understand.transcriber import (
+    transcribe_to_srt,
+    SUPPORTED_EXTS as MEDIA_SUPPORTED_EXTS,
+)
 from article_understand.analyzer import analyze, save_analysis, load_analysis
 from article_understand.outputs.workbook import generate as generate_workbook
 from article_understand.recite.analyzer import (
@@ -50,7 +54,7 @@ app = Flask(__name__)
 OUTPUT_ROOT = Path(__file__).parent / "output"
 
 _LANG_LABELS = {"zh": "中文", "en": "English"}
-_SOURCE_LABELS = {"article": "文章", "blog": "博客", "subtitle": "字幕"}
+_SOURCE_LABELS = {"article": "文章", "blog": "博客", "subtitle": "字幕", "video": "视频"}
 
 # ── 首页 ────────────────────────────────────
 
@@ -97,7 +101,7 @@ HOME_HTML = """<!DOCTYPE html>
     cursor:pointer; transition:background 0.2s;
   }
   button:hover { background:#d63850; }
-  .msg { padding:12px; border-radius:6px; font-size:13px; margin-top:12px; display:none; }
+  .msg { padding:12px; border-radius:6px; font-size:13px; margin-top:12px; display:none; white-space:pre-line; }
   .msg.info { background:#e8f4fd; color:#1a6aaa; }
   .msg.done { background:#e6f9e6; color:#2a7a2a; }
   .msg.err { background:#fde8e8; color:#a33; }
@@ -108,21 +112,32 @@ HOME_HTML = """<!DOCTYPE html>
 <body>
 <div class="wrap">
   <h1>🧠 智读</h1>
-  <p class="sub">粘贴文本 · 视频/文章链接 · 上传文档，一键生成深度解读看板</p>
+  <p class="sub">粘贴文本 · 视频/文章链接 · 上传文档 · 上传视频，一键生成深度解读看板</p>
 
   <div class="card">
     <h2>📥 输入材料</h2>
-    <form method="POST" action="/process" enctype="multipart/form-data">
+    <form id="main-form" method="POST" action="/process" enctype="multipart/form-data">
       <label>粘贴文本</label>
       <textarea name="text" placeholder="把文章 / 博客 / 字幕正文粘贴到这里…">{{ text or '' }}</textarea>
       <label>视频 / 文章链接</label>
       <input name="url" type="url" placeholder="https://…（视频链接自动获取字幕，文章链接自动抓取正文）" value="{{ url or '' }}">
       <label>上传文档</label>
       <input name="file" type="file" accept=".srt,.txt,.md,.rtf,.docx,.pdf">
+      <label>上传视频 / 音频</label>
+      <input name="video" type="file" accept=".mp4,.mov,.m4v,.mkv,.webm,.avi,.mp3,.m4a,.wav,.aac,.flac,.ogg,.opus">
       <label>标题（可选）</label>
       <input name="title" type="text" placeholder="给这份解读取个名字">
-      <p class="hint">以上三种方式任选其一：文本、链接（视频/文章）、或文档（.srt / .txt / .md / .docx / .pdf）</p>
-      <button type="submit">🚀 生成解读</button>
+      <p class="hint">任选其一：文本、链接（视频/文章）、文档（.srt / .txt / .md / .docx / .pdf），或上传本地视频/音频（自动转写为文字，首次需下载识别模型）</p>
+      <button id="go-btn" type="submit">🚀 生成解读</button>
+      <script>
+      (function () {
+        var form = document.getElementById('main-form');
+        var btn = document.getElementById('go-btn');
+        if (form) form.addEventListener('submit', function () {
+          if (btn) { btn.disabled = true; btn.textContent = '⏳ 处理中… 上传视频会先转写（可能数分钟），请勿关闭页面'; }
+        });
+      })();
+      </script>
     </form>
   </div>
 
@@ -208,6 +223,7 @@ def process():
     url = request.form.get("url", "").strip()
     text = request.form.get("text", "").strip()
     uploaded = request.files.get("file")
+    video_uploaded = request.files.get("video")
     title = request.form.get("title", "").strip()
     api_key = _load_api_key()
 
@@ -228,10 +244,12 @@ def process():
             parsed, info, uploader = _from_text(text, title)
         elif uploaded and uploaded.filename:
             parsed, info, uploader = _from_upload(uploaded, title)
+        elif video_uploaded and video_uploaded.filename:
+            parsed, info, uploader = _from_video(video_uploaded, title)
         else:
             return render_template_string(
                 HOME_HTML,
-                error="请粘贴文章文本、输入链接或上传文件。",
+                error="请粘贴文章文本、输入链接、上传文档或上传视频。",
                 title=title,
             )
 
@@ -645,6 +663,67 @@ def _from_upload(uploaded, title: str) -> tuple:
         subtitle_path=file_path,
         subtitle_type=source_type,
         language="en",
+    )
+    return parsed, info, info.uploader
+
+
+def _from_video(uploaded, title: str) -> tuple:
+    """上传视频/音频 → 本地转写为字幕 → 按字幕解析。
+
+    依赖: 系统 ffmpeg（抽音频）+ faster-whisper（转写，首次自动下载模型）。
+    若缺依赖，抛出带安装指引的 RuntimeError。
+    """
+    suffix = Path(uploaded.filename).suffix.lower()
+    if suffix not in MEDIA_SUPPORTED_EXTS:
+        raise ValueError(
+            f"不支持的文件格式: {suffix or '（无扩展名）'}。\n"
+            "请上传常见视频/音频：.mp4 / .mov / .mkv / .webm / .avi / "
+            ".mp3 / .m4a / .wav / .flac / .ogg 等。"
+        )
+
+    # 保存到临时目录（用随机名，避免非 ASCII 文件名影响 ffmpeg）
+    tmp_dir = Path(tempfile.gettempdir()) / "article_understand_media"
+    tmp_dir.mkdir(exist_ok=True)
+    media_path = tmp_dir / f"media_{hashlib.md5(uploaded.filename.encode('utf-8', 'ignore')).hexdigest()[:8]}{suffix}"
+    uploaded.save(str(media_path))
+
+    # 目标目录: output/<safe_id>/，与其它输入方式一致
+    stem = Path(uploaded.filename).stem
+    safe_id = _slug(stem) or "video_upload"
+    video_dir = OUTPUT_ROOT / safe_id
+    srt_path = video_dir / "input.srt"
+
+    # 转写（同步；耗时与视频长度、机器性能有关）
+    try:
+        video_dir.mkdir(parents=True, exist_ok=True)
+        transcript = transcribe_to_srt(media_path, srt_path)
+    except Exception:
+        # 转写失败（如静音/缺依赖/模型下载失败），清理可能残留的空目录
+        try:
+            if video_dir.exists() and not any(video_dir.iterdir()):
+                video_dir.rmdir()
+        except Exception:
+            pass
+        raise
+    finally:
+        # 转写后及时清理上传的原始媒体文件
+        try:
+            media_path.unlink(missing_ok=True)
+        except Exception:
+            pass
+
+    parsed = parse_srt(srt_path)
+    if parsed.word_count == 0:
+        raise ValueError("未能从该媒体中识别到有效文字内容，请换一段含清晰语音的视频。")
+
+    info = SubtitleInfo(
+        video_id=safe_id,
+        video_title=title or uploaded.filename,
+        uploader="上传视频",
+        duration_seconds=transcript.duration_seconds,
+        subtitle_path=srt_path,
+        subtitle_type="video",
+        language=transcript.language,
     )
     return parsed, info, info.uploader
 
