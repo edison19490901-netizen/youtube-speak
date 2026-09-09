@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>各国正在加速从美国运回黄金.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>各国正在加速从美国运回黄金.mp4</h1>
+    <div class="meta">上传视频 · 9m 2s · 3336 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0077 · 5504 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>各国正加速将存放在美国的黄金运回本土，德国、法国、荷兰等欧洲国家率先行动，全球已有15国完成或宣布撤回黄金。</li><li>运回黄金的主要原因是担忧美元武器化、美元信用下滑、历史经验教训以及对美国黄金储备真实性的疑虑。</li><li>全球央行对黄金存放地的偏好已从流动性转向安全性，59%的央行倾向于将黄金存放在本国。</li><li>运回黄金本身不会直接引发金融危机，但它是全球货币信用体系重构的重要信号，各国在为未来变数提前布局。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们来聊一个最近很热的话题：为什么越来越多的国家，都在把存放在美国的黄金运回本土？这背后到底释放了什么信号？对我们普通人又有什么启示？</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>首先，我们看看有哪些国家在行动。德国从2013年开始，五年内运回了674吨黄金；法国更彻底，直接通过交易方式，把存放在纽约的黄金全部清零；荷兰也在今年宣布，把存放在纽约的黄金比例从31.3%降到了18.5%。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>这些国家为什么要这么做？最核心的原因是担心美元武器化。俄乌冲突后，俄罗斯海外资产被冻结，给所有国家敲了警钟。另外，美债突破40万亿，美元信用下滑，黄金作为独立资产，自然成了各国央行的首选。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>还有一点，就是历史教训。上世纪60年代，法国带头用美元换黄金，最终导致美元与黄金脱钩。现在各国运回黄金，本质上是对美元信用的重新审视。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>那么，运回黄金会不会引发金融危机？其实不会。它只是各国央行调整储备布局，不是抛售美元资产。但它确实是一个信号：全球货币体系正在缓慢重构，各国都在为未来可能的风险做准备。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>所以，我们普通人要从中看到什么？那就是在不确定性增加的时代，安全比流动性更重要。无论是国家还是个人，都需要为可能的变数提前布局。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Countries are accelerating the repatriation of gold stored in the U.S., with Germany, France, and the Netherlands leading the move; 15 countries have completed or announced gold repatriation.</li><li>Key reasons include concerns over dollar weaponization, declining dollar credit, historical lessons, and doubts about the authenticity of U.S. gold reserves.</li><li>Central banks&#39; preference for gold storage has shifted from liquidity to security, with 59% now favoring domestic storage.</li><li>Gold repatriation itself won&#39;t trigger a financial crisis, but it signals a slow restructuring of the global monetary system as countries hedge against future uncertainties.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today, let&#39;s talk about a hot topic: why are more and more countries repatriating their gold stored in the U.S.? What signals does this send, and what can we learn from it?</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>First, let&#39;s see which countries are acting. Germany started in 2013 and brought back 674 tons over five years; France went further by selling its gold in New York and buying equivalent gold in Europe, zeroing out its holdings there; the Netherlands also reduced its gold stored in New York from 31.3% to 18.5% this year.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>Why are they doing this? The core reason is the fear of dollar weaponization. After the Russia-Ukraine conflict, Russia&#39;s overseas assets were frozen, which served as a wake-up call. Additionally, with U.S. debt exceeding $40 trillion, dollar credit is declining, making gold an attractive independent asset.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>There&#39;s also a historical lesson. In the 1960s, France led the way in exchanging dollars for gold, eventually leading to the end of the gold-dollar peg. Now, repatriating gold is essentially a re-evaluation of dollar credit.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>So, will this trigger a financial crisis? No, it won&#39;t. It&#39;s just central banks adjusting their reserve allocations, not selling dollar assets. But it is a signal: the global monetary system is slowly restructuring, and countries are preparing for potential risks.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>So, what should we take away? In times of uncertainty, security matters more than liquidity. Whether for nations or individuals, it&#39;s wise to prepare for possible changes in advance.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">文章以设问开篇，引出黄金回流的主题，然后列举各国行动，分析原因，最后回应是否引发金融危机并升华到全球货币体系重构。结构清晰，层层递进，运用数据、案例、历史对比和权威引用，语言口语化，适合视频口播。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">4 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">开篇设问</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">提出核心问题：为什么各国运回黄金，是否预示金融危机，普通人应看到什么信号。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">无具体论据，仅用问题吸引注意。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问引入，制造悬念。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">各国行动盘点</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">列举德国、法国、荷兰等国的具体行动，说明黄金回流潮的规模。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">德国运回674吨，法国清零，荷兰降低比例，15国参与，总量6900吨。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列数据、举例子，增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">原因分析</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">从四个角度解释运回黄金的原因：美元武器化、美元信用担忧、历史经验、缺乏第三方审计。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">俄乌冲突冻结资产、美债40万亿、戴高乐历史、黄金租赁疑虑。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">分点论述，逻辑清晰，引用历史事件。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折与结论</span>
+            <span class="sec-title">回应金融危机疑问</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">运回黄金不会直接引发金融危机，但它是全球货币体系重构的信号。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">对比2008年金融危机和1971年尼克松冲击，指出运回黄金是储备调整而非抛售美元。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比论证，澄清误解，升华主题。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">设问开篇</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“为什么现在越来越多的国家 都选择把存放在美国的黄金运回本土 难道是新一轮的全球金融危机又要来了吗”</span></div>
+            
+            
+            <div class="tech-line">💡 立即抓住听众注意力，引出话题。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">数据支撑</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“在2013年到2017年这五年的时间里面 德国一共运回了674顿黄金”</span></div>
+            
+            
+            <div class="tech-line">💡 用具体数字增强可信度和冲击力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">历史对比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“在上个世纪60年代 戴高乐总统就率先带领法国 用手里的所有的美元 去把黄金换回本土”</span></div>
+            
+            
+            <div class="tech-line">💡 通过历史相似事件，强化论点，增加深度。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">分点论述</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“我总结了以下四个原因 第一个就是美元的武器款”</span></div>
+            
+            
+            <div class="tech-line">💡 使内容条理清晰，便于听众跟随。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">口语化表达</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你说我们不选择放在美国 可以理解 但这些国家不都是你老美 在欧洲的盟友吗”</span></div>
+            
+            
+            <div class="tech-line">💡 拉近与听众距离，增强互动感。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“黄金圈法则”拆解一个决策</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 面对一个重大决策时，先问为什么（动机），再问怎么做（方法），最后问做什么（行动）。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 比如决定是否换工作：为什么想换（发展空间），怎么做（更新简历、面试），做什么（投递目标公司）。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用数据支撑观点</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在表达观点时，尽量引用具体数据、案例或权威来源，增强说服力。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 在讨论投资时，引用“过去10年全球央行运回6900吨黄金”来支持黄金避险的观点。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">分点陈述复杂问题</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 将复杂问题拆解成几个要点，逐一说明，使逻辑清晰。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 分析“为什么运回黄金”时，列出四个原因，每个原因单独解释。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用历史类比预测趋势</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 研究类似历史事件，对比当前情况，推断可能的发展方向。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 参考1971年美元脱钩的历史，分析当前黄金回流可能对美元体系的影响。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">风险对冲思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 在不确定性中，通过多元化配置降低单一资产风险。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 个人理财时，不把所有资金投入单一资产，而是分散投资。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">信号识别思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 从现象中识别深层信号，而非只看表面。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 看到各国运回黄金，不仅看作资产转移，而是识别出全球货币体系变化的信号。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">安全优先思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 在决策时，将安全性置于流动性之上，尤其在动荡时期。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 选择存款银行时，优先考虑其安全性而非利率高低。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">历史借鉴思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 从历史事件中提取经验，指导当前决策。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 研究历史上的货币危机，理解当前经济政策可能的影响。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">31 块 · 预计背诵 28 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">这份材料是视频口播，口语化强，但包含大量数字、国名和年份，容易记混。建议先按“原因四点和结论”的框架记忆，再填充细节。遇到长句（如第5块）可拆成“交易方式”和“法国储备”两个短句背。注意“反乡”“回前潮”等口误，按原文背即可，不必纠正。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/各国正在加速从美国运回黄金">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">31 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">103 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">为什么现在越来越多的国家 都选择把存放在美国的黄金运回本土 难道是新一轮的全球金融危机又要来了吗 而从这场全球的黄金回前潮之中 我们作为普通人又能够从中看到些什么信号呢 今天我们就一起来聊一聊 眼下这一场黄金的反乡大潮</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">开篇设问</div>
+            <div class="rc-hint-letters">为都难而我今眼</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">110 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">首先我们来看一下 现在有哪些国家正在把存放在美国的黄金运回国内 其实这一轮黄金的反乡潮 最初是由德国点燃的 在2013年到2017年这五年的时间里面 德国一共运回了674顿黄金 有300顿是来自于存放在纽约连储里面的黄金 另外的374顿其实是之前放在法国的黄金</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">德国运回</div>
+            <div class="rc-hint-letters">首现其最在德有另</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">100 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">要说到德国是全世界黄金储备 排名第二的国家仅次于美国 所以他的这一轮行动就具有标志性的意义 现在他们还存放在美国的黄金有1236顿 所以说现在德国国内的呼声也很高 就强烈的要求政府把剩下的这些黄金 陆续的运回到德国本土</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">德国储备第二</div>
+            <div class="rc-hint-letters">要排所现所就陆</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">86 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好除了德国另外一个黄金的储备大国 那就是法国 从2025年7月开始到2026年的1月 这半年的时间 他们通过26笔交易 助理掉了之前还托管在纽约连储的 最后大约130顿黄金 彻底的把所有存放在美国的黄金都清零了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">法国清零</div>
+            <div class="rc-hint-letters">好那从这他助最彻</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">111 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">并且刚刚我说了 它是通过交易的方式 而不是通过劳神费力的用船去把黄金给运回来 也就是他们把本来就在纽约的这些黄金 直接在美国卖掉 然后同步在欧洲的市场 买回相等价值的黄金 所以说目前法国的全部2437顿的黄金储备 全部都存放在法国本土的金库里面</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">法国交易方式</div>
+            <div class="rc-hint-letters">并它而也直然买所全</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">104 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">然后这两天 荷兰又把这个事再度的带回到了我们关注的事业里面 在前两天 也就是9月2号 他们就宣布从2026年 也是今年的3月份开始 一直到8月份 他们已经陆续的把86顿黄金 从纽约和沃太华转移 一部分的实物运回了本土 另外一部分存放在伦敦</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">荷兰运回</div>
+            <div class="rc-hint-letters">然荷在也他也一他从一另</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">56 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">然后再一次调整之后 他们存放在纽约的黄金占比 直接从31.3%下降到了18.5% 就大幅的降低了 黄金存放在单一金库的这种资产的风险</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">荷兰占比下降</div>
+            <div class="rc-hint-letters">然他直35就黄</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">107 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">除了这三个欧洲国家以外 还有其他的一些国家 比如说波兰 熊亚利 奥地利 土耳其 印度 尼日利亚 加拿尔 塞尔维亚等等 15个国家 现在都已经正式的完成了 从美国或者英国的金库里面运回黄金的动作 或者说是已经正式的宣布 将要撤回在海外拖管这些黄金</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">多国运回</div>
+            <div class="rc-hint-letters">除还比熊奥土印尼加塞1现从或将</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">90 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">然后近10年以来 全球各国的央行 累计从美英两大的拖管金库 运回的黄金大概有多少呢 总量接近6900吨 要直到截止2026年的7月 我们国家的黄金储备 只有多少呢 只有2366吨 所以说这个转移的数量 是非常恐怖的一个数字</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">运回总量6900吨</div>
+            <div class="rc-hint-letters">然全累运总要我只只所是</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">105 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而根据世界黄金协会 针对全球央行的最新调研 有超过59%的国家 表示倾向于将黄金储备存放在自己的本土 相较前两年的40%到50% 就出现了一个大幅的提升 那有说在前两年 想把黄金放在自己本土的国家 还只是小部分 现在又已经变成了大部分的国家</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">央行调研59%</div>
+            <div class="rc-hint-letters">而针有表相就那想还现</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">113 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而同样根据世界黄金协会的数据 在过去的12个月 就是过去的一年里面 有19%的国家的央行 提高了自己国内的黄金储备的比例 就是央行持续在勾金 或者是调整了黄金存放 地点的这种多元化的配置 而仅仅在一年以前 这个数字只有7% 也就是说一年的时间 翻了接近三分</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">央行增持比例</div>
+            <div class="rc-hint-letters">而在就有提就或地而这也翻</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">115 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而这个情况 显然大家就发现 和二战以后的情况 是不是就形成了鲜明的对比 二战以后 布雷顿森林体系建立 全球当时 几乎所有的主要国家 包括我们在内 都主动的在把数千吨的黄金 寄存到美国纽约的连储金库里面 目的就是为了依托黄金美元的体系 去换取更多的贸易便利</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">二战对比</div>
+            <div class="rc-hint-letters">而显和是二布全几包都寄目去</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">168 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">时光飞逝 端端几十年的时间 托管黄金国家的战笔 现在就持续的回路了 世界各国对于黄金存放的选择 已经发生了本质的反转 那为什么这些国家要这么做呢 你说我们不选择放在美国 可以理解 但这些国家不都是你老美 在欧洲的盟友吗 你把黄金放在纽约的倾库里面 交易也方便 而且安保的等级 也可以说是最强的 那为什么你这些盟友们 现在要不惜耗费巨大的运输成本 也要把黄金给运回到国内呢</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">盟友为何运回</div>
+            <div class="rc-hint-letters">时端托现世已那你可但在你交而也那现也</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">156 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我总结了以下四个原因 第一个就是美元的武器款 2022年俄务战争爆发以后 俄罗斯的海外储位被冻结这个事 其实给全世界所有的国家都上了一课 那就是一个国家 放在海外的任何资产 哪怕是央行的储备 在特殊的环境之下 都随时有可能被限制被冻结 黄金虽然是实物资产 但你毕竟还是放在别人家的倾库里面 对吧 那关键时刻 别人当然可以设置各种的出库限制 来卡斯尼</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">原因一美元武器化</div>
+            <div class="rc-hint-letters">我第2俄其那放哪在都黄但对那别来</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">118 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">荷兰洋行就在公告里面直接写明了 现在他们运回黄金的这个动作 就是担忧美国有能力阻断跨境资产交易 你想一旦万一形势紧张起来 对吧 危机降临 这不就等于把你的身家心灵 全部的家当放在敌人的口袋里面了 那不就等于你在给对方提供粮草 所以这一点是最关键的一个原因</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">荷兰洋行担忧</div>
+            <div class="rc-hint-letters">荷现就你对危这全那所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">103 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二就是大家对于美元信用的担忧 因为现在美债已经突破了40万亿 然后美债的规模持续的膨胀了 当然就会引发世界各国对于 美元信用的担忧 对吧 你每年要还的利息都超过1万亿 比你的国房开始还要高 那我当然有理由担心你的债务违约了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">原因二美元信用</div>
+            <div class="rc-hint-letters">第因然当美对你比那</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">138 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而在这种巨额的债务的阴影之下 美元的长期的购买力和他的信用 当然就会被世界各国的央行所质疑 而相对应的黄金 它没有国籍不依靠主权信用发行 那当然也就没有所谓的主权信用风险 它是一个独立的价值载体 因此把黄金给运回本国 就相当于在美元和美债的储备 以外保留了一份可以和美元 美债风险所对冲的低层资产</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">黄金独立价值</div>
+            <div class="rc-hint-letters">而美当而它那它因就以美</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">137 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第三从美国往国内运黄金这个事 在历史上是有迹可寻大 是有历史经验的 对吧 在上个世纪60年代 戴高乐总统就率先带领法国 用手里的所有的美元 去把黄金换回本土 但是他还说了一句著名的话 就这小破纸 难过擦屁股我都不要 紧接着 西德 意大利和荷兰九分分的跟进 然后大量的黄金从美国流出 美元的黄金储备迅速的缩水</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">原因三历史先例</div>
+            <div class="rc-hint-letters">第在是对在戴用去但就难紧西意然美</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">116 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以无奈之下 1971年尼克松才宣布 紧急的关闭黄金兑换的窗口 从此美元和黄金脱钩 布雷顿森林体系接替 所以说 当年是拿美元去换黄金回来 而现在是取回本就已经 脱管在美国的黄金 虽然说形式不同 但是目的是一样的 都是各国现在在重新审视 你美元的信用边界的一个行为</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">尼克松冲击</div>
+            <div class="rc-hint-letters">所1紧从布所当而脱虽但都你</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">139 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第四 就是你存放在美国的这些黄金 长期以来都缺乏这种 完整的公开的第三方设计 而大家都知道 各国的洋行都是有黄金租赁业务的 美国也不例外 也是可以把储备在洋行的这些黄金 租赁给这些商业银行 然后到期了 你这些商业银行再还回来就行了 但是他们内部究竟是怎么操作的 到底还没还 还了多少 其实其他国家是不清楚的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">原因四缺乏审计</div>
+            <div class="rc-hint-letters">第就长完而各美也租然你但到还其</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">109 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说很多年来 各个国家其实都一直存在这样的那就是你纽约连储金库的 帐面的数字 和真实存在里面的黄金的食物 库存到底是不是完全匹配的 所以这些年也陆续的有一些国家 在提出要去倾点这个金条 编号这样的诉求 但是目前整体推进的都非常的缓慢</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">账实不符疑虑</div>
+            <div class="rc-hint-letters">所各帐和库所在编但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">127 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那换了你 你也得担心 对吧 你美债的压力这么大 万一你把我的金字拿去 抵押还债了 怎么办 对吧 等我急用要去取回来那天 发现你给我开的全是空头支票 那我不是冤大头吗 所以说咱们干脆 把所有的黄金给运回来得了 省得业不能魅斩转反侧的 成本高久高点 麻烦就麻烦一点 但是至少咱们晚上睡得着觉</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">运回安心</div>
+            <div class="rc-hint-letters">那你对你万抵怎对等发那所把省成麻但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-23">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 23</span>
+            <span class="rc-size">99 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那最后一个问题 也是这两天 有很多朋友在问的 现在各国从美国运回黄金这件事 会不会引发全球的金融危机 先说结论 即使运黄金这件事 并不会直接的引爆全球的金融危机 但是它确实现在全球 金融的风险 正在提升了一个重要的信号</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">是否引发危机</div>
+            <div class="rc-hint-letters">那也有现会先即并但金正</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-24">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 24</span>
+            <span class="rc-size">76 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">首先第一 黄金的回签 只是各国央行储备的布局的调整 它不等于在集中的抛售美元 或者是美债 对吧 大家只是改变了黄金资产的存放的地点 而不是在大规模的 卖出手里的美元资产</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">非抛售美元</div>
+            <div class="rc-hint-letters">首黄只它或对大而卖</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-25">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 25</span>
+            <span class="rc-size">80 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二 即便是现在大家都往回运黄金 但是很多的国家也是采取这种 分批缓慢的置换的方式 并不会一次性的 从纽约金库大规模的提取食物黄金 因此也算不上几对 更不会瞬间的春花美元市场</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">分批置换</div>
+            <div class="rc-hint-letters">第即但分并从因更</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-26">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 26</span>
+            <span class="rc-size">71 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而作为对比 2008年的那次全球的金融危机爆发 本质上是源于次贷的泡沫 是由各种金融衍生品的这个风险的 叠加所引发的 跟各个国家提媒提黄金这个事 一点关系都没有</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">对比08危机</div>
+            <div class="rc-hint-letters">而2本是叠跟一</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-27">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 27</span>
+            <span class="rc-size">80 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">另外1971年的尼克松冲击 的确是各国持续很多年的 黄金几对的一个行为 导致的结果 但是那也是很多年的行为 是常年累月的一个结果 而并非是短期的这种运黄金 搬黄金直接导致的金融危机</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">尼克松冲击长期</div>
+            <div class="rc-hint-letters">另的黄导但是而搬</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-28">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 28</span>
+            <span class="rc-size">72 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说各国从美国往回搬黄金 这个事 本质上是不会导致金融危机的 但是它确实一个非常重要的信号 就是什么 就是全球央行的这种风险拼耗 正在发生转折 正在发生变化</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">信号转折</div>
+            <div class="rc-hint-letters">所这本但就就正正</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-29">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 29</span>
+            <span class="rc-size">99 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">过去全球大部分的央行 更加看重的是什么 看动的是流动性 我把黄金放在你美国 放在纽约 放在华尔街 这样最方便 因为可以随时的进行交易 但是现在不一样 各国央行现在最优先看重的是什么 看重的是安全性 安全才是我最看重的东西</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">从流动性到安全</div>
+            <div class="rc-hint-letters">过更看我放放这因但各看安</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-30">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 30</span>
+            <span class="rc-size">129 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说 当现在全世界几十个国家 都开始同时在考虑 怎么样去保护自己的海外的资产 不被冻结 不会有一天像俄罗斯 像伊朗一样遭遇制裁 并且开始想要去对冲 美元信用现在下滑的风险 那这件事 本身就是一个重要的信号 它代表着全球越来越多的央行 已经在为未来可能会到来的 巨大的变数 在提前收防了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">全球央行行动</div>
+            <div class="rc-hint-letters">所当都怎不不像并美那本它已巨在</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-31">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 31</span>
+            <span class="rc-size">119 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说 这件事真正的意义 并不在于是不是金融危机快要来了 而是标志者 全球的货币信用体系 现在已经开始在进行一次 缓慢的宠购的过程 美元依然是现在全球最强大的货币 仍然保持在全球贸易当中 结算的垄断的地位 但是你美元资产 一家独大的时代 很可能正在慢慢的走向为生</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">意义与展望</div>
+            <div class="rc-hint-letters">所这并而全现缓美仍结但一很</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 23</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 24</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 25</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 26</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 27</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 28</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 29</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 30</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 31</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">3336</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 3352 tokens · 输出 2152 tokens ·
+        费用 ¥0.0077
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-09-08
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "各国正在加速从美国运回黄金",
+      chunkCount: 31,
+      startDate: "2026-09-08",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

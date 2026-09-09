@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>科技牛还在吗.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>科技牛还在吗.mp4</h1>
+    <div class="meta">上传视频 · 6m 18s · 2038 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0072 · 4936 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>科技牛是否结束取决于业绩能否持续超预期，而非简单看同比高增。</li><li>判断股价能否创新高需考察套牢盘是否消化，成交量、融资余额和筹码分布是关键指标。</li><li>新故事能否吸引增量资金决定上涨持续性，如AI从训练转向推理、算力网上升为国家战略等。</li><li>即使业绩强劲，若市场预期已打满，财报日可能不涨反跌，需关注环比表现。</li><li>投资需量力而行，只做能力圈内的事，不懂不碰。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们来聊聊科技牛还在不在，是终结还是分化。很多人看到AI业绩高增，但股价却跌了，心里很慌。其实判断这个问题，只需要问三个问题。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>第一个问题，业绩好到什么程度才能让股价继续涨？市场对科技龙头的预期已经很高，不仅要同比高增，还要环比增长。如果业绩只是符合预期，股价可能反应平淡。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>第二个问题，带血的筹码都吐完了吗？如果高位套牢的人还没割肉，股价上涨会遇到阻力。可以看成交量、融资余额和筹码分布来判断。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>第三个问题，新故事能不能吸引增量资金？只有让之前不信的人相信，才有新的资金进场。比如AI从训练转向推理，算力网上升为国家战略，这些都是新故事。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>最后提醒大家，即使业绩强劲，也不一定涨，因为预期可能已经打满。投资要量力而行，只做自己看得懂的机会。你觉得科技牛还在吗？欢迎在评论区分享。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Whether the tech bull market continues depends on earnings beating expectations consistently, not just high YoY growth.</li><li>To judge if stock prices can hit new highs, check whether trapped positions are cleared, using volume, margin balance, and chip distribution.</li><li>New narratives that attract incremental capital determine sustainability, such as AI shifting from training to inference and national computing network.</li><li>Even with strong earnings, if expectations are already high, stocks may fall on earnings day; focus on QoQ trends.</li><li>Invest within your circle of competence; if you don&#39;t understand, don&#39;t touch.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re talking about whether the tech bull market is still alive, or if it&#39;s ending or diverging. Many people see strong AI earnings but falling stock prices, and they&#39;re worried. Actually, to judge this, you only need to ask three questions.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>First, how good do earnings need to be for stocks to keep rising? Market expectations for tech leaders are already high, requiring not just high YoY growth but also QoQ growth. If earnings only meet expectations, the stock reaction may be flat.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>Second, have the trapped positions been cleared? If investors who bought at the top haven&#39;t sold, upward moves face resistance. You can check volume, margin balance, and chip distribution.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Third, can new narratives attract incremental capital? Only when previously skeptical investors believe will new funds flow in. Examples include AI shifting from training to inference, and the national computing network strategy.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Finally, remember that even strong earnings don&#39;t guarantee price increases because expectations may already be priced in. Invest within your circle of competence. Do you think the tech bull is still on? Share your thoughts in the comments.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">本文以对话形式展开，通过主持人提问、嘉宾解答的方式，层层递进地分析科技牛是否结束。结构清晰，先提出总问题，再分解为三个子问题，每个子问题用具体案例和指标解释，最后总结并引导观众互动。语言口语化，善用比喻和设问，增强可读性和说服力。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">引入：科技牛是否结束的疑问</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">科技牛是否结束是投资者普遍关心的问题，需要理性分析。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">提到AI业绩高增但股价下跌的矛盾现象。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问：直接抛出核心问题，吸引注意力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">第一问：业绩超预期的程度</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">股价上涨需要业绩持续超预期，而非仅符合预期。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">以运动员连续夺冠的比喻，说明市场期待不断提高；举例达子季度业绩同比环比高增但股价先涨后跌。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻和举例：用通俗比喻解释专业概念。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">第二问：套牢盘的消化情况</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">高位套牢盘未消化会阻碍股价创新高。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">提出成交量、融资余额、筹码分布三个观察指标。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列举指标：提供可操作的分析工具。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">第三问：新故事的吸引力</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">需要新故事吸引增量资金，才能推动股价持续上涨。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举AI从训练转向推理、算力网上升为国家战略等新叙事。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">举例说明：用具体新故事增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">案例演练：灵魂五问</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">通过模拟案例演示如何应用三个问题判断具体公司。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">虚构一家AI公司，逐步分析其业绩、套牢盘、新故事等。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">情景模拟：让观众代入学习。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">总结与互动</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">科技牛根基还在但会分化，投资需量力而行。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">总结三个问题的要点，强调能力圈。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">总结和号召：回顾要点并引导观众参与讨论。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">设问引导</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“科技牛还在不在 是终结还是分化 AI业绩高增可持续吗 暴跌的基金还有回本希望吗”</span></div>
+            
+            
+            <div class="tech-line">💡 通过连续提问，激发观众好奇心，引导思考。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻解释</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“就像运动员总拿冠军 大众就会期待你每次都多冠”</span></div>
+            
+            
+            <div class="tech-line">💡 用生活化比喻降低理解门槛，使专业概念更易懂。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">分点论述</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“第一 业绩也好到什么程度 才能让股价继续涨 第二 带血的筹码都吐完了吗 第三 新故事又好到什么程度”</span></div>
+            
+            
+            <div class="tech-line">💡 结构清晰，便于观众跟随逻辑，记忆要点。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">情景模拟</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“假设股价最高是150 现在80 但是呢 套牢盘不多 因为持藏以机构为主”</span></div>
+            
+            
+            <div class="tech-line">💡 通过虚构案例让理论落地，增强实操性。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">口语化表达</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“快给我说说 第一 业绩也好到什么程度 才能让股价继续涨”</span></div>
+            
+            
+            <div class="tech-line">💡 拉近与观众距离，营造对话感，提升亲和力。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">3 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用三个问题评估科技股投资价值</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 针对目标公司，依次问：1) 业绩能否持续超预期（同比和环比）；2) 套牢盘是否消化（看成交量、融资余额、筹码分布）；3) 是否有新故事吸引增量资金。若三个答案都积极，则值得关注。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 假设你关注某AI公司，先查其最新财报，看营收和利润同比环比是否增长；再查近期成交量是否放大，融资余额是否下降；最后关注公司是否有新业务或行业新政策。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">识别市场预期差</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 对比公司实际业绩与市场一致预期，若实际值高于预期则可能上涨，低于预期则可能下跌。同时关注环比数据，因为市场对高增长公司的要求是逐季加速。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 如果某公司Q2营收同比增100%，但市场预期是120%，即使增长强劲也可能股价下跌。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">观察筹码分布判断抛压</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 使用交易软件查看筹码分布图，若高位有密集套牢区，则股价上行时可能遭遇抛压；若筹码在低位集中，则上行阻力较小。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 某股票从150跌到80，若筹码分布显示大部分筹码在80-100区间，则上方套牢盘少，上涨阻力小。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">预期差思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 股价反应的是预期差，而非绝对业绩。当市场预期很高时，即使业绩好也可能下跌。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在分析任何公司时，先了解市场一致预期，再对比实际数据，判断是否超预期。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">供需思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 股价上涨需要增量资金推动，而套牢盘是潜在卖压。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 评估股票时，考虑上方套牢盘和下方承接力，判断上涨空间。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">能力圈原则</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 只投资自己理解的公司，不懂不碰，避免盲目跟风。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当遇到复杂情况时，如果无法研究清楚，就放弃，不冒险。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">动态评估思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 投资决策不是一次性的，需要根据新信息不断调整。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 定期回顾持仓，用三个问题重新评估，若逻辑破坏则卖出。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">11 块 · 预计背诵 17 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 2 块</p>
+        
+        <div class="recite-advice">这份材料是口语化对话，长句多且夹杂口误和错别字，背诵时容易卡壳。建议先按块通读，理解每块的核心问答逻辑，再逐块背诵。遇到超长句（如第一块）可先拆成短句背熟再连起来。注意“版之”“还比”等口误，按原文记忆，不要纠正。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/科技牛还在吗">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">11 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">220 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">科技牛还在不在 是终结还是分化 AI业绩高增可持续吗 暴跌的基金还有回本希望吗老爸科技牛还在不在 根据是有的营厂商资本开吃 持续上修 博强大模型和算力不当突破 龙头公司也业绩向好 既然好消息不断 为什么很多人认为科技埔长结束了 因为很多靠情绪一价 没有扎实业绩支撑的公司 会退去题材光环 接受市场重估 有持续下行的可能 可是有业绩的不也崩了吗 这就是大家关心的焦点了 到底科技龙头还能不能持续零跑 是回调还是崩塌 怎么判断呢 我们需要问三个问题 把这三个问题搞清楚 就有答案了 快给我说说</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">开场提问</div>
+            <div class="rc-hint-letters">科是A暴根持博龙既为因没会接有可这到是怎我把就快</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">234 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第一 业绩也好到什么程度 才能让股价继续涨 什么意思 AIT建的高检器 已经是人尽皆知的事情 业绩好是理所应当的 就像运动员总拿冠军 大众就会期待你每次都多冠 如果预期增长120% 哪怕业绩增长达到100% 也会被认为表情不好 恭喜你答对了 所以需要看科技龙头 能不能持续的超出预期 对啊 市场对科技龙头的业绩预期 已经到了不仅要同比高增 还要看环比增幅的程度了 每个季度都要表现得更好 压力有点大 能做到吗 有能做到的 比如说达子 那季度的业绩同比和环比都高增 但是也先涨后低 那如果某个季度环比下降 同比高增呢 那就不好说了 又来又不好说</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第一问：业绩超预期</div>
+            <div class="rc-hint-letters">第业才什A已业就大如哪也恭所能对市已还每压能有比那但那同那又</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">279 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二个问题呢 第二 带血的筹码都吐完了吗 带血的筹码 6月份高行者要站在光里的人 在最高点 他们都割肉了吗 如果很多人还没割肉 股价要创新高 就会有阻力 为什么呢 此行回本的人 会在回本的那一刻 疯狂抛售并发誓 达子也不来了 集中的抛压会让股价上行 遭遇顽强的阻力 怎么知道大家可没割肉呢 一看成交量 如果经常放量大跌 就说明初情的差不多了 如果缩量阴跌 就说明很多人躺平不动了 还有呢 二呢 抗融资约的下降幅度 如果快速跳水 就说明很多人看不住了 如果黄黄下降 就说明他们家里还有鱼粮 还能顶一阵子 期盼回本 还有吗 第三呢 抗筹码分布 抗高位 有没有筹码风 不过呢 这只是软件估算 跟实际会有偏差 只能作为辅助考量 等一下 拿笔记本记一下</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第二问：套牢盘</div>
+            <div class="rc-hint-letters">第第带带6在他如股就为此会疯达集遭怎一如就如就还二抗如就如就还期还第抗抗有不这跟只等拿</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">332 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">还有第三个灵魂考位吗 有呀 第三问 新故事又好到什么程度 才能让不幸的人野心 啥意思 AI基建的故事 已经讲了好几轮了 不管是早信 晚信 信的人都已经买了 必须要有之前不信的人 终于也信了 急呼呼的冲进来 才有不断上涨的资金集数 比如说 资本开支不是短期封口 而是一场持久的算力均被禁在 这都听出讲了 换一个 需求由训练转向推理 AI基建的景气周期 进一步的拉长 也喊了几个月了 还有吗 AI不只是对话 而是深入业务流程 改造传统厂业的 生长力方式 有想象空间哦 还不够 算力网上升为国家六张网 154万亿长线资金 开启全国算力调度一体化时代 诶 这有点心动啊 如果AI能够不断推出新的续世 让更多的人相信 就会获得更多的资金支持 可是 普长过去了 要一家一家辩别 有强劲业绩支撑的龙头 普托人也做不到呀 要不如试试我们的灵魂三万吧 如果不能通过考问 不就可以排除了吗</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第三问：新故事</div>
+            <div class="rc-hint-letters">还有第新才啥A已不晚信必终急才比资而这换需A进也还A而改生有还算1开诶这如让就可普要有普要如不</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">118 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那我试试 第一题 一家AI龙多公司 上半年 营收增长版之百 利润增长版之120 厉不厉害 不好说 还得看还比表现吧 第二季度相比第一季度如何 不错呦 如果Q2相比Q1 还比增长30% 跟机构的预期完全符合呢 这家公司很优秀 但放在市场上 可能反应会比较平淡 因为没有惊喜 都在医疗之中 最头</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第一题：业绩测试</div>
+            <div class="rc-hint-letters">那第一上营利厉不还第不如还跟这但可因都最</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">164 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二题 假设股价最高是150 现在80 但是呢 套牢盘不多 因为持藏以机构为主 他们早就买了 股价上行的阻力大吗 没有那么大 不会遭遇大量的套牢盘 少数套牢的 是7月份试图超底的人套里面 不会形成很大的阻力 由于假设呢 股价接下来两个月 从80涨到了130 面临三季报的大考 横盘了一段时间 横盘就是大家都在等消息 撬手以盼 对呀 机构预期 三季度业绩更加炸裂 同比增版之130 还比再增版之25</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第二题：套牢盘测试</div>
+            <div class="rc-hint-letters">第假现但套因他股没不少是不由股从面横横撬对机三同还</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">117 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那么第三题来了 如果Q3实际上 同比增长版之110 利润增长版之130 还比增长版之20 表现是好还是坏 其实是很厉害的表现 但是市场会热不及预期 财报日不但不涨 可能还会再跌一点 有可能 假设财报发布之后 股价从130 先涨到140 又回到了120 重新横盘 大家都在等啥呢 这就是第四题了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第三题：业绩不及预期</div>
+            <div class="rc-hint-letters">那如同利还表其但财可有假股先又重大这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">161 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">据说公司的供货模式 要从季度短当 改为跨年度的长期订单 业绩的可预见性 显著的增强 你觉得是好事还是坏事 要看可预见的业绩是好事坏吧 可惜普通人是没有能力研究清楚 假设机构有能力 可以预见未来两年里 每年的出货量 还能够同比增长30% 甚至更高呢 那应该算是好消息吧 于是股价从120 重拾上涨 一路上涨到了150 忽然有一天 股价短短几天 暴跌回到120 但是什么了 这么大动机</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第四题：长期订单</div>
+            <div class="rc-hint-letters">据要改业显你要可假可每还甚那于重一忽股暴但这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">131 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第五题来了 传说有潜在的竞争者 正在筹划进入 公司的中低端产品 可能会面临价格仗 市场恐慌 你应该怎么做呢 这么难提高了吗 试试看呗 不能天风正式雨吧 被评估节奏和影响 到底对营收和利润产生多少影响 什么时候才有实际影响 如果研究不明白呢 不懂不碰 只诛爱能力圈范围力的圈 很好 老师啊 要量力而行</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">第五题：竞争者</div>
+            <div class="rc-hint-letters">第传正公可市你这试不被到什如不只很老要</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">223 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我们付个盘吧 你今天学到了什么 靠近有个根基还在 但后续可能会分化 有监视业绩支撑的还有机会 靠题才炒作的风险很大 即使业绩强劲 股价一定会挡吗 不一定 要看有没有潮雨期 市场的期待值被拉得很高 不仅要同比高增 还比也要增长 只有小数公司能潮雨期 业期潮雨期 股价就一定会创新高吗 也不一定 要看情高 有没有大量的套楼盘 阻力大不大 如果创新高 什么决定它能够持续多久呢 一方面看资金 要有源源不断的行人看好它 另一方面看基本面 不能有让市场担忧的重大坏消息 真棒 这就要求真的懂才能做 一般人啊 够补上</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">复盘总结</div>
+            <div class="rc-hint-letters">我你靠但有靠即股不要市不还只业股也要有阻如什一要另不真这一够</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好吧 我们开个粉丝碰吧 好呀 我们也邀请粉丝朋友们来分享 你认为科技牛还在吗 后面是分化还是埔长呢 你看好哪个赛道呢 赶快来喷声言吧</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">结尾互动</div>
+            <div class="rc-hint-letters">好我好我你后你赶</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-07 周一</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-07 周一</span></td>
+                
+                <td class="context-col">2026-09-08<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-08 周二</span></td>
+                
+                <td class="context-col">2026-09-09<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-09 周三</span></td>
+                
+                <td class="context-col">2026-09-10<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2" selected>2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4">4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">2038</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 2719 tokens · 输出 2217 tokens ·
+        费用 ¥0.0072
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-09-07
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "科技牛还在吗",
+      chunkCount: 11,
+      startDate: "2026-09-07",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 2
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

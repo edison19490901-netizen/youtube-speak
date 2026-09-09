@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "language": "zh",
+    "source_type": "video",
+    "title": "科技牛还在吗.mp4",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "科技牛是否结束取决于业绩能否持续超预期，而非简单看同比高增。\n判断股价能否创新高需考察套牢盘是否消化，成交量、融资余额和筹码分布是关键指标。\n新故事能否吸引增量资金决定上涨持续性，如AI从训练转向推理、算力网上升为国家战略等。\n即使业绩强劲，若市场预期已打满，财报日可能不涨反跌，需关注环比表现。\n投资需量力而行，只做能力圈内的事，不懂不碰。",
+    "summary_en": "Whether the tech bull market continues depends on earnings beating expectations consistently, not just high YoY growth.\nTo judge if stock prices can hit new highs, check whether trapped positions are cleared, using volume, margin balance, and chip distribution.\nNew narratives that attract incremental capital determine sustainability, such as AI shifting from training to inference and national computing network.\nEven with strong earnings, if expectations are already high, stocks may fall on earnings day; focus on QoQ trends.\nInvest within your circle of competence; if you don't understand, don't touch.",
+    "script_zh": [
+      "今天我们来聊聊科技牛还在不在，是终结还是分化。很多人看到AI业绩高增，但股价却跌了，心里很慌。其实判断这个问题，只需要问三个问题。",
+      "第一个问题，业绩好到什么程度才能让股价继续涨？市场对科技龙头的预期已经很高，不仅要同比高增，还要环比增长。如果业绩只是符合预期，股价可能反应平淡。",
+      "第二个问题，带血的筹码都吐完了吗？如果高位套牢的人还没割肉，股价上涨会遇到阻力。可以看成交量、融资余额和筹码分布来判断。",
+      "第三个问题，新故事能不能吸引增量资金？只有让之前不信的人相信，才有新的资金进场。比如AI从训练转向推理，算力网上升为国家战略，这些都是新故事。",
+      "最后提醒大家，即使业绩强劲，也不一定涨，因为预期可能已经打满。投资要量力而行，只做自己看得懂的机会。你觉得科技牛还在吗？欢迎在评论区分享。"
+    ],
+    "script_en": [
+      "Today we're talking about whether the tech bull market is still alive, or if it's ending or diverging. Many people see strong AI earnings but falling stock prices, and they're worried. Actually, to judge this, you only need to ask three questions.",
+      "First, how good do earnings need to be for stocks to keep rising? Market expectations for tech leaders are already high, requiring not just high YoY growth but also QoQ growth. If earnings only meet expectations, the stock reaction may be flat.",
+      "Second, have the trapped positions been cleared? If investors who bought at the top haven't sold, upward moves face resistance. You can check volume, margin balance, and chip distribution.",
+      "Third, can new narratives attract incremental capital? Only when previously skeptical investors believe will new funds flow in. Examples include AI shifting from training to inference, and the national computing network strategy.",
+      "Finally, remember that even strong earnings don't guarantee price increases because expectations may already be priced in. Invest within your circle of competence. Do you think the tech bull is still on? Share your thoughts in the comments."
+    ]
+  },
+  "deconstruction": {
+    "overview": "本文以对话形式展开，通过主持人提问、嘉宾解答的方式，层层递进地分析科技牛是否结束。结构清晰，先提出总问题，再分解为三个子问题，每个子问题用具体案例和指标解释，最后总结并引导观众互动。语言口语化，善用比喻和设问，增强可读性和说服力。",
+    "sections": [
+      {
+        "title": "引入：科技牛是否结束的疑问",
+        "role": "引入",
+        "argument": "科技牛是否结束是投资者普遍关心的问题，需要理性分析。",
+        "evidence": "提到AI业绩高增但股价下跌的矛盾现象。",
+        "technique": "设问：直接抛出核心问题，吸引注意力。"
+      },
+      {
+        "title": "第一问：业绩超预期的程度",
+        "role": "提出论点",
+        "argument": "股价上涨需要业绩持续超预期，而非仅符合预期。",
+        "evidence": "以运动员连续夺冠的比喻，说明市场期待不断提高；举例达子季度业绩同比环比高增但股价先涨后跌。",
+        "technique": "比喻和举例：用通俗比喻解释专业概念。"
+      },
+      {
+        "title": "第二问：套牢盘的消化情况",
+        "role": "论证",
+        "argument": "高位套牢盘未消化会阻碍股价创新高。",
+        "evidence": "提出成交量、融资余额、筹码分布三个观察指标。",
+        "technique": "列举指标：提供可操作的分析工具。"
+      },
+      {
+        "title": "第三问：新故事的吸引力",
+        "role": "论证",
+        "argument": "需要新故事吸引增量资金，才能推动股价持续上涨。",
+        "evidence": "列举AI从训练转向推理、算力网上升为国家战略等新叙事。",
+        "technique": "举例说明：用具体新故事增强说服力。"
+      },
+      {
+        "title": "案例演练：灵魂五问",
+        "role": "例证",
+        "argument": "通过模拟案例演示如何应用三个问题判断具体公司。",
+        "evidence": "虚构一家AI公司，逐步分析其业绩、套牢盘、新故事等。",
+        "technique": "情景模拟：让观众代入学习。"
+      },
+      {
+        "title": "总结与互动",
+        "role": "结论",
+        "argument": "科技牛根基还在但会分化，投资需量力而行。",
+        "evidence": "总结三个问题的要点，强调能力圈。",
+        "technique": "总结和号召：回顾要点并引导观众参与讨论。"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "设问引导",
+        "example": "科技牛还在不在 是终结还是分化 AI业绩高增可持续吗 暴跌的基金还有回本希望吗",
+        "effect": "通过连续提问，激发观众好奇心，引导思考。"
+      },
+      {
+        "name": "比喻解释",
+        "example": "就像运动员总拿冠军 大众就会期待你每次都多冠",
+        "effect": "用生活化比喻降低理解门槛，使专业概念更易懂。"
+      },
+      {
+        "name": "分点论述",
+        "example": "第一 业绩也好到什么程度 才能让股价继续涨 第二 带血的筹码都吐完了吗 第三 新故事又好到什么程度",
+        "effect": "结构清晰，便于观众跟随逻辑，记忆要点。"
+      },
+      {
+        "name": "情景模拟",
+        "example": "假设股价最高是150 现在80 但是呢 套牢盘不多 因为持藏以机构为主",
+        "effect": "通过虚构案例让理论落地，增强实操性。"
+      },
+      {
+        "name": "口语化表达",
+        "example": "快给我说说 第一 业绩也好到什么程度 才能让股价继续涨",
+        "effect": "拉近与观众距离，营造对话感，提升亲和力。"
+      }
+    ]
+  },
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "用三个问题评估科技股投资价值",
+        "how_to_apply": "针对目标公司，依次问：1) 业绩能否持续超预期（同比和环比）；2) 套牢盘是否消化（看成交量、融资余额、筹码分布）；3) 是否有新故事吸引增量资金。若三个答案都积极，则值得关注。",
+        "example": "假设你关注某AI公司，先查其最新财报，看营收和利润同比环比是否增长；再查近期成交量是否放大，融资余额是否下降；最后关注公司是否有新业务或行业新政策。"
+      },
+      {
+        "skill": "识别市场预期差",
+        "how_to_apply": "对比公司实际业绩与市场一致预期，若实际值高于预期则可能上涨，低于预期则可能下跌。同时关注环比数据，因为市场对高增长公司的要求是逐季加速。",
+        "example": "如果某公司Q2营收同比增100%，但市场预期是120%，即使增长强劲也可能股价下跌。"
+      },
+      {
+        "skill": "观察筹码分布判断抛压",
+        "how_to_apply": "使用交易软件查看筹码分布图，若高位有密集套牢区，则股价上行时可能遭遇抛压；若筹码在低位集中，则上行阻力较小。",
+        "example": "某股票从150跌到80，若筹码分布显示大部分筹码在80-100区间，则上方套牢盘少，上涨阻力小。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "预期差思维",
+        "explanation": "股价反应的是预期差，而非绝对业绩。当市场预期很高时，即使业绩好也可能下跌。",
+        "how_to_use": "在分析任何公司时，先了解市场一致预期，再对比实际数据，判断是否超预期。"
+      },
+      {
+        "model": "供需思维",
+        "explanation": "股价上涨需要增量资金推动，而套牢盘是潜在卖压。",
+        "how_to_use": "评估股票时，考虑上方套牢盘和下方承接力，判断上涨空间。"
+      },
+      {
+        "model": "能力圈原则",
+        "explanation": "只投资自己理解的公司，不懂不碰，避免盲目跟风。",
+        "how_to_use": "当遇到复杂情况时，如果无法研究清楚，就放弃，不冒险。"
+      },
+      {
+        "model": "动态评估思维",
+        "explanation": "投资决策不是一次性的，需要根据新信息不断调整。",
+        "how_to_use": "定期回顾持仓，用三个问题重新评估，若逻辑破坏则卖出。"
+      }
+    ]
+  },
+  "golden_words": null,
+  "usage": {
+    "prompt_tokens": 2719,
+    "completion_tokens": 2217,
+    "total_tokens": 4936,
+    "cost_cny": 0.007153
+  }
+}

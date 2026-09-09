@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "material_id": "_English__auto-generated___3_Steps_To_Quickly_Improve_Your_Communication_Skills__DownSub_com_",
+    "title": "[English (auto-generated)] 3 Steps To Quickly Improve Your Communication Skills [DownSub.com].srt",
+    "language": "en",
+    "source_type": "subtitle",
+    "truncated": false,
+    "created": "2026-09-08"
+  },
+  "material": {
+    "title_suggested": "[English (auto-generated)] 3 Steps To Quickly Improve Your Communication Skills [DownSub.com].srt",
+    "language": "en",
+    "advice": "This material is a fast, informal monologue with run-on sentences and minimal punctuation, so it's easy to lose your place. Practice by chunking each long sentence into natural breath groups, and use the keywords 'record', 'review', 'auditory', 'visual', and 'transcribe' as anchors to recall the sequence of steps.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "hi I'd love to know if you want to be a brilliant public speaker what are the three tips that you would give to me",
+        "hint": "opening question"
+      },
+      {
+        "index": 2,
+        "text": "one of the most powerful things you can do is a process called record and review simply record a 5minute video of yourself and you need to speak improvised don't look at it straight away you are too damn self-critical",
+        "hint": "record and review"
+      },
+      {
+        "index": 3,
+        "text": "the next day when you review this video you review it in three different ways",
+        "hint": "three ways"
+      },
+      {
+        "index": 4,
+        "text": "the first time you review it turn the sound all the way up press play turn your phone down just listen audit the auditory component of your voice known as your vocal image what do you like about it what don't you like about it",
+        "hint": "auditory audit"
+      },
+      {
+        "index": 5,
+        "text": "second grab the phone turn the sound off press play just look at yourself how's your body language what's your facial expressions like do a visual audit of your visual image",
+        "hint": "visual audit"
+      },
+      {
+        "index": 6,
+        "text": "third component get the video transcribed make sure you leave in the arms and the eyes and what's known as filler words bring all your non-words and filler words to the Forefront of your mind that's robbing you of clarity every time you talk",
+        "hint": "transcribe and fillers"
+      },
+      {
+        "index": 7,
+        "text": "three things do that once you basically have a mirror in front of you it's a very powerful routine",
+        "hint": "powerful routine"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 837,
+    "completion_tokens": 491,
+    "total_tokens": 1328,
+    "cost_cny": 0.001819
+  }
+}
