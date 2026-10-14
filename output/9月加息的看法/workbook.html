@@ -1,0 +1,2657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>9月加息的看法.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>9月加息的看法.mp4</h1>
+    <div class="meta">上传视频 · 9m 2s · 3373 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0094 · 6416 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>作者强调自己只做基于事实的情况分析，不做预测和占卜，呼吁大家理性看待问题。</li><li>主流机构如高盛、花旗认为9月加息概率高，理由是能源传导、住房成本上升和核心服务价格上涨。</li><li>摩根士丹利等机构则偏谨慎，认为加息可能是阶段性的，因为住房成本有降温趋势、统计存在噪音、油价冲击难持续、长债收益率已变相加息。</li><li>作者引用70年代美联储走走停停策略导致通胀失控的教训，说明与其走走停停不如一次到位。</li><li>作者个人判断9月加息是极高概率事件，但关键要看9月30日发布的核心PCE数据，若同比小于2%且环比下降则是阶段性加息，否则可能进入持续加息通道。</li><li>最后强调要用动态思维观察宏观，不要固守观点。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天咱们再聊聊CPI和加息的事儿。为什么昨天刚说完今天又要说？因为它确实太重要了。昨天CPI数据一发布，我就第一时间发了视频，说了我个人的感受和一些情况分析。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>注意啊，我在这个账号里始终强调，我给大家的是我个人的感受，以及基于各种事实的情况分析，而不是判断、预测和占卜。既然是情况分析，那肯定有正反双方的事实依据和推演。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>先看主流机构的观点。高盛和花旗认为美联储年内会加息两次，政策利率将持续上行。理由有三个：一是能源传导，中东冲突导致油价大涨，贡献了本次CPI涨幅的1¾以上；二是住房成本抬升，8月环比涨了0.3%，而且住房有滞后性，一旦反弹回落很慢；三是核心服务价格上升，比如机票涨了4%，服务通胀和工资挂钩，容易形成工资物价螺旋。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>但摩根士丹利等机构偏谨慎，认为9月加息可能只是阶段性的。他们的理由有四个：住房成本有降温趋势，统计有6到12个月的滞后；8月电信服务价格异常跳涨，是统计噪音；油价冲击是外生的，难持续；长债收益率走高已经变相加息，美联储不需要再激进加息。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>作者还引用了70年代的历史教训。当时美联储主席伯恩斯搞走走停停的策略，通胀一抬头就加息，一回落就降息，结果通胀反反复复，最后失控。直到沃尔克上台，暴力加息到20%，才把通胀从14.6%压到3%附近。所以教训就是：与其走走停停，不如一次到位。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>最后说说我个人的看法。9月加息仍然是极高概率事件。但关键是看9月30号发布的核心PCE数据。如果8月核心PCE同比小于2%且环比下降，那就是阶段性加息；如果同比大于2%且环比还在升，那就可能进入持续加息通道。总之，世界每分每秒都在变，做宏观观察必须用动态思维，不能死守一个观点。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The author stresses that he only provides fact-based analysis, not predictions, and urges rational thinking.</li><li>Major institutions like Goldman Sachs and Citi see a high probability of a September rate hike, citing energy pass-through, rising housing costs, and core services inflation.</li><li>Morgan Stanley and others are more cautious, arguing the hike may be temporary due to cooling housing costs, statistical noise, transitory oil shocks, and tightening via bond yields.</li><li>The author cites the 1970s Fed&#39;s stop-go policy that led to runaway inflation, concluding it&#39;s better to act decisively.</li><li>He personally sees a September hike as highly likely, but the key is the core PCE data on September 30: if YoY &lt;2% and MoM declines, it&#39;s temporary; otherwise, a sustained hiking cycle may follow.</li><li>He ends by urging a dynamic, flexible mindset in macro observation.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today let&#39;s talk about CPI and rate hikes again. Why bring it up the day after yesterday&#39;s discussion? Because it&#39;s just that important. As soon as the CPI data came out yesterday, I shared my personal take and analysis in a video.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Remember, on this channel I always emphasize that I&#39;m sharing my personal feelings and fact-based analysis, not predictions or fortune-telling. Since it&#39;s situational analysis, there will be arguments on both sides.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>Let&#39;s start with mainstream institutions. Goldman Sachs and Citi expect two more hikes this year, with policy rates moving higher. They cite three reasons: energy pass-through from Middle East conflicts pushing oil prices up, contributing over 1.75% of the CPI increase; rising housing costs, up 0.3% month-over-month with strong lag effects; and core services inflation, like a 4% jump in airfares, which tends to create wage-price spirals.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>But Morgan Stanley and others are more cautious, seeing the September hike as possibly temporary. They argue housing costs are cooling with a 6-12 month lag; the August telecom price spike is statistical noise; oil shocks are exogenous and temporary; and rising long-term bond yields already tighten conditions, so the Fed doesn&#39;t need to hike aggressively.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>The author also cites the 1970s lesson. Fed Chair Burns used a stop-go policy, hiking when inflation rose and cutting when it fell, leading to repeated inflation surges and eventual runaway inflation. It took Volcker&#39;s aggressive hikes to 20% to bring inflation from 14.6% down to around 3%. The lesson: better to act decisively than to go stop-go.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Finally, my personal view: a September hike is still highly likely. But the key is the core PCE data on September 30. If August core PCE YoY is below 2% and MoM declines, it&#39;s a temporary hike; if YoY is above 2% and MoM still rising, we may enter a sustained hiking cycle. In short, the world changes every second, so we must observe with a dynamic mindset and not cling to a fixed view.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这篇文章是典型的宏观分析口播稿，结构清晰，先立论再展开正反观点，最后给出个人判断。主线围绕9月加息的可能性，从机构观点、历史案例到个人分析层层递进。风格口语化，善用比喻和设问，强调理性与动态思维。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">7 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">开场与立场声明</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">作者强调自己只做基于事实的情况分析，不做预测和占卜，呼吁理性看待。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">作者说“我给大家说出的是我个人的感受以及基于各种事实的情况分析，而并非是判断预测和占捕”。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">直接表明立场，建立信任，用“注意”等词强调重点。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">主流机构观点：偏鹰派</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">高盛和花旗认为美联储年内会加息两次，政策利率持续上行。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">能源传导贡献CPI涨幅1¾以上；住房成本环比涨0.3%；核心服务价格上升，机票涨4%。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列数据、引权威机构，用具体数字增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出对立论点</span>
+            <span class="sec-title">谨慎机构观点：偏鸽派</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">摩根士丹利等认为9月加息可能是阶段性的，中长期通胀会回落。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">住房成本有降温趋势；电信服务价格跳涨是噪音；油价冲击外生；长债收益率变相加息。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比手法，列举四个理由，逻辑清晰。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">历史案例：70年代教训</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">70年代美联储走走停停的策略导致通胀失控，最终需暴力加息才控制住。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">伯恩斯奉行stop-go策略，通胀反反复复；沃尔克将利率加至20%，通胀从14.6%降至3%。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">讲故事、引历史，用类比增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">核心CPI的0.1%影响</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">核心CPI环比仅超预期0.1个百分点，但年化后差距很大，足以引发政策转向。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">月度0.3%年化3.66%，0.2%年化2.43%，距离2%目标越来越远。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">数学计算，量化分析，解释市场反应。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">个人看法与关键指标</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">9月加息是极高概率事件，但关键看9月30日核心PCE数据。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">若核心PCE同比小于2%且环比下降，则是阶段性加息；否则可能进入持续加息通道。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">条件判断，给出明确观察指标，体现动态思维。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">总结与呼吁</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">世界不断变化，宏观观察需动态思维，不能固守观点。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用拳击比赛比喻，不观察对手变化就会头破血流。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻收尾，强化主题，呼吁行动。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">正反对比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“高盛和花旗认为年内加息两次，而摩根士丹利认为加息是阶段性的。”</span></div>
+            
+            
+            <div class="tech-line">💡 全面展示不同观点，让读者自行判断，增强客观性。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">历史类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“眼下美国所处的经济周期，其实和70年代的那波大致仗的周期非常像。”</span></div>
+            
+            
+            <div class="tech-line">💡 用历史案例警示当前，增加深度和说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">数据量化</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“月度核心CPI还比是0.3的话，则算成年化大概就是3.66。”</span></div>
+            
+            
+            <div class="tech-line">💡 用具体数字解释抽象概念，让读者直观理解影响。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">设问互动</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“这两方的观点，你会倾向于哪一边？可以在评论剧里面说一说。”</span></div>
+            
+            
+            <div class="tech-line">💡 引导读者思考，增加参与感。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻收尾</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“就像场全击比赛，如果说你不去观察对手时时的变化……最后所带来的结果必然就是头破血流。”</span></div>
+            
+            
+            <div class="tech-line">💡 形象生动，强化核心观点，留下深刻印象。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用正反对比法分析复杂问题</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 面对争议性话题，先搜集正反双方的核心论点和论据，分别列出，再基于事实和逻辑给出自己的判断。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 分析加息问题时，列出高盛和花旗的鹰派理由，再列出摩根士丹利的鸽派理由，对比后形成自己的观点。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用历史类比法预测趋势</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 找到与当前情况相似的历史事件，分析其起因、经过和结果，提取可借鉴的教训，用于判断当前趋势。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 将当前通胀与70年代对比，发现走走停停策略的弊端，从而推断美联储可能采取更坚决的行动。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用关键指标跟踪动态变化</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 针对一个持续发展的事件，确定一个或几个关键指标，定期跟踪其变化，根据指标调整自己的判断。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 关注9月30日发布的核心PCE数据，若同比小于2%且环比下降，则判断为阶段性加息；否则为持续加息。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用数学计算量化影响</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当遇到微小百分比变化时，通过复利计算年化影响，更准确地评估其重要性。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 计算核心CPI环比0.3%的年化值为3.66%，而0.2%的年化值为2.43%，从而理解0.1%的差距为何重要。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">动态思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 世界不断变化，任何观点和判断都需要随着新信息而调整，不能固守一成不变的看法。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在分析宏观问题或投资决策时，定期审视自己的观点，根据最新数据和事件更新判断，避免线性思维。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">概率思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 不追求非黑即白的对错，而是评估不同结果发生的概率，并据此做出决策。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在预测事件时，不说“绝对会”或“绝对不会”，而是说“大概率会”或“小概率会”，并说明依据。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">多维视角</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 从不同角度、不同时间维度看待问题，避免平面化的二元对立。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 分析问题时，加入时间维度（历史对比）、空间维度（不同机构观点）、逻辑维度（正反论证），形成立体认知。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">第二层思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 不仅考虑事件的直接后果，还要考虑市场预期和连锁反应，以及预期差带来的影响。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在投资中，不仅要看数据本身，还要看数据与预期的差距，以及市场可能如何反应。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">49 块 · 预计背诵 29 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">这份材料句子长、信息密集，背诵时容易在机构观点、历史案例等并列结构处卡壳。建议先按“正反观点—历史案例—个人看法”三大板块分段记忆，每块用hint关键词串联；遇到长句（如第39、40块）可拆成两小句先背熟再合并。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/9月加息的看法">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">49 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">82 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好今天我们再说一下CPI和加息的事儿 为什么昨天刚刚说完今天又要说 因为它确实是非常重要 那昨天CPI数据发布之后 我第一时间就给大家发视频说了一下 我个人的一些感受以及各种情况分析</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">CPI加息重要</div>
+            <div class="rc-hint-letters">好为因那我我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">注意我在这个账号里面始终跟大家去强调的是 我给大家说出的是我个人的感受 以及基于各种事实的情况分析 而并非是判断预测和占捕</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">个人感受非预测</div>
+            <div class="rc-hint-letters">注我以而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那既然是情况分析 那肯定就会有正反双方的事实依据和情况推演 说说这和我敢不敢预测未来 敢不敢下判断 是不是说话两头肚毫无关系</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">正反分析非对赌</div>
+            <div class="rc-hint-letters">那那说敢是</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">66 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">一来我的确是没有能力 直到未来会发生一些什么事 二来我也确实是没有兴趣跟你去搞什么对赌 在事实和逻辑面前 我认为情绪和输赢对我来说都毫不重要</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">无能力无兴趣</div>
+            <div class="rc-hint-letters">一直二在我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">46 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我也真心的希望关注我的所有朋友们 不要带着情绪去看问题 尤其是投资这一下 需要你绝对理性的事情上面</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">理性投资</div>
+            <div class="rc-hint-letters">我不尤需</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">67 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好说回正题 今天我看了一下各大机构 对于昨天这个数据的判断 绝大部分的主流机构 其实都一致性的给出了9月份加息的压住 只不过在力度上来说稍有不同</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">机构一致加息</div>
+            <div class="rc-hint-letters">好今对绝其只</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">有些机构迟的是这种偏音的立场 比如说高盛和花旗都认为美联储 年内会加息两次 那么政策利润将会持续的上行 而不是说短暂的加息期</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">高盛花旗偏鹰</div>
+            <div class="rc-hint-letters">有比年那而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">50 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这些机构的理由很直接 第一个原因就是能源的传导 中东冲突导致的能源大涨和油价的台身 贡献了本次CPI涨幅的1¾以上</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">能源传导</div>
+            <div class="rc-hint-letters">这第中贡</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">61 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而中东冲突还在持续 OPEC家又持续的在显场 油价也是再度冲高回到了100的区间 这种持续的输入型的同仗压力 就远远不是一两个月就能够回落的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">油价冲高</div>
+            <div class="rc-hint-letters">而O油这就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">60 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">虽然说核心CPI是名义上拿掉了 食品和能源这两项 但是这个间接的传导始终还在 对吧 因此从绝对意义上去提除掉 食品和能源显然是不可能的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">核心CPI间接传导</div>
+            <div class="rc-hint-letters">虽食但对因食</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二就是住房成本的台身 这次的CPI住房成本是 还比上涨了0.3% 相比于7月份的0.1% 涨幅就明显的扩大了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">住房成本上升</div>
+            <div class="rc-hint-letters">第这还3相1涨</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">70 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而住房通常有个特点 就是它的质后性非常的强 因为房价也好 租金也好都不会像油价一天一个变 往往都需要之后半年 或者是一年才会在后续的 CPI数据当中体现出来</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">住房滞后性</div>
+            <div class="rc-hint-letters">而就因租往或C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">48 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">因此这就意味着住房通胀 现在一旦反弹的话 那么回落就会非常的慢 因此很难靠着一次加息 就可以完全的按下去</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">住房通胀难降</div>
+            <div class="rc-hint-letters">因现那因就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">60 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第三个理由就是核心服务价格的上升 这种服务类的通胀年性往往很强 比如说在这次的CPI统计当中 机票价格涨了4% 住宿交通的价格同步走高</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">核心服务价格</div>
+            <div class="rc-hint-letters">第这比机住</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">60 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而这种服务通胀和那种商品通胀 不同 商品的价格构成是它的生产成本 对吧 而服务它的价格构成是背后的人力成本 人和物件显然是不一样的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">服务人力成本</div>
+            <div class="rc-hint-letters">而不商对而人</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">86 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">人是有情绪的 仗工资容易 仗工资难 所以说想要把人力成本给快速的 降下来绝非意识 而一旦未来形成了工资和物价螺旋 上升的这种预期 那么这种通胀往往就会固化下来 这才是美联储现在最担心的局面</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">工资物价螺旋</div>
+            <div class="rc-hint-letters">人仗仗所降而上那这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">67 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好除此以外 另外一些机构所持的就是偏谨慎的立场 也就是他们认为9月份的加息 很可能只是一个阶段性的加息 达到阶段性避险的目的以后 还会后面降回来</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">谨慎派阶段性加息</div>
+            <div class="rc-hint-letters">好另也很达还</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">71 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">点击的代表就是摩根士丹利 他们就认为通胀从中长期来看 仍然会回落 即便是今年年底以前加息那么一到两次 未来的货币政策周期 也不会进入到一个紧缩的周期里面</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">摩根士丹利观点</div>
+            <div class="rc-hint-letters">点他仍即未也</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">75 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">他们所基于的原因有四个 第一个 他们认为住房的成本 目前虽然很高 但是有降温的趋势 尤其是他们指出 这次的住房分项当中的房租 已经在降温了 只不过统计有6到12个月的之后</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">住房降温滞后</div>
+            <div class="rc-hint-letters">他第他目但尤这已只</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">32 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">因此他们认为随着时间的推示 等到了四季度以后 住房的通胀就会回落下去</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">四季度回落</div>
+            <div class="rc-hint-letters">因等住</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">94 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二个 他们认为这一次的统计当中 是存在噪音的 就他们指出8月份的统计当中 电信电话的服务价格出现了 异常的跳涨 贡献了接近0.1个百分点 但是这种跳涨 显然是不具备持续性的 所以说就属于这种一次性的统计噪音</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">统计噪音</div>
+            <div class="rc-hint-letters">第他是就电异贡1但显所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">31 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而基础掉这个因素之后 其实核心通胀并没有指面上那么强 甚至是偏弱的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">核心通胀偏弱</div>
+            <div class="rc-hint-letters">而其甚</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-23">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 23</span>
+            <span class="rc-size">61 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第三 就是油价带来了这种冲击 属于外申的冲击 他们这种持续性往往都不会持续太久 所以也就很难转化为持续性的 这种工资和物价的上升螺旋</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">油价外生冲击</div>
+            <div class="rc-hint-letters">第就属他所这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-24">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 24</span>
+            <span class="rc-size">57 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第四就是常在收益率 现在实际的走高 已经帮助美联储收紧了 资金的流动性 也就是大家所说的变相加息 没有加息 但是起到加息的效果</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">变相加息</div>
+            <div class="rc-hint-letters">第现已资也没但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-25">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 25</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说既然达到效果了 那你美联储就完全不需要再持续的 去进行激进的加息 对吧 否则政策就会收得过紧 从而引发衰退杀车让车给停下来</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">避免过度紧缩</div>
+            <div class="rc-hint-letters">所那去对否从</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-26">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 26</span>
+            <span class="rc-size">60 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说这两方的观点 你会倾向于哪一边 可以在评论剧里面说一说 当然除了正反两方的观点 我们说做红光观察还需要参考的 就是历史的案例</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">历史案例</div>
+            <div class="rc-hint-letters">所你可当我就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-27">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 27</span>
+            <span class="rc-size">47 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">也就是我们需要把这种二元对立的 平面的二维分析 加入时间的视角 给它变成三维的 从更高的维度去看这件事</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">三维视角</div>
+            <div class="rc-hint-letters">也平加给从</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-28">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 28</span>
+            <span class="rc-size">83 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">在平时的节目和直播里 我其实都经常说 眼下美国所处的经济周期 其实和70年代的那波 大致仗的周期非常像 都是属于通胀反反复复 然后油价持续推高 黄金进入到一个震荡上行的 一个大周期里面</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">70年代相似</div>
+            <div class="rc-hint-letters">在我眼其大都然黄一</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-29">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 29</span>
+            <span class="rc-size">64 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而当时的美联储 在博恩斯的主导下 奉行的是stop go的策略 也就是走走停停的策略 Sison也是通胀一台身 美联储就加息 而通胀一回落就停止加息 甚至是降息</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">stop go策略</div>
+            <div class="rc-hint-letters">而在奉g也S美而甚</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-30">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 30</span>
+            <span class="rc-size">45 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">带来的结果就是通胀反反复复 死灰复燃 而且一次跟比一次猛 越推越高 最终导致的结果 就是通胀彻底失控</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">通胀失控</div>
+            <div class="rc-hint-letters">带死而越最就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-31">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 31</span>
+            <span class="rc-size">80 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">一直到1979年 沃尔克上台 彻底的抛弃之前的stop go的策略 开始推行修课了法 以后说第一目标 就是把通胀给压下来 哪怕经济进入到深度的衰退 进入到昏迷当中 进入到修课的状态当中 不无所谓</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">沃尔克上台</div>
+            <div class="rc-hint-letters">一沃彻g开以就哪进进不</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-32">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 32</span>
+            <span class="rc-size">73 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说这个时候 美联储就开始了 历史上最著名的一轮暴力的加息 直接把利率拉到了两位数 最高的时候 冲到了20% 在这么大的决心之下 通胀才迅速的 从14.6%回落到了3%附近</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">暴力加息</div>
+            <div class="rc-hint-letters">所美历直最冲在通从6</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-33">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 33</span>
+            <span class="rc-size">68 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">当然带来的结果也很惨烈修课 就是整个80年代出GDP就下降了2.6% 但是今此一役 全世界的洋行都统一了思想 从此以后 他们都把通胀预期的管理 作为他们的第一要务</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">惨烈代价</div>
+            <div class="rc-hint-letters">当就6但全从他作</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-34">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 34</span>
+            <span class="rc-size">55 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说乌尔克给出的教训 就是与其走走停停 不如一次到位 对吧 如果说通胀的预期 一旦固化了 那么这种浅长折子的加息 毫无用处</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">一次到位教训</div>
+            <div class="rc-hint-letters">所就不对如一那毫</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-35">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 35</span>
+            <span class="rc-size">101 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">如果说我们把历史的经验 放到今天的场景 大家也可以自行去判断一下 门源的通胀传导 住房成本的台升 以及核心服务价格的上涨 它是一个短期能够改变的因素 还是短期不能改变因素 是否是美联储 通过一次或者两次的加息 就可以逆转的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">历史经验判断</div>
+            <div class="rc-hint-letters">如放大门住以它还是通就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-36">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 36</span>
+            <span class="rc-size">98 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这个没有标准答案 每个人看法不同 所以也不存在一个绝对的 统一的正确答案 甚至是美联储 自己每一次的预期会议 其实也是不同的人 不同的观点 经过的激烈的碰撞之后 相互投票 所得出来的一个相对多数人 所持有的一个观点而已</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">无标准答案</div>
+            <div class="rc-hint-letters">这每所统甚自其不经相所所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-37">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 37</span>
+            <span class="rc-size">131 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而每个票尾的态度 都可能是随时变化的 甚至是早上和中午都不一样 所以说我们作为观察者 如果说还是用这种线性的 平面的 非黑即白的 堵咒发誓绝不可能加息 或者是绝对要加息的这种态度 去看待一个立体的动态的 随时都在变化的事情 当然就会陷入到 这种争风相对的情绪当中 去争论对错 而不是讨论概率</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">动态变化</div>
+            <div class="rc-hint-letters">而都甚所如平非堵或去随当这去而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-38">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 38</span>
+            <span class="rc-size">42 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">即便是你一两次压对了 但是这对于我们 从宏观的视角去分析问题的 能力来说的话 也是毫无帮助的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">压对无帮助</div>
+            <div class="rc-hint-letters">即但从能也</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-39">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 39</span>
+            <span class="rc-size">93 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">再说我个人的看法之前 我觉得有必要 再去解答一个有很多朋友 现在纠结的点 就是为什么现在8月份的核心通胀 仅仅比市场的预期高出了 0.1个百分点 就能带来这么大的影响 政治会带来美联储利率 政策的趋势性反转</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">0.1个百分点影响</div>
+            <div class="rc-hint-letters">再我再现就仅01就政政</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-40">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 40</span>
+            <span class="rc-size">75 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你别说他还真有这个能力 因为对于一个 月度还比的数据来说 百分之0.1的增幅 其实并不小 因为一年有12个月 年化的核心CPI 他的计算公式是 1加上月度的CPI的12次方 然后再减去1</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">年化计算</div>
+            <div class="rc-hint-letters">你因月百1其因年他1然</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-41">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 41</span>
+            <span class="rc-size">74 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">也就是说 他又经过12次的复合挣仗 那么如果说 这个月度的核心CPI还比是0.3的话 则算成年化大概就是3.66 而如果说按照市场 此前的预期是0.2的话 那么大概就只有2.43左右</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">复合增长</div>
+            <div class="rc-hint-letters">也他那这3则6而此2那4</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-42">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 42</span>
+            <span class="rc-size">105 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以说看起来 好像只是核心的CPI还比 涨0.1个百分点 但是实际上带来的结果 就是年度的核心CPI 距离美联储所需要的 2%的目标差得越来越远 这就是为什么核心CPI 仅仅只增加了0.1个百分点 就足以引发整个市场的 矩阵已经没连出 政策转向的原因</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">距离目标远</div>
+            <div class="rc-hint-letters">所好涨1但就距2这仅1就矩政</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-43">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 43</span>
+            <span class="rc-size">73 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好然后最后我来说一下 我个人的看法 首先可以肯定的是 9月份加息这件事 即使是仍然存在最后一刻反转的可能性 但是从概率来看 9月份加息仍然是一个极高概率的时间</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">9月加息高概率</div>
+            <div class="rc-hint-letters">好我首9即但9</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-44">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 44</span>
+            <span class="rc-size">81 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而至于是加息一次还是两次 是先加后降 也就是所谓的这种阶段性的加息 还是一加再加 也就是进入到一个加息的通道当中 我认为最核心的要看 9月30号发布的新规则统计之下的 核心PC1的数据</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">看核心PC1</div>
+            <div class="rc-hint-letters">而是也还也我9核</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-45">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 45</span>
+            <span class="rc-size">62 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">如果说到时候发布的 8月份核心PC1的同比是小于2%的 并且还比出现了下降 那么我认为 他就不会形成这种趋势性的反转 而是会只是一次阶段性的加息</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">小于2%阶段性</div>
+            <div class="rc-hint-letters">如8并那他而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-46">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 46</span>
+            <span class="rc-size">105 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而如果说8月份的PC1 同比是大于2% 并且还比和这次一样仍然是提升的 那么当前美联储的政策趋势 很可能进入到了这种 一加再加的持续上行的加息通道当中 对吧 因为一两次的加息 已经不足以应对持续上行的通胀预期了 与其走走停停不如一次到位</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">大于2%持续加息</div>
+            <div class="rc-hint-letters">而同并那很一对因已与</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-47">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 47</span>
+            <span class="rc-size">89 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而如果说 接下来趋势真的进入到了一个反转的周期 利率的中数未来再次回到了5%附近 那么毫无疑问 对于全球资产的定价逻辑 又会带来全新的议论重置和调整 而我们普通人配置 资产的逻辑也将随之发生改变</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">资产定价重置</div>
+            <div class="rc-hint-letters">而接利那对又而资</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-48">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 48</span>
+            <span class="rc-size">75 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好 总而言之 这个世界每分每秒都在不断的变化当中 我们做宏观观察的时候 也必须要用这种动态的思维 随时切换的视角去观察 而不说守着一个固有的观点 或者说感觉死要不放</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">动态思维</div>
+            <div class="rc-hint-letters">好总这我也随而或</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-49">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 49</span>
+            <span class="rc-size">73 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">就像场全击比赛 如果说你不去观察对手时时的变化 以及他出手的角度 只按照自己之前熟练的那1 2 3 4的套路去打的话 那最后所带来的结果 必然就是头破血流 你说对吧</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">拳击比赛比喻</div>
+            <div class="rc-hint-letters">就如以只234那必你</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-19 周六</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-10-04<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-19 周六</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-10-04<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 23</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-19 周六</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-10-04<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 24</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-19 周六</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-10-04<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 25</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-20 周日</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-05<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 26</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-20 周日</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-05<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 27</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-20 周日</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-05<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 28</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-20 周日</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-05<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 29</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-21 周一</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-06<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 30</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-21 周一</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-06<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 31</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-21 周一</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-06<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 32</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-21 周一</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-06<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 33</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-22 周二</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-07<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 34</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-22 周二</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-07<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 35</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-22 周二</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-07<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 36</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-22 周二</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-07<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 37</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-09-23 周三</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-10-08<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 38</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-09-23 周三</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-10-08<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 39</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-09-23 周三</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-10-08<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 40</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-09-23 周三</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-10-08<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 41</td>
+                <td class="context-col">第 11 天<span class="lbl">2026-09-24 周四</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+                <td class="context-col">2026-10-09<span class="lbl">第 26 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 42</td>
+                <td class="context-col">第 11 天<span class="lbl">2026-09-24 周四</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+                <td class="context-col">2026-10-09<span class="lbl">第 26 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 43</td>
+                <td class="context-col">第 11 天<span class="lbl">2026-09-24 周四</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+                <td class="context-col">2026-10-09<span class="lbl">第 26 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 44</td>
+                <td class="context-col">第 11 天<span class="lbl">2026-09-24 周四</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 18 天</span></td>
+                
+                <td class="context-col">2026-10-09<span class="lbl">第 26 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 45</td>
+                <td class="context-col">第 12 天<span class="lbl">2026-09-25 周五</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+                <td class="context-col">2026-10-10<span class="lbl">第 27 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 46</td>
+                <td class="context-col">第 12 天<span class="lbl">2026-09-25 周五</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+                <td class="context-col">2026-10-10<span class="lbl">第 27 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 47</td>
+                <td class="context-col">第 12 天<span class="lbl">2026-09-25 周五</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+                <td class="context-col">2026-10-10<span class="lbl">第 27 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 48</td>
+                <td class="context-col">第 12 天<span class="lbl">2026-09-25 周五</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 19 天</span></td>
+                
+                <td class="context-col">2026-10-10<span class="lbl">第 27 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 49</td>
+                <td class="context-col">第 13 天<span class="lbl">2026-09-26 周六</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 20 天</span></td>
+                
+                <td class="context-col">2026-10-11<span class="lbl">第 28 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">3373</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 3390 tokens · 输出 3026 tokens ·
+        费用 ¥0.0094
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-09-14
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "9月加息的看法",
+      chunkCount: 49,
+      startDate: "2026-09-14",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

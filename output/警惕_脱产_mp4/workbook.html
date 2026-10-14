@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>警惕“脱产”mp4.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>警惕“脱产”mp4.mp4</h1>
+    <div class="meta">上传视频 · 5m 57s · 2026 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0084 · 5564 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>视频指出，很多人一事无成不是因为不聪明，而是因为“脱产”——大脑长期处于不生产、不打磨、不承受现实摩擦的悬浮状态。</li><li>这种脱产表现为把大量时间花在与自身现实利益无关的信息上，如国际局势、明星八卦、玄学命理等，获得虚假的充实感。</li><li>算法推荐加剧了这一问题，让人困在信息茧房里，误以为在主动获取信息，实则被投喂。</li><li>真正有成就的人信息摄入极度克制，只关注与自身业务和利益相关的事，因为现实中的利益博弈比网上八卦更复杂、更刺激。</li><li>知道不等于做到，只有经过实践劳动的打磨，才能形成坚实的自我，避免一戳就破。</li><li>注意力放在哪，命就在哪，应该把精力聚焦在能让自己变强的事情上。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>你有没有发现，身边有些人好像什么都懂，聊国际局势、历史八卦头头是道，但自己的生活却一团糟？今天我们就来聊聊这个扎心的话题：为什么知道得越多，反而废得越彻底。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>这背后其实是一个隐蔽的陷阱，叫做“脱产”。不是说你没工作，而是你的大脑长期处于不生产、不打磨、不承受现实摩擦的状态。你每天刷两小时国际分析，看一小时明星八卦，再跟人吵半小时架，这些事跟你自己的现实利益毫无关系，但输入成本极低，获得感极强，让你觉得自己格局打开了。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>更可怕的是，算法太懂你了，你爱看什么就给你推什么，你以为自己在主动获取信息，其实只是算法鱼缸里的一条鱼，游得越欢，体力消耗得越快。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>而那些真正混出头的人，往往对公共信息一无所知。不是他们装，是真的不关心。因为到了一定层次，现实中的利益博弈本身就足够复杂、足够好玩，比网上的二手八卦真实一百倍。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>最讽刺的是，很多人把知道当成了做到，看了一本创业书就觉得自己有商业思维了，刷了几个视频就觉得自己懂社会规则了，然后继续躺着刷手机。知道和做到之间隔着十万八千里，中间全是血和汗。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>所以，如果你看到这里觉得被刺到了，别急着反驳，先问问自己：今天刷了多少跟自己无关的信息？这个月有没有把一件跟自己有关的事真正推进了一步？记住，注意力放在哪，命就在哪。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The video argues that many people fail not because they lack intelligence, but because they are in a state of &#39;mental idleness&#39;—their brains are not producing, refining, or engaging with reality.</li><li>This idleness shows up as spending huge amounts of time on information unrelated to one&#39;s real interests, such as international politics, celebrity gossip, or astrology, gaining a false sense of fulfillment.</li><li>Algorithms trap people in filter bubbles, making them think they are actively seeking information when they are actually being fed.</li><li>Truly successful people are extremely restrained in their information intake, focusing only on what relates to their business and interests, because real-world利益 games are more complex and stimulating than online gossip.</li><li>Knowing is not doing; only through practical labor and real-world friction can one build a solid self that doesn&#39;t collapse at a touch.</li><li>Where your attention goes, your life goes—focus your energy on what makes you stronger.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Have you noticed that some people seem to know everything—they can talk about international politics, history, and gossip—but their own lives are a mess? Today we&#39;re going to talk about this painful topic: why knowing more can actually make you more useless.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Behind this is a hidden trap called &#39;mental idleness.&#39; It&#39;s not that you don&#39;t work, but that your brain is in a state of not producing, not refining, and not engaging with reality. You spend two hours a day watching international analysis, one hour on celebrity gossip, and another half hour arguing with people online. These things have nothing to do with your real interests, but they are low-cost and highly rewarding, making you feel like you&#39;ve expanded your horizons.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>What&#39;s worse, algorithms know you too well. They feed you what you like. You think you&#39;re actively seeking information, but you&#39;re just a fish in an algorithmic fish tank—the more you swim, the faster you exhaust yourself.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Meanwhile, those who truly succeed are often clueless about public information. It&#39;s not that they pretend; they genuinely don&#39;t care. Because at a certain level, real-world利益 games are complex and exciting enough—a hundred times more real than second-hand gossip online.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>The most ironic thing is that many people mistake knowing for doing. They read a business book and think they have a business mind; they watch a few videos and think they understand social rules—then they go back to lying in bed scrolling. The gap between knowing and doing is vast, filled with blood and sweat.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>So if you feel stung by this, don&#39;t rush to argue. Ask yourself: how much irrelevant information have you consumed today? Have you actually moved forward on something that matters to you this month? Remember, where your attention goes, your life goes.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这篇文章以“脱产”为核心概念，采用层层递进的结构，从现象描述到原因分析，再到对比论证和结论呼吁。主线是：指出问题（脱产导致废掉）→ 分析机制（算法投喂、虚假充实）→ 对比真正成功者的做法 → 强调知行合一 → 最后用金句收尾并引导行动。风格犀利、口语化，多用第二人称“你”和反问句，制造共鸣和紧迫感。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">7 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">引入：天涯神帖的预言</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">很多人一事无成不是因为不聪明，而是脱产导致的自我内核薄弱。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用十几年前天涯社区帖子，描述身边人什么都懂但混得差的现象。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用权威（天涯神帖）、讲故事、设问</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">定义脱产：精神空转</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">真正的脱产是大脑长期处于不生产、不打磨、不承受现实摩擦的悬浮状态。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举刷国际局势、明星八卦、评论区吵架等行为，指出这些事与自身利益无关。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">定义概念、列举现象、对比（身体在上班，精神在挥霍）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">算法球笼：被投喂的鱼</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">算法根据喜好推送信息，让人困在信息茧房，误以为在主动获取信息。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用鱼在鱼缸里游的比喻，说明水温、流速、饵料都是被设计好的。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻、类比、排比（你爱看什么他就给你推什么）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">案例列举：知道很多却做不好</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">很多人沉迷宏大叙事，却连基本的工作和生活都处理不好。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举研究历史天文地理但Excel做不利索、沉迷红大叙事但职业规划理不清等例子。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">排比、对比、举例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">对比：真正活明白的人做减法</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">真正有成就的人信息摄入极度克制，只关注与自身利益相关的事。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">描述成功者对公共信息一无所知，因为现实中的利益博弈更复杂、更刺激。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比、反常识、比喻（大鱼在深海，小鱼浮在水面）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">知道≠做到：知行合一</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">很多人把知道当成做到，但知道和做到之间隔着十万八千里。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">举例看创业书、刷人性视频就觉得自己有商业思维，实则继续躺平。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比、讽刺、引用（知行合一）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">结论：注意力放在哪，命就在哪</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">应该把精力聚焦在能让自己变强的事情上，而不是让看起来懂。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用天涯隐学的话，并用悬崖走路的比喻呼吁行动。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用、金句、呼吁行动</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">6 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">设问与反问</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你有没有发现身边有这样一种人？你问他什么他好像都知道，你再看看他混得怎么样？”</span></div>
+            
+            
+            <div class="tech-line">💡 引发读者自我反思，增强代入感和共鸣。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">对比手法</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你的身体可能在上班，但你的精神一直在挥霍。”</span></div>
+            
+            
+            <div class="tech-line">💡 突出矛盾，让观点更鲜明，冲击力强。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻与类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“你只是算法球笼里的一条鱼，鱼在水里游它觉得自己很自由，但它不知道这池水是别人设计好的。”</span></div>
+            
+            
+            <div class="tech-line">💡 把抽象的信息茧房问题具象化，易于理解和记忆。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">排比列举</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“有人天天研究历史天文地理，结果Excel表格都做不利索；有人沉迷红大叙事，结果连自己的职业规划都理不清。”</span></div>
+            
+            
+            <div class="tech-line">💡 增强语势，多角度证明观点，让读者对号入座。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">引用权威</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“天涯隐学里有一句话：人这一辈子，注意力放在哪，命就在哪。”</span></div>
+            
+            
+            <div class="tech-line">💡 借权威增强说服力，同时制造神秘感和好奇心。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">6</span>
+          <div class="tech-body">
+            <div class="tech-name">金句收尾</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“这个世界从来不缺知道很多的人，缺的是明知道前面是悬崖，还能低下头一步一步把眼前这条路走穿的人。”</span></div>
+            
+            
+            <div class="tech-line">💡 升华主题，留下深刻印象，便于传播。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">信息摄入审计</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 每天记录自己花在无关信息上的时间，计算占比，并设定减少目标。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 用手机屏幕使用时间功能，查看过去一周在社交媒体、新闻、视频上的耗时，然后设定每天不超过30分钟。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">注意力聚焦法</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 明确与自己现实利益最相关的1-3件事，每天优先投入时间。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 列出本月最重要的三个目标（如提升工作技能、拓展客户），每天早晨先花2小时处理这些事，再处理其他。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">知行合一实践</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 把学到的知识立即转化为一个最小行动，并执行。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 看完一个销售技巧视频后，立刻给一个潜在客户发消息或打电话实践。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">信息源筛选</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 取消关注与自身目标无关的账号，只保留能带来实际价值的信源。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 取关所有娱乐八卦、国际局势分析账号，只保留行业报告、专业教程等。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">机会成本思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 意识到每花一分钟在无关信息上，就少一分钟用于自我提升。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在做任何事之前，问自己：这件事对我的现实利益有帮助吗？如果没有，就果断放弃。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">知行合一</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 知道不等于做到，只有行动才能带来改变。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 每当学到新知识，立即制定一个可执行的小步骤，并在24小时内完成。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">信息节食</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 像控制饮食一样控制信息摄入，只摄取有营养的。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 每天限定信息摄入时间和内容类型，避免无意识刷屏。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">长期主义</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 把注意力放在能产生长期复利的事情上，而不是短期快感。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 评估每项活动是否有助于一年后的自己，如果不是，就减少投入。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">35 块 · 预计背诵 17 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">本文口语化强、长句多，背诵时先抓每块的核心意象（如“算法鱼笼”“知道偷走做到”），再串联逻辑链：现象→原因→算法→案例→解法→呼吁。注意“拖產”“內和”“綱意”“如屬加征”等疑似转写错字，按原文读音记忆即可，不必纠结字形。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/警惕_脱产_mp4">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">35 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">45 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">為什麼底層人喜歡紅大敘事 十幾年前天涯社區有個帖子被頂到了幾千樓 樓珠寫了一段話,原話大概是這樣</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">底层人 红大叙事 天涯帖子</div>
+            <div class="rc-hint-letters">為十樓原</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">56 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">很多人之所以一事無成根本不是因為不夠聰明 而是拖產灰禍導致的自我內和薄弱 沒有經過實踐勞動價值生產打磨出來的綱意自我</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">一事无成 脱产 自我薄弱</div>
+            <div class="rc-hint-letters">很而沒</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">53 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">短短幾十年裡人生最能奮鬥精進的時光 全浪費在了無效信息上 當時看完只覺得扎心,十幾年後再回頭看 這段話簡直是預言了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">奋斗时光 无效信息 预言</div>
+            <div class="rc-hint-letters">短全當十這</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">53 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你有沒有發現身邊有這樣一種人 聊起國際局勢 他能從俄烏衝突扯到中東石油格局 說起歷史,從春秋戰國到二戰風雲如屬加征</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">身边人 国际局势 历史</div>
+            <div class="rc-hint-letters">你聊他說從</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">50 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">談到社會新聞,哪個明星塌房,哪個網紅翻車 他比當時人還清楚 甚至玄學命理,星座塔羅,男女八卦 他也能給你落上半小時</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">社会新闻 玄学八卦</div>
+            <div class="rc-hint-letters">談哪哪他甚星男他</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">55 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你問他什麼他好像都知道 你再看看他混得怎麼樣 月薪5000,房租緊八八,30歲還在原地打賺 存款沒超過五位數,知道的越多廢的越徹底</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">什么都知道 混得差 知道越多越废</div>
+            <div class="rc-hint-letters">你你月房3存知</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">53 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">這不是諷刺,這是天涯飲學裡早就顯透的一條鐵律 一,拖產才是廢掉一個人最隱蔽的方式 很多人以為拖產就是不工作,可老,錯了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">铁律 脱产 最隐蔽</div>
+            <div class="rc-hint-letters">這這一拖很可錯</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">54 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">真正的拖產是你的大腦長期處於一種不生產的 不打磨,不承受現實磨擦的懸浮狀態 你的身體可能在上班,但你的精神一直在揮霍</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">大脑不生产 悬浮状态 精神挥霍</div>
+            <div class="rc-hint-letters">真不不你但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你有沒有算過一天醒了16個小時 有多少時間花在了跟你自己 現實利益毫無關係的事情上 刷兩個小時的國際局勢分析 看一小時的明星八卦</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">16小时 无关事情 刷分析看八卦</div>
+            <div class="rc-hint-letters">你有現刷看</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">62 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">跟人在評論區吵了半小時到底誰對誰錯 再點開一個深度解讀人性的長視頻 一天就這麼過去了 這些東西有一個共同特徵 輸入成本極低,獲得感極強</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">评论区吵架 长视频 低成本高获得感</div>
+            <div class="rc-hint-letters">跟再一這輸獲</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">72 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你看了覺得自己又學到了 對,覺得自己格局打開了 覺得自己看透了這個世界的運行規律 實際上你的銀行卡餘額沒有變 你的專業技能沒有漲 你現實裡的困境一個都沒解決</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">学到 格局 实际没变</div>
+            <div class="rc-hint-letters">你對覺覺實你你</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">61 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">這就是拖產,不是身體沒動 是精神在空轉,空轉久了人就廢了 二,算法球籠裡的魚還覺得自己在衝浪 更可怕的是很多人根本意識不到自己在被投位</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">精神空转 算法球笼 被投喂</div>
+            <div class="rc-hint-letters">這不是空二算更</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">平台太懂你了 你愛看什麼他就給你推什麼 你喜歡紅大敘事 他天天給你分析世界格局百年變局 你熱衷社會熱點 他24小時不見斷製造焦慮</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">平台懂你 推你喜欢 制造焦虑</div>
+            <div class="rc-hint-letters">平你你他你他</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你沉迷玄學命理 他能給你推100個高維智慧帳號 你以為自己在主動獲取信息 其實你只是算法球籠裡的一條魚 魚在水裡游他覺得自己很自由</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">玄学账号 主动获取 鱼在笼中</div>
+            <div class="rc-hint-letters">你他你其魚</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">54 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">但他不知道這池水是別人設計好的 水溫、流素、耳料全是精準計算過的 你游得越歡越消耗自己的體力 最後連怎麼死都不知道</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">池水设计 精准计算 消耗体力</div>
+            <div class="rc-hint-letters">但水流耳你最</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">72 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">貓貓見過太多這樣的人了 有人天天研究歷史天文地理 覺得自己駁骨通經 結果XL表格都做不利索 有人沉迷紅大敘事 張口閉口國運周期大事 結果連自己的職業規劃都理清</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">猫猫见过 博古通今 表格不利索</div>
+            <div class="rc-hint-letters">貓有覺結有張結</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">47 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">有人對社會行為如屬加征 哪個名人說了什麼話 哪件事有什麼內幕 他們而清 結果自己的工作汇報寫了一趟糊塗</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">社会行为 名人内幕 工作汇报糊涂</div>
+            <div class="rc-hint-letters">有哪哪他結</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">還有人把經歷全耗在男女關係的八卦上 今天分析這個明天吐槽那一個 結果自己的感情一團糟 這些信息的共同點是 跟你沒有半毛錢關係</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">男女八卦 感情一团糟 无关</div>
+            <div class="rc-hint-letters">還今結這跟</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">66 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你知道了改變不了 你不知道也不影響你吃飯睡覺 他們存在的唯一意義就是佔用你的注意力 讓你在虛假的充實感中 一點點耗盡人生最該奮鬥精進的那幾年</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">改变不了 占用注意力 耗尽奋斗年</div>
+            <div class="rc-hint-letters">你你他讓一</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">64 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">真正活明白的人都在做簡法 我跟你說一個反常識的真相 那些真正在行業裡混出頭的人 往往對公共信息一無所知 你跟他聊最近的社會熱點 他一臉茫然</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">做减法 反常识 行业出头 茫然</div>
+            <div class="rc-hint-letters">真我那往你他</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">54 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你問他某個明星怎麼了 他搖搖頭說沒關注 你跟他扯什麼國際局勢歷史密文 他笑了笑不接話 不是他裝是真的不知道 也不想知道</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">明星没关注 不接话 真不知道</div>
+            <div class="rc-hint-letters">你他你他不也</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">63 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">為什麼 因為到了一定層次 現實裡處理利益本身 就已經足夠好玩 足夠複雜 足夠消耗經歷了 他們每天要面對的是 怎麼談下一個客戶 怎麼搞定一個項目</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">层次 处理利益 谈客户 搞定项目</div>
+            <div class="rc-hint-letters">為因現就足足他怎怎</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-23">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 23</span>
+            <span class="rc-size">78 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">怎麼在博弈中多爭取一點空間 怎麼讓團隊更高效運轉 怎麼讓自己的資產保值增值 這些事情裡的細節 門道人心博弈 圓明你在網上看到的公開八卦 二手謠言要真實 要刺激 要深刻一百倍</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">博弈 团队 资产 细节门道 真实刺激</div>
+            <div class="rc-hint-letters">怎怎怎這門圓二要要</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-24">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 24</span>
+            <span class="rc-size">61 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">真正的大魚都在深海裡自己找事吃 只有小魚才扎堆浮在水面上 等著別人頭尾那點殘扎 你去看那些有所成就的人 他們的信息涉入是極度克制的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">大鱼深海 小鱼浮面 信息克制</div>
+            <div class="rc-hint-letters">真只等你他</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-25">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 25</span>
+            <span class="rc-size">54 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">跟自己業務無關的疑慮不看 跟自己利益無關的疑慮不曉 不是冷漠 是經貴 經歷太寶貴了 捨不得浪費 你的知道正在偷走你的做到</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">无关不看 经历宝贵 知道偷走做到</div>
+            <div class="rc-hint-letters">跟跟不是經捨你</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-26">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 26</span>
+            <span class="rc-size">69 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">最諷刺的是什麼 是很多人把知道當成了做到 把看過當成了擁有 看了一本講創業的書 就覺得自己有商業思維了 刷了幾個講人性的視頻 就覺得自己動西社會規則了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">知道当做到 看过当拥有 创业书 人性视频</div>
+            <div class="rc-hint-letters">最是把看就刷就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-27">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 27</span>
+            <span class="rc-size">52 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">讀了幾篇天涯神帖 就覺得自己掌握了隱學真地 然後繼續躺在床上刷手機 知道和做到之間隔著十萬八千里 中間全是血和汗</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天涯神帖 隐学真谛 躺床刷手机 血汗</div>
+            <div class="rc-hint-letters">讀就然知中</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-28">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 28</span>
+            <span class="rc-size">56 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">這就是貓貓幾乎每一期視頻所說的 知行合一 那些真正改變過命運的人 哪個不是在現實裡一次次撞的頭破血流 才磨出了那點真本事</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">知行合一 改变命运 头破血流 真本事</div>
+            <div class="rc-hint-letters">這知那哪才</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-29">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 29</span>
+            <span class="rc-size">65 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">哪個不是把有限的經歷全部聚焦 再跟自己利益相關的那件事上 才撕開了一個口子 你沒有經過實踐勞動的打磨 沒有在生產價值的過程中 被現實反覆垂煉</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">聚焦利益 撕开口子 实践打磨 反复锤炼</div>
+            <div class="rc-hint-letters">哪再才你沒被</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-30">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 30</span>
+            <span class="rc-size">55 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">你的自我就是一層紙 一戳就破 風一吹你就跟著晃 別人說一句你就跟著跑 今天信這個 明天信那個 看似知道很多 實則內和空無一物</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">自我如纸 跟风跑 信这信那 内里空无</div>
+            <div class="rc-hint-letters">你一風別今明看實</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-31">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 31</span>
+            <span class="rc-size">52 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">無 寫在最後 如果你看到這裡覺得被刺到了 那說的就是你 別急著反駁 先問問自己 今天刷了多少跟自己 現實利益無關的信息</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">写在最后 被刺到 问自己 刷无关信息</div>
+            <div class="rc-hint-letters">無寫如那別先今現</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-32">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 32</span>
+            <span class="rc-size">53 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">這個月有沒有把一件 跟自己有關的事 真正推進了一步 你的經歷到底是花在了 讓自己變強上 還是花在了 讓自己看起來很懂上</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">推进一件事 花在变强 还是看起来懂</div>
+            <div class="rc-hint-letters">這跟真你讓還讓</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-33">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 33</span>
+            <span class="rc-size">42 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">天涯隱學裡有一句話 人這一輩子 注意力放在哪 命就在哪 你盯著別人的戲 看你自己的戲就沒人演了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">注意力在哪 命就在哪 别人的戏</div>
+            <div class="rc-hint-letters">天人注命你看</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-34">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 34</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">這個世界從來不缺 知道很多的人 缺的是明知道前面是懸崖 還能低下頭一步一步 把眼前這條路走穿的人</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">不缺知道 缺低头走穿路的人</div>
+            <div class="rc-hint-letters">這知缺還把</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-35">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 35</span>
+            <span class="rc-size">77 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">本文出自天涯神貼合集 由於內容受限 大部分文章無法公開 好在有人將這100多篇 精華神貼整理成冊 讓我得以再次接觸到 號稱豬子百家的天涯神貼 完整版點擊下方儲窗 直接拍完整版</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天涯神贴合集 整理成册 点击橱窗</div>
+            <div class="rc-hint-letters">本由大好精讓號完直</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-09-10 周四</span></td>
+                
+                <td class="context-col">2026-09-11<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-09-11 周五</span></td>
+                
+                <td class="context-col">2026-09-12<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-26<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-09-12 周六</span></td>
+                
+                <td class="context-col">2026-09-13<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-27<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-09-13 周日</span></td>
+                
+                <td class="context-col">2026-09-14<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-28<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-09-14 周一</span></td>
+                
+                <td class="context-col">2026-09-15<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-29<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 23</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 24</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-09-15 周二</span></td>
+                
+                <td class="context-col">2026-09-16<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-30<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 25</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 26</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 27</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 28</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-09-16 周三</span></td>
+                
+                <td class="context-col">2026-09-17<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-23<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-10-01<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 29</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 30</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 31</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 32</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-09-17 周四</span></td>
+                
+                <td class="context-col">2026-09-18<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-21<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-09-24<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-10-02<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 33</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 34</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 35</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-09-18 周五</span></td>
+                
+                <td class="context-col">2026-09-19<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-09-20<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-09-22<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-09-25<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-10-03<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">2026</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 2769 tokens · 输出 2795 tokens ·
+        费用 ¥0.0084
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-09-10
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "警惕_脱产_mp4",
+      chunkCount: 35,
+      startDate: "2026-09-10",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>
