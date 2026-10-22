@@ -1,0 +1,3342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读 · 背诵">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<link rel="manifest" href="/manifest.json">
+<title>背诵 · [English (auto-generated)] I&#39;m 45. If you&#39;re in your 30s watch this [DownSub.com].srt</title>
+<style>
+:root{
+  --teal:#0e7c6b; --teal-dark:#0a5f52; --teal-soft:#e4f4ef;
+  --amber:#d97706; --amber-soft:#fdf1dd;
+  --bg:#f3faf7; --card:#ffffff; --text:#22332f; --muted:#86a09a;
+  --line:#e2efe9; --warn:#b03a4e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); font-size:15px; line-height:1.7;
+}
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(120deg,var(--teal),#0f8f7b);
+  color:#fff; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.topbar .brand{font-weight:800; font-size:17px; letter-spacing:.5px;}
+.topbar .brand span{opacity:.85; font-weight:400; font-size:12px; margin-left:8px;}
+.btn-print{
+  background:rgba(255,255,255,.18); color:#fff; border:none;
+  padding:6px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+}
+.btn-print:hover{background:rgba(255,255,255,.3);}
+.wrap{max-width:680px; margin:0 auto; padding:14px 12px 40px;}
+.card{
+  background:var(--card); border-radius:14px; padding:18px 16px;
+  margin-bottom:14px; box-shadow:0 1px 5px rgba(14,124,107,.07);
+}
+.card h2{font-size:15px; color:var(--teal-dark); margin-bottom:10px;}
+.hint-line{font-size:12px; color:var(--muted); margin-bottom:8px;}
+
+/* ── hero ── */
+.hero .badges{margin-bottom:8px;}
+.badge{
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:12px;
+  background:var(--teal-soft); color:var(--teal-dark); margin-right:6px; font-weight:600;
+}
+.badge.lang-en{background:#e8f4fd; color:#1a6aaa;}
+.hero h1{font-size:20px; color:var(--text); margin-bottom:4px; line-height:1.4;}
+.hero .meta{font-size:12px; color:var(--muted); margin-bottom:14px;}
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat{background:var(--bg); border-radius:10px; padding:10px 6px; text-align:center;}
+.stat b{display:block; font-size:18px; color:var(--teal-dark);}
+.stat span{font-size:11px; color:var(--muted);}
+
+/* ── steps ── */
+.steps{display:flex; gap:8px; flex-wrap:wrap;}
+.step{
+  flex:1 1 150px; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:12.5px;
+}
+.step b{color:var(--teal-dark); display:block; margin-bottom:2px; font-size:13px;}
+
+/* ── warn / advice ── */
+.warn{
+  background:#fdecee; color:var(--warn); border-radius:10px; padding:10px 14px;
+  font-size:12.5px; margin-bottom:14px;
+}
+.advice{font-size:13.5px; color:#33453f; background:#fbfdfc; border-left:3px solid var(--teal); padding:8px 12px; border-radius:4px;}
+
+/* ── chunks ── */
+.chunk{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+  overflow:hidden; background:#fff;
+}
+.chunk-head{
+  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  background:#f7fbf9; border-bottom:1px solid var(--line);
+}
+.chunk-no{
+  background:var(--teal); color:#fff; font-weight:700; font-size:12px;
+  padding:2px 10px; border-radius:12px;
+}
+.chunk-size{font-size:11px; color:var(--muted);}
+.chunk-head .spacer{flex:1;}
+.chunk .btn{
+  font-size:12px; border:none; border-radius:8px; padding:5px 10px; cursor:pointer;
+  background:var(--teal-soft); color:var(--teal-dark); font-weight:600;
+}
+.chunk .btn:hover{background:#d3ece4;}
+.chunk .btn.btn-amber{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn.btn-amber:hover{background:#fae6c4;}
+.chunk-text{padding:12px 14px; font-size:16.5px; line-height:1.95;}
+.chunk .btn-blank{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn-blank:hover{background:#fae6c4;}
+.chunk.blanked .chunk-text{display:none;}
+.chunk.blanked .blank-cover{display:flex;}
+.blank-cover{
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px 14px; gap:10px; color:var(--muted); font-size:13px;
+  background:repeating-linear-gradient(45deg,#f6faf8,#f6faf8 8px,#eef6f2 8px,#eef6f2 16px);
+}
+.blank-cover .lock{font-size:22px;}
+.hint-card{display:none; padding:10px 14px 12px; background:var(--amber-soft); border-top:1px dashed #f0d9a8;}
+.chunk.blanked .hint-card{display:block;}
+.hint-card .hint-label{font-size:11px; color:var(--amber); font-weight:700; margin-bottom:4px;}
+.hint-card .hint-kw{font-size:14px; color:#7a4a00; font-weight:600; margin-bottom:6px;}
+.hint-card .hint-letters{
+  font-size:13px; color:#9a7b4f; letter-spacing:1.5px; line-height:1.9;
+  border-top:1px dashed #f0d9a8; padding-top:6px;
+}
+.chunk.reveal-hint .hint-card{display:block;}
+
+/* ── review table ── */
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.review-table{border-collapse:collapse; width:100%; font-size:12px; min-width:560px;}
+.review-table th,.review-table td{
+  border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap;
+}
+.review-table th{background:var(--teal-soft); color:var(--teal-dark); font-weight:700;}
+.review-table td:first-child{font-weight:700; color:var(--teal-dark); background:#f7fbf9;}
+.review-table .lbl{display:block; color:var(--muted); font-size:10px;}
+
+/* ── daily plan ── */
+.cpd-row{display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
+.cpd-row label{font-size:13px; color:var(--text);}
+.cpd-row select{
+  padding:6px 8px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--teal-dark); font-size:14px; font-weight:700;
+}
+.progress{
+  flex:1; min-width:80px; height:8px; background:var(--line); border-radius:6px; overflow:hidden;
+}
+.progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),#14a58f); transition:width .3s;}
+#progress-text{font-size:12px; color:var(--muted); white-space:nowrap;}
+.day-card{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden;
+}
+.day-card.today{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal);}
+.day-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 12px; background:#f7fbf9;
+}
+.day-no{font-weight:800; color:var(--teal-dark); font-size:14px;}
+.day-date{font-size:12px; color:var(--muted);}
+.day-row{display:flex; align-items:center; gap:6px; padding:6px 12px; flex-wrap:wrap;}
+.day-row + .day-row{border-top:1px dashed var(--line);}
+.row-label{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; flex-shrink:0;}
+.row-label.new{background:var(--teal-soft); color:var(--teal-dark);}
+.row-label.review{background:var(--amber-soft); color:var(--amber);}
+.chip{
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  border-radius:10px; padding:4px 10px; font-size:12.5px; cursor:pointer;
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on.new{background:var(--teal); border-color:var(--teal); color:#fff;}
+.chip.on.review{background:var(--amber); border-color:var(--amber); color:#fff;}
+.chip.done{opacity:.55; text-decoration:line-through;}
+.empty-day{font-size:12px; color:var(--muted); padding:8px 12px;}
+
+/* ── footer ── */
+.footer{text-align:center; color:#9ab5ad; font-size:11px; padding:10px 0 30px;}
+
+@media print{
+  .topbar,.cpd-row,.btn,.no-print{display:none !important;}
+  body{background:#fff; font-size:12px;}
+  .card{box-shadow:none; border:1px solid #ddd; break-inside:avoid;}
+  .chunk-text{display:block !important;}
+  .hint-card,.blank-cover{display:none !important;}
+  .review-table th{background:#f0f0f0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📖 背诵<span>智读 · English · 字幕</span></div>
+  <a class="btn-print" href="/result/_English__auto-generated___I_m_45__If_you_re_in_your_30s_watch_this__DownSub_com_" style="text-decoration:none">🧠 智读看板</a>
+  <button class="btn-print" onclick="window.print()">🖨 打印/存 PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── 头部 ── -->
+  <section class="card hero">
+    <div class="badges">
+      <span class="badge lang-en">🌐 English</span>
+      <span class="badge">📄 字幕</span>
+      <span class="badge">🗓 生成于 2026-10-22</span>
+    </div>
+    <h1>[English (auto-generated)] I&#39;m 45. If you&#39;re in your 30s watch this [DownSub.com].srt</h1>
+    <div class="meta">
+      4675 字 · 89 块 · 预计背诵 52 分钟
+      
+    </div>
+    <div class="stats">
+      <div class="stat"><b>4675</b><span>总字数</span></div>
+      <div class="stat"><b>89</b><span>意群块</span></div>
+      <div class="stat"><b>52</b><span>背诵/分钟</span></div>
+      <div class="stat"><b>445</b><span>复习次数</span></div>
+    </div>
+  </section>
+
+  <!-- ── 怎么背 ── -->
+  <section class="card">
+    <h2>📖 三步背诵法</h2>
+    <div class="steps">
+      <div class="step"><b>① 看提示卡</b>先读每块下方的 💡 提示卡，用关键词/首字回忆内容</div>
+      <div class="step"><b>② 遮住自测</b>点「🙈 遮住自测」把原文盖住，看着提示卡试着背出来</div>
+      <div class="step"><b>③ 按时复习</b>按下方艾宾浩斯清单打卡，第 1/2/4/7/15 天复习巩固</div>
+    </div>
+  </section>
+
+  
+  <section class="card">
+    <h2>💡 背诵建议</h2>
+    <div class="advice">This material is long and dense with numbered points, so use the numbers as memory anchors. Pay attention to long sentences with multiple clauses (e.g., chunk 8, chunk 67) and break them into smaller breath groups. Also watch out for similar-sounding words like &#39;desexualize&#39; and &#39;circadian&#39;—practice their pronunciation. To memorize effectively, focus on the key idea of each chunk (given in the hint) and link it to the number or story.</div>
+  </section>
+  
+
+  
+
+  <!-- ── 原文分块 ── -->
+  <section class="card" id="chunks">
+    <h2>🧱 原文分块（89 块）</h2>
+    <p class="hint-line">每块是完整语义单元。先通读，再逐块「遮住自测」。</p>
+    
+    <article class="chunk" id="chunk-1">
+      <div class="chunk-head">
+        <span class="chunk-no">块 1</span>
+        <span class="chunk-size">37 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">I&#39;m 45 and if you&#39;re in your 30s, watch this. When you hit your 40s, you&#39;re going to see two types of people. Those who took care of themselves and those who did not.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">two types of people</div>
+        <div class="hint-letters">I A I Y I Y S W T W Y H Y S Y G T S T T O P T W T C O T A T W D N</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-2">
+      <div class="chunk-head">
+        <span class="chunk-no">块 2</span>
+        <span class="chunk-size">26 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Health isn&#39;t optional. In your 20s, you can get away with a lot. But in your 30s, your habits compound for better or for worse.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">habits compound</div>
+        <div class="hint-letters">H I O I Y S Y C G A W A L B I Y S Y H C F B O F W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-3">
+      <div class="chunk-head">
+        <span class="chunk-no">块 3</span>
+        <span class="chunk-size">27 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Next, you lose 3 to 8% of muscle every decade after 30. And this rate accelerates after 60. Lifting weights is an investment in your future self.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">muscle loss, lifting</div>
+        <div class="hint-letters">N Y L T O M E D A A T R A A L W I A I I Y F S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-4">
+      <div class="chunk-head">
+        <span class="chunk-no">块 4</span>
+        <span class="chunk-size">51 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And maybe I&#39;m getting ahead of myself, but when you lift weights, especially after the ages of 60, 70, 80, this is what keeps you functional as you age. It&#39;s way better to be the oldest person in the weight room than the youngest person in the nursing home.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">functional aging</div>
+        <div class="hint-letters">A M I G A O M B W Y L W E A T A O T I W K Y F A Y A I W B T B T O P I T W R T T Y P I T N H</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-5">
+      <div class="chunk-head">
+        <span class="chunk-no">块 5</span>
+        <span class="chunk-size">40 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number three, you are what you eat. The foods you take in are investments in your present and future energy, mood, and health. If you&#39;re feeling like look no further than the fuel you&#39;re putting into your body.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">you are what you eat</div>
+        <div class="hint-letters">N T Y A W Y E T F Y T I A I I Y P A F E M A H I Y F L L N F T T F Y P I Y B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-6">
+      <div class="chunk-head">
+        <span class="chunk-no">块 6</span>
+        <span class="chunk-size">33 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And there have been plenty of studies that have been done that shows the types of nutrients that you put into your body are what contribute to either positive or negative mental health.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">nutrients and mental health</div>
+        <div class="hint-letters">A T H B P O S T H B D T S T T O N T Y P I Y B A W C T E P O N M H</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-7">
+      <div class="chunk-head">
+        <span class="chunk-no">块 7</span>
+        <span class="chunk-size">38 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number four, you are also when you eat. One of the most underrated tools to getting healthy is to create the best meal schedule for you. It&#39;s a concept called circadian nutrition and it&#39;s quite simple.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">circadian nutrition</div>
+        <div class="hint-letters">N F Y A A W Y E O O T M U T T G H I T C T B M S F Y I A C C C N A I Q S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-8">
+      <div class="chunk-head">
+        <span class="chunk-no">块 8</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You would eat your final meal at least 3 to 5 hours before bed and this lets your body digest and improve the quality of your sleep. You would eat your first meal at least one to two hours upon waking to regulate your appetite, your hunger, and also to turn on your circadian rhythms.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">meal timing</div>
+        <div class="hint-letters">Y W E Y F M A L T H B B A T L Y B D A I T Q O Y S Y W E Y F M A L O T T H U W T R Y A Y H A A T T O Y C R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-9">
+      <div class="chunk-head">
+        <span class="chunk-no">块 9</span>
+        <span class="chunk-size">35 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And if you want, you put a meal in between those two. And then when you do this for about 7 days, your body will start to adapt to the times that you&#39;re eating.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">adapt in 7 days</div>
+        <div class="hint-letters">A I Y W Y P A M I B T T A T W Y D T F A D Y B W S T A T T T T Y E</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-10">
+      <div class="chunk-head">
+        <span class="chunk-no">块 10</span>
+        <span class="chunk-size">44 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number five, sleep is the best performance-enhancing drug on the planet, and it&#39;s completely free. At a bare minimum, you should be aiming for at least 7 to nine hours of sleep every single night, aiming for similar sleep and wake times.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">sleep 7-9 hours</div>
+        <div class="hint-letters">N F S I T B P E D O T P A I C F A A B M Y S B A F A L T N H O S E S N A F S S A W T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-11">
+      <div class="chunk-head">
+        <span class="chunk-no">块 11</span>
+        <span class="chunk-size">40 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And to enhance the quality of your sleep, focus on fixing your environment so you can make sleep evergreen. Most people won&#39;t admit, but when you fix your horrible sleep habits, you fix a lot of problems in life.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">fix sleep environment</div>
+        <div class="hint-letters">A T E T Q O Y S F O F Y E S Y C M S E M P W A B W Y F Y H S H Y F A L O P I L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-12">
+      <div class="chunk-head">
+        <span class="chunk-no">块 12</span>
+        <span class="chunk-size">30 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number six is to care about your appearance. Everyone says not to judge a book by its cover, but what do people do? They judge a book by its cover.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">appearance matters</div>
+        <div class="hint-letters">N S I T C A Y A E S N T J A B B I C B W D P D T J A B B I C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-13">
+      <div class="chunk-head">
+        <span class="chunk-no">块 13</span>
+        <span class="chunk-size">44 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And if you want to care about your appearance, it starts with your body, taking care of it, putting in the right foods, lifting, exercising, moving, sleeping, and then we get into the finer details, which is your haircut, the clothes that you wear.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">body first, then details</div>
+        <div class="hint-letters">A I Y W T C A Y A I S W Y B T C O I P I T R F L E M S A T W G I T F D W I Y H T C T Y W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-14">
+      <div class="chunk-head">
+        <span class="chunk-no">块 14</span>
+        <span class="chunk-size">47 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You don&#39;t need to be a fashionista. You just need to care about how you look. And then once you start doing this and start caring about your appearance, you will see that people will treat you a lot differently, and that&#39;s for the better.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">care how you look</div>
+        <div class="hint-letters">Y D N T B A F Y J N T C A H Y L A T O Y S D T A S C A Y A Y W S T P W T Y A L D A T F T B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-15">
+      <div class="chunk-head">
+        <span class="chunk-no">块 15</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number seven is to embrace new technology. When I was in my 30s, it was the internet. Now that I&#39;m in my 40s, it&#39;s AI. Whatever the new technology is, use it as much as you can because this will put you ahead of everyone else that is not using it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">embrace new tech</div>
+        <div class="hint-letters">N S I T E N T W I W I M S I W T I N T I I M S I A W T N T I U I A M A Y C B T W P Y A O E E T I N U I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-16">
+      <div class="chunk-head">
+        <span class="chunk-no">块 16</span>
+        <span class="chunk-size">36 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number eight is to desexualize your brain as soon as possible. One of the best things that I&#39;ve ever done for my life was to quit watching porn, which I talked about in this video.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">desexualize brain</div>
+        <div class="hint-letters">N E I T D Y B A S A P O O T B T T I E D F M L W T Q W P W I T A I T V</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-17">
+      <div class="chunk-head">
+        <span class="chunk-no">块 17</span>
+        <span class="chunk-size">50 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And it&#39;s not just about watching porn. It&#39;s about not clicking on them Instagram Todd accounts or even right now where Elon just came out with the AI versions of these partners or people that you&#39;ll have relations with. It&#39;s weird But again, desexualize your brain.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">avoid sexual triggers</div>
+        <div class="hint-letters">A I N J A W P I A N C O T I T A O E R N W E J C O W T A V O T P O P T Y H R W I W B A D Y B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-18">
+      <div class="chunk-head">
+        <span class="chunk-no">块 18</span>
+        <span class="chunk-size">20 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And one thing that you will do with that energy is to divert that energy into the development of self.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">divert energy to self</div>
+        <div class="hint-letters">A O T T Y W D W T E I T D T E I T D O S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-19">
+      <div class="chunk-head">
+        <span class="chunk-no">块 19</span>
+        <span class="chunk-size">41 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number nine, one of the best habits that you can ever bring into your life is to walk. Walk when you&#39;re stressed. Walk when you&#39;re angry. Walk when you need a little bit of creativity. Walk to gain clarity.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">walk for everything</div>
+        <div class="hint-letters">N N O O T B H T Y C E B I Y L I T W W W Y S W W Y A W W Y N A L B O C W T G C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-20">
+      <div class="chunk-head">
+        <span class="chunk-no">块 20</span>
+        <span class="chunk-size">27 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Walking is the most underrated exercise on the planet. It helps you burn calories. It&#39;s accessible. It&#39;s sustainable. It improves brain function. It reduces stress.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">benefits of walking</div>
+        <div class="hint-letters">W I T M U E O T P I H Y B C I A I S I I B F I R S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-21">
+      <div class="chunk-head">
+        <span class="chunk-no">块 21</span>
+        <span class="chunk-size">43 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And if you&#39;re looking for a walking workout, I created a free guide on the walking workout that we use to help our clients burn belly fat. Drop a comment down below that says walk. And I&#39;ll send it to you.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">free walking guide</div>
+        <div class="hint-letters">A I Y L F A W W I C A F G O T W W T W U T H O C B B F D A C D B T S W A I S I T Y</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-22">
+      <div class="chunk-head">
+        <span class="chunk-no">块 22</span>
+        <span class="chunk-size">29 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 10. Money is a great slave but a horrible master. Something you have to understand is that you want to use it to buy your freedom, not status.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">money as slave</div>
+        <div class="hint-letters">N M I A G S B A H M S Y H T U I T Y W T U I T B Y F N S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-23">
+      <div class="chunk-head">
+        <span class="chunk-no">块 23</span>
+        <span class="chunk-size">40 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">One of the first steps is just to clear off any consumer debt that you may have and put that as your focus. And then after that, you want to get into investing in assets and also investing in yourself.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">clear debt, invest</div>
+        <div class="hint-letters">O O T F S I J T C O A C D T Y M H A P T A Y F A T A T Y W T G I I I A A A I I Y</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-24">
+      <div class="chunk-head">
+        <span class="chunk-no">块 24</span>
+        <span class="chunk-size">67 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And this reminds me of a tweet uh some guy put out on X a long time ago and he said, &#34;Buy a Rolex and go into debt if you have to. &#34; And his way of rationalizing this to himself was the fact that he attracted his mate because he had a Rolex and he also attracted more business as a result of his Rolex as well.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Rolex debt story</div>
+        <div class="hint-letters">A T R M O A T U S G P O O X A L T A A H S B A R A G I D I Y H T A H W O R T T H W T F T H A H M B H H A R A H A A M B A A R O H R A W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-25">
+      <div class="chunk-head">
+        <span class="chunk-no">块 25</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And I have to tell you that especially if you&#39;re in your 30s, this is one of the worst things that you can do. If you attract a partner based on the clothes that you wear or the watch that you&#39;re wearing, then you are going to get exactly what you paid for.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">worst advice</div>
+        <div class="hint-letters">A I H T T Y T E I Y I Y S T I O O T W T T Y C D I Y A A P B O T C T Y W O T W T Y W T Y A G T G E W Y P F</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-26">
+      <div class="chunk-head">
+        <span class="chunk-no">块 26</span>
+        <span class="chunk-size">66 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">If you need to wear Rolex so you can attract more business, it also means that you lack the skills to properly persuade people to do business with you. A lot of things that people buy is just to elevate their status whether they admit it to themselves or not. And I would rather not play that game and use that money to invest in myself.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">status vs skills</div>
+        <div class="hint-letters">I Y N T W R S Y C A M B I A M T Y L T S T P P P T D B W Y A L O T T P B I J T E T S W T A I T T O N A I W R N P T G A U T M T I I M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-27">
+      <div class="chunk-head">
+        <span class="chunk-no">块 27</span>
+        <span class="chunk-size">22 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 11, this is self-explanatory, but just stop asking advice from people who have never been where you want to be.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">wrong advisors</div>
+        <div class="hint-letters">N T I S E B J S A A F P W H N B W Y W T B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-28">
+      <div class="chunk-head">
+        <span class="chunk-no">块 28</span>
+        <span class="chunk-size">39 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 12, stop thinking it&#39;s too late. When I was 24, I had a decision on whether I would keep on climbing the corporate ladder or go into something that I loved, which was being a fitness coach.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">too late at 24</div>
+        <div class="hint-letters">N S T I T L W I W I H A D O W I W K O C T C L O G I S T I L W W B A F C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-29">
+      <div class="chunk-head">
+        <span class="chunk-no">块 29</span>
+        <span class="chunk-size">43 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now, this was during a time where fitness coaching is not popular as it is right now. There was no Instagram. There was no social media. And I&#39;ll tell you, at 24, I thought it was too late to switch careers. Crazy.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">no social media then</div>
+        <div class="hint-letters">N T W D A T W F C I N P A I I R N T W N I T W N S M A I T Y A I T I W T L T S C C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-30">
+      <div class="chunk-head">
+        <span class="chunk-no">块 30</span>
+        <span class="chunk-size">52 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And at the age of 30, I had the decision to stick with my job, which was being a personal trainer, which I was doing really well at, or starting my own business. And let me tell you, at 30 years old, I thought it was too late to start a business.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">too late at 30</div>
+        <div class="hint-letters">A A T A O I H T D T S W M J W W B A P T W I W D R W A O S M O B A L M T Y A Y O I T I W T L T S A B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-31">
+      <div class="chunk-head">
+        <span class="chunk-no">块 31</span>
+        <span class="chunk-size">49 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, let me tell you something. At 30, you&#39;re not late. You&#39;re actually early. and you finally have enough wisdom to know what matters and enough time to build it. So forget about this whole too late nonsense because at 30 you are just literally getting started.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">30 is early</div>
+        <div class="hint-letters">S L M T Y S A Y N L Y A E A Y F H E W T K W M A E T T B I S F A T W T L N B A Y A J L G S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-32">
+      <div class="chunk-head">
+        <span class="chunk-no">块 32</span>
+        <span class="chunk-size">31 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 13 needs to be said especially in the times that we&#39;re living in right now which is if you are easily offended you are easily manipulated. Stop taking personally.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">offended = manipulated</div>
+        <div class="hint-letters">N N T B S E I T T T W L I R N W I I Y A E O Y A E M S T P</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-33">
+      <div class="chunk-head">
+        <span class="chunk-no">块 33</span>
+        <span class="chunk-size">35 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You can take this a step further by adopting a mental frame called API which is to always assume positive intent. Life is way too short to give mental energy to slight and perceived insults.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">assume positive intent</div>
+        <div class="hint-letters">Y C T T A S F B A A M F C A W I T A A P I L I W T S T G M E T S A P I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-34">
+      <div class="chunk-head">
+        <span class="chunk-no">块 34</span>
+        <span class="chunk-size">45 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And this leads me to one of the most important points of this video, number 14, where your biggest mental superpower is the ability to control your perception. Something you have to understand is that reality is not actually reality. Your perception is your reality.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">perception is reality</div>
+        <div class="hint-letters">A T L M T O O T M I P O T V N W Y B M S I T A T C Y P S Y H T U I T R I N A R Y P I Y R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-35">
+      <div class="chunk-head">
+        <span class="chunk-no">块 35</span>
+        <span class="chunk-size">54 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And your perception is trained through the people that you hang around, the environment that you&#39;re in. You are this chemistry set of these beliefs and perceptions that you have adopted in life. And if you want a better life, you need to change the lens of which you look at the world.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">perception trained</div>
+        <div class="hint-letters">A Y P I T T T P T Y H A T E T Y I Y A T C S O T B A P T Y H A I L A I Y W A B L Y N T C T L O W Y L A T W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-36">
+      <div class="chunk-head">
+        <span class="chunk-no">块 36</span>
+        <span class="chunk-size">48 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And the way I know this is because I can take two people with the exact same background and also give them the exact same circumstances and put them through the same situation and you can get two wildly different types of perceptions in regards to that situation.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">same situation, different perception</div>
+        <div class="hint-letters">A T W I K T I B I C T T P W T E S B A A G T T E S C A P T T T S S A Y C G T W D T O P I R T T S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-37">
+      <div class="chunk-head">
+        <span class="chunk-no">块 37</span>
+        <span class="chunk-size">33 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">What most people don&#39;t realize is that you can actually choose the perception that empowers you the most and that moves you forward. But most people don&#39;t take advantage of this.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">choose empowering perception</div>
+        <div class="hint-letters">W M P D R I T Y C A C T P T E Y T M A T M Y F B M P D T A O T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-38">
+      <div class="chunk-head">
+        <span class="chunk-no">块 38</span>
+        <span class="chunk-size">63 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now number 15 is the way you change your reality is to start with how you think. Your thoughts create your beliefs which lead to your actions which in turn become your reality. If you want to change your reality, look no further than your level of thinking. And you can change your thoughts. It does take effort, but you can do this.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">thoughts create reality</div>
+        <div class="hint-letters">N N I T W Y C Y R I T S W H Y T Y T C Y B W L T Y A W I T B Y R I Y W T C Y R L N F T Y L O T A Y C C Y T I D T E B Y C D T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-39">
+      <div class="chunk-head">
+        <span class="chunk-no">块 39</span>
+        <span class="chunk-size">52 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 16 is to stop framing things that didn&#39;t work out as a failure and frame them as an iteration. Imagine if Thomas Edison tried to create a light bulb for the first time and then he just said, &#34;Okay, well that didn&#39;t work. I guess it&#39;s a failure. &#34;</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">iteration not failure</div>
+        <div class="hint-letters">N I T S F T T D W O A A F A F T A A I I I T E T T C A L B F T F T A T H J S O W T D W I G I A F</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-40">
+      <div class="chunk-head">
+        <span class="chunk-no">块 40</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">That guy had to go through 10,000 iterations to create something that we use every single day. And here&#39;s something about being successful at anything that you probably heard before. Your rate of iteration is equal to your rate of success. So if you want to succeed faster, do more experiments. Iterate faster.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">iteration rate = success rate</div>
+        <div class="hint-letters">T G H T G T I T C S T W U E S D A H S A B S A A T Y P H B Y R O I I E T Y R O S S I Y W T S F D M E I F</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-41">
+      <div class="chunk-head">
+        <span class="chunk-no">块 41</span>
+        <span class="chunk-size">39 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 17. Never judge a person based on what they say. judge them based on what they do. Behavior is the most accurate way of assessing character, especially when it comes to the people you allow into your life.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">judge by behavior</div>
+        <div class="hint-letters">N N J A P B O W T S J T B O W T D B I T M A W O A C E W I C T T P Y A I Y L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-42">
+      <div class="chunk-head">
+        <span class="chunk-no">块 42</span>
+        <span class="chunk-size">56 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 18 is to learn from people you disagree with. In one of my other videos, I talked about advice that I&#39;d give to people in their 40s over here. And a lot of the comments came back that said, &#34;Oh, I disagree with that one thing you said. Therefore, I stopped watching the video. &#34;</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">learn from disagreement</div>
+        <div class="hint-letters">N I T L F P Y D W I O O M O V I T A A T I G T P I T S O H A A L O T C C B T S O I D W T O T Y S T I S W T V</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-43">
+      <div class="chunk-head">
+        <span class="chunk-no">块 43</span>
+        <span class="chunk-size">48 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And to me, this is a sign of just trying to protect your ego and staying in an echo chamber. Most times when people disagree with others, they see it as a reflection of their entire personality when it&#39;s just like one thing that they disagree with.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">ego and echo chamber</div>
+        <div class="hint-letters">A T M T I A S O J T T P Y E A S I A E C M T W P D W O T S I A A R O T E P W I J L O T T T D W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-44">
+      <div class="chunk-head">
+        <span class="chunk-no">块 44</span>
+        <span class="chunk-size">51 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And you will get so much farther in life when you stay objective and you allow yourself to learn from people you actually disagree with. Or you can stay in your echo chamber and keep on thinking the same thoughts over and over and over. We&#39;ll see how that works.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">stay objective</div>
+        <div class="hint-letters">A Y W G S M F I L W Y S O A Y A Y T L F P Y A D W O Y C S I Y E C A K O T T S T O A O A O W S H T W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-45">
+      <div class="chunk-head">
+        <span class="chunk-no">块 45</span>
+        <span class="chunk-size">58 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 19 is not mine. It was actually from Alan Watts and it is about forgiving the four people in your life. The first one is your parents. And something that I realized, especially as I got older, was resenting the people that gave me life was like taking a poison pill and expecting them to get hurt.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">forgive parents</div>
+        <div class="hint-letters">N I N M I W A F A W A I I A F T F P I Y L T F O I Y P A S T I R E A I G O W R T P T G M L W L T A P P A E T T G H</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-46">
+      <div class="chunk-head">
+        <span class="chunk-no">块 46</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And after I became a parent, I became so much more appreciative of what they did. What I realized is that every single generation and every single type of family, they all deal with different and they all come with different tools and it&#39;s on us to accept it and forgive them.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">appreciate parents</div>
+        <div class="hint-letters">A A I B A P I B S M M A O W T D W I R I T E S G A E S T O F T A D W D A T A C W D T A I O U T A I A F T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-47">
+      <div class="chunk-head">
+        <span class="chunk-no">块 47</span>
+        <span class="chunk-size">39 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And you don&#39;t have to hang around them, especially if you don&#39;t like them. But it will release a lot of resentment and anger which will be freed up energy for you to do what you want.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">release resentment</div>
+        <div class="hint-letters">A Y D H T H A T E I Y D L T B I W R A L O R A A W W B F U E F Y T D W Y W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-48">
+      <div class="chunk-head">
+        <span class="chunk-no">块 48</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Next one is the people you once loved who didn&#39;t stay. This could be your exes. It could be others. But essentially we don&#39;t want to be carrying around the burden of always thinking back to these people we once had relations with. You got to learn and just move on.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">forgive exes</div>
+        <div class="hint-letters">N O I T P Y O L W D S T C B Y E I C B O B E W D W T B C A T B O A T B T T P W O H R W Y G T L A J M O</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-49">
+      <div class="chunk-head">
+        <span class="chunk-no">块 49</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Third one is people who actually wronged you. And the last one is going to be yourself. And forgiveness is this thing where you allow yourself to let go of the resentment. The more you hold on to these resentments, the more it just holds you back and the more it just makes you angry.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">forgive wrongdoers and self</div>
+        <div class="hint-letters">T O I P W A W Y A T L O I G T B Y A F I T T W Y A Y T L G O T R T M Y H O T T R T M I J H Y B A T M I J M Y A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-50">
+      <div class="chunk-head">
+        <span class="chunk-no">块 50</span>
+        <span class="chunk-size">32 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">I&#39;m always optimizing for becoming the best version of myself. And one of the things that I have to learn is to learn from those situations, forgive and just move on.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">forgive and move on</div>
+        <div class="hint-letters">I A O F B T B V O M A O O T T T I H T L I T L F T S F A J M O</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-51">
+      <div class="chunk-head">
+        <span class="chunk-no">块 51</span>
+        <span class="chunk-size">48 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 20. If you want better results in life, look at the people you surround yourself with. And if they don&#39;t match the reality you want to build, unfortunately, you&#39;re going to have to find a better group. Which actually leads me to the next point.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">surroundings matter</div>
+        <div class="hint-letters">N I Y W B R I L L A T P Y S Y W A I T D M T R Y W T B U Y G T H T F A B G W A L M T T N P</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-52">
+      <div class="chunk-head">
+        <span class="chunk-no">块 52</span>
+        <span class="chunk-size">43 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 21. You become smarter by being the dumbest person in the room. You become fitter by being the least fit person in the gym. We have to stop protecting our egos and actually get around people who are levels ahead of us.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">be the dumbest</div>
+        <div class="hint-letters">N Y B S B B T D P I T R Y B F B B T L F P I T G W H T S P O E A A G A P W A L A O U</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-53">
+      <div class="chunk-head">
+        <span class="chunk-no">块 53</span>
+        <span class="chunk-size">67 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And something I realized by continually doing this in my life is that you just level up by process of osmosis. You see how they act. You see how they think. You see how they behave. And then when you hang around people who are behaving and thinking at a level higher than you, you will start to adopt that same level inside of your own life.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">osmosis level up</div>
+        <div class="hint-letters">A S I R B C D T I M L I T Y J L U B P O O Y S H T A Y S H T T Y S H T B A T W Y H A P W A B A T A A L H T Y Y W S T A T S L I O Y O L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-54">
+      <div class="chunk-head">
+        <span class="chunk-no">块 54</span>
+        <span class="chunk-size">52 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 22. Most people think that a great life is about money, cars, and houses. When the reality is is that a great life is actually based on things that money can&#39;t buy, which is doing a job that you love doing, being healthy, having a great family, having great relationships.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">great life not money</div>
+        <div class="hint-letters">N M P T T A G L I A M C A H W T R I I T A G L I A B O T T M C B W I D A J T Y L D B H H A G F H G R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-55">
+      <div class="chunk-head">
+        <span class="chunk-no">块 55</span>
+        <span class="chunk-size">35 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">If there&#39;s one thing I&#39;m always focused on is making sure I don&#39;t overindex on these external measures of success and index way heavily on the ones that create a fulfilling life.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">don&#39;t overindex externals</div>
+        <div class="hint-letters">I T O T I A F O I M S I D O O T E M O S A I W H O T O T C A F L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-56">
+      <div class="chunk-head">
+        <span class="chunk-no">块 56</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 23. A great life comes from focusing on the right constraints. And from my experience, you have two constraints that you should focus on with two wildly different strategies. Constraint number one is the bottleneck. So what is the one thing that holds you back from achieving the thing that you want?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">two constraints</div>
+        <div class="hint-letters">N A G L C F F O T R C A F M E Y H T C T Y S F O W T W D S C N O I T B S W I T O T T H Y B F A T T T Y W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-57">
+      <div class="chunk-head">
+        <span class="chunk-no">块 57</span>
+        <span class="chunk-size">43 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">We want to go in and we want to fix that. We want to subordinate everything so we can make that the priority and then once you fix it then you will be one step closer to achieving the thing that you want.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">fix bottleneck</div>
+        <div class="hint-letters">W W T G I A W W T F T W W T S E S W C M T T P A T O Y F I T Y W B O S C T A T T T Y W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-58">
+      <div class="chunk-head">
+        <span class="chunk-no">块 58</span>
+        <span class="chunk-size">44 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Something I realized watching the greatest entrepreneurs on the planet is they&#39;re not necessarily focused on adding more things. They&#39;re actually looking at optimizing and removing these bottlenecks and these constraints. So success is actually less about addition and more about subtraction.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">subtraction not addition</div>
+        <div class="hint-letters">S I R W T G E O T P I T N N F O A M T T A L A O A R T B A T C S S I A L A A A M A S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-59">
+      <div class="chunk-head">
+        <span class="chunk-no">块 59</span>
+        <span class="chunk-size">63 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now the second type of constraint is to place one in your life that helps you uphold your values. Do you want to build a successful business? Well, can you get home at 5:00 every single night so you can have dinner with your family? That is the constraint. Can you maintain your health while building that business? That is another constraint.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">value constraints</div>
+        <div class="hint-letters">N T S T O C I T P O I Y L T H Y U Y V D Y W T B A S B W C Y G H A E S N S Y C H D W Y F T I T C C Y M Y H W B T B T I A C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-60">
+      <div class="chunk-head">
+        <span class="chunk-no">块 60</span>
+        <span class="chunk-size">37 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">What the second level constraints do is they uphold the things that mean the most to you while you&#39;re achieving this thing, which is super fun. And then this is actually what makes a full life.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">constraints uphold values</div>
+        <div class="hint-letters">W T S L C D I T U T T T M T M T Y W Y A T T W I S F A T T I A W M A F L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-61">
+      <div class="chunk-head">
+        <span class="chunk-no">块 61</span>
+        <span class="chunk-size">78 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 24 is to use the three levels of learning. So level one is consumption. It&#39;s what you&#39;re doing right now. And this is the shallowest of all levels of learning. Level two is application. This turns knowledge into actual experience. And level three is teaching. It&#39;s what I&#39;m doing to you right now. This turns experience into wisdom. When you apply all three, you are able to learn things at a deeper level.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">three levels of learning</div>
+        <div class="hint-letters">N I T U T T L O L S L O I C I W Y D R N A T I T S O A L O L L T I A T T K I A E A L T I T I W I D T Y R N T T E I W W Y A A T Y A A T L T A A D L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-62">
+      <div class="chunk-head">
+        <span class="chunk-no">块 62</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 25 is to understand that your emotions are your responsibility. Something I wish they taught in high school or even my own house was the ability to manage my emotions. And I remember sometimes I would even get into arguments with my wife and I would be like, &#34;You made me feel this way. &#34;</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">emotions are yours</div>
+        <div class="hint-letters">N I T U T Y E A Y R S I W T T I H S O E M O H W T A T M M E A I R S I W E G I A W M W A I W B L Y M M F T W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-63">
+      <div class="chunk-head">
+        <span class="chunk-no">块 63</span>
+        <span class="chunk-size">60 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">She would always correct me, which I love because of the fact that I&#39;m the one that is feeling that. I&#39;m the one that actually created that feeling. I should not blame that feeling on anyone else. Maybe they&#39;re a part of it, but if I&#39;m to take responsibility, I&#39;m the person that felt that.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">own your feelings</div>
+        <div class="hint-letters">S W A C M W I L B O T F T I T O T I F T I T O T A C T F I S N B T F O A E M T A P O I B I I T T R I T P T F T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-64">
+      <div class="chunk-head">
+        <span class="chunk-no">块 64</span>
+        <span class="chunk-size">54 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So the second part is understanding how to manage our emotions. And this is actually something that we&#39;re trying to teach our daughters right now because you are a human being. You will feel emotions. So why not learn a system that helps you manage them instead of blaming them on everyone else?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">manage emotions</div>
+        <div class="hint-letters">S T S P I U H T M O E A T I A S T W T T T O D R N B Y A A H B Y W F E S W N L A S T H Y M T I O B T O E E</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-65">
+      <div class="chunk-head">
+        <span class="chunk-no">块 65</span>
+        <span class="chunk-size">63 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Which leads me to 26, which is to take ownership of every single result in your life. This means getting away from victimhood mentality. It may not be your fault, but it&#39;s always your responsibility. And when you blame others, you lose agency. You give them power. Personal power means to avoid blaming others for that&#39;s happening in your own life.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">take ownership</div>
+        <div class="hint-letters">W L M T W I T T O O E S R I Y L T M G A F V M I M N B Y F B I A Y R A W Y B O Y L A Y G T P P P M T A B O F T H I Y O L</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-66">
+      <div class="chunk-head">
+        <span class="chunk-no">块 66</span>
+        <span class="chunk-size">42 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 27 is to be a goal-driven individual. Your mind is a goal seeking machine and most times people give it the wrong goals. You need something to focus on. You need a goal or it will be given to you.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">goal-driven mind</div>
+        <div class="hint-letters">N I T B A G D I Y M I A G S M A M T P G I T W G Y N S T F O Y N A G O I W B G T Y</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-67">
+      <div class="chunk-head">
+        <span class="chunk-no">块 67</span>
+        <span class="chunk-size">94 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So when I first became a trainer, I was trying to move up the ranks and I was listening and reading all the articles I could and there was an article by Paul Czech who by the way is one of the most legendary fitness coaches on the planet and it was about goal setting. And at the end of it he said that people are more likely to achieve their goals if they write them down. He had an action step where he said, &#34;Hey, write down 20 goals. See exactly what happens. &#34;</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">write down goals</div>
+        <div class="hint-letters">S W I F B A T I W T T M U T R A I W L A R A T A I C A T W A A B P C W B T W I O O T M L F C O T P A I W A G S A A T E O I H S T P A M L T A T G I T W T D H H A A S W H S H W D G S E W H</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-68">
+      <div class="chunk-head">
+        <span class="chunk-no">块 68</span>
+        <span class="chunk-size">61 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Nothing was really going for me at that time. So, I decided to give it a shot. I wrote down my 20 goals. Some of them were just wildly outside of my reality, which was like to be the top trainer at that gym. Once I wrote it down, I put it in my desk and just completely forgot about it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">wrote 20 goals</div>
+        <div class="hint-letters">N W R G F M A T T S I D T G I A S I W D M G S O T W J W O O M R W W L T B T T T A T G O I W I D I P I I M D A J C F A I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-69">
+      <div class="chunk-head">
+        <span class="chunk-no">块 69</span>
+        <span class="chunk-size">82 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">About 6 months later, I happened to open up the drawer of my desk and then I see this piece of paper which has my 20 goals. I end up picking up this paper, pulling it out, and I&#39;m looking at the goals, and I&#39;m crossing out at least like half of that list. One of them was to be the top trainer at my gym. And that was my first taste of what goal setting can do for you.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">goals came true</div>
+        <div class="hint-letters">A M L I H T O U T D O M D A T I S T P O P W H M G I E U P U T P P I O A I L A T G A I C O A L L H O T L O O T W T B T T T A M G A T W M F T O W G S C D F Y</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-70">
+      <div class="chunk-head">
+        <span class="chunk-no">块 70</span>
+        <span class="chunk-size">86 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And since then, I&#39;ve refined my process where I can literally take the biggest goals that I&#39;ve ever thought about and make them into realistic steps. And I&#39;ll tell you what my system is right now so you can copy it. You start with a three-year vision. I think one of the best books around creating a vision for yourself is called Vivid Vision by Cameron Herald. And he takes you through the step on how to create that three-year vision.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">three-year vision</div>
+        <div class="hint-letters">A S T I R M P W I C L T T B G T I E T A A M T I R S A I T Y W M S I R N S Y C C I Y S W A T Y V I T O O T B B A C A V F Y I C V V B C H A H T Y T T S O H T C T T Y V</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-71">
+      <div class="chunk-head">
+        <span class="chunk-no">块 71</span>
+        <span class="chunk-size">87 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Once you set that three-year vision, you&#39;re going to break it down into a oneyear goal. You&#39;re going to ask yourself, what do I have to do this year in order to get myself closer to the vision? Then you&#39;re going to break that one-year goal down into quarterly projects. And those quarterlys are broke down into monthly tasks. And those tasks are broken into weekly tasks. And those tasks are scheduled inside of my calendar to be done every single day.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">break down goals</div>
+        <div class="hint-letters">O Y S T T Y V Y G T B I D I A O G Y G T A Y W D I H T D T Y I O T G M C T T V T Y G T B T O Y G D I Q P A T Q A B D I M T A T T A B I W T A T T A S I O M C T B D E S D</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-72">
+      <div class="chunk-head">
+        <span class="chunk-no">块 72</span>
+        <span class="chunk-size">91 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">One of the things that I&#39;ve done is make sure that I knock down at least three of those tasks so I can keep on moving forward. Whenever we&#39;re thinking about creating any kind of result in our life, we have to start at the end and work our way back. And then once you can make a goal look like a reality and create the tasks and the steps to get there, you&#39;re going to realize that every single thing that we want in life is attainable.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">work backwards</div>
+        <div class="hint-letters">O O T T T I D I M S T I K D A L T O T T S I C K O M F W W T A C A K O R I O L W H T S A T E A W O W B A T O Y C M A G L L A R A C T T A T S T G T Y G T R T E S T T W W I L I A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-73">
+      <div class="chunk-head">
+        <span class="chunk-no">块 73</span>
+        <span class="chunk-size">56 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now, this leads me to number 28, which is the paradox, the antithesis to what I just said. So, when you set a goal, that becomes the destination. Think about it as creating the destination on a GPS. Once that is created, you know exactly what it is. After that, you must focus on the process.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">focus on process</div>
+        <div class="hint-letters">N T L M T N W I T P T A T W I J S S W Y S A G T B T D T A I A C T D O A G O T I C Y K E W I I A T Y M F O T P</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-74">
+      <div class="chunk-head">
+        <span class="chunk-no">块 74</span>
+        <span class="chunk-size">71 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And I&#39;ll throw something in there. See ways in which you can have fun doing the process. And I&#39;ll tell you right now, which is something that you realize probably by attaining some of the goals in your life where you don&#39;t really feel happy once you attain the goal. The happiness was the striving. The happiness was the pushes, the work that you were doing, the process.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">happiness in striving</div>
+        <div class="hint-letters">A I T S I T S W I W Y C H F D T P A I T Y R N W I S T Y R P B A S O T G I Y L W Y D R F H O Y A T G T H W T S T H W T P T W T Y W D T P</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-75">
+      <div class="chunk-head">
+        <span class="chunk-no">块 75</span>
+        <span class="chunk-size">86 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, one of my favorite rappers, his name is Russ. He has a line that says, &#34;I enjoy the climb. I don&#39;t care where the summit is. &#34; And this is what encapsulates this point. When you focus hard on each and every step, you end up making the journey way more fun and exciting. And then this allows you to play an infinite game where you&#39;re getting the most joy out of doing the process and doing the work as opposed to achieving attainment.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">enjoy the climb</div>
+        <div class="hint-letters">S O O M F R H N I R H H A L T S I E T C I D C W T S I A T I W E T P W Y F H O E A E S Y E U M T J W M F A E A T T A Y T P A I G W Y G T M J O O D T P A D T W A O T A A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-76">
+      <div class="chunk-head">
+        <span class="chunk-no">块 76</span>
+        <span class="chunk-size">62 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now 29 is achieving goal is not about gaining things. It&#39;s actually about becoming the person who attracts the goal as a result of who they are. A goal changes you. It levels you up. You literally cannot be the same person achieving a bigger goal than you were before that. You need new behaviors. You need new ways of thinking.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">become the person</div>
+        <div class="hint-letters">N I A G I N A G T I A A B T P W A T G A A R O W T A A G C Y I L Y U Y L C B T S P A A B G T Y W B T Y N N B Y N N W O T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-77">
+      <div class="chunk-head">
+        <span class="chunk-no">块 77</span>
+        <span class="chunk-size">44 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So as you are doing this journey, as you&#39;re on this process, focus on the behaviors that it would take for you to attain this goal and then keep on repeating those over and over and over until they become who you are.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">repeat behaviors</div>
+        <div class="hint-letters">S A Y A D T J A Y O T P F O T B T I W T F Y T A T G A T K O R T O A O A O U T B W Y A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-78">
+      <div class="chunk-head">
+        <span class="chunk-no">块 78</span>
+        <span class="chunk-size">65 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Now number 30 is something that a mentor told me which has stuck with me to this day. The shortcut is the long path. The long path is the shortcut. Think of all the times you tried to lose weight as quickly as possible. Think of all the times that you tried to get money as quickly as possible. How did those things end up?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">shortcut is long path</div>
+        <div class="hint-letters">N N I S T A M T M W H S W M T T D T S I T L P T L P I T S T O A T T Y T T L W A Q A P T O A T T T Y T T G M A Q A P H D T T E U</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-79">
+      <div class="chunk-head">
+        <span class="chunk-no">块 79</span>
+        <span class="chunk-size">55 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The thing about chasing shortcuts is you take away the skills that you need in order to just keep the result that you are trying to attain in the first place. When it comes to getting things in life, you want to choose the long path because it is always going to be the shortest.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">long path is shortest</div>
+        <div class="hint-letters">T T A C S I Y T A T S T Y N I O T J K T R T Y A T T A I T F P W I C T G T I L Y W T C T L P B I I A G T B T S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-80">
+      <div class="chunk-head">
+        <span class="chunk-no">块 80</span>
+        <span class="chunk-size">61 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Number 31, the three most important decisions you&#39;re going to make is what you do, who you do it with, which means like who you partner up with and also where you live. And when you think about these three things, they are where you&#39;re going to be spending your most time. So, you must make those decisions wisely.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">three big decisions</div>
+        <div class="hint-letters">N T T M I D Y G T M I W Y D W Y D I W W M L W Y P U W A A W Y L A W Y T A T T T T A W Y G T B S Y M T S Y M M T D W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-81">
+      <div class="chunk-head">
+        <span class="chunk-no">块 81</span>
+        <span class="chunk-size">98 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Second last one right here is going to be the formula for success. And I swear to you, if you follow this and you apply this to anything you want in life, you will be ahead of 90% of people who don&#39;t. Step one is to show up. Show up when you&#39;re motivated. Show up when you&#39;re not motivated. Show up when you&#39;re feeling it. Show up when you&#39;re not feeling it. Just this step alone puts you ahead of 80% of people who only show up when they feel like doing it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">show up</div>
+        <div class="hint-letters">S L O R H I G T B T F F S A I S T Y I Y F T A Y A T T A Y W I L Y W B A O O P W D S O I T S U S U W Y M S U W Y N M S U W Y F I S U W Y N F I J T S A P Y A O O P W O S U W T F L D I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-82">
+      <div class="chunk-head">
+        <span class="chunk-no">块 82</span>
+        <span class="chunk-size">54 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Step two, when you&#39;re there, do the work. It sounds easy, but there&#39;s a difference between deep work and shallow work. You want to remove all distractions and focus in on what you are doing. Put full attention on the work you need to do, and you will be rewarded with riches.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">do the work</div>
+        <div class="hint-letters">S T W Y T D T W I S E B T A D B D W A S W Y W T R A D A F I O W Y A D P F A O T W Y N T D A Y W B R W R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-83">
+      <div class="chunk-head">
+        <span class="chunk-no">块 83</span>
+        <span class="chunk-size">81 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And the last step, which is the most overlooked part, is to look for ways to improve. So, you can be showing up, you can be doing the work, but if you&#39;re showing up and doing the work on the wrong things, then you&#39;re not necessarily going to move forward. It is why I have adopted a mindset of canai, which is constant and neverending improvement. You can always look for ways to get better at anything you do.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">improve constantly</div>
+        <div class="hint-letters">A T L S W I T M O P I T L F W T I S Y C B S U Y C B D T W B I Y S U A D T W O T W T T Y N N G T M F I I W I H A A M O C W I C A N I Y C A L F W T G B A A Y D</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-84">
+      <div class="chunk-head">
+        <span class="chunk-no">块 84</span>
+        <span class="chunk-size">49 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">I&#39;ve used this formula to get myself in shape, to build businesses, to grow on social media. It is simple, but don&#39;t take it for easy. And I swear, apply this part to your life and you will be way ahead of everyone else that doesn&#39;t.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">formula works</div>
+        <div class="hint-letters">I U T F T G M I S T B B T G O S M I I S B D T I F E A I S A T P T Y L A Y W B W A O E E T D</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-85">
+      <div class="chunk-head">
+        <span class="chunk-no">块 85</span>
+        <span class="chunk-size">70 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And here&#39;s the final one. People overestimate what they can do in 6 weeks, but they underestimate what they can do in a year. Imagine all those things that you just quit because it got a little bit too hard and you stuck with it for a full year. You would be way ahead of where you are and you&#39;ll probably be very surprised at what you accomplish.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">underestimate a year</div>
+        <div class="hint-letters">A H T F O P O W T C D I W B T U W T C D I A Y I A T T T Y J Q B I G A L B T H A Y S W I F A F Y Y W B W A O W Y A A Y P B V S A W Y A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-86">
+      <div class="chunk-head">
+        <span class="chunk-no">块 86</span>
+        <span class="chunk-size">97 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">My biggest regrets in life come from not doing the thing when I should have done it. Something you may not know about me is that I started a YouTube channel 15 years ago and I was just posting sporadically and then it got to a point where I&#39;m like, I&#39;m not getting anything out of this. I might as well just quit. And I look back on that with regret because if I just kept at it for a full year, I&#39;d probably be way past where I am at this very moment.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">regret not continuing</div>
+        <div class="hint-letters">M B R I L C F N D T T W I S H D I S Y M N K A M I T I S A Y C Y A A I W J P S A T I G T A P W I L I N G A O O T I M A W J Q A I L B O T W R B I I J K A I F A F Y I P B W P W I A A T V M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-87">
+      <div class="chunk-head">
+        <span class="chunk-no">块 87</span>
+        <span class="chunk-size">67 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">I know hindsight&#39;s 2020, but still, while everyone is trying to give you these shortcuts and these short time horizons, get rich quick, get fit quick, whatever it is, adopt a mindset of I&#39;ll do it for as long as it takes. Want to get myself to a specific shape? As long as it takes. Want to build a business? As long as it takes.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">as long as it takes</div>
+        <div class="hint-letters">I K H B S W E I T T G Y T S A T S T H G R Q G F Q W I I A A M O I D I F A L A I T W T G M T A S S A L A I T W T B A B A L A I T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-88">
+      <div class="chunk-head">
+        <span class="chunk-no">块 88</span>
+        <span class="chunk-size">72 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">What this mindset does is it allows you to make mistakes. It allows you to not try to be perfect. It allows you not to go all or nothing. So instead of giving yourself 6 weeks or 6 months or whatever, give yourself a full year to really attract this level of success that you want in your life. I promise you this is one of the best ways to avoid regret.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">give a full year</div>
+        <div class="hint-letters">W T M D I I A Y T M M I A Y T N T T B P I A Y N T G A O N S I O G Y W O M O W G Y A F Y T R A T L O S T Y W I Y L I P Y T I O O T B W T A R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-89">
+      <div class="chunk-head">
+        <span class="chunk-no">块 89</span>
+        <span class="chunk-size">70 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So when you&#39;re watching this, I want you to remember to not take my word on any of this. I am a person on the internet who has experienced all the things that I just talked about. Stress testies in your own life. And as Bruce Lee said, absorb what is useful and reject what is useless. And that is my cue to stop right there. Thanks for watching.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">test it yourself</div>
+        <div class="hint-letters">S W Y W T I W Y T R T N T M W O A O T I A A P O T I W H E A T T T I J T A S T I Y O L A A B L S A W I U A R W I U A T I M C T S R T T F W</div>
+      </div>
+    </article>
+    
+  </section>
+
+  <!-- ── 逐块复习表 ── -->
+  <section class="card" id="review">
+    <h2>🗓 逐块复习表</h2>
+    <p class="hint-line">块 1…背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+    <div class="table-scroll">
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>块</th><th>背诵日</th>
+            <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>块 1</td>
+            <td>第1天<span class="lbl">2026-10-22 周四</span></td>
+            
+            <td>2026-10-23<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 2</td>
+            <td>第1天<span class="lbl">2026-10-22 周四</span></td>
+            
+            <td>2026-10-23<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 3</td>
+            <td>第1天<span class="lbl">2026-10-22 周四</span></td>
+            
+            <td>2026-10-23<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 4</td>
+            <td>第1天<span class="lbl">2026-10-22 周四</span></td>
+            
+            <td>2026-10-23<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 5</td>
+            <td>第2天<span class="lbl">2026-10-23 周五</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 6</td>
+            <td>第2天<span class="lbl">2026-10-23 周五</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 7</td>
+            <td>第2天<span class="lbl">2026-10-23 周五</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 8</td>
+            <td>第2天<span class="lbl">2026-10-23 周五</span></td>
+            
+            <td>2026-10-24<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 9</td>
+            <td>第3天<span class="lbl">2026-10-24 周六</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 10</td>
+            <td>第3天<span class="lbl">2026-10-24 周六</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 11</td>
+            <td>第3天<span class="lbl">2026-10-24 周六</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 12</td>
+            <td>第3天<span class="lbl">2026-10-24 周六</span></td>
+            
+            <td>2026-10-25<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 13</td>
+            <td>第4天<span class="lbl">2026-10-25 周日</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 14</td>
+            <td>第4天<span class="lbl">2026-10-25 周日</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 15</td>
+            <td>第4天<span class="lbl">2026-10-25 周日</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 16</td>
+            <td>第4天<span class="lbl">2026-10-25 周日</span></td>
+            
+            <td>2026-10-26<span class="lbl">第5天</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 17</td>
+            <td>第5天<span class="lbl">2026-10-26 周一</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 18</td>
+            <td>第5天<span class="lbl">2026-10-26 周一</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 19</td>
+            <td>第5天<span class="lbl">2026-10-26 周一</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 20</td>
+            <td>第5天<span class="lbl">2026-10-26 周一</span></td>
+            
+            <td>2026-10-27<span class="lbl">第6天</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 21</td>
+            <td>第6天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 22</td>
+            <td>第6天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 23</td>
+            <td>第6天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 24</td>
+            <td>第6天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第7天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 25</td>
+            <td>第7天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 26</td>
+            <td>第7天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 27</td>
+            <td>第7天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 28</td>
+            <td>第7天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第8天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 29</td>
+            <td>第8天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 30</td>
+            <td>第8天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 31</td>
+            <td>第8天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 32</td>
+            <td>第8天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第9天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 33</td>
+            <td>第9天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 34</td>
+            <td>第9天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 35</td>
+            <td>第9天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 36</td>
+            <td>第9天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 37</td>
+            <td>第10天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 38</td>
+            <td>第10天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 39</td>
+            <td>第10天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 40</td>
+            <td>第10天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 41</td>
+            <td>第11天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 42</td>
+            <td>第11天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 43</td>
+            <td>第11天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 44</td>
+            <td>第11天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 45</td>
+            <td>第12天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 46</td>
+            <td>第12天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 47</td>
+            <td>第12天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 48</td>
+            <td>第12天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 49</td>
+            <td>第13天<span class="lbl">2026-11-03 周二</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 50</td>
+            <td>第13天<span class="lbl">2026-11-03 周二</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 51</td>
+            <td>第13天<span class="lbl">2026-11-03 周二</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 52</td>
+            <td>第13天<span class="lbl">2026-11-03 周二</span></td>
+            
+            <td>2026-11-04<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 53</td>
+            <td>第14天<span class="lbl">2026-11-04 周三</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 54</td>
+            <td>第14天<span class="lbl">2026-11-04 周三</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 55</td>
+            <td>第14天<span class="lbl">2026-11-04 周三</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 56</td>
+            <td>第14天<span class="lbl">2026-11-04 周三</span></td>
+            
+            <td>2026-11-05<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 57</td>
+            <td>第15天<span class="lbl">2026-11-05 周四</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第30天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 58</td>
+            <td>第15天<span class="lbl">2026-11-05 周四</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第30天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 59</td>
+            <td>第15天<span class="lbl">2026-11-05 周四</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第30天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 60</td>
+            <td>第15天<span class="lbl">2026-11-05 周四</span></td>
+            
+            <td>2026-11-06<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第30天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 61</td>
+            <td>第16天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第31天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 62</td>
+            <td>第16天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第31天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 63</td>
+            <td>第16天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第31天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 64</td>
+            <td>第16天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第31天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 65</td>
+            <td>第17天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第32天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 66</td>
+            <td>第17天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第32天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 67</td>
+            <td>第17天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第32天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 68</td>
+            <td>第17天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第18天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第32天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 69</td>
+            <td>第18天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第33天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 70</td>
+            <td>第18天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第33天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 71</td>
+            <td>第18天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第33天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 72</td>
+            <td>第18天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第19天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第33天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 73</td>
+            <td>第19天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第34天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 74</td>
+            <td>第19天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第34天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 75</td>
+            <td>第19天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第34天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 76</td>
+            <td>第19天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第20天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第34天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 77</td>
+            <td>第20天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第35天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 78</td>
+            <td>第20天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第35天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 79</td>
+            <td>第20天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第35天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 80</td>
+            <td>第20天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第21天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第35天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 81</td>
+            <td>第21天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第36天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 82</td>
+            <td>第21天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第36天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 83</td>
+            <td>第21天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第36天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 84</td>
+            <td>第21天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第22天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第28天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第36天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 85</td>
+            <td>第22天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第37天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 86</td>
+            <td>第22天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第37天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 87</td>
+            <td>第22天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第37天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 88</td>
+            <td>第22天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第23天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第26天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第29天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第37天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 89</td>
+            <td>第23天<span class="lbl">2026-11-13 周五</span></td>
+            
+            <td>2026-11-14<span class="lbl">第24天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第25天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第27天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第30天</span></td>
+            
+            <td>2026-11-28<span class="lbl">第38天</span></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 每日打卡清单 ── -->
+  <section class="card" id="daily">
+    <h2>✅ 每日打卡清单</h2>
+    <p class="hint-line">点一下块号打卡完成，进度自动保存到本机。每天「新背」若干块 + 复习之前背过的块。</p>
+    <div class="cpd-row">
+      <label>每天新背</label>
+      <select id="cpd-select" onchange="setCpd(this.value)">
+        
+        <option value="1" >1 块</option>
+        
+        <option value="2" >2 块</option>
+        
+        <option value="3" >3 块</option>
+        
+        <option value="4" selected>4 块</option>
+        
+        <option value="5" >5 块</option>
+        
+        <option value="6" >6 块</option>
+        
+      </select>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <span id="progress-text">0/0</span>
+    </div>
+    <div id="daily-list"></div>
+  </section>
+
+  <div class="footer">智读 · 背诵 · 意群分块 + 艾宾浩斯复习 · 学习进度保存在本机浏览器<br>
+    <a href="/recite/_English__auto-generated___I_m_45__If_you_re_in_your_30s_watch_this__DownSub_com_?force=1" style="color:#9ab5ad; text-decoration:underline;">♻️ 重新生成</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = {
+    materialId: "_English__auto-generated___I_m_45__If_you_re_in_your_30s_watch_this__DownSub_com_",
+    chunkCount: 89,
+    startDate: "2026-10-22",
+    intervals: [1, 2, 4, 7, 15],
+    defaultCpd: 4
+  };
+  var WEEKDAYS = ["周日","周一","周二","周三","周四","周五","周六"];
+
+  function parseISO(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function addDays(d,n){ var r=new Date(d); r.setDate(r.getDate()+n); return r; }
+  function iso(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function fmt(d){ return (d.getMonth()+1)+"月"+d.getDate()+"日"; }
+
+  function buildSchedule(cpd){
+    var perChunk=[], maxDay=0, i, day;
+    for(i=0;i<CFG.chunkCount;i++){
+      var learnDay=Math.floor(i/cpd)+1;
+      var reviewDays=CFG.intervals.map(function(d){return learnDay+d;});
+      maxDay=Math.max(maxDay, learnDay, reviewDays[reviewDays.length-1]);
+      perChunk.push({index:i+1, learnDay:learnDay, reviewDays:reviewDays});
+    }
+    var daily=[];
+    for(day=1;day<=maxDay;day++){
+      daily.push({
+        day:day,
+        learn: perChunk.filter(function(c){return c.learnDay===day;}).map(function(c){return c.index;}),
+        review: perChunk.filter(function(c){return c.reviewDays.indexOf(day)!==-1;}).map(function(c){return c.index;})
+      });
+    }
+    return {perChunk:perChunk, daily:daily, totalDays:maxDay};
+  }
+
+  function storageKey(cpd){ return "recite-"+CFG.materialId+"-cpd"+cpd; }
+  function loadChecks(cpd){
+    try{ return new Set(JSON.parse(localStorage.getItem(storageKey(cpd))||"[]")); }
+    catch(e){ return new Set(); }
+  }
+  function saveChecks(cpd,set){ localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+  function chipKey(day,idx,type){ return day+":"+idx+":"+type; }
+
+  function todayIndex(){
+    var diff = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - parseISO(CFG.startDate);
+    return Math.floor(diff/86400000)+1;
+  }
+
+  function renderDaily(cpd){
+    var data=buildSchedule(cpd), checks=loadChecks(cpd);
+    var list=document.getElementById("daily-list");
+    list.innerHTML="";
+    var total=0, done=0, today=todayIndex();
+
+    data.daily.forEach(function(dp){
+      var card=document.createElement("div");
+      card.className="day-card"+(dp.day===today?" today":"");
+      var date=addDays(parseISO(CFG.startDate), dp.day-1);
+
+      var head=document.createElement("div");
+      head.className="day-head";
+      var no=document.createElement("span"); no.className="day-no"; no.textContent="第 "+dp.day+" 天";
+      var dt=document.createElement("span"); dt.className="day-date"; dt.textContent=fmt(date)+" "+WEEKDAYS[date.getDay()];
+      head.appendChild(no); head.appendChild(dt);
+      card.appendChild(head);
+
+      function addRow(label,cls,indices,type){
+        var row=document.createElement("div");
+        row.className="day-row";
+        var lab=document.createElement("span"); lab.className="row-label "+cls; lab.textContent=label;
+        row.appendChild(lab);
+        if(!indices.length){
+          var e=document.createElement("span"); e.className="empty-day"; e.textContent="今日无"+label;
+          row.appendChild(e);
+        } else {
+          indices.forEach(function(idx){
+            var key=chipKey(dp.day,idx,type), checked=checks.has(key);
+            total++;
+            if(checked) done++;
+            var chip=document.createElement("button");
+            chip.className="chip "+cls+(checked?" on":"");
+            chip.textContent="块 "+idx;
+            chip.onclick=function(){
+              if(checks.has(key)) checks.delete(key); else checks.add(key);
+              saveChecks(cpd,checks);
+              renderDaily(cpd);
+            };
+            row.appendChild(chip);
+          });
+        }
+        card.appendChild(row);
+      }
+
+      addRow("新背","new",dp.learn,"new");
+      addRow("复习","review",dp.review,"review");
+      list.appendChild(card);
+    });
+
+    var fill=document.getElementById("progress-fill");
+    fill.style.width = total? (done/total*100)+"%" : "0%";
+    document.getElementById("progress-text").textContent=done+"/"+total;
+  }
+
+  window.setCpd=function(v){ renderDaily(parseInt(v,10)||2); };
+  renderDaily(CFG.defaultCpd);
+})();
+
+function toggleBlank(btn){
+  var card=btn.closest(".chunk");
+  card.classList.toggle("blanked");
+  btn.textContent = card.classList.contains("blanked") ? "👀 显示原文" : "🙈 遮住自测";
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
+</body>
+</html>

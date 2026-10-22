@@ -1,0 +1,1711 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>流动性收紧巩固美元地位.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>流动性收紧巩固美元地位.mp4</h1>
+    <div class="meta">上传视频 · 3m 46s · 1049 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0085 · 5170 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>美国正在全方位抽走全球流动性，印尼股市因MSCI调指数接近崩溃，欧洲法债突破5%高点，香港和韩国股市流动性被快速抽走，黄金市场资金也在流出。</li><li>资金主要流向美债（收益率明显下降）、美元（指数维持100以上）和日本债券及日元市场（日本卖法债买本国债券，并与美国联手保护日元）。</li><li>国际原油市场也支撑石油美元体系，因为美英可能联合打击、中东问题难解，欧亚多国增加购买美石油天然气需用美元。</li><li>另有两大吸流动性因素：Anthropic将在美股上市估值1.5-2万亿美元，以及SpaceX与特斯拉可能合并（市值近4万亿美元）。</li><li>美国维护美元体系全方位且不手软，美联储将继续加息抽流动性，日本承担重要配合角色，一些经济底子薄地区将付出惨烈代价。</li><li>流动性收紧可能持续到SpaceX与特斯拉合并完成，以及Circle在40个新兴国家快速推进稳定币发展（配合《GENIUS法案》明年1月生效），未来稳定币将承担越来越重要角色。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>最近全球市场出现了一个非常明显的趋势，那就是美国正在全方位地抽走流动性。从东南亚到欧洲再到亚洲，股市、债市、黄金市场都感受到了压力。今天我们就来梳理一下，这些钱到底流向了哪里，以及背后美国维护美元体系的逻辑。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>先看抽走流动性的几个现场：印尼股市因为MSCI要调指数接近崩溃，法国国债收益率突破5%的高点，香港和韩国的股市流动性也被大量抽走，黄金市场同样有资金在流出。这些现象不是孤立的，它们共同指向一个方向——美元体系。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>那么钱去了哪里呢？第一是美债，10年期和30年期收益率明显下降；第二是美元，美元指数还维持在100以上；第三是日本债券和日元市场，日本在卖法债买本国债券，而且和美国联手保护日元汇率。另外，国际原油市场也在支撑石油美元，因为地缘冲突不断，欧亚多国增加购买美国油气，这些都需要美元。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>除了这些，还有两个重要的吸流动性因素：一是Anthropic要在美股上市，估值1.5到2万亿美元；二是马斯克正在考虑SpaceX和特斯拉合并，市值可能接近4万亿美元。这些都会把全球资金进一步吸向美国。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>综合来看，美国对美元体系的维护是全方位且不手软的，美联储接下来还会继续加息，日本在其中扮演重要配合角色。流动性收紧可能会持续到SpaceX和特斯拉合并完成，以及Circle在40个新兴国家快速推进稳定币发展。未来稳定币在流动性争夺中会越来越重要，这一点值得我们持续关注。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The US is draining global liquidity across the board: Indonesia&#39;s stock market nears collapse due to MSCI index changes, French debt yields break 5%, Hong Kong and South Korea see rapid liquidity outflows, and money is leaving gold.</li><li>Capital is flowing into US Treasuries (yields falling), the dollar (index above 100), and Japanese bonds/yen (Japan selling French debt to buy its own, and cooperating with the US to protect the yen).</li><li>Oil markets also support the petrodollar system as US-UK strikes on Houthis become likely, Middle East issues persist, and Europe/Asia increase purchases of US oil and gas requiring dollars.</li><li>Two more liquidity drains: Anthropic&#39;s US IPO valued at $1.5-2 trillion, and a potential SpaceX-Tesla merger worth nearly $4 trillion.</li><li>The US is defending the dollar system comprehensively and relentlessly; the Fed will keep hiking to drain liquidity, with Japan playing a key role, and weaker economies will pay a heavy price.</li><li>Liquidity tightening may last until the SpaceX-Tesla merger completes and Circle expands stablecoins in 40 emerging countries (ahead of the GENIUS Act taking effect in January), with stablecoins playing a growing role.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Recently, a clear trend has emerged in global markets: the US is draining liquidity across the board. From Southeast Asia to Europe and Asia, stock markets, bond markets, and gold are all feeling the pressure. Today, let&#39;s break down where this money is going and the logic behind the US defending the dollar system.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>First, let&#39;s look at the scenes of liquidity drain: Indonesia&#39;s stock market is near collapse as MSCI adjusts its index, French bond yields have broken above 5%, Hong Kong and South Korea are seeing massive liquidity outflows from their stock markets, and money is leaving gold. These are not isolated events—they all point to one direction: the dollar system.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>So where is the money going? First, US Treasuries, where 10-year and 30-year yields have fallen notably. Second, the dollar, with the dollar index still above 100. Third, Japanese bonds and the yen market, as Japan sells French debt to buy its own bonds and cooperates with the US to protect the yen. Additionally, the oil market supports the petrodollar, as geopolitical conflicts persist and Europe and Asia increase purchases of US oil and gas, which require dollars.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Beyond these, there are two more major liquidity drains: Anthropic is set to IPO in the US with a valuation of $1.5 to $2 trillion, and Musk is considering a merger of SpaceX and Tesla, which could be worth nearly $4 trillion. These will further attract global capital to the US.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>In summary, the US is defending the dollar system comprehensively and relentlessly. The Fed will continue to hike rates, with Japan playing a key supporting role. The liquidity tightening may last until the SpaceX-Tesla merger is completed and Circle rapidly expands stablecoins in 40 emerging countries. Stablecoins will play an increasingly important role in the competition for liquidity, and this is something we should keep watching.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这篇口播稿以“美国全方位抽流动性”为主线，先列举全球多个市场资金流出的现象，再追踪资金流向（美债、美元、日债、原油），接着补充两个吸金事件（Anthropic上市、SpaceX与特斯拉合并），最后得出美联储将继续加息、日本配合、稳定币将扮演重要角色的结论。结构是典型的“现象—流向—动因—结论”递进式，语言口语化，善用排比和设问，节奏紧凑。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">5 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">全球抽流动性现象列举</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">美国正在全方位抽走全球流动性，多个市场出现资金流出。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">印尼股市接近崩溃（MSCI调指数）、法债突破5%、香港流动性被抽走、韩国股市流动性快速抽走、黄金市场资金流出。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">排比列举多个地区和市场，营造紧迫感；用具体数据（5%高点）增强可信度。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">资金流向追踪</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">流出的资金主要流向美债、美元、日本债券及日元市场、国际原油市场。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">美债10年期和30年期收益率明显下降；美元指数维持在100以上；日本卖法债买本国债券，并与美国联手保护日元；地缘冲突和欧亚购买美油气支撑石油美元。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问“钱都去哪了呢”引出答案，分点列举，逻辑清晰。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">两大吸流动性事件</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">Anthropic上市和SpaceX与特斯拉合并将进一步吸走全球流动性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">Anthropic估值1.5-2万亿美元；SpaceX与特斯拉合并市值近4万亿美元，摩根给出500美元股价预期。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">用具体估值数据强调规模，引用市场反应（股价）佐证。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">美国维护美元体系的逻辑</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">美国对美元体系的维护是全方位且不手软的，美联储将继续加息抽流动性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">综合前述现象和资金流向，推断美联储本月或12月还会加息；日本承担重要配合角色；经济底子薄地区将付出惨烈代价。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">归纳推理，从现象到本质，用“丝毫不手软”等口语化表达强化观点。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">流动性收紧的持续时间与稳定币角色</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">流动性收紧可能持续到SpaceX与特斯拉合并完成，以及Circle在40个新兴国家推进稳定币发展；未来稳定币将承担越来越重要角色。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">SpaceX与特斯拉合并完成；Circle在40个新兴国家快速推进稳定币；《GENIUS法案》明年1月生效。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">给出两个具体观察指标，使预测可验证；引入稳定币这一新变量，提升前瞻性。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">设问引出</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““那钱都去哪了呢 第一美债””</span></div>
+            
+            
+            <div class="tech-line">💡 用设问制造悬念，引导听众跟随思路，自然过渡到资金流向的分析。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">排比列举</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““东南亚印尼的股市接近崩溃……在欧洲从法国开始面临着非常严峻的债务危机……在亚洲一方面大家看到香港的流动性也被大量的抽走 再接下来就是韩国的股市的流动性被在短时间快速抽走””</span></div>
+            
+            
+            <div class="tech-line">💡 用排比列举多个地区和市场，增强语势，让听众感受到问题的普遍性和严重性。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">数据锚定</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““法债已经突破5%的高点了”“估值1.5到2万亿美元”“市值将会接近4万亿美元””</span></div>
+            
+            
+            <div class="tech-line">💡 用具体数字增强说服力和可信度，让抽象概念变得可感知。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">因果链条</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““因为现在收益率比之前是要高不少的 另外就是在我理解日本跟美国应该是持续在联手 保护着日元汇率的””</span></div>
+            
+            
+            <div class="tech-line">💡 用“因为”“所以”等逻辑连接词，把现象和原因串联起来，让推理过程清晰。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">前瞻性收尾</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““接下来对于流动性的争夺 美国会让稳定币承担越来越重要的角色””</span></div>
+            
+            
+            <div class="tech-line">💡 在结尾抛出未来趋势，给听众留下思考空间，增强内容的长期价值。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“现象—流向—动因—结论”四步法分析资金流动</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 先列出多个市场出现的资金流出或流入现象，再追踪资金具体流向哪些资产，然后分析背后的驱动因素（政策、地缘、经济数据），最后得出趋势性结论。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 比如分析近期A股外资流出：现象是北向资金连续净卖出；流向是流入美债和美元；动因是美联储加息预期；结论是短期外资可能继续流出，关注美联储议息会议。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用设问引导听众注意力</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在讲述关键转折前，先抛出一个听众关心的问题，比如“钱都去哪了呢”，然后自问自答，让听众跟着你的思路走。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 在讲完资金流出后，停顿一下问：“那这些钱到底去了哪里？”然后分点回答。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用具体数据锚定观点</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在表达一个判断时，至少给出一个具体数字或时间点，让观点更可信。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 不说“法债收益率很高”，而说“法债已经突破5%的高点”。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用排比列举增强语势</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在列举多个同类现象时，用相同的句式结构连续说出，营造节奏感和紧迫感。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · “在东南亚……在欧洲……在亚洲……在黄金市场……”连续四个“在”字句。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">给出可验证的观察指标</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在预测趋势时，明确说出未来可以观察的具体事件或数据，让听众可以自行验证。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · “流动性收紧可能持续到SpaceX和特斯拉合并完成，以及Circle在40个新兴国家推进稳定币。”</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">全球流动性视角</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 把全球市场看作一个资金池，资金在不同资产和地区间流动，关注主要央行（尤其是美联储）的货币政策对全球资金流向的影响。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当分析某个市场涨跌时，先看全球流动性松紧，再看资金流向哪个洼地，最后看本地因素。比如分析新兴市场股市下跌，先看美联储是否在加息抽流动性。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">美元体系维护逻辑</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 美国通过加息、地缘政治、能源交易、科技公司上市等多种手段，维持美元在全球货币体系中的主导地位，这是一个系统性工程。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在分析国际金融事件时，思考它是否有利于维护美元地位。比如地缘冲突推高油价，而石油用美元交易，就间接支撑了美元。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">事件驱动的前瞻性判断</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 通过识别未来可能发生的重要事件（如公司合并、法案生效），预判其对市场流动性的影响，并以此作为投资决策的参考。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 列出未来3-6个月已知的重大事件（IPO、合并、政策生效），评估每个事件对资金流向的潜在影响，提前布局或规避风险。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">多市场联动分析</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 股市、债市、汇市、商品市场之间相互关联，一个市场的资金流出往往对应另一个市场的流入，需要联动观察。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当看到股市下跌时，同时查看债市收益率、美元指数、黄金价格，判断资金是避险还是流向其他资产。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">角色分工思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 在大的趋势中，不同国家扮演不同角色，比如美国主导收紧，日本配合，一些经济薄弱国家承担代价。理解角色分工有助于预判政策走向。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 分析国际政策协调时，先明确各主要经济体的角色和利益诉求，再推断它们可能采取的行动。比如日本卖法债买日债，既配合美国收紧，又保护日元。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">21 块 · 预计背诵 9 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 3 块</p>
+        
+        <div class="recite-advice">材料涉及多个地区和市场，并列结构多，容易漏点。建议按“地区→资产→事件”的顺序记忆，用每块的hint串联；长句如第9块可拆成“中东问题”和“石油美元”两部分先背。注意专有名词（如anthropic、savex、tessler）的发音和拼写，可借助上下文联想。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/流动性收紧巩固美元地位">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">21 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">39 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">美国这一次真的是全方位的在抽流动性 东南亚印尼的股市接近崩溃 那源于MSCI要调它的指数</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">美国抽流动性 印尼股市</div>
+            <div class="rc-hint-letters">美东那</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">33 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">在欧洲从法国开始面临着非常严峻的债务危机 现在法债已经突破5%的高点了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">欧洲法国债务危机</div>
+            <div class="rc-hint-letters">在现</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">47 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">在亚洲一方面大家看到香港的流动性也被大量的抽走 再接下来就是韩国的股市的流动性被在短时间快速抽走</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">亚洲香港韩国流动性</div>
+            <div class="rc-hint-letters">在再</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">57 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">与此同时从黄金市场上钱也是陆续的在流出的 那钱都去哪了呢 第一美债 大家看到最近10年期30年期的美债收益率 比之前是明显下降的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">黄金流出 美债收益率</div>
+            <div class="rc-hint-letters">与那第大比</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">38 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那第二就是美元了 美元指数近期基本上还是维持在100亿上的 第三日本债券以及日元市场</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">美元指数 日本债券</div>
+            <div class="rc-hint-letters">那美第</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">64 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那回到日本债券 两个比较重要的原因第一就是 日本这段时间其实是在卖法债的 这些钱出来以后会买自己的债券 因为现在收益率比之前是要高不少的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">日本卖法债买日债</div>
+            <div class="rc-hint-letters">那两日这因</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">29 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">另外就是在我理解日本跟美国应该是持续在联手 保护着日元汇率的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">日美联手保护日元</div>
+            <div class="rc-hint-letters">另保</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">55 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好那最后就是国际原油市场了 一方面是接下来美倚对于一联合打击概率在快速提升 而且现在市场基本上对这件事情是已经pricing了</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">原油市场 美以打击</div>
+            <div class="rc-hint-letters">好一而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">93 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">与此同时由于中东的问题在短时间很难结束 并且在之前现在以及接下来 不管是欧洲还是亚洲的相关国家和地区 都在增加对于美石油天然气的购买 而这些都是需要使用美元的 所以这也就进一步的支撑了石油美元体系</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">中东问题 石油美元</div>
+            <div class="rc-hint-letters">与并不都而所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好除以上之外还有两个很重要的 吸流动性的因素 一个就是接下来anthropic要在美股上市 估值1.5到2万亿美元</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Anthropic上市</div>
+            <div class="rc-hint-letters">好吸一估5</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">43 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">再有就是我们前两天在视频中跟大家分享 昨天马斯克也做了进一步的印证 就是正在考虑savex和tessler的合并</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">马斯克 合并考虑</div>
+            <div class="rc-hint-letters">再昨就</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">78 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那就像之前这个视频跟大家分享的 当很多人包括不少媒体聚焦在roaster的技术秀的时候 我理解这一次的技术秀其实更重要的是要暗示 或者是说给大家提前提个醒 接下来savex和tessler是要合并的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">技术秀暗示合并</div>
+            <div class="rc-hint-letters">那当我或接</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">49 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">不然为什么要特意选择在savex的火箭发射场 去做这一次的汽车飞行表演秀 而且突出的就是tessler和savex在技术上的重要融合</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">火箭场飞行秀 技术融合</div>
+            <div class="rc-hint-letters">不去而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">78 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">如果接下来这两家公司合并的话 市值将会接近4万亿美元 而昨天savex的股价也反映了市场对于两家公司合并 对savex接下来发展的进一步支持 而最先摩根给他的股价预期也是达了500美元</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">合并市值 股价预期</div>
+            <div class="rc-hint-letters">如市而对而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">41 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">好 那综合以上我想说的是这一次 美国对于美元体系的维护 鞏固 是全方位的 而且是丝毫不手软的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">美国维护美元体系</div>
+            <div class="rc-hint-letters">好那美鞏是而</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">46 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以基于此 美联储接下来还是会要继续加息的 不管是这个月还是12月 因为需要进一步的去抽全球的流动性</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">美联储继续加息</div>
+            <div class="rc-hint-letters">所美不因</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">33 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">在这个过程中肯定会是有一些经济嫡子不厚的地区 会付出非常惨烈的代价的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">经济薄弱地区代价</div>
+            <div class="rc-hint-letters">在会</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那这一次跟以前有一个很不一样的特点 就是我们刚才前面跟大家提及的 这一次日式承担着很重要的角色 去配合美 去收紧全球的流动性的</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">日本配合美国收紧</div>
+            <div class="rc-hint-letters">那就这去去</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">45 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">至于对于liquidity 流动性的收紧要持续到什么时候 这个在我来看两个很重要的特征 就是第一 spacex和tessler的合并的完成</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">流动性收紧结束标志一</div>
+            <div class="rc-hint-letters">至流这就s</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">第二就是circle最新公布了正在40个新兴国家 快速推进稳定币的发展 那我们知道gnews法案明年1月份要正式生效</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">稳定币推进 法案生效</div>
+            <div class="rc-hint-letters">第快那</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">34 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以在我来看 接下来对于流动性的争夺 美国会让稳定币承担越来越重要的角色</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">稳定币角色重要</div>
+            <div class="rc-hint-letters">所接美</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-22 周四</span></td>
+                
+                <td class="context-col">2026-10-23<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-24<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-22 周四</span></td>
+                
+                <td class="context-col">2026-10-23<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-24<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-22 周四</span></td>
+                
+                <td class="context-col">2026-10-23<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-24<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-23 周五</span></td>
+                
+                <td class="context-col">2026-10-24<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-25<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-23 周五</span></td>
+                
+                <td class="context-col">2026-10-24<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-25<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-23 周五</span></td>
+                
+                <td class="context-col">2026-10-24<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-25<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-24 周六</span></td>
+                
+                <td class="context-col">2026-10-25<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-24 周六</span></td>
+                
+                <td class="context-col">2026-10-25<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-24 周六</span></td>
+                
+                <td class="context-col">2026-10-25<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-25 周日</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-25 周日</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-25 周日</span></td>
+                
+                <td class="context-col">2026-10-26<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-26 周一</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-26 周一</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-26 周一</span></td>
+                
+                <td class="context-col">2026-10-27<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3" selected>3 块</option>
+            
+            <option value="4">4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">1049</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 1887 tokens · 输出 3283 tokens ·
+        费用 ¥0.0085
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-10-22
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "流动性收紧巩固美元地位",
+      chunkCount: 21,
+      startDate: "2026-10-22",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 3
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>
