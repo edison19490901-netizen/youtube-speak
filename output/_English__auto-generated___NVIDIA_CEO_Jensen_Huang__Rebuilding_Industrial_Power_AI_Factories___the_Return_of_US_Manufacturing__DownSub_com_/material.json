@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "material_id": "_English__auto-generated___NVIDIA_CEO_Jensen_Huang__Rebuilding_Industrial_Power_AI_Factories___the_Return_of_US_Manufacturing__DownSub_com_",
+    "title": "[English (auto-generated)] NVIDIA CEO Jensen Huang  Rebuilding Industrial Power AI Factories & the Return of US Manufacturing [DownSub.com]",
+    "language": "en",
+    "source_type": "article",
+    "truncated": false,
+    "created": "2026-11-06"
+  },
+  "material": {
+    "title_suggested": "English (auto-generated) NVIDIA CEO Jensen Huang  Rebuilding Industrial Power AI Factories & the Return of US Manufacturing [DownSub.com]",
+    "language": "en",
+    "advice": "This material is a long interview with many spoken-language features (fillers, repetitions, self-corrections) that can trip you up; focus on the core meaning of each chunk rather than memorizing every 'um' and 'uh'. Use the chunk hints as memory anchors, and for long chunks like the one about AI factories and energy, break them into two breaths when reciting. Pay special attention to parallel structures (e.g., 'Some jobs will be created...') and technical terms (tokens, digital twins, physical AI) to ensure accurate recall.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "New jobs will be created. Some jobs will be lost. Every job will be changed. Okay? So, let's just break it down.",
+        "hint": "jobs created lost changed",
+        "translation": "新的工作会被创造出来。一些工作会消失。每一份工作都会改变。好吗？所以，让我们把它拆解一下。"
+      },
+      {
+        "index": 2,
+        "text": "Um, it's it's it's always easy to go to one extreme from another, but I always find it helpful when you break the problem down, reason about it from its first principles.",
+        "hint": "break down first principles",
+        "translation": "嗯，从一个极端走向另一个极端总是很容易，但我总是发现，当你把问题拆解，从第一性原理来推理时，会很有帮助。"
+      },
+      {
+        "index": 3,
+        "text": "Jensen, welcome to the Hillen Valley Forum. It's great to have you. Thank you very much. It's very nice to be here.",
+        "hint": "welcome Hillen Valley Forum",
+        "translation": "Jensen，欢迎来到Hillen Valley论坛。很高兴你能来。非常感谢。很高兴来到这里。"
+      },
+      {
+        "index": 4,
+        "text": "You've positioned AI as a new industrial revolution with AI factories at the center of it. Can you explain to us what is an AI factory and why is it important to understand in the 21st century economy?",
+        "hint": "AI factory 21st century economy",
+        "translation": "你将AI定位为一场新的工业革命，而AI工厂是其核心。你能向我们解释什么是AI工厂，以及为什么在21世纪经济中理解它很重要吗？"
+      },
+      {
+        "index": 5,
+        "text": "uh AI. We've been talking a lot about AI over the last several years. It's it's multiaceted and I think it's helpful to to look at it in this lens.",
+        "hint": "multifaceted lens",
+        "translation": "呃，AI。过去几年我们一直在大量讨论AI。它是多方面的，我认为从这个视角来看待它是有帮助的。"
+      },
+      {
+        "index": 6,
+        "text": "Uh first, of course, AI is a a new technology. It's a new technology in the sense that it's built differently than software of the past. And this new software can do things that software in the past could not do.",
+        "hint": "new technology built differently",
+        "translation": "首先，当然，AI是一项新技术。它是一项新技术，因为它的构建方式与过去的软件不同。而这种新软件能做一些过去软件做不到的事情。"
+      },
+      {
+        "index": 7,
+        "text": "And so, so it's incredible technology. All the things it can do, you know, all the things that we have to do to keep it safe, all the amazing things that it's going to enable. Fantastic. So there's the technology layer.",
+        "hint": "technology layer incredible",
+        "translation": "所以，所以它是不可思议的技术。它能做的所有事情，你知道，我们必须做的所有确保它安全的事情，它将带来的所有惊人事物。太棒了。所以这是技术层。"
+      },
+      {
+        "index": 8,
+        "text": "The second layer which is rather new in the last technology industry uh software production. It was done by humans typing. Now we have a new industry and this software is produced uh with machinery.",
+        "hint": "software production machinery",
+        "translation": "第二层，在过去的科技行业中相当新，呃，软件生产。过去是由人类打字完成的。现在我们有了一个新行业，这种软件是用机器生产的。"
+      },
+      {
+        "index": 9,
+        "text": "So you need a a large supercomput. You apply electricity to it and what comes flying out of it are uh tokens. And these tokens could be reformulated into numbers and words and proteins and images and videos and three-dimensional structures and you know it could you could reformulate these tokens into all kinds of things. We call it intelligence.",
+        "hint": "tokens intelligence reformulate",
+        "translation": "所以你需要一台大型超级计算机。你给它通电，飞出来的就是令牌。这些令牌可以被重新组合成数字、文字、蛋白质、图像、视频和三维结构，你知道，你可以把这些令牌重新组合成各种东西。我们称之为智能。"
+      },
+      {
+        "index": 10,
+        "text": "And so this machinery this this machinery looks different than the machinery of the past. And I call it an AI factory because it does one thing every single day. It's producing tokens.",
+        "hint": "AI factory producing tokens",
+        "translation": "所以这台机器，这台机器看起来与过去的机器不同。我称之为AI工厂，因为它每天只做一件事。它在生产令牌。"
+      },
+      {
+        "index": 11,
+        "text": "And the layer above that uh is infrastructural. And this is this is the reason why uh we now internalize that AI is likely going to be uh quite an extraordinary industrial revolution in the sense that this new technology is going to enable a new industry that I just mentioned AI factories the production of intelligence but it's going to go back and revolutionize and transform every other industry.",
+        "hint": "infrastructural industrial revolution",
+        "translation": "而上面的那一层，呃，是基础设施层。这就是为什么我们现在内化认为AI很可能将是一场相当非凡的工业革命，因为这项新技术将催生我刚才提到的新行业——AI工厂，智能的生产，但它会回过头来彻底改变和改造其他所有行业。"
+      },
+      {
+        "index": 12,
+        "text": "And so all of these tokens are going to go into healthc care and education. One of my favorites is education. I use it every day for education. um financial services, engineering, we use AI every day for software programming and supply chain management. It's about to go into manufacturing and so on so forth.",
+        "hint": "tokens into industries",
+        "translation": "所以所有这些令牌将进入医疗保健和教育。我最喜欢的是教育。我每天都用它来学习。呃，金融服务、工程，我们每天都用AI进行软件编程和供应链管理。它即将进入制造业等等。"
+      },
+      {
+        "index": 13,
+        "text": "And so so when you think about it from these three layers, it's very clear this is as transformative as impactful as electricity was before and it's going to revolutionize every industry. So it's an industrial revolution.",
+        "hint": "transformative as electricity",
+        "translation": "所以，当你从这三个层面来思考时，很明显，这就像之前的电力一样具有变革性和影响力，它将彻底改变每个行业。所以这是一场工业革命。"
+      },
+      {
+        "index": 14,
+        "text": "So, do you think it's a paradigm shift in modern computing and that every factory that's building physical things in the real world will also be accompanied by an AI factory? Yeah, perfect. Absolutely.",
+        "hint": "paradigm shift accompanied AI factory",
+        "translation": "那么，你认为这是现代计算领域的范式转变吗？而且现实世界中每个制造物理产品的工厂都将伴随一个AI工厂吗？是的，完美。绝对如此。"
+      },
+      {
+        "index": 15,
+        "text": "um every every company that makes things today uh so long as they move, you know. So so so let's say uh let's say you make um lawnmowers and and it could be caterpillar and uh or they they build you know construction machinery. Uh today it's uh largely uh manually manipulated. In the future, it'll be uh autonomous or highly autonomous or semi-autonomous or or assisted.",
+        "hint": "companies make things autonomous",
+        "translation": "呃，今天每个制造东西的公司，呃，只要它们动起来，你知道。所以，比方说，呃，比方说你制造割草机，也可能是卡特彼勒，或者他们制造建筑机械。呃，今天它主要是手动操作的。未来，它将是自主的或高度自主的或半自主的或辅助的。"
+      },
+      {
+        "index": 16,
+        "text": "And uh when it becomes autonomous, then it'll be software defined. And and so you're going to have to produce that those tokens, those software that feeds that that uh tractor. And so in the future, uh every company that builds things will have have a factory that builds the things that they sell. And then they'll have another factory that builds and produces the AI that runs on that thing that they sell.",
+        "hint": "software defined two factories",
+        "translation": "而且，当它变得自主时，它将是软件定义的。所以你将不得不生产那些令牌，那些为那台拖拉机提供动力的软件。所以未来，每个制造东西的公司都会有一个工厂制造他们销售的东西。然后他们会有另一个工厂构建和生产运行在他们销售的东西上的AI。"
+      },
+      {
+        "index": 17,
+        "text": "And so uh it's very clear when you look at look at uh car companies you know today's car companies largely make cars uh and uh but it's very clear that in 10 years time every car company will also produce the tokens that runs in those cars.",
+        "hint": "car companies produce tokens",
+        "translation": "所以，呃，很明显，当你看看汽车公司，你知道今天的汽车公司主要制造汽车，呃，但很明显，10年后每个汽车公司也将生产运行在那些汽车中的令牌。"
+      },
+      {
+        "index": 18,
+        "text": "You've talked a little bit about physical AI the concept of physical AI over the last year for policy makers who are thinking about the future of American foreign of American policy. Can you explain to us a little bit what physical AI is and how we should be thinking about it?",
+        "hint": "physical AI policy makers",
+        "translation": "你过去一年里谈了一些关于物理AI的概念，对于正在思考美国外交政策未来的政策制定者来说。你能向我们解释一下什么是物理AI以及我们应该如何思考它吗？"
+      },
+      {
+        "index": 19,
+        "text": "take a step back. Um AI uh really came to consciousness, modern AI really came into consciousness about about 12 14 years ago uh when Alexet came out and uh computer vision uh was uh saw its big giant breakthrough and that was like I guess 2012.",
+        "hint": "AI consciousness AlexNet 2012",
+        "translation": "退一步说。嗯，AI真正进入意识，现代AI真正进入意识大约是在12、14年前，当AlexNet出现时，计算机视觉取得了巨大突破，我想那是2012年。"
+      },
+      {
+        "index": 20,
+        "text": "uh around that time when you take a step back what is computer vision uh in its largest context is perception you know p perceiving the world whether whatever modality of information it could be of course images it could be sounds it could be vibration it could be temperature and we've now we've now uh developed AI models that uh understand the meaning of all of that all of that information and um uh and can be quite smart about it so the first the first layer the first wave of AI AI was perception AI.",
+        "hint": "computer vision perception first wave",
+        "translation": "呃，大约在那时，当你退一步看，计算机视觉在其最大的背景下是什么？是感知，你知道，感知世界，无论信息是什么模态，当然可以是图像，可以是声音，可以是振动，可以是温度，我们现在已经开发了AI模型，能够理解所有那些信息的意义，并且对此相当智能。所以第一层，AI的第一波是感知AI。"
+      },
+      {
+        "index": 21,
+        "text": "The second uh what everybody started talking about maybe five years ago was generative AI. And generative AI is is um uh where the AI uh model has learned how to uh understand the meaning of the information but translate it. So for example, you could understand um English and translate it to to French. You could understand English and translate it to images. And so you could use tok you could prompt it to generate images. So generative AI is is essentially a universal translator if you will. Um a universal translator uh that that understand the the language of humans language. And so so that's the next wave.",
+        "hint": "generative AI universal translator",
+        "translation": "第二波，也许五年前大家开始谈论的是生成式AI。生成式AI是，呃，AI模型已经学会了如何理解信息的意义，但将其翻译。例如，你可以理解英语并将其翻译成法语。你可以理解英语并将其翻译成图像。所以你可以用它，你可以提示它生成图像。所以生成式AI本质上是一个通用翻译器，如果你愿意的话。一个理解人类语言的通用翻译器。所以这就是下一波。"
+      },
+      {
+        "index": 22,
+        "text": "The wave that we're in now is where you now have AIs that can uh understand it can generate. But as you know, intelligence requires us to solve problems and recognize conditions that we've never seen before. And the way we we do that is we we use reasoning. We apply rules and laws and principles that we've learned in the past and we break the problem down step by step by step. And even though we've never solved this problem before, through reasoning, we can solve it. Okay?",
+        "hint": "reasoning AI solve problems",
+        "translation": "我们现在所处的浪潮是，你现在有能够理解、能够生成的AI。但如你所知，智能要求我们解决问题并识别我们从未见过的情况。我们做到这一点的方式是使用推理。我们应用过去学到的规则、定律和原则，我们一步一步地分解问题。即使我们以前从未解决过这个问题，通过推理，我们可以解决它。好吗？"
+      },
+      {
+        "index": 23,
+        "text": "And so one of the unique capabilities of intelligence and and so we're now in that this age called reasoning AI. And reasoning AIs um allow you to uh produce a a form of digital robots. We call them agentic AI agents. It has agency. And so an AI that can understand the task that's been given. It can go off and learn and read apply use tools like calculators and web browsers and spreadsheets and um and then come back and you know does something for you and it could be uh something related to supply chain. So it accesses SAP, it could be something related to HR, access workday. And so so these agentic AIs are essentially robots, but they're uh digital workforce robots.",
+        "hint": "agentic AI digital robots",
+        "translation": "所以智能的独特能力之一，我们现在处于这个称为推理AI的时代。推理AI，呃，允许你产生一种数字机器人。我们称之为代理式AI代理。它具有代理能力。所以一个AI能够理解给定的任务。它可以去学习和阅读，应用使用计算器、网络浏览器和电子表格等工具，然后回来，你知道，为你做某事，它可能是与供应链相关的事情。所以它访问SAP，可能是与人力资源相关的事情，访问Workday。所以这些代理式AI本质上是机器人，但它们是数字劳动力机器人。"
+      },
+      {
+        "index": 24,
+        "text": "And so in the future, you know, we're going to be we're going to be the generation of CEOs that that are going to manage biological workforce as well as digital workforce and HR department for the biological workforce and uh our IT IT department are going to become the HR of Agent AI, right? And so and so we have this this is kind of the phase we're in today.",
+        "hint": "CEOs manage biological digital",
+        "translation": "所以未来，你知道，我们将成为那一代CEO，将管理生物劳动力和数字劳动力，生物劳动力的人力资源部门，呃，我们的IT部门将成为代理AI的人力资源，对吧？所以，所以这就是我们今天所处的阶段。"
+      },
+      {
+        "index": 25,
+        "text": "Well, the next wave and this is where the the largest industries of the world uh are going to benefit. The next wave requires us to understand things like uh the laws of physics, friction, inertia, cause and effect, the fact that I tip that thing over, it's going to fall. Um, you know, when I set the bottle down, it's not going to go through the table. And so all of these common sense uh physical reasoning abilities that children have, that our our pets have, uh, most AIs don't have.",
+        "hint": "physical reasoning common sense",
+        "translation": "嗯，下一波，这是世界上最大的行业将受益的地方。下一波要求我们理解物理定律、摩擦、惯性、因果关系，比如我把那个东西推倒，它会掉下来。嗯，你知道，当我把瓶子放下，它不会穿过桌子。所以所有这些常识性的物理推理能力，孩子们有，我们的宠物有，呃，大多数AI没有。"
+      },
+      {
+        "index": 26,
+        "text": "You know, I roll roll a ball over the kitchen counter and it goes off over the top and it disappears. Well, the AI thinks it's disappeared, but you know, your dog knows it. It's on the other side. It it understands this concept called object permanence. And it didn't go into another metaverse. And and so it runs around the table and gets it, you know, and and uh and a robot needs to learn that if you want to go from this side of the table to that side of the table, you can't go through the table. You're going to have to reason about how to go around the table.",
+        "hint": "object permanence robot reasoning",
+        "translation": "你知道，我在厨房台面上滚一个球，它从顶部滚出去消失了。嗯，AI认为它消失了，但你知道，你的狗知道。它在另一边。它理解这个叫做客体永久性的概念。它没有进入另一个元宇宙。所以它绕着桌子跑过去拿到它，你知道，而且机器人需要学习，如果你想从桌子这边到那边，你不能穿过桌子。你必须推理如何绕过桌子。"
+      },
+      {
+        "index": 27,
+        "text": "And so all of these type of reason physical reasoning things uh is what's called physical AI. And when you take that physical AI and then you put it into a physical object called a robot, you get robotics. And this is really really important for us now because you know we're building plants and factories all over United States. And we'd like to build it in a way that's takes advantage of the latest technologies. And so hopefully, you know, in the next 10 years, uh, as we build out this this new generation of plants and factories, they're highly robotic and and they're, you know, helping us deal with the severe labor shortage that we have all over the world.",
+        "hint": "physical AI robotics labor shortage",
+        "translation": "所以所有这些类型的推理，物理推理的东西，就是所谓的物理AI。当你把物理AI放入一个叫做机器人的物理对象中，你就得到了机器人技术。这对我们现在非常重要，因为你知道我们正在美国各地建设工厂。我们希望以利用最新技术的方式来建设它。所以希望，你知道，在未来10年，当我们建设这一代新的工厂时，它们是高度机器人化的，并且它们帮助我们应对世界各地严重的劳动力短缺。"
+      },
+      {
+        "index": 28,
+        "text": "So many people have talked about this concept about the fact that we're in an AI race globally. What do you think the US government needs to do to win that AI race to have the very best AI technology?",
+        "hint": "AI race US government",
+        "translation": "很多人都在谈论这个概念，即我们处于全球AI竞赛中。你认为美国政府需要做什么才能赢得这场AI竞赛，拥有最好的AI技术？"
+      },
+      {
+        "index": 29,
+        "text": "First uh in order to in order to have a race to do well in a race you have to understand the race and you have to understand the resources that you're working with the assets that you have the assets you don't have your advantages and your disadvantages and some of the things to realize is that that AI is fundamentally um at its core level you know and going back to the three levels that that we're talking about at each level we have to make sure that we understand the game",
+        "hint": "understand the race assets",
+        "translation": "首先，呃，为了在竞赛中做好，你必须理解这场竞赛，你必须理解你所使用的资源，你拥有的资产，你没有的资产，你的优势和劣势，需要意识到的一些事情是，AI从根本上，呃，在其核心层面，你知道，回到我们谈论的三个层面，在每个层面我们必须确保我们理解游戏。"
+      },
+      {
+        "index": 30,
+        "text": "And and this game isn't, you know, there's no 60-minute clock on this thing. This is an infinite game. And so most people aren't very good at playing infinite games. You know, Nvidia is now 33 years old. Uh we've been through three computer revolutions from the PC revolution to the internet to mobile and now we're in AI. And so you have to in order to thrive across all of these different changes in the environment, you have to understand how to play games.",
+        "hint": "infinite game Nvidia 33 years",
+        "translation": "而且这个游戏不是，你知道，没有60分钟的时钟。这是一个无限游戏。所以大多数人不擅长玩无限游戏。你知道，Nvidia现在33岁了。呃，我们经历了三次计算机革命，从PC革命到互联网到移动，现在我们在AI。所以你必须，为了在环境中所有这些不同的变化中茁壮成长，你必须理解如何玩游戏。"
+      },
+      {
+        "index": 31,
+        "text": "and and so the things that I just described uh understanding the game understanding the assets you have really important at the first layer at the technology layer the most important thing to understand is the the intellectual capital and remember 50% of the world's AI researchers are Chinese first just take take a step back and recognize that that important factor has to has to play into how we think about the game",
+        "hint": "intellectual capital 50% Chinese",
+        "translation": "所以我刚才描述的事情，呃，理解游戏，理解你拥有的资产，在第一层技术层非常重要，最重要的是理解智力资本，记住世界上50%的AI研究人员是中国人，首先退一步，认识到这个重要因素必须影响我们如何思考游戏。"
+      },
+      {
+        "index": 32,
+        "text": "the next is AI factories in order to do well there, you need to have energy because fundamentally we trans we trans we transform electricity into digital tokens. Just as the last industrial revolution transformed atoms through energy into, you know, steel things and physical things that we know, cars and things like that, buildings and things like that. And the generation before that, we we gave it water into a machine called the dynamo. And what came out was electricity. And so now we have electricity go in and tokens come out. So the next layer requires energy.",
+        "hint": "AI factories energy tokens",
+        "translation": "接下来是AI工厂，为了在那里做好，你需要有能源，因为从根本上我们转化，我们转化，我们将电力转化为数字令牌。就像上一次工业革命通过能源将原子转化为，你知道，钢铁和我们知道的有形的东西，汽车和类似的东西，建筑和类似的东西。再之前的一代，我们把水送入一个叫做发电机的机器。出来的就是电。所以现在我们把电送进去，令牌出来。所以下一层需要能源。"
+      },
+      {
+        "index": 33,
+        "text": "The layer above that is just happening now. And it's really really important that we understand that ultimately the winners of the last industrial revolution wasn't the wasn't the country that invented it. It was the country that applied it. And the United States applied applied steel applied energy faster than any country. Everybody else was worried about things like labor and you know horses being replaced by cars and you know those kind of matters but the United States just we just took it and ran with it.",
+        "hint": "winners applied technology",
+        "translation": "上面的那一层现在正在发生。非常重要的是我们要理解，最终上一次工业革命的赢家不是发明它的国家。而是应用它的国家。美国比任何国家都更快地应用了钢铁，应用了能源。其他人都在担心劳动力，你知道，马被汽车取代，你知道那些事情，但美国我们只是抓住它并奔跑。"
+      },
+      {
+        "index": 34,
+        "text": "And so the the infrastructural layer above that is about the application of the technology. It's about not being afraid of it wanting to engage it um uh reskilling reskilling our workforce so that we're able to apply it uh encouraging people to adopt it. And so when you when you look at the the um uh when you look at AI through the lens that I just described, the framework I just described, each one of the layers has its own um if you will challenges and opportunities and the game's a little different in each one.",
+        "hint": "application reskilling challenges",
+        "translation": "所以上面的基础设施层是关于技术的应用。它是关于不害怕它，想要参与它，呃，重新培训我们的劳动力，以便我们能够应用它，呃，鼓励人们采用它。所以当你通过我刚才描述的视角，我刚才描述的框架来看AI时，每一层都有自己的，如果你愿意，挑战和机遇，每一层的游戏略有不同。"
+      },
+      {
+        "index": 35,
+        "text": "On the workforce point, the press has been so focused on um weaving the narrative that AI could potentially lead to mass displacement of labor and and mass unemployment. Could you help paint a picture a little bit about what your prediction is for the impact of AI on the job market, but also more specifically on what you see as the potentially new categories of jobs that we're potentially not even thinking about today that could actually come into being.",
+        "hint": "workforce narrative new jobs",
+        "translation": "关于劳动力，媒体一直如此专注于编织AI可能导致大规模劳动力 displaced 和大规模失业的叙事。你能帮我们描绘一下你对AI对就业市场影响的预测吗，但更具体地说，你认为潜在的新工作类别，我们今天甚至没有想到的，实际上可能出现。"
+      },
+      {
+        "index": 36,
+        "text": "Some jobs will new jobs will be created, some jobs will be lost, every job will be changed. Okay, so let's just break it down. Um it's it's it's always easy to go to one extreme from another but I always find it helpful when you break the problem down reason about it from its first principles and again in this framework that I just described at the lowest layer as you know and Jacob you're you're uh you're deeply uh integrated into into uh uh venture investment and you know what's going on in AI and you know at the foundational layer it's because of AI that San Francisco is back.",
+        "hint": "break down San Francisco back",
+        "translation": "一些工作会，新工作会被创造，一些工作会消失，每份工作都会改变。好，让我们拆解一下。嗯，从一个极端到另一个极端总是很容易，但我总是发现当你把问题拆解，从第一性原理推理时很有帮助，再次在我刚才描述的框架中，在最底层，你知道，Jacob你深入参与风险投资，你知道AI正在发生什么，你知道在基础层，正是因为AI，旧金山回来了。"
+      },
+      {
+        "index": 37,
+        "text": "Okay, anybody who lives in San Francisco, uh, you'll know what I'm talking about. Uh, just about everybody evacuated San Francisco. Now it's it's thriving again. It's all because of AI. Um, and AI creates a new type of job. And the fundamental reason is because it's software development, but done in a different way. We've changed every layer of the technology as a result of AI. What used to be human human coded software running on CPUs are now machine learning generated software running on GPUs.",
+        "hint": "San Francisco thriving software development",
+        "translation": "好，任何住在旧金山的人，呃，你会知道我在说什么。呃，几乎所有人都撤离了旧金山。现在它又繁荣起来了。这都是因为AI。嗯，AI创造了一种新型工作。根本原因是因为它是软件开发，但以不同的方式完成。由于AI，我们改变了技术的每一层。过去在CPU上运行的人工编码软件现在是在GPU上运行的机器学习生成的软件。"
+      },
+      {
+        "index": 38,
+        "text": "And so every single layer the tooling of it the compilers of it the methodology of it the way you collect data curate data use AI to guard rails use AI to teach you use AI to keep the AI safe. Um all of that technology is being invented right now and it creates tons of jobs at the next layer. This is where the giant opportunity is.",
+        "hint": "tooling compilers jobs opportunity",
+        "translation": "所以每一层，工具、编译器、方法、收集数据、整理数据的方式，使用AI作为护栏，使用AI来教你，使用AI来保持AI安全。嗯，所有这些技术现在正在被发明，它在下一层创造了大量工作。这就是巨大机会所在。"
+      },
+      {
+        "index": 39,
+        "text": "Remember I just said that we're going to create a new type of factory and this factory has electricity come in and it generates tokens out a five a one gawatt factory. Let me just put it one gawatt factory and we're you know in the horizon building something like 7 8 10 gawatts of AI factories. One gawatt factory is $60 billion. $60 billion for one gawatt. A 100 megawatt factories is pretty commodity now. It's pretty common place. And so you just divide that by 10. But $60 billion is the annual one. One one factory is the annual revenues of Boeing.",
+        "hint": "gigawatt factory 60 billion",
+        "translation": "记住我刚才说我们将创造一种新型工厂，这个工厂有电力输入，它产生令牌输出，一个5，一个1吉瓦工厂。让我就说1吉瓦工厂，你知道我们在地平线上建设大约7、8、10吉瓦的AI工厂。一个吉瓦工厂是600亿美元。一个吉瓦600亿美元。100兆瓦工厂现在很普通。很常见。所以你除以10。但600亿美元是年度，一个工厂是波音的年收入。"
+      },
+      {
+        "index": 40,
+        "text": "And to build it, you have to finance it. Creates a lot of jobs. You have to build out the site. The shell creates a bunch of jobs. Construction, you know, you got carpenters, you got steel workers, you got masons. you, you know, you got to build out that factory, $60 billion factory. This thing is gigantic. Um, you've got to, you have to have, you know, mechanical engineers, electrical engineers, plumbers, and then after that all the low voltage stuff, you know, all the all the IT and the networking. After that, operations. That entire cycle is about three years. A whole bunch of new trade jobs have to be created.",
+        "hint": "construction trades three years",
+        "translation": "要建造它，你必须融资。创造大量工作。你必须建设场地。外壳创造一堆工作。建筑，你知道，你有木匠，你有钢铁工人，你有泥瓦匠。你，你知道，你必须建设那个工厂，600亿美元的工厂。这东西是巨大的。嗯，你必须有，你知道，机械工程师、电气工程师、水管工，然后所有低压的东西，你知道，所有IT和网络。之后，运营。整个周期大约三年。必须创造一大堆新的贸易工作。"
+      },
+      {
+        "index": 41,
+        "text": "these trade jobs it in the last computer industry the last computing platform shift the number one miss the the number one critical path for most companies growth is software engineers our the this next layer AI factories the number one is going to be trades the trade craft and I think this is terrific our country needs to needs to acknowledge that tradecraftraft is respectable work and it's critical work and it's necessary to build our country and So we want to encourage tradecraftraft, electricians, plumbers, you know, carpenters, steel workers, the whole the whole span of it. We're going to need a a whole bunch.",
+        "hint": "trades critical path respectable",
+        "translation": "这些贸易工作，在过去的计算机行业，上一次计算平台转变中，大多数公司增长的第一大关键路径是软件工程师，我们的下一层AI工厂，第一将是贸易，贸易手艺，我认为这很棒，我们的国家需要承认贸易手艺是体面的工作，是关键的工作，是建设我们国家所必需的。所以我们想鼓励贸易手艺，电工、水管工，你知道，木匠、钢铁工人，整个范围。我们将需要一大堆。"
+      },
+      {
+        "index": 42,
+        "text": "And then now above that is when we can start talking about how are these AI agents going to change uh the work of doctors or uh financial service professionals or customer care or in our company just as a starting point. Every single software engineer is now assisted by AI assistants and the amount of code that we check into the company is incredible. As a result, our productivity has shot up through the roof and we're hiring more people because it enabled us to create more things that the world desires. Um, it increases our revenues and increases our ability to hire.",
+        "hint": "AI agents change work productivity",
+        "translation": "然后现在在上面，我们可以开始谈论这些AI代理将如何改变医生的工作，或金融服务专业人士或客户服务，或者在我们公司作为起点。每个软件工程师现在都有AI助手协助，我们检查到公司的代码量是不可思议的。结果，我们的生产力飙升，我们正在招聘更多人，因为它使我们能够创造更多世界渴望的东西。嗯，它增加了我们的收入，增加了我们招聘的能力。"
+      },
+      {
+        "index": 43,
+        "text": "And so I think that that layer above really wants to engage AI as as early as you can. Remember, it's not AI that's going to take your job. It's not AI that's going to, you know, destroy your company. It's the company and the person who uses AI that's going to take your job. And so that's, you know, something to internalize.",
+        "hint": "engage AI early internalize",
+        "translation": "所以我认为上面的那一层真的想尽早参与AI。记住，不是AI会夺走你的工作。不是AI会，你知道，摧毁你的公司。是使用AI的公司和人会夺走你的工作。所以这是，你知道，需要内化的东西。"
+      },
+      {
+        "index": 44,
+        "text": "There's been such a huge amount of focus lately on bringing manufacturing back. Um, a lot of people in the AI space have talked about the concept of how digital twins and manu and manufacturing plants adopting digital twins could actually help enable rebooting manufacturing here. And simultaneously, the CEO of Apple, Tim Cook, recently said that one of the main bottlenecks to reshoring and making the iPhone here was um having a good and precise robotic arm technology. Um so on both counts, it really seems like AI could be an enabling technology for manufacturing and reshoring. Could you tell us a little bit more about what your prognosis is on that?",
+        "hint": "digital twins reshoring robotic arm",
+        "translation": "最近有大量关注将制造业带回来。嗯，AI领域的许多人谈到了数字孪生和制造工厂采用数字孪生的概念，实际上可以帮助重启这里的制造业。同时，苹果CEO Tim Cook最近表示，将iPhone回流到这里制造的主要瓶颈之一是拥有良好且精确的机械臂技术。所以在这两方面，AI似乎可以成为制造业和回流的使能技术。你能告诉我们更多关于你的预测吗？"
+      },
+      {
+        "index": 45,
+        "text": "Yeah. Well, first of all, manufacturing is not about lowcost labor. Advanced manufacturing today is software. The entire factory is software driven. The entire factory is one giant robot and it's a it's a it's a robot orchestrating a whole bunch of robots inside. And so these advanced factories has a lot of people in it, but it's largely technology.",
+        "hint": "manufacturing software giant robot",
+        "translation": "是的。嗯，首先，制造业不是关于低成本劳动力。今天的高级制造业是软件。整个工厂是软件驱动的。整个工厂是一个巨大的机器人，它是一个机器人协调里面的一堆机器人。所以这些高级工厂有很多人，但主要是技术。"
+      },
+      {
+        "index": 46,
+        "text": "And so so I think the the uh the first part of it is is uh in our industry and I'll just talk about mine uh the ability for us to uh manufacture um end to end from silicon to the AI supercomputers uh here on shore is a terrific opportunity and and I'm I'm delighted that the administration is really encouraging and supporting um the industry to onshore manufacturing. This is a this is this is high quality work. It's advanced technology work. Um, doing it on shore is a fantastic opportunity for for the country and I'm I'm very I'm very enthusiastic about it. We're huge proponents of it and um uh we're fortunate that we have partners around the world who are supporting us to do that. That's number one.",
+        "hint": "onshore manufacturing silicon supercomputers",
+        "translation": "所以我认为，呃，第一部分是，呃，在我们的行业，我就谈我的，呃，我们能够，呃，在岸端到端制造，从硅到AI超级计算机，是一个极好的机会，我很高兴政府真正鼓励和支持行业在岸制造。这是高质量的工作。是先进技术工作。嗯，在岸做这对国家是一个极好的机会，我非常热情。我们是它的巨大支持者，嗯，我们很幸运有世界各地的合作伙伴支持我们这样做。这是第一。"
+      },
+      {
+        "index": 47,
+        "text": "Second, if we don't get good at manufacturing, we're going to leave behind a giant industry that is going to be propelled by the availability availability of energy. What country doesn't want to get engaged in this new industry called AI? Why would you not want to produce AI? Why would you why would you not want to engage in one of the most advanced manufacturing? You know, it's manufacturing. It just happens to be numbers when it's done. And just like it was electrons at the last industrial revolution, you know, most people couldn't understand that you could create this thing through a machinery called dynamo. Now we call it, you know, Nvidia AI supercomputers, but back then a dynamo, what produced, what came out of it was invisible. It's electricity. Don't touch it, but it's electricity. It's electrons. And now, you know, it's a new form of electrons is numbers.",
+        "hint": "manufacturing energy numbers electrons",
+        "translation": "第二，如果我们不擅长制造业，我们将留下一个巨大的行业，这个行业将由能源的可用性推动。哪个国家不想参与这个叫做AI的新行业？你为什么会不想生产AI？你为什么会不想参与最先进的制造业之一？你知道，这是制造业。只是完成时是数字。就像上一次工业革命是电子，你知道，大多数人无法理解你可以通过一个叫做发电机的机器创造这个东西。现在我们称之为Nvidia AI超级计算机，但那时发电机，产生的是什么，出来的是看不见的。是电。不要碰它，但它是电。是电子。现在，你知道，电子的一种新形式是数字。"
+      },
+      {
+        "index": 48,
+        "text": "And so, of course, we want to engage in this this new industry. And in order to do that, we have to have manufacturing on shore. Now the thing that that is is absolutely the case because manufacturing is so technology intensive, we should do it in a digital twin first. We should do it in virtual reality first. Nvidia designs the most complex systems in the world. Each one of our generation R&D, call it $20 billion, maybe more now, but call it 2020 20 billion um of R&D just to produce a family of chips. We com we designed those chips completely in it in their digital twin. They existed for months and months and months long before we ever produced it. The moment I produced it, I know it to be perfect. I know it because we've simulated it, you know, exhaustively and we emulated it and we we put it into its put it into its paces.",
+        "hint": "digital twin virtual reality R&D",
+        "translation": "所以，当然，我们想参与这个新行业。为了做到这一点，我们必须在岸有制造业。现在绝对的情况是，因为制造业如此技术密集，我们应该首先在数字孪生中做。我们应该首先在虚拟现实中做。Nvidia设计世界上最复杂的系统。我们每一代研发，称之为200亿美元，也许现在更多，但称之为2000，200亿美元，呃，研发只是为了生产一系列芯片。我们完全在数字孪生中设计那些芯片。它们在我们生产之前已经存在了数月又数月。我生产它的那一刻，我知道它是完美的。我知道是因为我们已经模拟了它，你知道，彻底地，我们仿真了它，我们把它投入运行。"
+      },
+      {
+        "index": 49,
+        "text": "We should do the same with digital factories. These factories, large factories, we should completely create digital twins. use artificial intelligence to create these digital twins. operate it well virtual virtual uh integration integrate these manu magnificent you know structures completely digitally operate it optimize it and use it for you know planning your output completely digitally and in the future every factory will have a digital twin version every in the in the future you know and I'm hoping every human will have a digital twin version every car has a digital twin version every building has a digital twin version every city has a digital twin version so this idea of digital twins is happening now and it's all happening because of artificial intelligence.",
+        "hint": "digital twins factories future",
+        "translation": "我们应该对数字工厂做同样的事情。这些工厂，大型工厂，我们应该完全创建数字孪生。使用人工智能创建这些数字孪生。操作它，虚拟整合这些宏伟的结构，完全数字化地操作它，优化它，并使用它完全数字化地规划你的产出，未来每个工厂都会有一个数字孪生版本，未来，你知道，我希望每个人都会有一个数字孪生版本，每辆车有一个数字孪生版本，每栋建筑有一个数字孪生版本，每个城市有一个数字孪生版本，所以数字孪生的想法现在正在发生，这一切都是因为人工智能。"
+      },
+      {
+        "index": 50,
+        "text": "Jensen, my last question for you is what is your expectation on the timeline by which we live in a world where AI enabled robots become a ubiquitous part of everyday human life. Um, Bill, first of all, let me just a self-driving car is a robot. Now, it's taken us about 10 years and now Whimo is, you know, in cities all around all around the nation and and is doing fantastically and uh it's terrific to see the Whimos driving around in in San Francisco and other cities. Um it took about 10 years.",
+        "hint": "timeline robots self-driving car",
+        "translation": "Jensen，我最后一个问题是，你对时间线的期望是什么，即我们生活在AI使能的机器人成为日常人类生活无处不在的一部分的世界。嗯，Bill，首先，让我说，自动驾驶汽车就是机器人。现在，我们花了大约10年，现在Waymo在 nationwide 的城市，做得非常好，看到Waymo在旧金山和其他城市行驶真是太棒了。嗯，花了大约10年。"
+      },
+      {
+        "index": 51,
+        "text": "Robots will take less time and the reason for that is because we can constrain the environments where the robots operate and so the robots don't have to be as general purpose as a car. you know, once you're in San Francisco, you got to you got to work in every street and every single condition. And so, in the case of a robot, we could be a lot more constrained from the moment that something is prototypable, fairly functional to the time that it becomes um high volume product, call it five years. And so, we have quite high functioning robots today. And so in some five years time, uh, we're going to see, you know, robots get pumped out of these these factories. And every car company who makes cars today will be very good at building robots. They just have to they have to get good at the software part of it, the AI part of it. But but that technology is really, you know, fairly available.",
+        "hint": "robots less time five years",
+        "translation": "机器人将花费更少时间，原因是我们能够限制机器人操作的环境，所以机器人不必像汽车那样通用。你知道，一旦你在旧金山，你必须在每条街道和每种条件下工作。所以，对于机器人，我们可以更加受限，从某物可原型化、相当功能化到成为大批量产品，称之为五年。所以，我们今天有相当高功能的机器人。所以在五年左右，呃，我们将看到，你知道，机器人从这些工厂涌出。今天每个制造汽车的汽车公司都将非常擅长建造机器人。他们只需要擅长软件部分，AI部分。但那个技术真的，你知道，相当可用。"
+      },
+      {
+        "index": 52,
+        "text": "Jensen, thank you so much for joining us. Yeah. Thank you everybody.",
+        "hint": "thank you closing",
+        "translation": "Jensen，非常感谢你加入我们。是的。谢谢大家。"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 5421,
+    "completion_tokens": 9715,
+    "total_tokens": 15136,
+    "cost_cny": 0.024851
+  }
+}

@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读 · 背诵">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<link rel="manifest" href="/manifest.json">
+<title>背诵 · [English (auto-generated)] NVIDIA CEO Jensen Huang  Rebuilding Industrial Power AI Factories &amp; the Return of US Manufacturing [DownSub.com]</title>
+<style>
+:root{
+  --teal:#0e7c6b; --teal-dark:#0a5f52; --teal-soft:#e4f4ef;
+  --amber:#d97706; --amber-soft:#fdf1dd;
+  --bg:#f3faf7; --card:#ffffff; --text:#22332f; --muted:#86a09a;
+  --line:#e2efe9; --warn:#b03a4e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); font-size:15px; line-height:1.7;
+}
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(120deg,var(--teal),#0f8f7b);
+  color:#fff; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.topbar .brand{font-weight:800; font-size:17px; letter-spacing:.5px;}
+.topbar .brand span{opacity:.85; font-weight:400; font-size:12px; margin-left:8px;}
+.btn-print{
+  background:rgba(255,255,255,.18); color:#fff; border:none;
+  padding:6px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+}
+.btn-print:hover{background:rgba(255,255,255,.3);}
+.wrap{max-width:680px; margin:0 auto; padding:14px 12px 40px;}
+.card{
+  background:var(--card); border-radius:14px; padding:18px 16px;
+  margin-bottom:14px; box-shadow:0 1px 5px rgba(14,124,107,.07);
+}
+.card h2{font-size:15px; color:var(--teal-dark); margin-bottom:10px;}
+.hint-line{font-size:12px; color:var(--muted); margin-bottom:8px;}
+
+/* ── hero ── */
+.hero .badges{margin-bottom:8px;}
+.badge{
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:12px;
+  background:var(--teal-soft); color:var(--teal-dark); margin-right:6px; font-weight:600;
+}
+.badge.lang-en{background:#e8f4fd; color:#1a6aaa;}
+.hero h1{font-size:20px; color:var(--text); margin-bottom:4px; line-height:1.4;}
+.hero .meta{font-size:12px; color:var(--muted); margin-bottom:14px;}
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat{background:var(--bg); border-radius:10px; padding:10px 6px; text-align:center;}
+.stat b{display:block; font-size:18px; color:var(--teal-dark);}
+.stat span{font-size:11px; color:var(--muted);}
+
+/* ── steps ── */
+.steps{display:flex; gap:8px; flex-wrap:wrap;}
+.step{
+  flex:1 1 150px; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:12.5px;
+}
+.step b{color:var(--teal-dark); display:block; margin-bottom:2px; font-size:13px;}
+
+/* ── warn / advice ── */
+.warn{
+  background:#fdecee; color:var(--warn); border-radius:10px; padding:10px 14px;
+  font-size:12.5px; margin-bottom:14px;
+}
+.advice{font-size:13.5px; color:#33453f; background:#fbfdfc; border-left:3px solid var(--teal); padding:8px 12px; border-radius:4px;}
+
+/* ── chunks ── */
+.chunk{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+  overflow:hidden; background:#fff;
+}
+.chunk-head{
+  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  background:#f7fbf9; border-bottom:1px solid var(--line);
+}
+.chunk-no{
+  background:var(--teal); color:#fff; font-weight:700; font-size:12px;
+  padding:2px 10px; border-radius:12px;
+}
+.chunk-size{font-size:11px; color:var(--muted);}
+.chunk-head .spacer{flex:1;}
+.chunk .btn{
+  font-size:12px; border:none; border-radius:8px; padding:5px 10px; cursor:pointer;
+  background:var(--teal-soft); color:var(--teal-dark); font-weight:600;
+}
+.chunk .btn:hover{background:#d3ece4;}
+.chunk .btn.btn-amber{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn.btn-amber:hover{background:#fae6c4;}
+.chunk-text{padding:12px 14px; font-size:16.5px; line-height:1.95;}
+.chunk .btn-blank{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn-blank:hover{background:#fae6c4;}
+.chunk.blanked .chunk-text{display:none;}
+.chunk.blanked .blank-cover{display:flex;}
+.blank-cover{
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px 14px; gap:10px; color:var(--muted); font-size:13px;
+  background:repeating-linear-gradient(45deg,#f6faf8,#f6faf8 8px,#eef6f2 8px,#eef6f2 16px);
+}
+.blank-cover .lock{font-size:22px;}
+.hint-card{display:none; padding:10px 14px 12px; background:var(--amber-soft); border-top:1px dashed #f0d9a8;}
+.chunk.blanked .hint-card{display:block;}
+.hint-card .hint-label{font-size:11px; color:var(--amber); font-weight:700; margin-bottom:4px;}
+.hint-card .hint-kw{font-size:14px; color:#7a4a00; font-weight:600; margin-bottom:6px;}
+.hint-card .hint-letters{
+  font-size:13px; color:#9a7b4f; letter-spacing:1.5px; line-height:1.9;
+  border-top:1px dashed #f0d9a8; padding-top:6px;
+}
+.chunk.reveal-hint .hint-card{display:block;}
+
+/* ── translation（可折叠） ── */
+.trans{border-top:1px dashed var(--line); background:#fbfdfc;}
+.trans summary{
+  cursor:pointer; list-style:none; user-select:none;
+  padding:8px 14px; font-size:12.5px; color:var(--teal-dark); font-weight:600;
+}
+.trans summary::-webkit-details-marker{display:none;}
+.trans summary::before{content:"▸ "; color:var(--muted);}
+.trans[open] summary::before{content:"▾ ";}
+.trans summary:hover{background:#f2f9f6;}
+.trans-text{
+  padding:0 14px 12px; font-size:14px; line-height:1.85; color:#4a5f59;
+}
+
+/* ── review table ── */
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.review-table{border-collapse:collapse; width:100%; font-size:12px; min-width:560px;}
+.review-table th,.review-table td{
+  border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap;
+}
+.review-table th{background:var(--teal-soft); color:var(--teal-dark); font-weight:700;}
+.review-table td:first-child{font-weight:700; color:var(--teal-dark); background:#f7fbf9;}
+.review-table .lbl{display:block; color:var(--muted); font-size:10px;}
+
+/* ── daily plan ── */
+.cpd-row{display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
+.cpd-row label{font-size:13px; color:var(--text);}
+.cpd-row select{
+  padding:6px 8px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--teal-dark); font-size:14px; font-weight:700;
+}
+.progress{
+  flex:1; min-width:80px; height:8px; background:var(--line); border-radius:6px; overflow:hidden;
+}
+.progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),#14a58f); transition:width .3s;}
+#progress-text{font-size:12px; color:var(--muted); white-space:nowrap;}
+.day-card{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden;
+}
+.day-card.today{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal);}
+.day-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 12px; background:#f7fbf9;
+}
+.day-no{font-weight:800; color:var(--teal-dark); font-size:14px;}
+.day-date{font-size:12px; color:var(--muted);}
+.day-row{display:flex; align-items:center; gap:6px; padding:6px 12px; flex-wrap:wrap;}
+.day-row + .day-row{border-top:1px dashed var(--line);}
+.row-label{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; flex-shrink:0;}
+.row-label.new{background:var(--teal-soft); color:var(--teal-dark);}
+.row-label.review{background:var(--amber-soft); color:var(--amber);}
+.chip{
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  border-radius:10px; padding:4px 10px; font-size:12.5px; cursor:pointer;
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on.new{background:var(--teal); border-color:var(--teal); color:#fff;}
+.chip.on.review{background:var(--amber); border-color:var(--amber); color:#fff;}
+.chip.done{opacity:.55; text-decoration:line-through;}
+.empty-day{font-size:12px; color:var(--muted); padding:8px 12px;}
+
+/* ── footer ── */
+.footer{text-align:center; color:#9ab5ad; font-size:11px; padding:10px 0 30px;}
+
+@media print{
+  .topbar,.cpd-row,.btn,.no-print{display:none !important;}
+  body{background:#fff; font-size:12px;}
+  .card{box-shadow:none; border:1px solid #ddd; break-inside:avoid;}
+  .chunk-text{display:block !important;}
+  .hint-card,.blank-cover,.trans{display:none !important;}
+  .review-table th{background:#f0f0f0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📖 背诵<span>智读 · English · 文章</span></div>
+  <a class="btn-print" href="/result/_English__auto-generated___NVIDIA_CEO_Jensen_Huang__Rebuilding_Industrial_Power_AI_Factories___the_Return_of_US_Manufacturing__DownSub_com_" style="text-decoration:none">🧠 智读看板</a>
+  <button class="btn-print" onclick="window.print()">🖨 打印/存 PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── 头部 ── -->
+  <section class="card hero">
+    <div class="badges">
+      <span class="badge lang-en">🌐 English</span>
+      <span class="badge">📄 文章</span>
+      <span class="badge">🗓 生成于 2026-11-06</span>
+    </div>
+    <h1>[English (auto-generated)] NVIDIA CEO Jensen Huang  Rebuilding Industrial Power AI Factories &amp; the Return of US Manufacturing [DownSub.com]</h1>
+    <div class="meta">
+      4249 字 · 52 块 · 预计背诵 48 分钟
+      
+    </div>
+    <div class="stats">
+      <div class="stat"><b>4249</b><span>总字数</span></div>
+      <div class="stat"><b>52</b><span>意群块</span></div>
+      <div class="stat"><b>48</b><span>背诵/分钟</span></div>
+      <div class="stat"><b>260</b><span>复习次数</span></div>
+    </div>
+  </section>
+
+  <!-- ── 怎么背 ── -->
+  <section class="card">
+    <h2>📖 三步背诵法</h2>
+    <div class="steps">
+      <div class="step"><b>① 看提示卡</b>先读每块下方的 💡 提示卡，用关键词/首字回忆内容</div>
+      <div class="step"><b>② 遮住自测</b>点「🙈 遮住自测」把原文盖住，看着提示卡试着背出来</div>
+      <div class="step"><b>③ 按时复习</b>按下方艾宾浩斯清单打卡，第 1/2/4/7/15 天复习巩固</div>
+    </div>
+  </section>
+
+  
+  <section class="card">
+    <h2>💡 背诵建议</h2>
+    <div class="advice">This material is a long interview with many spoken-language features (fillers, repetitions, self-corrections) that can trip you up; focus on the core meaning of each chunk rather than memorizing every &#39;um&#39; and &#39;uh&#39;. Use the chunk hints as memory anchors, and for long chunks like the one about AI factories and energy, break them into two breaths when reciting. Pay special attention to parallel structures (e.g., &#39;Some jobs will be created...&#39;) and technical terms (tokens, digital twins, physical AI) to ensure accurate recall.</div>
+  </section>
+  
+
+  
+
+  <!-- ── 原文分块 ── -->
+  <section class="card" id="chunks">
+    <h2>🧱 原文分块（52 块）</h2>
+    <p class="hint-line">每块是完整语义单元。先通读，点开底部「🌐 翻译」对照理解，再逐块「遮住自测」。</p>
+    
+    <article class="chunk" id="chunk-1">
+      <div class="chunk-head">
+        <span class="chunk-no">块 1</span>
+        <span class="chunk-size">23 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">New jobs will be created. Some jobs will be lost. Every job will be changed. Okay? So, let&#39;s just break it down.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">jobs created lost changed</div>
+        <div class="hint-letters">N J W B C S J W B L E J W B C O S L J B I D</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">新的工作会被创造出来。一些工作会消失。每一份工作都会改变。好吗？所以，让我们把它拆解一下。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-2">
+      <div class="chunk-head">
+        <span class="chunk-no">块 2</span>
+        <span class="chunk-size">35 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Um, it&#39;s it&#39;s it&#39;s always easy to go to one extreme from another, but I always find it helpful when you break the problem down, reason about it from its first principles.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">break down first principles</div>
+        <div class="hint-letters">U I I I A E T G T O E F A B I A F I H W Y B T P D R A I F I F P</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">嗯，从一个极端走向另一个极端总是很容易，但我总是发现，当你把问题拆解，从第一性原理来推理时，会很有帮助。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-3">
+      <div class="chunk-head">
+        <span class="chunk-no">块 3</span>
+        <span class="chunk-size">24 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Jensen, welcome to the Hillen Valley Forum. It&#39;s great to have you. Thank you very much. It&#39;s very nice to be here.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">welcome Hillen Valley Forum</div>
+        <div class="hint-letters">J W T T H V F I G T H Y T Y V M I V N T B H</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">Jensen，欢迎来到Hillen Valley论坛。很高兴你能来。非常感谢。很高兴来到这里。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-4">
+      <div class="chunk-head">
+        <span class="chunk-no">块 4</span>
+        <span class="chunk-size">39 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You&#39;ve positioned AI as a new industrial revolution with AI factories at the center of it. Can you explain to us what is an AI factory and why is it important to understand in the 21st century economy?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">AI factory 21st century economy</div>
+        <div class="hint-letters">Y P A A A N I R W A F A T C O I C Y E T U W I A A F A W I I I T U I T S C E</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">你将AI定位为一场新的工业革命，而AI工厂是其核心。你能向我们解释什么是AI工厂，以及为什么在21世纪经济中理解它很重要吗？</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-5">
+      <div class="chunk-head">
+        <span class="chunk-no">块 5</span>
+        <span class="chunk-size">34 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">uh AI. We&#39;ve been talking a lot about AI over the last several years. It&#39;s it&#39;s multiaceted and I think it&#39;s helpful to to look at it in this lens.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">multifaceted lens</div>
+        <div class="hint-letters">U A W B T A L A A O T L S Y I I M A I T I H T T L A I I T L</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">呃，AI。过去几年我们一直在大量讨论AI。它是多方面的，我认为从这个视角来看待它是有帮助的。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-6">
+      <div class="chunk-head">
+        <span class="chunk-no">块 6</span>
+        <span class="chunk-size">43 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Uh first, of course, AI is a a new technology. It&#39;s a new technology in the sense that it&#39;s built differently than software of the past. And this new software can do things that software in the past could not do.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">new technology built differently</div>
+        <div class="hint-letters">U F O C A I A A N T I A N T I T S T I B D T S O T P A T N S C D T T S I T P C N D</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">首先，当然，AI是一项新技术。它是一项新技术，因为它的构建方式与过去的软件不同。而这种新软件能做一些过去软件做不到的事情。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-7">
+      <div class="chunk-head">
+        <span class="chunk-no">块 7</span>
+        <span class="chunk-size">44 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so, so it&#39;s incredible technology. All the things it can do, you know, all the things that we have to do to keep it safe, all the amazing things that it&#39;s going to enable. Fantastic. So there&#39;s the technology layer.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">technology layer incredible</div>
+        <div class="hint-letters">A S S I I T A T T I C D Y K A T T T W H T D T K I S A T A T T I G T E F S T T T L</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以，所以它是不可思议的技术。它能做的所有事情，你知道，我们必须做的所有确保它安全的事情，它将带来的所有惊人事物。太棒了。所以这是技术层。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-8">
+      <div class="chunk-head">
+        <span class="chunk-no">块 8</span>
+        <span class="chunk-size">35 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The second layer which is rather new in the last technology industry uh software production. It was done by humans typing. Now we have a new industry and this software is produced uh with machinery.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">software production machinery</div>
+        <div class="hint-letters">T S L W I R N I T L T I U S P I W D B H T N W H A N I A T S I P U W M</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">第二层，在过去的科技行业中相当新，呃，软件生产。过去是由人类打字完成的。现在我们有了一个新行业，这种软件是用机器生产的。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-9">
+      <div class="chunk-head">
+        <span class="chunk-no">块 9</span>
+        <span class="chunk-size">61 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So you need a a large supercomput. You apply electricity to it and what comes flying out of it are uh tokens. And these tokens could be reformulated into numbers and words and proteins and images and videos and three-dimensional structures and you know it could you could reformulate these tokens into all kinds of things. We call it intelligence.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">tokens intelligence reformulate</div>
+        <div class="hint-letters">S Y N A A L S Y A E T I A W C F O O I A U T A T T C B R I N A W A P A I A V A T D S A Y K I C Y C R T T I A K O T W C I I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以你需要一台大型超级计算机。你给它通电，飞出来的就是令牌。这些令牌可以被重新组合成数字、文字、蛋白质、图像、视频和三维结构，你知道，你可以把这些令牌重新组合成各种东西。我们称之为智能。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-10">
+      <div class="chunk-head">
+        <span class="chunk-no">块 10</span>
+        <span class="chunk-size">34 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so this machinery this this machinery looks different than the machinery of the past. And I call it an AI factory because it does one thing every single day. It&#39;s producing tokens.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">AI factory producing tokens</div>
+        <div class="hint-letters">A S T M T T M L D T T M O T P A I C I A A F B I D O T E S D I P T</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以这台机器，这台机器看起来与过去的机器不同。我称之为AI工厂，因为它每天只做一件事。它在生产令牌。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-11">
+      <div class="chunk-head">
+        <span class="chunk-no">块 11</span>
+        <span class="chunk-size">71 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And the layer above that uh is infrastructural. And this is this is the reason why uh we now internalize that AI is likely going to be uh quite an extraordinary industrial revolution in the sense that this new technology is going to enable a new industry that I just mentioned AI factories the production of intelligence but it&#39;s going to go back and revolutionize and transform every other industry.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">infrastructural industrial revolution</div>
+        <div class="hint-letters">A T L A T U I I A T I T I T R W U W N I T A I L G T B U Q A E I R I T S T T N T I G T E A N I T I J M A F T P O I B I G T G B A R A T E O I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">而上面的那一层，呃，是基础设施层。这就是为什么我们现在内化认为AI很可能将是一场相当非凡的工业革命，因为这项新技术将催生我刚才提到的新行业——AI工厂，智能的生产，但它会回过头来彻底改变和改造其他所有行业。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-12">
+      <div class="chunk-head">
+        <span class="chunk-no">块 12</span>
+        <span class="chunk-size">56 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so all of these tokens are going to go into healthc care and education. One of my favorites is education. I use it every day for education. um financial services, engineering, we use AI every day for software programming and supply chain management. It&#39;s about to go into manufacturing and so on so forth.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">tokens into industries</div>
+        <div class="hint-letters">A S A O T T A G T G I H C A E O O M F I E I U I E D F E U F S E W U A E D F S P A S C M I A T G I M A S O S F</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以所有这些令牌将进入医疗保健和教育。我最喜欢的是教育。我每天都用它来学习。呃，金融服务、工程，我们每天都用AI进行软件编程和供应链管理。它即将进入制造业等等。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-13">
+      <div class="chunk-head">
+        <span class="chunk-no">块 13</span>
+        <span class="chunk-size">40 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so so when you think about it from these three layers, it&#39;s very clear this is as transformative as impactful as electricity was before and it&#39;s going to revolutionize every industry. So it&#39;s an industrial revolution.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">transformative as electricity</div>
+        <div class="hint-letters">A S S W Y T A I F T T L I V C T I A T A I A E W B A I G T R E I S I A I R</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以，当你从这三个层面来思考时，很明显，这就像之前的电力一样具有变革性和影响力，它将彻底改变每个行业。所以这是一场工业革命。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-14">
+      <div class="chunk-head">
+        <span class="chunk-no">块 14</span>
+        <span class="chunk-size">36 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So, do you think it&#39;s a paradigm shift in modern computing and that every factory that&#39;s building physical things in the real world will also be accompanied by an AI factory? Yeah, perfect. Absolutely.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">paradigm shift accompanied AI factory</div>
+        <div class="hint-letters">S D Y T I A P S I M C A T E F T B P T I T R W W A B A B A A F Y P A</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">那么，你认为这是现代计算领域的范式转变吗？而且现实世界中每个制造物理产品的工厂都将伴随一个AI工厂吗？是的，完美。绝对如此。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-15">
+      <div class="chunk-head">
+        <span class="chunk-no">块 15</span>
+        <span class="chunk-size">72 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">um every every company that makes things today uh so long as they move, you know. So so so let&#39;s say uh let&#39;s say you make um lawnmowers and and it could be caterpillar and uh or they they build you know construction machinery. Uh today it&#39;s uh largely uh manually manipulated. In the future, it&#39;ll be uh autonomous or highly autonomous or semi-autonomous or or assisted.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">companies make things autonomous</div>
+        <div class="hint-letters">U E E C T M T T U S L A T M Y K S S S L S U L S Y M U L A A I C B C A U O T T B Y K C M U T I U L U M M I T F I B U A O H A O S A O O A</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">呃，今天每个制造东西的公司，呃，只要它们动起来，你知道。所以，比方说，呃，比方说你制造割草机，也可能是卡特彼勒，或者他们制造建筑机械。呃，今天它主要是手动操作的。未来，它将是自主的或高度自主的或半自主的或辅助的。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-16">
+      <div class="chunk-head">
+        <span class="chunk-no">块 16</span>
+        <span class="chunk-size">77 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And uh when it becomes autonomous, then it&#39;ll be software defined. And and so you&#39;re going to have to produce that those tokens, those software that feeds that that uh tractor. And so in the future, uh every company that builds things will have have a factory that builds the things that they sell. And then they&#39;ll have another factory that builds and produces the AI that runs on that thing that they sell.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">software defined two factories</div>
+        <div class="hint-letters">A U W I B A T I B S D A A S Y G T H T P T T T T S T F T T U T A S I T F U E C T B T W H H A F T B T T T T S A T T H A F T B A P T A T R O T T T T S</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">而且，当它变得自主时，它将是软件定义的。所以你将不得不生产那些令牌，那些为那台拖拉机提供动力的软件。所以未来，每个制造东西的公司都会有一个工厂制造他们销售的东西。然后他们会有另一个工厂构建和生产运行在他们销售的东西上的AI。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-17">
+      <div class="chunk-head">
+        <span class="chunk-no">块 17</span>
+        <span class="chunk-size">51 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so uh it&#39;s very clear when you look at look at uh car companies you know today&#39;s car companies largely make cars uh and uh but it&#39;s very clear that in 10 years time every car company will also produce the tokens that runs in those cars.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">car companies produce tokens</div>
+        <div class="hint-letters">A S U I V C W Y L A L A U C C Y K T C C L M C U A U B I V C T I Y T E C C W A P T T T R I T C</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以，呃，很明显，当你看看汽车公司，你知道今天的汽车公司主要制造汽车，呃，但很明显，10年后每个汽车公司也将生产运行在那些汽车中的令牌。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-18">
+      <div class="chunk-head">
+        <span class="chunk-no">块 18</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You&#39;ve talked a little bit about physical AI the concept of physical AI over the last year for policy makers who are thinking about the future of American foreign of American policy. Can you explain to us a little bit what physical AI is and how we should be thinking about it?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">physical AI policy makers</div>
+        <div class="hint-letters">Y T A L B A P A T C O P A O T L Y F P M W A T A T F O A F O A P C Y E T U A L B W P A I A H W S B T A I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">你过去一年里谈了一些关于物理AI的概念，对于正在思考美国外交政策未来的政策制定者来说。你能向我们解释一下什么是物理AI以及我们应该如何思考它吗？</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-19">
+      <div class="chunk-head">
+        <span class="chunk-no">块 19</span>
+        <span class="chunk-size">47 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">take a step back. Um AI uh really came to consciousness, modern AI really came into consciousness about about 12 14 years ago uh when Alexet came out and uh computer vision uh was uh saw its big giant breakthrough and that was like I guess 2012.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">AI consciousness AlexNet 2012</div>
+        <div class="hint-letters">T A S B U A U R C T C M A R C I C A A Y A U W A C O A U C V U W U S I B G B A T W L I G</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">退一步说。嗯，AI真正进入意识，现代AI真正进入意识大约是在12、14年前，当AlexNet出现时，计算机视觉取得了巨大突破，我想那是2012年。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-20">
+      <div class="chunk-head">
+        <span class="chunk-no">块 20</span>
+        <span class="chunk-size">99 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">uh around that time when you take a step back what is computer vision uh in its largest context is perception you know p perceiving the world whether whatever modality of information it could be of course images it could be sounds it could be vibration it could be temperature and we&#39;ve now we&#39;ve now uh developed AI models that uh understand the meaning of all of that all of that information and um uh and can be quite smart about it so the first the first layer the first wave of AI AI was perception AI.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">computer vision perception first wave</div>
+        <div class="hint-letters">U A T T W Y T A S B W I C V U I I L C I P Y K P P T W W W M O I I C B O C I I C B S I C B V I C B T A W N W N U D A M T U U T M O A O T A O T I A U U A C B Q S A I S T F T F L T F W O A A W P A</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">呃，大约在那时，当你退一步看，计算机视觉在其最大的背景下是什么？是感知，你知道，感知世界，无论信息是什么模态，当然可以是图像，可以是声音，可以是振动，可以是温度，我们现在已经开发了AI模型，能够理解所有那些信息的意义，并且对此相当智能。所以第一层，AI的第一波是感知AI。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-21">
+      <div class="chunk-head">
+        <span class="chunk-no">块 21</span>
+        <span class="chunk-size">111 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The second uh what everybody started talking about maybe five years ago was generative AI. And generative AI is is um uh where the AI uh model has learned how to uh understand the meaning of the information but translate it. So for example, you could understand um English and translate it to to French. You could understand English and translate it to images. And so you could use tok you could prompt it to generate images. So generative AI is is essentially a universal translator if you will. Um a universal translator uh that that understand the the language of humans language. And so so that&#39;s the next wave.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">generative AI universal translator</div>
+        <div class="hint-letters">T S U W E S T A M F Y A W G A A G A I I U U W T A U M H L H T U U T M O T I B T I S F E Y C U U E A T I T T F Y C U E A T I T I A S Y C U T Y C P I T G I S G A I I E A U T I Y W U A U T U T T U T T L O H L A S S T T N W</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">第二波，也许五年前大家开始谈论的是生成式AI。生成式AI是，呃，AI模型已经学会了如何理解信息的意义，但将其翻译。例如，你可以理解英语并将其翻译成法语。你可以理解英语并将其翻译成图像。所以你可以用它，你可以提示它生成图像。所以生成式AI本质上是一个通用翻译器，如果你愿意的话。一个理解人类语言的通用翻译器。所以这就是下一波。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-22">
+      <div class="chunk-head">
+        <span class="chunk-no">块 22</span>
+        <span class="chunk-size">93 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The wave that we&#39;re in now is where you now have AIs that can uh understand it can generate. But as you know, intelligence requires us to solve problems and recognize conditions that we&#39;ve never seen before. And the way we we do that is we we use reasoning. We apply rules and laws and principles that we&#39;ve learned in the past and we break the problem down step by step by step. And even though we&#39;ve never solved this problem before, through reasoning, we can solve it. Okay?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">reasoning AI solve problems</div>
+        <div class="hint-letters">T W T W I N I W Y N H A T C U U I C G B A Y K I R U T S P A R C T W N S B A T W W W D T I W W U R W A R A L A P T W L I T P A W B T P D S B S B S A E T W N S T P B T R W C S I O</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">我们现在所处的浪潮是，你现在有能够理解、能够生成的AI。但如你所知，智能要求我们解决问题并识别我们从未见过的情况。我们做到这一点的方式是使用推理。我们应用过去学到的规则、定律和原则，我们一步一步地分解问题。即使我们以前从未解决过这个问题，通过推理，我们可以解决它。好吗？</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-23">
+      <div class="chunk-head">
+        <span class="chunk-no">块 23</span>
+        <span class="chunk-size">129 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so one of the unique capabilities of intelligence and and so we&#39;re now in that this age called reasoning AI. And reasoning AIs um allow you to uh produce a a form of digital robots. We call them agentic AI agents. It has agency. And so an AI that can understand the task that&#39;s been given. It can go off and learn and read apply use tools like calculators and web browsers and spreadsheets and um and then come back and you know does something for you and it could be uh something related to supply chain. So it accesses SAP, it could be something related to HR, access workday. And so so these agentic AIs are essentially robots, but they&#39;re uh digital workforce robots.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">agentic AI digital robots</div>
+        <div class="hint-letters">A S O O T U C O I A A S W N I T T A C R A A R A U A Y T U P A A F O D R W C T A A A I H A A S A A T C U T T T B G I C G O A L A R A U T L C A W B A S A U A T C B A Y K D S F Y A I C B U S R T S C S I A S I C B S R T H A W A S S T A A A E R B T U D W R</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以智能的独特能力之一，我们现在处于这个称为推理AI的时代。推理AI，呃，允许你产生一种数字机器人。我们称之为代理式AI代理。它具有代理能力。所以一个AI能够理解给定的任务。它可以去学习和阅读，应用使用计算器、网络浏览器和电子表格等工具，然后回来，你知道，为你做某事，它可能是与供应链相关的事情。所以它访问SAP，可能是与人力资源相关的事情，访问Workday。所以这些代理式AI本质上是机器人，但它们是数字劳动力机器人。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-24">
+      <div class="chunk-head">
+        <span class="chunk-no">块 24</span>
+        <span class="chunk-size">74 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so in the future, you know, we&#39;re going to be we&#39;re going to be the generation of CEOs that that are going to manage biological workforce as well as digital workforce and HR department for the biological workforce and uh our IT IT department are going to become the HR of Agent AI, right? And so and so we have this this is kind of the phase we&#39;re in today.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">CEOs manage biological digital</div>
+        <div class="hint-letters">A S I T F Y K W G T B W G T B T G O C T T A G T M B W A W A D W A H D F T B W A U O I I D A G T B T H O A A R A S A S W H T T I K O T P W I T</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以未来，你知道，我们将成为那一代CEO，将管理生物劳动力和数字劳动力，生物劳动力的人力资源部门，呃，我们的IT部门将成为代理AI的人力资源，对吧？所以，所以这就是我们今天所处的阶段。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-25">
+      <div class="chunk-head">
+        <span class="chunk-no">块 25</span>
+        <span class="chunk-size">95 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Well, the next wave and this is where the the largest industries of the world uh are going to benefit. The next wave requires us to understand things like uh the laws of physics, friction, inertia, cause and effect, the fact that I tip that thing over, it&#39;s going to fall. Um, you know, when I set the bottle down, it&#39;s not going to go through the table. And so all of these common sense uh physical reasoning abilities that children have, that our our pets have, uh, most AIs don&#39;t have.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">physical reasoning common sense</div>
+        <div class="hint-letters">W T N W A T I W T T L I O T W U A G T B T N W R U T U T L U T L O P F I C A E T F T I T T T O I G T F U Y K W I S T B D I N G T G T T T A S A O T C S U P R A T C H T O O P H U M A D H</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">嗯，下一波，这是世界上最大的行业将受益的地方。下一波要求我们理解物理定律、摩擦、惯性、因果关系，比如我把那个东西推倒，它会掉下来。嗯，你知道，当我把瓶子放下，它不会穿过桌子。所以所有这些常识性的物理推理能力，孩子们有，我们的宠物有，呃，大多数AI没有。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-26">
+      <div class="chunk-head">
+        <span class="chunk-no">块 26</span>
+        <span class="chunk-size">118 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">You know, I roll roll a ball over the kitchen counter and it goes off over the top and it disappears. Well, the AI thinks it&#39;s disappeared, but you know, your dog knows it. It&#39;s on the other side. It it understands this concept called object permanence. And it didn&#39;t go into another metaverse. And and so it runs around the table and gets it, you know, and and uh and a robot needs to learn that if you want to go from this side of the table to that side of the table, you can&#39;t go through the table. You&#39;re going to have to reason about how to go around the table.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">object permanence robot reasoning</div>
+        <div class="hint-letters">Y K I R R A B O T K C A I G O O T T A I D W T A T I D B Y K Y D K I I O T O S I I U T C C O P A I D G I A M A A S I R A T T A G I Y K A A U A A R N T L T I Y W T G F T S O T T T T S O T T Y C G T T T Y G T H T R A H T G A T T</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">你知道，我在厨房台面上滚一个球，它从顶部滚出去消失了。嗯，AI认为它消失了，但你知道，你的狗知道。它在另一边。它理解这个叫做客体永久性的概念。它没有进入另一个元宇宙。所以它绕着桌子跑过去拿到它，你知道，而且机器人需要学习，如果你想从桌子这边到那边，你不能穿过桌子。你必须推理如何绕过桌子。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-27">
+      <div class="chunk-head">
+        <span class="chunk-no">块 27</span>
+        <span class="chunk-size">128 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so all of these type of reason physical reasoning things uh is what&#39;s called physical AI. And when you take that physical AI and then you put it into a physical object called a robot, you get robotics. And this is really really important for us now because you know we&#39;re building plants and factories all over United States. And we&#39;d like to build it in a way that&#39;s takes advantage of the latest technologies. And so hopefully, you know, in the next 10 years, uh, as we build out this this new generation of plants and factories, they&#39;re highly robotic and and they&#39;re, you know, helping us deal with the severe labor shortage that we have all over the world.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">physical AI robotics labor shortage</div>
+        <div class="hint-letters">A S A O T T O R P R T U I W C P A A W Y T T P A A T Y P I I A P O C A R Y G R A T I R R I F U N B Y K W B P A F A O U S A W L T B I I A W T T A O T L T A S H Y K I T N Y U A W B O T T N G O P A F T H R A A T Y K H U D W T S L S T W H A O T W</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以所有这些类型的推理，物理推理的东西，就是所谓的物理AI。当你把物理AI放入一个叫做机器人的物理对象中，你就得到了机器人技术。这对我们现在非常重要，因为你知道我们正在美国各地建设工厂。我们希望以利用最新技术的方式来建设它。所以希望，你知道，在未来10年，当我们建设这一代新的工厂时，它们是高度机器人化的，并且它们帮助我们应对世界各地严重的劳动力短缺。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-28">
+      <div class="chunk-head">
+        <span class="chunk-no">块 28</span>
+        <span class="chunk-size">41 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">So many people have talked about this concept about the fact that we&#39;re in an AI race globally. What do you think the US government needs to do to win that AI race to have the very best AI technology?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">AI race US government</div>
+        <div class="hint-letters">S M P H T A T C A T F T W I A A R G W D Y T T U G N T D T W T A R T H T V B A T</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">很多人都在谈论这个概念，即我们处于全球AI竞赛中。你认为美国政府需要做什么才能赢得这场AI竞赛，拥有最好的AI技术？</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-29">
+      <div class="chunk-head">
+        <span class="chunk-no">块 29</span>
+        <span class="chunk-size">97 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">First uh in order to in order to have a race to do well in a race you have to understand the race and you have to understand the resources that you&#39;re working with the assets that you have the assets you don&#39;t have your advantages and your disadvantages and some of the things to realize is that that AI is fundamentally um at its core level you know and going back to the three levels that that we&#39;re talking about at each level we have to make sure that we understand the game</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">understand the race assets</div>
+        <div class="hint-letters">F U I O T I O T H A R T D W I A R Y H T U T R A Y H T U T R T Y W W T A T Y H T A Y D H Y A A Y D A S O T T T R I T T A I F U A I C L Y K A G B T T T L T T W T A A E L W H T M S T W U T G</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">首先，呃，为了在竞赛中做好，你必须理解这场竞赛，你必须理解你所使用的资源，你拥有的资产，你没有的资产，你的优势和劣势，需要意识到的一些事情是，AI从根本上，呃，在其核心层面，你知道，回到我们谈论的三个层面，在每个层面我们必须确保我们理解游戏。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-30">
+      <div class="chunk-head">
+        <span class="chunk-no">块 30</span>
+        <span class="chunk-size">91 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And and this game isn&#39;t, you know, there&#39;s no 60-minute clock on this thing. This is an infinite game. And so most people aren&#39;t very good at playing infinite games. You know, Nvidia is now 33 years old. Uh we&#39;ve been through three computer revolutions from the PC revolution to the internet to mobile and now we&#39;re in AI. And so you have to in order to thrive across all of these different changes in the environment, you have to understand how to play games.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">infinite game Nvidia 33 years</div>
+        <div class="hint-letters">A A T G I Y K T N M C O T T T I A I G A S M P A V G A P I G Y K N I N Y O U W B T T C R F T P R T T I T M A N W I A A S Y H T I O T T A A O T D C I T E Y H T U H T P G</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">而且这个游戏不是，你知道，没有60分钟的时钟。这是一个无限游戏。所以大多数人不擅长玩无限游戏。你知道，Nvidia现在33岁了。呃，我们经历了三次计算机革命，从PC革命到互联网到移动，现在我们在AI。所以你必须，为了在环境中所有这些不同的变化中茁壮成长，你必须理解如何玩游戏。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-31">
+      <div class="chunk-head">
+        <span class="chunk-no">块 31</span>
+        <span class="chunk-size">75 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">and and so the things that I just described uh understanding the game understanding the assets you have really important at the first layer at the technology layer the most important thing to understand is the the intellectual capital and remember 50% of the world&#39;s AI researchers are Chinese first just take take a step back and recognize that that important factor has to has to play into how we think about the game</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">intellectual capital 50% Chinese</div>
+        <div class="hint-letters">A A S T T T I J D U U T G U T A Y H R I A T F L A T T L T M I T T U I T T I C A R O T W A R A C F J T T A S B A R T T I F H T H T P I H W T A T G</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以我刚才描述的事情，呃，理解游戏，理解你拥有的资产，在第一层技术层非常重要，最重要的是理解智力资本，记住世界上50%的AI研究人员是中国人，首先退一步，认识到这个重要因素必须影响我们如何思考游戏。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-32">
+      <div class="chunk-head">
+        <span class="chunk-no">块 32</span>
+        <span class="chunk-size">99 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">the next is AI factories in order to do well there, you need to have energy because fundamentally we trans we trans we transform electricity into digital tokens. Just as the last industrial revolution transformed atoms through energy into, you know, steel things and physical things that we know, cars and things like that, buildings and things like that. And the generation before that, we we gave it water into a machine called the dynamo. And what came out was electricity. And so now we have electricity go in and tokens come out. So the next layer requires energy.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">AI factories energy tokens</div>
+        <div class="hint-letters">T N I A F I O T D W T Y N T H E B F W T W T W T E I D T J A T L I R T A T E I Y K S T A P T T W K C A T L T B A T L T A T G B T W W G I W I A M C T D A W C O W E A S N W H E G I A T C O S T N L R E</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">接下来是AI工厂，为了在那里做好，你需要有能源，因为从根本上我们转化，我们转化，我们将电力转化为数字令牌。就像上一次工业革命通过能源将原子转化为，你知道，钢铁和我们知道的有形的东西，汽车和类似的东西，建筑和类似的东西。再之前的一代，我们把水送入一个叫做发电机的机器。出来的就是电。所以现在我们把电送进去，令牌出来。所以下一层需要能源。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-33">
+      <div class="chunk-head">
+        <span class="chunk-no">块 33</span>
+        <span class="chunk-size">92 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The layer above that is just happening now. And it&#39;s really really important that we understand that ultimately the winners of the last industrial revolution wasn&#39;t the wasn&#39;t the country that invented it. It was the country that applied it. And the United States applied applied steel applied energy faster than any country. Everybody else was worried about things like labor and you know horses being replaced by cars and you know those kind of matters but the United States just we just took it and ran with it.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">winners applied technology</div>
+        <div class="hint-letters">T L A T I J H N A I R R I T W U T U T W O T L I R W T W T C T I I I W T C T A I A T U S A A S A E F T A C E E W W A T L L A Y K H B R B C A Y K T K O M B T U S J W J T I A R W I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">上面的那一层现在正在发生。非常重要的是我们要理解，最终上一次工业革命的赢家不是发明它的国家。而是应用它的国家。美国比任何国家都更快地应用了钢铁，应用了能源。其他人都在担心劳动力，你知道，马被汽车取代，你知道那些事情，但美国我们只是抓住它并奔跑。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-34">
+      <div class="chunk-head">
+        <span class="chunk-no">块 34</span>
+        <span class="chunk-size">101 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so the the infrastructural layer above that is about the application of the technology. It&#39;s about not being afraid of it wanting to engage it um uh reskilling reskilling our workforce so that we&#39;re able to apply it uh encouraging people to adopt it. And so when you when you look at the the um uh when you look at AI through the lens that I just described, the framework I just described, each one of the layers has its own um if you will challenges and opportunities and the game&#39;s a little different in each one.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">application reskilling challenges</div>
+        <div class="hint-letters">A S T T I L A T I A T A O T T I A N B A O I W T E I U U R R O W S T W A T A I U E P T A I A S W Y W Y L A T T U U W Y L A A T T L T I J D T F I J D E O O T L H I O U I Y W C A O A T G A L D I E O</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以上面的基础设施层是关于技术的应用。它是关于不害怕它，想要参与它，呃，重新培训我们的劳动力，以便我们能够应用它，呃，鼓励人们采用它。所以当你通过我刚才描述的视角，我刚才描述的框架来看AI时，每一层都有自己的，如果你愿意，挑战和机遇，每一层的游戏略有不同。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-35">
+      <div class="chunk-head">
+        <span class="chunk-no">块 35</span>
+        <span class="chunk-size">82 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">On the workforce point, the press has been so focused on um weaving the narrative that AI could potentially lead to mass displacement of labor and and mass unemployment. Could you help paint a picture a little bit about what your prediction is for the impact of AI on the job market, but also more specifically on what you see as the potentially new categories of jobs that we&#39;re potentially not even thinking about today that could actually come into being.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">workforce narrative new jobs</div>
+        <div class="hint-letters">O T W P T P H B S F O U W T N T A C P L T M D O L A A M U C Y H P A P A L B A W Y P I F T I O A O T J M B A M S O W Y S A T P N C O J T W P N E T A T T C A C I B</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">关于劳动力，媒体一直如此专注于编织AI可能导致大规模劳动力 displaced 和大规模失业的叙事。你能帮我们描绘一下你对AI对就业市场影响的预测吗，但更具体地说，你认为潜在的新工作类别，我们今天甚至没有想到的，实际上可能出现。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-36">
+      <div class="chunk-head">
+        <span class="chunk-no">块 36</span>
+        <span class="chunk-size">121 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Some jobs will new jobs will be created, some jobs will be lost, every job will be changed. Okay, so let&#39;s just break it down. Um it&#39;s it&#39;s it&#39;s always easy to go to one extreme from another but I always find it helpful when you break the problem down reason about it from its first principles and again in this framework that I just described at the lowest layer as you know and Jacob you&#39;re you&#39;re uh you&#39;re deeply uh integrated into into uh uh venture investment and you know what&#39;s going on in AI and you know at the foundational layer it&#39;s because of AI that San Francisco is back.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">break down San Francisco back</div>
+        <div class="hint-letters">S J W N J W B C S J W B L E J W B C O S L J B I D U I I I A E T G T O E F A B I A F I H W Y B T P D R A I F I F P A A I T F T I J D A T L L A Y K A J Y Y U Y D U I I I U U V I A Y K W G O I A A Y K A T F L I B O A T S F I B</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">一些工作会，新工作会被创造，一些工作会消失，每份工作都会改变。好，让我们拆解一下。嗯，从一个极端到另一个极端总是很容易，但我总是发现当你把问题拆解，从第一性原理推理时很有帮助，再次在我刚才描述的框架中，在最底层，你知道，Jacob你深入参与风险投资，你知道AI正在发生什么，你知道在基础层，正是因为AI，旧金山回来了。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-37">
+      <div class="chunk-head">
+        <span class="chunk-no">块 37</span>
+        <span class="chunk-size">94 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Okay, anybody who lives in San Francisco, uh, you&#39;ll know what I&#39;m talking about. Uh, just about everybody evacuated San Francisco. Now it&#39;s it&#39;s thriving again. It&#39;s all because of AI. Um, and AI creates a new type of job. And the fundamental reason is because it&#39;s software development, but done in a different way. We&#39;ve changed every layer of the technology as a result of AI. What used to be human human coded software running on CPUs are now machine learning generated software running on GPUs.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">San Francisco thriving software development</div>
+        <div class="hint-letters">O A W L I S F U Y K W I T A U J A E E S F N I I T A I A B O A U A A C A N T O J A T F R I B I S D B D I A D W W C E L O T T A A R O A W U T B H H C S R O C A N M L G S R O G</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">好，任何住在旧金山的人，呃，你会知道我在说什么。呃，几乎所有人都撤离了旧金山。现在它又繁荣起来了。这都是因为AI。嗯，AI创造了一种新型工作。根本原因是因为它是软件开发，但以不同的方式完成。由于AI，我们改变了技术的每一层。过去在CPU上运行的人工编码软件现在是在GPU上运行的机器学习生成的软件。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-38">
+      <div class="chunk-head">
+        <span class="chunk-no">块 38</span>
+        <span class="chunk-size">68 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so every single layer the tooling of it the compilers of it the methodology of it the way you collect data curate data use AI to guard rails use AI to teach you use AI to keep the AI safe. Um all of that technology is being invented right now and it creates tons of jobs at the next layer. This is where the giant opportunity is.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">tooling compilers jobs opportunity</div>
+        <div class="hint-letters">A S E S L T T O I T C O I T M O I T W Y C D C D U A T G R U A T T Y U A T K T A S U A O T T I B I R N A I C T O J A T N L T I W T G O I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以每一层，工具、编译器、方法、收集数据、整理数据的方式，使用AI作为护栏，使用AI来教你，使用AI来保持AI安全。嗯，所有这些技术现在正在被发明，它在下一层创造了大量工作。这就是巨大机会所在。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-39">
+      <div class="chunk-head">
+        <span class="chunk-no">块 39</span>
+        <span class="chunk-size">107 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Remember I just said that we&#39;re going to create a new type of factory and this factory has electricity come in and it generates tokens out a five a one gawatt factory. Let me just put it one gawatt factory and we&#39;re you know in the horizon building something like 7 8 10 gawatts of AI factories. One gawatt factory is $60 billion. $60 billion for one gawatt. A 100 megawatt factories is pretty commodity now. It&#39;s pretty common place. And so you just divide that by 10. But $60 billion is the annual one. One one factory is the annual revenues of Boeing.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">gigawatt factory 60 billion</div>
+        <div class="hint-letters">R I J S T W G T C A N T O F A T F H E C I A I G T O A F A O G F L M J P I O G F A W Y K I T H B S L G O A F O G F I B B F O G A M F I P C N I P C P A S Y J D T B B B I T A O O O F I T A R O B</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">记住我刚才说我们将创造一种新型工厂，这个工厂有电力输入，它产生令牌输出，一个5，一个1吉瓦工厂。让我就说1吉瓦工厂，你知道我们在地平线上建设大约7、8、10吉瓦的AI工厂。一个吉瓦工厂是600亿美元。一个吉瓦600亿美元。100兆瓦工厂现在很普通。很常见。所以你除以10。但600亿美元是年度，一个工厂是波音的年收入。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-40">
+      <div class="chunk-head">
+        <span class="chunk-no">块 40</span>
+        <span class="chunk-size">114 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And to build it, you have to finance it. Creates a lot of jobs. You have to build out the site. The shell creates a bunch of jobs. Construction, you know, you got carpenters, you got steel workers, you got masons. you, you know, you got to build out that factory, $60 billion factory. This thing is gigantic. Um, you&#39;ve got to, you have to have, you know, mechanical engineers, electrical engineers, plumbers, and then after that all the low voltage stuff, you know, all the all the IT and the networking. After that, operations. That entire cycle is about three years. A whole bunch of new trade jobs have to be created.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">construction trades three years</div>
+        <div class="hint-letters">A T B I Y H T F I C A L O J Y H T B O T S T S C A B O J C Y K Y G C Y G S W Y G M Y Y K Y G T B O T F B F T T I G U Y G T Y H T H Y K M E E E P A T A T A T L V S Y K A T A T I A T N A T O T E C I A T Y A W B O N T J H T B C</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">要建造它，你必须融资。创造大量工作。你必须建设场地。外壳创造一堆工作。建筑，你知道，你有木匠，你有钢铁工人，你有泥瓦匠。你，你知道，你必须建设那个工厂，600亿美元的工厂。这东西是巨大的。嗯，你必须有，你知道，机械工程师、电气工程师、水管工，然后所有低压的东西，你知道，所有IT和网络。之后，运营。整个周期大约三年。必须创造一大堆新的贸易工作。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-41">
+      <div class="chunk-head">
+        <span class="chunk-no">块 41</span>
+        <span class="chunk-size">110 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">these trade jobs it in the last computer industry the last computing platform shift the number one miss the the number one critical path for most companies growth is software engineers our the this next layer AI factories the number one is going to be trades the trade craft and I think this is terrific our country needs to needs to acknowledge that tradecraftraft is respectable work and it&#39;s critical work and it&#39;s necessary to build our country and So we want to encourage tradecraftraft, electricians, plumbers, you know, carpenters, steel workers, the whole the whole span of it. We&#39;re going to need a a whole bunch.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">trades critical path respectable</div>
+        <div class="hint-letters">T T J I I T L C I T L C P S T N O M T T N O C P F M C G I S E O T T N L A F T N O I G T B T T T C A I T T I T O C N T N T A T T I R W A I C W A I N T B O C A S W W T E T E P Y K C S W T W T W S O I W G T N A A W B</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">这些贸易工作，在过去的计算机行业，上一次计算平台转变中，大多数公司增长的第一大关键路径是软件工程师，我们的下一层AI工厂，第一将是贸易，贸易手艺，我认为这很棒，我们的国家需要承认贸易手艺是体面的工作，是关键的工作，是建设我们国家所必需的。所以我们想鼓励贸易手艺，电工、水管工，你知道，木匠、钢铁工人，整个范围。我们将需要一大堆。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-42">
+      <div class="chunk-head">
+        <span class="chunk-no">块 42</span>
+        <span class="chunk-size">105 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And then now above that is when we can start talking about how are these AI agents going to change uh the work of doctors or uh financial service professionals or customer care or in our company just as a starting point. Every single software engineer is now assisted by AI assistants and the amount of code that we check into the company is incredible. As a result, our productivity has shot up through the roof and we&#39;re hiring more people because it enabled us to create more things that the world desires. Um, it increases our revenues and increases our ability to hire.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">AI agents change work productivity</div>
+        <div class="hint-letters">A T N A T I W W C S T A H A T A A G T C U T W O D O U F S P O C C O I O C J A A S P E S S E I N A B A A A T A O C T W C I T C I I A A R O P H S U T T R A W H M P B I E U T C M T T T W D U I I O R A I O A T H</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">然后现在在上面，我们可以开始谈论这些AI代理将如何改变医生的工作，或金融服务专业人士或客户服务，或者在我们公司作为起点。每个软件工程师现在都有AI助手协助，我们检查到公司的代码量是不可思议的。结果，我们的生产力飙升，我们正在招聘更多人，因为它使我们能够创造更多世界渴望的东西。嗯，它增加了我们的收入，增加了我们招聘的能力。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-43">
+      <div class="chunk-head">
+        <span class="chunk-no">块 43</span>
+        <span class="chunk-size">70 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so I think that that layer above really wants to engage AI as as early as you can. Remember, it&#39;s not AI that&#39;s going to take your job. It&#39;s not AI that&#39;s going to, you know, destroy your company. It&#39;s the company and the person who uses AI that&#39;s going to take your job. And so that&#39;s, you know, something to internalize.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">engage AI early internalize</div>
+        <div class="hint-letters">A S I T T T L A R W T E A A A E A Y C R I N A T G T T Y J I N A T G T Y K D Y C I T C A T P W U A T G T T Y J A S T Y K S T I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以我认为上面的那一层真的想尽早参与AI。记住，不是AI会夺走你的工作。不是AI会，你知道，摧毁你的公司。是使用AI的公司和人会夺走你的工作。所以这是，你知道，需要内化的东西。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-44">
+      <div class="chunk-head">
+        <span class="chunk-no">块 44</span>
+        <span class="chunk-size">114 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">There&#39;s been such a huge amount of focus lately on bringing manufacturing back. Um, a lot of people in the AI space have talked about the concept of how digital twins and manu and manufacturing plants adopting digital twins could actually help enable rebooting manufacturing here. And simultaneously, the CEO of Apple, Tim Cook, recently said that one of the main bottlenecks to reshoring and making the iPhone here was um having a good and precise robotic arm technology. Um so on both counts, it really seems like AI could be an enabling technology for manufacturing and reshoring. Could you tell us a little bit more about what your prognosis is on that?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">digital twins reshoring robotic arm</div>
+        <div class="hint-letters">T B S A H A O F L O B M B U A L O P I T A S H T A T C O H D T A M A M P A D T C A H E R M H A S T C O A T C R S T O O T M B T R A M T I H W U H A G A P R A T U S O B C I R S L A C B A E T F M A R C Y T U A L B M A W Y P I O T</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">最近有大量关注将制造业带回来。嗯，AI领域的许多人谈到了数字孪生和制造工厂采用数字孪生的概念，实际上可以帮助重启这里的制造业。同时，苹果CEO Tim Cook最近表示，将iPhone回流到这里制造的主要瓶颈之一是拥有良好且精确的机械臂技术。所以在这两方面，AI似乎可以成为制造业和回流的使能技术。你能告诉我们更多关于你的预测吗？</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-45">
+      <div class="chunk-head">
+        <span class="chunk-no">块 45</span>
+        <span class="chunk-size">64 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Yeah. Well, first of all, manufacturing is not about lowcost labor. Advanced manufacturing today is software. The entire factory is software driven. The entire factory is one giant robot and it&#39;s a it&#39;s a it&#39;s a robot orchestrating a whole bunch of robots inside. And so these advanced factories has a lot of people in it, but it&#39;s largely technology.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">manufacturing software giant robot</div>
+        <div class="hint-letters">Y W F O A M I N A L L A M T I S T E F I S D T E F I O G R A I A I A I A R O A W B O R I A S T A F H A L O P I I B I L T</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">是的。嗯，首先，制造业不是关于低成本劳动力。今天的高级制造业是软件。整个工厂是软件驱动的。整个工厂是一个巨大的机器人，它是一个机器人协调里面的一堆机器人。所以这些高级工厂有很多人，但主要是技术。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-46">
+      <div class="chunk-head">
+        <span class="chunk-no">块 46</span>
+        <span class="chunk-size">143 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so so I think the the uh the first part of it is is uh in our industry and I&#39;ll just talk about mine uh the ability for us to uh manufacture um end to end from silicon to the AI supercomputers uh here on shore is a terrific opportunity and and I&#39;m I&#39;m delighted that the administration is really encouraging and supporting um the industry to onshore manufacturing. This is a this is this is high quality work. It&#39;s advanced technology work. Um, doing it on shore is a fantastic opportunity for for the country and I&#39;m I&#39;m very I&#39;m very enthusiastic about it. We&#39;re huge proponents of it and um uh we&#39;re fortunate that we have partners around the world who are supporting us to do that. That&#39;s number one.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">onshore manufacturing silicon supercomputers</div>
+        <div class="hint-letters">A S S I T T T U T F P O I I I U I O I A I J T A M U T A F U T U M U E T E F S T T A S U H O S I A T O A A I I D T T A I R E A S U T I T O M T I A T I T I H Q W I A T W U D I O S I A F O F F T C A I I V I V E A I W H P O I A U U W F T W H P A T W W A S U T D T T N O</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以我认为，呃，第一部分是，呃，在我们的行业，我就谈我的，呃，我们能够，呃，在岸端到端制造，从硅到AI超级计算机，是一个极好的机会，我很高兴政府真正鼓励和支持行业在岸制造。这是高质量的工作。是先进技术工作。嗯，在岸做这对国家是一个极好的机会，我非常热情。我们是它的巨大支持者，嗯，我们很幸运有世界各地的合作伙伴支持我们这样做。这是第一。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-47">
+      <div class="chunk-head">
+        <span class="chunk-no">块 47</span>
+        <span class="chunk-size">163 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Second, if we don&#39;t get good at manufacturing, we&#39;re going to leave behind a giant industry that is going to be propelled by the availability availability of energy. What country doesn&#39;t want to get engaged in this new industry called AI? Why would you not want to produce AI? Why would you why would you not want to engage in one of the most advanced manufacturing? You know, it&#39;s manufacturing. It just happens to be numbers when it&#39;s done. And just like it was electrons at the last industrial revolution, you know, most people couldn&#39;t understand that you could create this thing through a machinery called dynamo. Now we call it, you know, Nvidia AI supercomputers, but back then a dynamo, what produced, what came out of it was invisible. It&#39;s electricity. Don&#39;t touch it, but it&#39;s electricity. It&#39;s electrons. And now, you know, it&#39;s a new form of electrons is numbers.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">manufacturing energy numbers electrons</div>
+        <div class="hint-letters">S I W D G G A M W G T L B A G I T I G T B P B T A A O E W C D W T G E I T N I C A W W Y N W T P A W W Y W W Y N W T E I O O T M A M Y K I M I J H T B N W I D A J L I W E A T L I R Y K M P C U T Y C C T T T A M C D N W C I Y K N A S B B T A D W P W C O O I W I I E D T I B I E I E A N Y K I A N F O E I N</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">第二，如果我们不擅长制造业，我们将留下一个巨大的行业，这个行业将由能源的可用性推动。哪个国家不想参与这个叫做AI的新行业？你为什么会不想生产AI？你为什么会不想参与最先进的制造业之一？你知道，这是制造业。只是完成时是数字。就像上一次工业革命是电子，你知道，大多数人无法理解你可以通过一个叫做发电机的机器创造这个东西。现在我们称之为Nvidia AI超级计算机，但那时发电机，产生的是什么，出来的是看不见的。是电。不要碰它，但它是电。是电子。现在，你知道，电子的一种新形式是数字。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-48">
+      <div class="chunk-head">
+        <span class="chunk-no">块 48</span>
+        <span class="chunk-size">164 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">And so, of course, we want to engage in this this new industry. And in order to do that, we have to have manufacturing on shore. Now the thing that that is is absolutely the case because manufacturing is so technology intensive, we should do it in a digital twin first. We should do it in virtual reality first. Nvidia designs the most complex systems in the world. Each one of our generation R&amp;D, call it $20 billion, maybe more now, but call it 2020 20 billion um of R&amp;D just to produce a family of chips. We com we designed those chips completely in it in their digital twin. They existed for months and months and months long before we ever produced it. The moment I produced it, I know it to be perfect. I know it because we&#39;ve simulated it, you know, exhaustively and we emulated it and we we put it into its put it into its paces.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">digital twin virtual reality R&amp;D</div>
+        <div class="hint-letters">A S O C W W T E I T T N I A I O T D T W H T H M O S N T T T T I I A T C B M I S T I W S D I I A D T F W S D I I V R F N D T M C S I T W E O O O G R D C I B M M N B C I B U O R D J T P A F O C W C W D T C C I I I T D T T E F M A M A M L B W E P I T M I P I I K I T B P I K I B W S I Y K E A W E I A W W P I I I P I I I P</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">所以，当然，我们想参与这个新行业。为了做到这一点，我们必须在岸有制造业。现在绝对的情况是，因为制造业如此技术密集，我们应该首先在数字孪生中做。我们应该首先在虚拟现实中做。Nvidia设计世界上最复杂的系统。我们每一代研发，称之为200亿美元，也许现在更多，但称之为2000，200亿美元，呃，研发只是为了生产一系列芯片。我们完全在数字孪生中设计那些芯片。它们在我们生产之前已经存在了数月又数月。我生产它的那一刻，我知道它是完美的。我知道是因为我们已经模拟了它，你知道，彻底地，我们仿真了它，我们把它投入运行。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-49">
+      <div class="chunk-head">
+        <span class="chunk-no">块 49</span>
+        <span class="chunk-size">128 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">We should do the same with digital factories. These factories, large factories, we should completely create digital twins. use artificial intelligence to create these digital twins. operate it well virtual virtual uh integration integrate these manu magnificent you know structures completely digitally operate it optimize it and use it for you know planning your output completely digitally and in the future every factory will have a digital twin version every in the in the future you know and I&#39;m hoping every human will have a digital twin version every car has a digital twin version every building has a digital twin version every city has a digital twin version so this idea of digital twins is happening now and it&#39;s all happening because of artificial intelligence.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">digital twins factories future</div>
+        <div class="hint-letters">W S D T S W D F T F L F W S C C D T U A I T C T D T O I W V V U I I T M M Y K S C D O I O I A U I F Y K P Y O C D A I T F E F W H A D T V E I T I T F Y K A I H E H W H A D T V E C H A D T V E B H A D T V E C H A D T V S T I O D T I H N A I A H B O A I</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">我们应该对数字工厂做同样的事情。这些工厂，大型工厂，我们应该完全创建数字孪生。使用人工智能创建这些数字孪生。操作它，虚拟整合这些宏伟的结构，完全数字化地操作它，优化它，并使用它完全数字化地规划你的产出，未来每个工厂都会有一个数字孪生版本，未来，你知道，我希望每个人都会有一个数字孪生版本，每辆车有一个数字孪生版本，每栋建筑有一个数字孪生版本，每个城市有一个数字孪生版本，所以数字孪生的想法现在正在发生，这一切都是因为人工智能。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-50">
+      <div class="chunk-head">
+        <span class="chunk-no">块 50</span>
+        <span class="chunk-size">99 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Jensen, my last question for you is what is your expectation on the timeline by which we live in a world where AI enabled robots become a ubiquitous part of everyday human life. Um, Bill, first of all, let me just a self-driving car is a robot. Now, it&#39;s taken us about 10 years and now Whimo is, you know, in cities all around all around the nation and and is doing fantastically and uh it&#39;s terrific to see the Whimos driving around in in San Francisco and other cities. Um it took about 10 years.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">timeline robots self-driving car</div>
+        <div class="hint-letters">J M L Q F Y I W I Y E O T T B W W L I A W W A E R B A U P O E H L U B F O A L M J A S D C I A R N I T U A Y A N W I Y K I C A A A A T N A A I D F A U I T T S T W D A I I S F A O C U I T A Y</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">Jensen，我最后一个问题是，你对时间线的期望是什么，即我们生活在AI使能的机器人成为日常人类生活无处不在的一部分的世界。嗯，Bill，首先，让我说，自动驾驶汽车就是机器人。现在，我们花了大约10年，现在Waymo在 nationwide 的城市，做得非常好，看到Waymo在旧金山和其他城市行驶真是太棒了。嗯，花了大约10年。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-51">
+      <div class="chunk-head">
+        <span class="chunk-no">块 51</span>
+        <span class="chunk-size">173 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Robots will take less time and the reason for that is because we can constrain the environments where the robots operate and so the robots don&#39;t have to be as general purpose as a car. you know, once you&#39;re in San Francisco, you got to you got to work in every street and every single condition. And so, in the case of a robot, we could be a lot more constrained from the moment that something is prototypable, fairly functional to the time that it becomes um high volume product, call it five years. And so, we have quite high functioning robots today. And so in some five years time, uh, we&#39;re going to see, you know, robots get pumped out of these these factories. And every car company who makes cars today will be very good at building robots. They just have to they have to get good at the software part of it, the AI part of it. But but that technology is really, you know, fairly available.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">robots less time five years</div>
+        <div class="hint-letters">R W T L T A T R F T I B W C C T E W T R O A S T R D H T B A G P A A C Y K O Y I S F Y G T Y G T W I E S A E S C A S I T C O A R W C B A L M C F T M T S I P F F T T T T I B U H V P C I F Y A S W H Q H F R T A S I S F Y T U W G T S Y K R G P O O T T F A E C C W M C T W B V G A B R T J H T T H T G G A T S P O I T A P O I B B T T I R Y K F A</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">机器人将花费更少时间，原因是我们能够限制机器人操作的环境，所以机器人不必像汽车那样通用。你知道，一旦你在旧金山，你必须在每条街道和每种条件下工作。所以，对于机器人，我们可以更加受限，从某物可原型化、相当功能化到成为大批量产品，称之为五年。所以，我们今天有相当高功能的机器人。所以在五年左右，呃，我们将看到，你知道，机器人从这些工厂涌出。今天每个制造汽车的汽车公司都将非常擅长建造机器人。他们只需要擅长软件部分，AI部分。但那个技术真的，你知道，相当可用。</div>
+      </details>
+      
+    </article>
+    
+    <article class="chunk" id="chunk-52">
+      <div class="chunk-head">
+        <span class="chunk-no">块 52</span>
+        <span class="chunk-size">12 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Jensen, thank you so much for joining us. Yeah. Thank you everybody.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">thank you closing</div>
+        <div class="hint-letters">J T Y S M F J U Y T Y E</div>
+      </div>
+      
+      <details class="trans">
+        <summary>🌐 中文翻译</summary>
+        <div class="trans-text">Jensen，非常感谢你加入我们。是的。谢谢大家。</div>
+      </details>
+      
+    </article>
+    
+  </section>
+
+  <!-- ── 逐块复习表 ── -->
+  <section class="card" id="review">
+    <h2>🗓 逐块复习表</h2>
+    <p class="hint-line">块 1…背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+    <div class="table-scroll">
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>块</th><th>背诵日</th>
+            <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>块 1</td>
+            <td>第1天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第2天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 2</td>
+            <td>第1天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第2天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 3</td>
+            <td>第1天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第2天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 4</td>
+            <td>第1天<span class="lbl">2026-11-06 周五</span></td>
+            
+            <td>2026-11-07<span class="lbl">第2天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 5</td>
+            <td>第2天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 6</td>
+            <td>第2天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 7</td>
+            <td>第2天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 8</td>
+            <td>第2天<span class="lbl">2026-11-07 周六</span></td>
+            
+            <td>2026-11-08<span class="lbl">第3天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 9</td>
+            <td>第3天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 10</td>
+            <td>第3天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 11</td>
+            <td>第3天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 12</td>
+            <td>第3天<span class="lbl">2026-11-08 周日</span></td>
+            
+            <td>2026-11-09<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 13</td>
+            <td>第4天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 14</td>
+            <td>第4天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 15</td>
+            <td>第4天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 16</td>
+            <td>第4天<span class="lbl">2026-11-09 周一</span></td>
+            
+            <td>2026-11-10<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 17</td>
+            <td>第5天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 18</td>
+            <td>第5天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 19</td>
+            <td>第5天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 20</td>
+            <td>第5天<span class="lbl">2026-11-10 周二</span></td>
+            
+            <td>2026-11-11<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 21</td>
+            <td>第6天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 22</td>
+            <td>第6天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 23</td>
+            <td>第6天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 24</td>
+            <td>第6天<span class="lbl">2026-11-11 周三</span></td>
+            
+            <td>2026-11-12<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-26<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 25</td>
+            <td>第7天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 26</td>
+            <td>第7天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 27</td>
+            <td>第7天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 28</td>
+            <td>第7天<span class="lbl">2026-11-12 周四</span></td>
+            
+            <td>2026-11-13<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-27<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 29</td>
+            <td>第8天<span class="lbl">2026-11-13 周五</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-28<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 30</td>
+            <td>第8天<span class="lbl">2026-11-13 周五</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-28<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 31</td>
+            <td>第8天<span class="lbl">2026-11-13 周五</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-28<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 32</td>
+            <td>第8天<span class="lbl">2026-11-13 周五</span></td>
+            
+            <td>2026-11-14<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-28<span class="lbl">第23天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 33</td>
+            <td>第9天<span class="lbl">2026-11-14 周六</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-29<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 34</td>
+            <td>第9天<span class="lbl">2026-11-14 周六</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-29<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 35</td>
+            <td>第9天<span class="lbl">2026-11-14 周六</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-29<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 36</td>
+            <td>第9天<span class="lbl">2026-11-14 周六</span></td>
+            
+            <td>2026-11-15<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-29<span class="lbl">第24天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 37</td>
+            <td>第10天<span class="lbl">2026-11-15 周日</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-30<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 38</td>
+            <td>第10天<span class="lbl">2026-11-15 周日</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-30<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 39</td>
+            <td>第10天<span class="lbl">2026-11-15 周日</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-30<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 40</td>
+            <td>第10天<span class="lbl">2026-11-15 周日</span></td>
+            
+            <td>2026-11-16<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-30<span class="lbl">第25天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 41</td>
+            <td>第11天<span class="lbl">2026-11-16 周一</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+            <td>2026-12-01<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 42</td>
+            <td>第11天<span class="lbl">2026-11-16 周一</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+            <td>2026-12-01<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 43</td>
+            <td>第11天<span class="lbl">2026-11-16 周一</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+            <td>2026-12-01<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 44</td>
+            <td>第11天<span class="lbl">2026-11-16 周一</span></td>
+            
+            <td>2026-11-17<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-23<span class="lbl">第18天</span></td>
+            
+            <td>2026-12-01<span class="lbl">第26天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 45</td>
+            <td>第12天<span class="lbl">2026-11-17 周二</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+            <td>2026-12-02<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 46</td>
+            <td>第12天<span class="lbl">2026-11-17 周二</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+            <td>2026-12-02<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 47</td>
+            <td>第12天<span class="lbl">2026-11-17 周二</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+            <td>2026-12-02<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 48</td>
+            <td>第12天<span class="lbl">2026-11-17 周二</span></td>
+            
+            <td>2026-11-18<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-21<span class="lbl">第16天</span></td>
+            
+            <td>2026-11-24<span class="lbl">第19天</span></td>
+            
+            <td>2026-12-02<span class="lbl">第27天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 49</td>
+            <td>第13天<span class="lbl">2026-11-18 周三</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+            <td>2026-12-03<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 50</td>
+            <td>第13天<span class="lbl">2026-11-18 周三</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+            <td>2026-12-03<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 51</td>
+            <td>第13天<span class="lbl">2026-11-18 周三</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+            <td>2026-12-03<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 52</td>
+            <td>第13天<span class="lbl">2026-11-18 周三</span></td>
+            
+            <td>2026-11-19<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-20<span class="lbl">第15天</span></td>
+            
+            <td>2026-11-22<span class="lbl">第17天</span></td>
+            
+            <td>2026-11-25<span class="lbl">第20天</span></td>
+            
+            <td>2026-12-03<span class="lbl">第28天</span></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 每日打卡清单 ── -->
+  <section class="card" id="daily">
+    <h2>✅ 每日打卡清单</h2>
+    <p class="hint-line">点一下块号打卡完成，进度自动保存到本机。每天「新背」若干块 + 复习之前背过的块。</p>
+    <div class="cpd-row">
+      <label>每天新背</label>
+      <select id="cpd-select" onchange="setCpd(this.value)">
+        
+        <option value="1" >1 块</option>
+        
+        <option value="2" >2 块</option>
+        
+        <option value="3" >3 块</option>
+        
+        <option value="4" selected>4 块</option>
+        
+        <option value="5" >5 块</option>
+        
+        <option value="6" >6 块</option>
+        
+      </select>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <span id="progress-text">0/0</span>
+    </div>
+    <div id="daily-list"></div>
+  </section>
+
+  <div class="footer">智读 · 背诵 · 意群分块 + 艾宾浩斯复习 · 学习进度保存在本机浏览器<br>
+    <a href="/recite/_English__auto-generated___NVIDIA_CEO_Jensen_Huang__Rebuilding_Industrial_Power_AI_Factories___the_Return_of_US_Manufacturing__DownSub_com_?force=1" style="color:#9ab5ad; text-decoration:underline;">♻️ 重新生成</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = {
+    materialId: "_English__auto-generated___NVIDIA_CEO_Jensen_Huang__Rebuilding_Industrial_Power_AI_Factories___the_Return_of_US_Manufacturing__DownSub_com_",
+    chunkCount: 52,
+    startDate: "2026-11-06",
+    intervals: [1, 2, 4, 7, 15],
+    defaultCpd: 4
+  };
+  var WEEKDAYS = ["周日","周一","周二","周三","周四","周五","周六"];
+
+  function parseISO(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function addDays(d,n){ var r=new Date(d); r.setDate(r.getDate()+n); return r; }
+  function iso(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function fmt(d){ return (d.getMonth()+1)+"月"+d.getDate()+"日"; }
+
+  function buildSchedule(cpd){
+    var perChunk=[], maxDay=0, i, day;
+    for(i=0;i<CFG.chunkCount;i++){
+      var learnDay=Math.floor(i/cpd)+1;
+      var reviewDays=CFG.intervals.map(function(d){return learnDay+d;});
+      maxDay=Math.max(maxDay, learnDay, reviewDays[reviewDays.length-1]);
+      perChunk.push({index:i+1, learnDay:learnDay, reviewDays:reviewDays});
+    }
+    var daily=[];
+    for(day=1;day<=maxDay;day++){
+      daily.push({
+        day:day,
+        learn: perChunk.filter(function(c){return c.learnDay===day;}).map(function(c){return c.index;}),
+        review: perChunk.filter(function(c){return c.reviewDays.indexOf(day)!==-1;}).map(function(c){return c.index;})
+      });
+    }
+    return {perChunk:perChunk, daily:daily, totalDays:maxDay};
+  }
+
+  function storageKey(cpd){ return "recite-"+CFG.materialId+"-cpd"+cpd; }
+  function loadChecks(cpd){
+    try{ return new Set(JSON.parse(localStorage.getItem(storageKey(cpd))||"[]")); }
+    catch(e){ return new Set(); }
+  }
+  function saveChecks(cpd,set){ localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+  function chipKey(day,idx,type){ return day+":"+idx+":"+type; }
+
+  function todayIndex(){
+    var diff = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - parseISO(CFG.startDate);
+    return Math.floor(diff/86400000)+1;
+  }
+
+  function renderDaily(cpd){
+    var data=buildSchedule(cpd), checks=loadChecks(cpd);
+    var list=document.getElementById("daily-list");
+    list.innerHTML="";
+    var total=0, done=0, today=todayIndex();
+
+    data.daily.forEach(function(dp){
+      var card=document.createElement("div");
+      card.className="day-card"+(dp.day===today?" today":"");
+      var date=addDays(parseISO(CFG.startDate), dp.day-1);
+
+      var head=document.createElement("div");
+      head.className="day-head";
+      var no=document.createElement("span"); no.className="day-no"; no.textContent="第 "+dp.day+" 天";
+      var dt=document.createElement("span"); dt.className="day-date"; dt.textContent=fmt(date)+" "+WEEKDAYS[date.getDay()];
+      head.appendChild(no); head.appendChild(dt);
+      card.appendChild(head);
+
+      function addRow(label,cls,indices,type){
+        var row=document.createElement("div");
+        row.className="day-row";
+        var lab=document.createElement("span"); lab.className="row-label "+cls; lab.textContent=label;
+        row.appendChild(lab);
+        if(!indices.length){
+          var e=document.createElement("span"); e.className="empty-day"; e.textContent="今日无"+label;
+          row.appendChild(e);
+        } else {
+          indices.forEach(function(idx){
+            var key=chipKey(dp.day,idx,type), checked=checks.has(key);
+            total++;
+            if(checked) done++;
+            var chip=document.createElement("button");
+            chip.className="chip "+cls+(checked?" on":"");
+            chip.textContent="块 "+idx;
+            chip.onclick=function(){
+              if(checks.has(key)) checks.delete(key); else checks.add(key);
+              saveChecks(cpd,checks);
+              renderDaily(cpd);
+            };
+            row.appendChild(chip);
+          });
+        }
+        card.appendChild(row);
+      }
+
+      addRow("新背","new",dp.learn,"new");
+      addRow("复习","review",dp.review,"review");
+      list.appendChild(card);
+    });
+
+    var fill=document.getElementById("progress-fill");
+    fill.style.width = total? (done/total*100)+"%" : "0%";
+    document.getElementById("progress-text").textContent=done+"/"+total;
+  }
+
+  window.setCpd=function(v){ renderDaily(parseInt(v,10)||2); };
+  renderDaily(CFG.defaultCpd);
+})();
+
+function toggleBlank(btn){
+  var card=btn.closest(".chunk");
+  card.classList.toggle("blanked");
+  btn.textContent = card.classList.contains("blanked") ? "👀 显示原文" : "🙈 遮住自测";
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
+</body>
+</html>
