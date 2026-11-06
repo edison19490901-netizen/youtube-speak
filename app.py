@@ -319,7 +319,12 @@ def _load_recite_material(out_dir: Path):
     material = ReciteMaterial(
         title_suggested=mat.get("title_suggested", ""),
         chunks=[
-            Chunk(index=c.get("index", i + 1), text=c.get("text", ""), hint=c.get("hint", ""))
+            Chunk(
+                index=c.get("index", i + 1),
+                text=c.get("text", ""),
+                hint=c.get("hint", ""),
+                translation=c.get("translation", ""),
+            )
             for i, c in enumerate(mat.get("chunks", []))
         ],
         advice=mat.get("advice", ""),

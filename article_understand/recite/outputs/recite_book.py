@@ -68,6 +68,7 @@ def build_context(
                 "index": c.index,
                 "text": c.text,
                 "hint": c.hint,
+                "translation": c.translation,
                 "first_hint": first_letter_hint(c.text, lang),
                 "word_count": _chunk_size(c.text, lang),
             }

@@ -29,6 +29,7 @@ class Chunk:
     index: int = 0       # 1 起
     text: str = ""
     hint: str = ""
+    translation: str = ""
 
 
 @dataclass
@@ -198,6 +199,7 @@ def _parse_response(raw: str) -> ReciteMaterial:
             index=i,
             text=text_c,
             hint=str(c.get("hint", "") or "").strip(),
+            translation=str(c.get("translation", "") or "").strip(),
         ))
 
     return result
@@ -262,6 +264,7 @@ def save_material(
                     "index": c.index,
                     "text": c.text,
                     "hint": c.hint,
+                    "translation": c.translation,
                 }
                 for c in material.chunks
             ],

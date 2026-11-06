@@ -2,7 +2,7 @@
 
 把全文切成若干个「意群块」（chunk）—— 每个块是有完整独立含义的语义单元，
 方便逐块背诵、积木式串联。要求 DeepSeek 以结构化 JSON 返回：
-  - chunks: 每块原文 + 背诵提示关键词
+  - chunks: 每块原文 + 背诵提示关键词 + 该块译文
   - advice: 针对这份材料的背诵建议
 """
 
@@ -34,6 +34,7 @@ def build_chunk_prompt(
     lang_label = "中文" if language == "zh" else "英文"
     size_rule, hint_rule = _size_rules(language)
     advice_rule = _advice_rule(language)
+    translation_rule = _translation_rule(language)
 
     return f"""你是一名资深的语言教师与记忆训练专家，擅长把文本切成最适合背诵的「意群块」。
 请阅读下面的材料，把它切分成若干个意群块（chunk）。
@@ -53,7 +54,8 @@ def build_chunk_prompt(
   "chunks": [
     {{
       "text": "第 1 块原文（逐字保留原文，含标点）",
-      "hint": "这一块的背诵提示关键词"
+      "hint": "这一块的背诵提示关键词",
+      "translation": "第 1 块的译文（与该块原文一一对应）"
     }}
   ],
   "advice": "针对这份材料的背诵建议（1-3 句）"
@@ -68,6 +70,7 @@ def build_chunk_prompt(
 3. 不要机械地按句号切分：一句话若语义完整可单独成块，一个长句若跨两个意思可拆成两半块，但每块内部要能独立成诵、逻辑自洽。
 4. 块的数量：视材料长度而定，通常 8-30 块。太短的材料可以少于 8 块，超长材料不超过 30 块。宁可块数少而每块完整，不要切得稀碎。
 5. {hint_rule}
+6. translation: {translation_rule}译文必须与所在块的原文严格对应，不要合并、拆分或概括。
 
 {advice_rule}"""
 
@@ -89,11 +92,24 @@ def _advice_rule(language: str) -> str:
     """返回背诵建议的要求。"""
     if language == "zh":
         return (
-            "6. advice 用中文写：指出这块材料背起来容易卡壳的地方（如超长句、生僻词、并列结构），"
+            "7. advice 用中文写：指出这块材料背起来容易卡壳的地方（如超长句、生僻词、并列结构），"
             "并给 1-3 句实用的背诵建议（如：把第 3 块拆成两句先背、用第 5 块的提示词做联想）。"
         )
     return (
-        "6. advice: write in English, pointing out where this material is likely to trip you up "
+        "7. advice: write in English, pointing out where this material is likely to trip you up "
         "(long sentences, tricky words, parallel structures) and give 1-3 practical recitation tips "
         "(e.g. split chunk 3 into two breaths, use chunk 5's keyword as a memory anchor)."
+    )
+
+
+def _translation_rule(language: str) -> str:
+    """返回每块译文的要求。"""
+    if language == "zh":
+        return (
+            "为每块附上自然、准确的英文翻译（English translation），"
+            "忠实传达原意与语气，可直接用于对照学习。"
+        )
+    return (
+        "为每块附上自然、准确的中文翻译，忠实传达原意与语气，"
+        "可直接用于对照学习。"
     )
