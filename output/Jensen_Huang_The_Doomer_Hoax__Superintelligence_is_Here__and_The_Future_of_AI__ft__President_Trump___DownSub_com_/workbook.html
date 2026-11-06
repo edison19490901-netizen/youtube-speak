@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>Jensen Huang The Doomer Hoax, Superintelligence is Here, and The Future of AI (ft. President Trump) [DownSub.com] — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-trans { border-top: 1px dashed #eee; background: #fcfcfc; }
+  .rc-trans summary { cursor: pointer; list-style: none; user-select: none; padding: 8px 14px; font-size: 12.5px; color: #b03a4e; font-weight: 600; }
+  .rc-trans summary::-webkit-details-marker { display: none; }
+  .rc-trans summary::before { content: "▸ "; color: #aaa; }
+  .rc-trans[open] summary::before { content: "▾ "; }
+  .rc-trans summary:hover { background: #f8f8f8; }
+  .rc-trans-text { padding: 0 14px 12px; font-size: 13.5px; line-height: 1.85; color: #4a5f59; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>Jensen Huang The Doomer Hoax, Superintelligence is Here, and The Future of AI (ft. President Trump) [DownSub.com]</h1>
+    <div class="meta">本地文件 · 9219 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 English</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0217 · 17237 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-golden">金句单词</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>Jensen Huang 在顶级播客中驳斥 AI 末日论，称其为“编造的骗局”，并列举多项失败预测作为证据。</li><li>他强调安全与创新并非二选一，前沿实验室应通过工程手段（根因分析、沙箱、评估）控制风险，而非诉诸恐慌式监管。</li><li>黄仁勋认为开源模型对美国创新生态至关重要，80% 的 AI 原生创业公司依赖开源模型，且下载后即为我所用。</li><li>他透露 Nvidia 的战略是“向上走到必要之处，向下尽可能低”，通过投资供应链和金融工具推动 AI 工业革命。</li><li>特朗普总统意外来电，称 AI 末日论是“骗局”，并强调美国必须赢得 AI 竞赛，包括数据中心建设。</li><li>黄仁勋断言我们已进入超级智能时代（在自动驾驶、蛋白质合成等窄领域），并呼吁降低戏剧性、让全美国参与进来。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们来聊一场信息量巨大的对话，主角是英伟达 CEO 黄仁勋。他做客顶级播客，正面回应了最近甚嚣尘上的 AI 末日论，还意外接到了特朗普总统的电话。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>黄仁勋直言，所谓 AI 导致人类灭绝的预测是“编造的”，并列举了一连串被打脸的预言：放射科医生没消失、90% 代码被 AI 生成没发生、50% 入门级工作被取代也没发生。他认为这些不负责任的言论正在伤害美国的 AI 竞争力。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>关于安全，他的观点很明确：安全和创新不是二选一。前沿实验室应该像工程公司一样，对事故做根因分析，用沙箱、监控和评估来确保控制，而不是用恐慌来换取监管。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>他还大力捍卫开源模型，说这就像免费的水，是创业公司的生命线。过去六个月 400 亿美元风投涌入 AI 原生公司，其中 80% 都在用开源模型。而且下载后就是你的，可以随意修改。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>最戏剧性的一幕是特朗普总统来电，称 AI 末日论是“骗局”，并强调美国必须赢得 AI 竞赛，包括建设数据中心。黄仁勋最后总结：我们已经在窄领域实现了超级智能，比如自动驾驶和蛋白质合成，现在需要的是降低戏剧性，让全美国一起赢。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Jensen Huang dismisses AI doomerism as a fabricated hoax, citing a track record of failed predictions from frontier labs.</li><li>He argues safety and innovation are not a trade-off, and labs should control risks through engineering rigor—root-cause analysis, sandboxes, and evaluations—rather than fear-based regulation.</li><li>Huang stresses that open models are essential for American innovation, with 80% of AI-native startups relying on them, and once downloaded, they become yours.</li><li>Nvidia&#39;s strategy is to &#39;go up as far as we need to and as low as possible,&#39; investing in supply chain and financing to accelerate the AI industrial revolution.</li><li>President Trump calls in, calling doomerism a hoax and insisting America must win the AI race, including building data centers.</li><li>Huang declares we are already in the era of superintelligence in narrow domains like self-driving and protein synthesis, and urges less drama and more inclusive progress.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re diving into a blockbuster conversation with Nvidia CEO Jensen Huang. He joined a top podcast to push back hard on the AI doomer narrative, and even got a surprise call from President Trump.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Huang flat-out called the extinction predictions &#39;made up,&#39; listing a string of failed forecasts: radiologists weren&#39;t replaced, 90% of code isn&#39;t AI-generated, and half of entry-level jobs didn&#39;t vanish. He says this irresponsible talk is hurting America&#39;s AI competitiveness.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>On safety, his view is clear: it&#39;s not a trade-off with innovation. Frontier labs should act like engineering companies—root-cause incidents, use sandboxes, monitoring, and evaluations—rather than fueling fear to invite regulation.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>He also championed open models, comparing them to free water—a lifeline for startups. In the last six months, $400 billion in venture funding went to AI-native companies, and 80% of them use open models. Once you download, it&#39;s yours to fork and improve.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>The most dramatic moment came when President Trump called in, calling doomerism a hoax and insisting America must win the AI race, including building data centers. Huang wrapped up by saying we&#39;re already in the era of superintelligence in narrow domains like self-driving and protein synthesis—now we need less drama and more inclusive progress.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这是一篇播客对话实录，以黄仁勋为核心，围绕 AI 末日论、安全监管、开源生态、英伟达战略和超级智能展开。结构上先由主持人引入背景，再通过提问引导黄仁勋逐一驳斥末日论、阐述工程化安全观、捍卫开源，并穿插特朗普来电制造高潮，最后以黄仁勋对未来的乐观展望收尾。整体风格口语化、节奏快，善用反问、对比和具体案例，观点鲜明。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">7 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">开场与人物介绍</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">黄仁勋是塑造未来的关键人物，他的决策影响深远。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">主持人称“只有三个人能让我们中断节目：特朗普、耶稣和 Jensen”，并引用“GPU 就像时间机器”等说法。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">权威背书、夸张修辞、悬念设置</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">驳斥 AI 末日论</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">AI 导致人类灭绝的预测是编造的，不负责任且与事实不符。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举多项失败预测：5 年内放射科医生被 AI 取代（相反，需求更多）、6-12 个月内 90% 代码由 AI 生成（未发生）、50% 入门工作消失（未发生）。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列举反例、数据对比、直接引语</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">安全与监管的工程化路径</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">安全与创新不是二选一，应通过工程手段（根因分析、沙箱、评估）控制风险，而非恐慌式监管。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">黄仁勋以自身公司为例，称 Nvidia 不允许员工随意代表公司发言；强调实验室应像工程公司一样做根因分析；提到第三方审计和多重评估。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">类比（审计）、对比（研究 vs 工程）、逻辑推演</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">开源模型的价值</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">开源模型对美国创新至关重要，且下载后即为我所用，不必担心来源。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">过去 6 个月 400 亿美元风投进入 AI 原生公司，80% 使用开源模型；中国贡献大量开源代码，但下载后可以 fork 和改进。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">数据支撑、比喻（免费的水）、反问</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">英伟达的战略与生态</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">英伟达的战略是“向上走到必要之处，向下尽可能低”，通过投资供应链和金融工具推动 AI 工业革命。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">与 BlackRock、Goldman 合作创建融资能力；投资 Corning、Lumentum、TSMC 等供应链；支持 Neo Clouds 和区域云。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">具体案例、战略口号、比喻（工业革命）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折/高潮</span>
+            <span class="sec-title">特朗普来电</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">特朗普称 AI 末日论是“骗局”，强调美国必须赢得 AI 竞赛，包括建设数据中心。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">特朗普原话：“机器人不会接管世界，整个事情是个骗局。”并称“谁赢得 AI 谁就赢得一切”。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">意外事件、直接引语、戏剧性冲突</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">超级智能与未来展望</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">我们已经在窄领域实现超级智能（如自动驾驶、蛋白质合成），未来需要降低戏剧性，让全美国参与。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">自动驾驶事故率是人类 1/10；蛋白质合成和虚拟筛选已超越人类；黄仁勋称“我喜欢待在前沿”。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">定义重构、举例、乐观呼吁</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">用具体反例驳斥宏大预言</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““there was a prediction that in 5 years&#39; time, radiology will be completely taken over by artificial intelligence... That has proven to be exactly the opposite.””</span></div>
+            
+            
+            <div class="tech-line">💡 用事实打脸，增强说服力，让听众自然认同末日论的荒谬。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻和类比简化复杂概念</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““closed models is kind of like bottled water... water is free””</span></div>
+            
+            
+            <div class="tech-line">💡 把开源与闭源的关系具象化，易于理解且印象深刻。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">设问与反问引导思考</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““Has there ever been a point in history where so many people have so vehemently said something that is so untrue?””</span></div>
+            
+            
+            <div class="tech-line">💡 激发听众共鸣，强化对末日论者的质疑。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">直接引语制造戏剧性</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“特朗普：“The robots are not going to be taking over the world and that&#39;s not going to happen... It&#39;s a hoax.””</span></div>
+            
+            
+            <div class="tech-line">💡 引入权威人物原话，增加现场感和冲突感，吸引注意力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">数据与事实密集轰炸</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““$400 billion of venture funding went into AI native companies. 80% of them use open models.””</span></div>
+            
+            
+            <div class="tech-line">💡 用硬数据支撑观点，显得客观可信。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“预测-结果”清单检验专家观点</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当听到耸人听闻的预测时，列出该专家或机构过去 3-5 年的类似预测，逐一核对结果，计算准确率。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 黄仁勋列举：放射科医生被取代（错）、90% 代码 AI 生成（错）、50% 入门工作消失（错），从而质疑其可信度。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">工程化根因分析四步法</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 面对事故或风险，按“发生了什么→本可以怎样不同→将实施什么（技术/流程）→如何确保不再发生”四步分析。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 黄仁勋建议实验室对每起事故做根因分析，并 institutionalize 改进措施，如沙箱、监控、评估。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用“向上/向下”战略定位生态位</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在平台型业务中，明确“向上走到必要之处（解决客户关键痛点），向下尽可能低（不抢占合作伙伴空间）”，并投资供应链瓶颈。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 英伟达创建 cuDNN、Megatron 等基础技术，但让一千朵花开放，不直接做应用层。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">开源模型选型与合规检查</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 下载开源模型后，检查许可证，进行安全评估和微调，确保可商用；同时保留闭源模型作为补充。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 黄仁勋说下载中国开源模型后“fork it, improve it, make it yours”，但需遵守许可证。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">证伪主义思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 不轻信权威预测，而是寻找反例和可验证的证据，用历史记录检验预言准确性。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在评估任何宏大叙事（如 AI 末日、技术乌托邦）时，先问：过去类似预测兑现了吗？有哪些反例？</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">安全与创新非二元对立</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 拒绝“要么安全要么发展”的虚假两难，寻找两者兼得的工程路径。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在政策讨论或产品决策中，问：如何通过技术和管理手段同时提升安全性和创新速度？</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">生态位思维（向上/向下）</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 平台企业应明确边界：向上解决必要的基础问题，向下不侵占合作伙伴的价值空间，从而繁荣生态。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 制定公司战略时，画出产业链地图，标出必须自研的瓶颈和可以交给伙伴的环节。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">窄领域超级智能</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 超级智能不必是通用人类水平，在特定任务上超越人类就是超级智能。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 评估 AI 能力时，分领域看：在驾驶、蛋白质折叠等任务上是否已超越人类？这有助于理性看待 AI 进展。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+    <div class="tab-panel" id="tab-golden" data-label="金句单词">
+      
+      <div class="block">
+        <h3>💎 金句 <span class="badge">9 句</span></h3>
+        
+        <div class="quote-card">
+          <div class="quote-text">“A GPU is like a time machine because it lets you see the future sooner.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 比喻新颖，把 GPU 的算力加速比作时间机器，形象表达其预测未来的能力。</div>
+          
+          
+          <div class="quote-zh">中文 · GPU 就像时间机器，因为它让你更早看到未来。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“Safety and leadership are not false choices. You&#39;re able to innovate quickly. You&#39;re able to execute quickly. And America&#39;s able to lead and to do it safely.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 排比句式，节奏感强，有力驳斥安全与创新二选一的谬论。</div>
+          
+          
+          <div class="quote-zh">中文 · 安全与领导力并非虚假选择。你能够快速创新，快速执行，美国能够领导并安全地做到。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“We shouldn&#39;t because it&#39;s made up.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 简短有力，直击要害，用“made up”彻底否定末日论。</div>
+          
+          
+          <div class="quote-zh">中文 · 我们不应该（量化），因为它是编造的。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“The world needs both closed models and open models. ... closed models is kind of like bottled water... water is free.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用瓶装水比喻闭源模型，通俗易懂，强调开源是基础资源。</div>
+          
+          
+          <div class="quote-zh">中文 · 世界需要闭源和开源模型。闭源模型就像瓶装水……水是免费的。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“Once you download it, it&#39;s yours. We fork it, we improve it, we make it ours.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 短句排比，强调开源模型的可控性和归属感。</div>
+          
+          
+          <div class="quote-zh">中文 · 一旦下载，它就是你的。我们分叉、改进，把它变成我们的。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“The race is really about who exploits the technology best.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 重新定义竞争，把焦点从发明转向应用，观点鲜明。</div>
+          
+          
+          <div class="quote-zh">中文 · 竞赛的真正关键在于谁最好地利用技术。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“We go up as far as we need to and as low as possible.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 对仗工整，概括英伟达的生态战略，易于记忆。</div>
+          
+          
+          <div class="quote-zh">中文 · 我们向上走到必要之处，向下尽可能低。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“I&#39;m surprisingly uncompetitive. ... My thing is kind of like for example, I&#39;d be more than happy with five hyperscalers.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 自嘲式幽默，展现格局，同时传递合作共赢的理念。</div>
+          
+          
+          <div class="quote-zh">中文 · 我出人意料地不爱竞争。……我的想法是，比如，有五家超大规模云厂商我就很满意了。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“The future is great and we want to get there. ... I want all of you guys there with me. We&#39;re all going to be there.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 重复和呼告，营造感染力和号召力，传递乐观与包容。</div>
+          
+          
+          <div class="quote-zh">中文 · 未来是美好的，我们想到达那里。……我希望你们所有人都和我一起。我们都会到达。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📖 重点单词 <span class="badge">12 个</span></h3>
+        <table class="vocab-table">
+          <thead>
+            <tr><th>单词 / 短语</th><th>难度</th><th>出现语境</th><th>中文注释</th></tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="word-col">doomer</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">Jensen Huang The Doomer Hoax, Superintelligence is Here, and The Future of AI</td>
+              <td>末日论者，悲观主义者。常用于描述对科技或环境持极端悲观态度的人。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">preempt</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">We preempted the weekly show, and there&#39;s only three people we preempt the show for.</td>
+              <td>预先占用，抢先。这里指为特定人物中断正常节目。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">coalescing</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">what a lot of people were surprised by was the coalescing of the Frontier Labs around the SA itself.</td>
+              <td>联合，合并。指多个前沿实验室聚集在一起。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">whistleblower</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">the Coxswain whistleblower is very serious matter.</td>
+              <td>举报人，吹哨人。指揭露组织内部不当行为的人。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">conflated</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">there were some issues that were kind of conflated within that.</td>
+              <td>混合，混淆。指把不同的问题混在一起。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">quantize</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">when you have very smart people like that, quantize it and quantify it.</td>
+              <td>量化，用数字表示。这里指把模糊的预测具体化。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">perturbing</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">I think that&#39;s probably what&#39;s perturbing to some people.</td>
+              <td>令人不安的，使人烦恼的。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">apolitical</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">we are the company is an apolitical company.</td>
+              <td>非政治的，不涉及政治的。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">stymie</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">before we talk about regulation that could really stymie things</td>
+              <td>阻碍，妨碍。指 regulation 可能阻碍发展。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">recursive self-improvement</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">one of their priorities going to be trying to get recursive, you know, AI that trains the next AI</td>
+              <td>递归自我改进，指 AI 系统能改进自身或训练下一代 AI。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">sovereignty</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">it could be for sovereignty reasons, privacy reasons, proprietary technology reasons.</td>
+              <td>主权，自主权。这里指国家对 AI 技术的控制权。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">institutionalize</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">what are we going to to implement and institutionalize, whether it&#39;s technology or methods or processes</td>
+              <td>制度化，使成为常规。指将改进措施固化为流程。</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵版 <span class="badge">意群分块 + 艾宾浩斯复习</span></h3>
+        <p class="sub-hint">把这篇材料切成意群块 + 提示卡 + 遮罩自测 + 逐块复习表 + 每日打卡，帮你真正背下来。</p>
+        <a class="recite-gen-btn" href="/recite/Jensen_Huang_The_Doomer_Hoax__Superintelligence_is_Here__and_The_Future_of_AI__ft__President_Trump___DownSub_com_">🚀 生成背诵版</a>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">9219</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+        <div class="stat-item"><div class="stat-num">9</div><div class="stat-label">金句</div></div>
+        <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">生词</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 12728 tokens · 输出 4509 tokens ·
+        费用 ¥0.0217
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-11-06
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+</script>
+
+</body>
+</html>
