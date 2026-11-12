@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读 · 背诵">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<link rel="manifest" href="/manifest.json">
+<title>背诵 · Does China really prize AI speed over safety.txt</title>
+<style>
+:root{
+  --teal:#0e7c6b; --teal-dark:#0a5f52; --teal-soft:#e4f4ef;
+  --amber:#d97706; --amber-soft:#fdf1dd;
+  --bg:#f3faf7; --card:#ffffff; --text:#22332f; --muted:#86a09a;
+  --line:#e2efe9; --warn:#b03a4e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif;
+  background:var(--bg); color:var(--text); font-size:15px; line-height:1.7;
+}
+.topbar{
+  position:sticky; top:0; z-index:50;
+  background:linear-gradient(120deg,var(--teal),#0f8f7b);
+  color:#fff; padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.topbar .brand{font-weight:800; font-size:17px; letter-spacing:.5px;}
+.topbar .brand span{opacity:.85; font-weight:400; font-size:12px; margin-left:8px;}
+.btn-print{
+  background:rgba(255,255,255,.18); color:#fff; border:none;
+  padding:6px 12px; border-radius:8px; font-size:13px; cursor:pointer;
+}
+.btn-print:hover{background:rgba(255,255,255,.3);}
+.wrap{max-width:680px; margin:0 auto; padding:14px 12px 40px;}
+.card{
+  background:var(--card); border-radius:14px; padding:18px 16px;
+  margin-bottom:14px; box-shadow:0 1px 5px rgba(14,124,107,.07);
+}
+.card h2{font-size:15px; color:var(--teal-dark); margin-bottom:10px;}
+.hint-line{font-size:12px; color:var(--muted); margin-bottom:8px;}
+
+/* ── hero ── */
+.hero .badges{margin-bottom:8px;}
+.badge{
+  display:inline-block; font-size:11px; padding:2px 10px; border-radius:12px;
+  background:var(--teal-soft); color:var(--teal-dark); margin-right:6px; font-weight:600;
+}
+.badge.lang-en{background:#e8f4fd; color:#1a6aaa;}
+.hero h1{font-size:20px; color:var(--text); margin-bottom:4px; line-height:1.4;}
+.hero .meta{font-size:12px; color:var(--muted); margin-bottom:14px;}
+.stats{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:8px;
+}
+.stat{background:var(--bg); border-radius:10px; padding:10px 6px; text-align:center;}
+.stat b{display:block; font-size:18px; color:var(--teal-dark);}
+.stat span{font-size:11px; color:var(--muted);}
+
+/* ── steps ── */
+.steps{display:flex; gap:8px; flex-wrap:wrap;}
+.step{
+  flex:1 1 150px; background:var(--bg); border-radius:10px; padding:10px 12px; font-size:12.5px;
+}
+.step b{color:var(--teal-dark); display:block; margin-bottom:2px; font-size:13px;}
+
+/* ── warn / advice ── */
+.warn{
+  background:#fdecee; color:var(--warn); border-radius:10px; padding:10px 14px;
+  font-size:12.5px; margin-bottom:14px;
+}
+.advice{font-size:13.5px; color:#33453f; background:#fbfdfc; border-left:3px solid var(--teal); padding:8px 12px; border-radius:4px;}
+
+/* ── chunks ── */
+.chunk{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:12px;
+  overflow:hidden; background:#fff;
+}
+.chunk-head{
+  display:flex; align-items:center; gap:8px; padding:8px 12px;
+  background:#f7fbf9; border-bottom:1px solid var(--line);
+}
+.chunk-no{
+  background:var(--teal); color:#fff; font-weight:700; font-size:12px;
+  padding:2px 10px; border-radius:12px;
+}
+.chunk-size{font-size:11px; color:var(--muted);}
+.chunk-head .spacer{flex:1;}
+.chunk .btn{
+  font-size:12px; border:none; border-radius:8px; padding:5px 10px; cursor:pointer;
+  background:var(--teal-soft); color:var(--teal-dark); font-weight:600;
+}
+.chunk .btn:hover{background:#d3ece4;}
+.chunk .btn.btn-amber{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn.btn-amber:hover{background:#fae6c4;}
+.chunk-text{padding:12px 14px; font-size:16.5px; line-height:1.95;}
+.chunk .btn-blank{background:var(--amber-soft); color:var(--amber);}
+.chunk .btn-blank:hover{background:#fae6c4;}
+.chunk.blanked .chunk-text{display:none;}
+.chunk.blanked .blank-cover{display:flex;}
+.blank-cover{
+  display:none; flex-direction:column; align-items:center; justify-content:center;
+  padding:22px 14px; gap:10px; color:var(--muted); font-size:13px;
+  background:repeating-linear-gradient(45deg,#f6faf8,#f6faf8 8px,#eef6f2 8px,#eef6f2 16px);
+}
+.blank-cover .lock{font-size:22px;}
+.hint-card{display:none; padding:10px 14px 12px; background:var(--amber-soft); border-top:1px dashed #f0d9a8;}
+.chunk.blanked .hint-card{display:block;}
+.hint-card .hint-label{font-size:11px; color:var(--amber); font-weight:700; margin-bottom:4px;}
+.hint-card .hint-kw{font-size:14px; color:#7a4a00; font-weight:600; margin-bottom:6px;}
+.hint-card .hint-letters{
+  font-size:13px; color:#9a7b4f; letter-spacing:1.5px; line-height:1.9;
+  border-top:1px dashed #f0d9a8; padding-top:6px;
+}
+.chunk.reveal-hint .hint-card{display:block;}
+
+/* ── review table ── */
+.table-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+.review-table{border-collapse:collapse; width:100%; font-size:12px; min-width:560px;}
+.review-table th,.review-table td{
+  border:1px solid var(--line); padding:6px 8px; text-align:center; white-space:nowrap;
+}
+.review-table th{background:var(--teal-soft); color:var(--teal-dark); font-weight:700;}
+.review-table td:first-child{font-weight:700; color:var(--teal-dark); background:#f7fbf9;}
+.review-table .lbl{display:block; color:var(--muted); font-size:10px;}
+
+/* ── daily plan ── */
+.cpd-row{display:flex; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;}
+.cpd-row label{font-size:13px; color:var(--text);}
+.cpd-row select{
+  padding:6px 8px; border:1px solid var(--line); border-radius:8px;
+  background:#fff; color:var(--teal-dark); font-size:14px; font-weight:700;
+}
+.progress{
+  flex:1; min-width:80px; height:8px; background:var(--line); border-radius:6px; overflow:hidden;
+}
+.progress-fill{height:100%; width:0%; background:linear-gradient(90deg,var(--teal),#14a58f); transition:width .3s;}
+#progress-text{font-size:12px; color:var(--muted); white-space:nowrap;}
+.day-card{
+  border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden;
+}
+.day-card.today{border-color:var(--teal); box-shadow:0 0 0 1px var(--teal);}
+.day-head{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:8px 12px; background:#f7fbf9;
+}
+.day-no{font-weight:800; color:var(--teal-dark); font-size:14px;}
+.day-date{font-size:12px; color:var(--muted);}
+.day-row{display:flex; align-items:center; gap:6px; padding:6px 12px; flex-wrap:wrap;}
+.day-row + .day-row{border-top:1px dashed var(--line);}
+.row-label{font-size:11px; font-weight:700; padding:2px 8px; border-radius:10px; flex-shrink:0;}
+.row-label.new{background:var(--teal-soft); color:var(--teal-dark);}
+.row-label.review{background:var(--amber-soft); color:var(--amber);}
+.chip{
+  border:1px solid var(--line); background:#fff; color:var(--text);
+  border-radius:10px; padding:4px 10px; font-size:12.5px; cursor:pointer;
+  transition:all .15s;
+}
+.chip:hover{border-color:var(--teal);}
+.chip.on.new{background:var(--teal); border-color:var(--teal); color:#fff;}
+.chip.on.review{background:var(--amber); border-color:var(--amber); color:#fff;}
+.chip.done{opacity:.55; text-decoration:line-through;}
+.empty-day{font-size:12px; color:var(--muted); padding:8px 12px;}
+
+/* ── footer ── */
+.footer{text-align:center; color:#9ab5ad; font-size:11px; padding:10px 0 30px;}
+
+@media print{
+  .topbar,.cpd-row,.btn,.no-print{display:none !important;}
+  body{background:#fff; font-size:12px;}
+  .card{box-shadow:none; border:1px solid #ddd; break-inside:avoid;}
+  .chunk-text{display:block !important;}
+  .hint-card,.blank-cover{display:none !important;}
+  .review-table th{background:#f0f0f0 !important;}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">📖 背诵<span>智读 · English · 文章</span></div>
+  <a class="btn-print" href="/result/Does_China_really_prize_AI_speed_over_safety" style="text-decoration:none">🧠 智读看板</a>
+  <button class="btn-print" onclick="window.print()">🖨 打印/存 PDF</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ── 头部 ── -->
+  <section class="card hero">
+    <div class="badges">
+      <span class="badge lang-en">🌐 English</span>
+      <span class="badge">📄 文章</span>
+      <span class="badge">🗓 生成于 2026-10-27</span>
+    </div>
+    <h1>Does China really prize AI speed over safety.txt</h1>
+    <div class="meta">
+      1032 字 · 27 块 · 预计背诵 12 分钟
+      
+    </div>
+    <div class="stats">
+      <div class="stat"><b>1032</b><span>总字数</span></div>
+      <div class="stat"><b>27</b><span>意群块</span></div>
+      <div class="stat"><b>12</b><span>背诵/分钟</span></div>
+      <div class="stat"><b>135</b><span>复习次数</span></div>
+    </div>
+  </section>
+
+  <!-- ── 怎么背 ── -->
+  <section class="card">
+    <h2>📖 三步背诵法</h2>
+    <div class="steps">
+      <div class="step"><b>① 看提示卡</b>先读每块下方的 💡 提示卡，用关键词/首字回忆内容</div>
+      <div class="step"><b>② 遮住自测</b>点「🙈 遮住自测」把原文盖住，看着提示卡试着背出来</div>
+      <div class="step"><b>③ 按时复习</b>按下方艾宾浩斯清单打卡，第 1/2/4/7/15 天复习巩固</div>
+    </div>
+  </section>
+
+  
+  <section class="card">
+    <h2>💡 背诵建议</h2>
+    <div class="advice">This piece is dense with long, multi-clause sentences (chunks 9, 11, 18, 19) and parallel lists (chunk 13&#39;s three risk categories, chunk 26&#39;s &#39;rules, controls, limits and warnings&#39;), so read each long chunk in two breaths at the dash or semicolon. Anchor the argument&#39;s arc with four keywords: &#39;golden three seconds&#39; (hook), &#39;54 risks&#39; (framework), &#39;philosophical gap&#39; (Xi vs Silicon Valley), &#39;in its element&#39; (conclusion). Watch tricky items like &#39;forregulation&#39;, &#39;newestversion&#39; and &#39;ontougher&#39; — keep them exactly as printed, and note the British spellings &#39;labour&#39;, &#39;labelled&#39;, &#39;co-ordinated&#39;.</div>
+  </section>
+  
+
+  
+
+  <!-- ── 原文分块 ── -->
+  <section class="card" id="chunks">
+    <h2>🧱 原文分块（27 块）</h2>
+    <p class="hint-line">每块是完整语义单元。先通读，再逐块「遮住自测」。</p>
+    
+    <article class="chunk" id="chunk-1">
+      <div class="chunk-head">
+        <span class="chunk-no">块 1</span>
+        <span class="chunk-size">26 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">China | Chaguan Does China really prize AI speed over safety? In full command of its own cyberspace, China wants the same for AI Oct 22nd 2026</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">title and standfirst</div>
+        <div class="hint-letters">C C D C R P A S O S I F C O I O C C W T S F A O N</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-2">
+      <div class="chunk-head">
+        <span class="chunk-no">块 2</span>
+        <span class="chunk-size">37 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">“Guard the golden three seconds, guard your wallet.” In recent weeks a video of an avuncular policeman, Guo Tao, delivering this message—a warning about how to handle fraudsters on the phone—has spread widely in China.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Guo Tao&#39;s golden three seconds</div>
+        <div class="hint-letters">G T G T S G Y W I R W A V O A A P G T D T M A W A H T H F O T P H S W I C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-3">
+      <div class="chunk-head">
+        <span class="chunk-no">块 3</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">All it takes is a simple greeting for criminals to capture one’s voice and then use artificial intelligence to synthesise it for duping friends and relatives. So, as Mr Guo says, it is best to stay silent for three seconds when called from unknown numbers, to see if a real person speaks.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">voice cloning fraud</div>
+        <div class="hint-letters">A I T I A S G F C T C O S V A T U A I T S I F D F A R S A M G S I I B T S S F T S W C F U N T S I A R P S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-4">
+      <div class="chunk-head">
+        <span class="chunk-no">块 4</span>
+        <span class="chunk-size">26 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Not bad advice. It also relates to one of the tech world’s most pressing questions: what does China think about the risks posed by AI?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">pressing question</div>
+        <div class="hint-letters">N B A I A R T O O T T W S M P Q W D C T A T R P B A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-5">
+      <div class="chunk-head">
+        <span class="chunk-no">块 5</span>
+        <span class="chunk-size">37 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Many observers believe China does not care much about the dangers. Donald Trump is one. “China will be doing absolutely nothing to stand in the way of AI,” he claimed last month, explaining his own disdain forregulation.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Trump&#39;s claim</div>
+        <div class="hint-letters">M O B C D N C M A T D D T I O C W B D A N T S I T W O A H C L M E H O D F</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-6">
+      <div class="chunk-head">
+        <span class="chunk-no">块 6</span>
+        <span class="chunk-size">31 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Indeed, surveys point to overwhelming Chinese optimism about AI. In a poll by Gallup, 93% of respondents in China said it would mostly help their country, versus just 36% in America.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Gallup optimism gap</div>
+        <div class="hint-letters">I S P T O C O A A I A P B G O R I C S I W M H T C V J I A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-7">
+      <div class="chunk-head">
+        <span class="chunk-no">块 7</span>
+        <span class="chunk-size">27 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Calls for China to work with America to slow down frontier models have been brushed aside in Beijing. “Fearmongering” serves no one, says China’s foreign ministry.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">fearmongering brushed aside</div>
+        <div class="hint-letters">C F C T W W A T S D F M H B B A I B F S N O S C S F M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-8">
+      <div class="chunk-head">
+        <span class="chunk-no">块 8</span>
+        <span class="chunk-size">24 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">In fact, China spends an awful lot of time thinking about AI safety. Telephone fraud is just the tip of an iceberg of anxieties.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">tip of the iceberg</div>
+        <div class="hint-letters">I F C S A A L O T T A A S T F I J T T O A I O A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-9">
+      <div class="chunk-head">
+        <span class="chunk-no">块 9</span>
+        <span class="chunk-size">30 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">China’s concerns run from criminal activity, labour displacement and national security to, yes, the loss-of-control scenarios causing sleepless nights in Silicon Valley. This should not be surprising.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">range of concerns</div>
+        <div class="hint-letters">C S C R F C A L D A N S T Y T L O C S C S N I S V T S N B S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-10">
+      <div class="chunk-head">
+        <span class="chunk-no">块 10</span>
+        <span class="chunk-size">39 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The Communist Party, which obsesses about danger in almost every domain of life, has fought for years to bring cyberspace under control. Is a regime that views the internet as an existential challenge suddenly about to let AI rip?</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">party control of cyberspace</div>
+        <div class="hint-letters">T C P W O A D I A E D O L H F F Y T B C U C I A R T V T I A A E C S A T L A R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-11">
+      <div class="chunk-head">
+        <span class="chunk-no">块 11</span>
+        <span class="chunk-size">50 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">If, as in the Trump administration, one defines regulation as intrinsically a form of slowdown, then China is, in effect, slowing AI—though it would never say so. “China already has the most stringent AI rules anywhere in the world,” says Kendra Schaefer of Trivium, a consultancy based in Beijing.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">regulation as slowdown</div>
+        <div class="hint-letters">I A I T T A O D R A I A F O S T C I I E S A T I W N S S C A H T M S A R A I T W S K S O T A C B I B</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-12">
+      <div class="chunk-head">
+        <span class="chunk-no">块 12</span>
+        <span class="chunk-size">20 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">The foundational document is China’s framework for the governance of AI safety. A second update came out in September.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">safety framework update</div>
+        <div class="hint-letters">T F D I C S F F T G O A S A S U C O I S</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-13">
+      <div class="chunk-head">
+        <span class="chunk-no">块 13</span>
+        <span class="chunk-size">33 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">It lists 54 risks under three categories: “inherent” (models behaving in unintended ways), “application” (use by criminals) and “secondary” (social alienation). It also proposes ways to eliminate or, at least, mitigate these threats.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">54 risks, three categories</div>
+        <div class="hint-letters">I L R U T C I M B I U W A U B C A S S A I A P W T E O A L M T T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-14">
+      <div class="chunk-head">
+        <span class="chunk-no">块 14</span>
+        <span class="chunk-size">23 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">One is to require checkpoints at which humans (remember those?) must review and, if necessary, halt AI agents before they roam too widely.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">human checkpoints</div>
+        <div class="hint-letters">O I T R C A W H R T M R A I N H A A B T R T W</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-15">
+      <div class="chunk-head">
+        <span class="chunk-no">块 15</span>
+        <span class="chunk-size">50 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Some of the framework’s earlier ideas are already in force—for instance, AI-generated content such as audio and video must be clearly labelled. Others are likely to form the basis of new rules. Draft measures call for service providers to shut down any feature with serious problems immediately.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">labelling and shutdowns</div>
+        <div class="hint-letters">S O T F S E I A A I F F I A G C S A A A V M B C L O A L T F T B O N R D M C F S P T S D A F W S P I</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-16">
+      <div class="chunk-head">
+        <span class="chunk-no">块 16</span>
+        <span class="chunk-size">15 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">On October 16th China also proposed curbs on exports of its most advanced AI technologies.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">export curbs</div>
+        <div class="hint-letters">O O T C A P C O E O I M A A T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-17">
+      <div class="chunk-head">
+        <span class="chunk-no">块 17</span>
+        <span class="chunk-size">45 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">As AI has grown more powerful, China has paid more attention to doomsday possibilities. The original version of its safety framework, issued in 2024, made just one glancing reference to loss of control. In the newestversion, that topic comes up more than a dozen times.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">doomsday focus grows</div>
+        <div class="hint-letters">A A H G M P C H P M A T D P T O V O I S F I I M J O G R T L O C I T N T T C U M T A D T</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-18">
+      <div class="chunk-head">
+        <span class="chunk-no">块 18</span>
+        <span class="chunk-size">56 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Even so, it is possible to discern a philosophical gap. Whereas some in America fear that AI models will eventually surpass human intelligence and take control of their own evolution, the more common view in China is that AI is a transformative technology that can be harnessed and directed, not something that will slip human grasp.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">philosophical gap</div>
+        <div class="hint-letters">E S I I P T D A P G W S I A F T A M W E S H I A T C O T O E T M C V I C I T A I A T T T C B H A D N S T W S H G</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-19">
+      <div class="chunk-head">
+        <span class="chunk-no">块 19</span>
+        <span class="chunk-size">66 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Xi Jinping compares AI to the steam engine, electricity and the internet— technologies that were epoch-shaping but did not pose dangers that required a co-ordinated slowdown. With China still trailing America at the frontier of AI, Mr Xi is all the less inclined to agree to apply the brakes. As China sees it, such an agreement looks both unnecessary and self-serving for Americans.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">Xi&#39;s steam engine analogy</div>
+        <div class="hint-letters">X J C A T T S E E A T I T T W E S B D N P D T R A C O S W C S T A A T F O A M X I A T L I T A T A T B A C S I S A A L B U A S S F A</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-20">
+      <div class="chunk-head">
+        <span class="chunk-no">块 20</span>
+        <span class="chunk-size">31 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Unsurprisingly, Chinese officials devote much bandwidth to ideology. They want to ensure that models do not contradict the party on important matters, and that new tools do not undermine its control.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">ideological control</div>
+        <div class="hint-letters">U C O D M B T I T W T E T M D N C T P O I M A T N T D N U I C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-21">
+      <div class="chunk-head">
+        <span class="chunk-no">块 21</span>
+        <span class="chunk-size">40 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Yet there are more banal concerns, too, reflecting the soft paternalism of the Chinese state. Hence Mr Guo’s three golden seconds on the phone and a ban on offering virtual lovers or, for that matter, virtual relatives to minors.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">soft paternalism</div>
+        <div class="hint-letters">Y T A M B C T R T S P O T C S H M G S T G S O T P A A B O O V L O F T M V R T M</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-22">
+      <div class="chunk-head">
+        <span class="chunk-no">块 22</span>
+        <span class="chunk-size">53 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">China’s yen for rules may have an unintended effect. In America, where the government has a much lighter touch, companies have stepped into the breach, evaluating their own models and asking for more guardrails. In China firms are often more passive, waiting for directions from the party and government before applying controls.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">passive firms</div>
+        <div class="hint-letters">C S Y F R M H A U E I A W T G H A M L T C H S I T B E T O M A A F M G I C F A O M P W F D F T P A G B A C</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-23">
+      <div class="chunk-head">
+        <span class="chunk-no">块 23</span>
+        <span class="chunk-size">36 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">A review by Concordia AI, a consultancy in Beijing, of ten Chinese firms with recently released models found that just five had published safety evaluations. That suggests possible perils if models develop faster than regulators expect.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">only five evaluations</div>
+        <div class="hint-letters">A R B C A A C I B O T C F W R R M F T J F H P S E T S P P I M D F T R E</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-24">
+      <div class="chunk-head">
+        <span class="chunk-no">块 24</span>
+        <span class="chunk-size">35 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">China’s rules will also fail to impress those who view its open-weight models as unavoidably dangerous. Critics fret that such models, unlike the closed ones dominant in America, can be abused more readily.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">open-weight criticism</div>
+        <div class="hint-letters">C S R W A F T I T W V I O W M A U D C F T S M U T C O D I A C B A M R</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-25">
+      <div class="chunk-head">
+        <span class="chunk-no">块 25</span>
+        <span class="chunk-size">69 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">Yet many in Chinese AI argue the benefits outweigh that hazard: they note that China’s open models have helped defend computer systems from rogue attacks launched by American closed models, as when OpenAI tools breached Hugging Face, an AI platform. In any case, China is already working ontougher rules to govern open models. Insiders say that new releases face exacting safety reviews before being offered to the public.</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">defence of open models</div>
+        <div class="hint-letters">Y M I C A A T B O T H T N T C S O M H H D C S F R A L B A C M A W O T B H F A A P I A C C I A W O R T G O M I S T N R F E S R B B O T T P</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-26">
+      <div class="chunk-head">
+        <span class="chunk-no">块 26</span>
+        <span class="chunk-size">58 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">By most measures China’s AI models are a few months, or more, behind America’s in their performance. That is a big gap for such a fast-evolving technology. But do not accuse China of lagging behind America in its management of risks. When it comes to rules, controls, limits and warnings, China is in its element.■</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">behind in models, ahead in rules</div>
+        <div class="hint-letters">B M M C S A M A A F M O M B A S I T P T I A B G F S A F E T B D N A C O L B A I I M O R W I C T R C L A W C I I I E</div>
+      </div>
+    </article>
+    
+    <article class="chunk" id="chunk-27">
+      <div class="chunk-head">
+        <span class="chunk-no">块 27</span>
+        <span class="chunk-size">22 字</span>
+        <span class="spacer"></span>
+        <button class="btn btn-hint" onclick="this.closest('.chunk').classList.toggle('reveal-hint')">💡 提示</button>
+        <button class="btn btn-blank" onclick="toggleBlank(this)">🙈 遮住自测</button>
+      </div>
+      <p class="chunk-text">This article was downloaded by zlibrary from https://www.economist.com/china/2026/10/19/does-china-really-prize-ai-speed-over-</p>
+      <div class="blank-cover"><span class="lock">🔒</span>正在自测……试着背出这一块</div>
+      <div class="hint-card">
+        <div class="hint-label">💡 提示卡</div>
+        <div class="hint-kw">source line</div>
+        <div class="hint-letters">T A W D B Z F H W E C C D C R P A S O</div>
+      </div>
+    </article>
+    
+  </section>
+
+  <!-- ── 逐块复习表 ── -->
+  <section class="card" id="review">
+    <h2>🗓 逐块复习表</h2>
+    <p class="hint-line">块 1…背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+    <div class="table-scroll">
+      <table class="review-table">
+        <thead>
+          <tr>
+            <th>块</th><th>背诵日</th>
+            <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>块 1</td>
+            <td>第1天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 2</td>
+            <td>第1天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 3</td>
+            <td>第1天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 4</td>
+            <td>第1天<span class="lbl">2026-10-27 周二</span></td>
+            
+            <td>2026-10-28<span class="lbl">第2天</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-11<span class="lbl">第16天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 5</td>
+            <td>第2天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 6</td>
+            <td>第2天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 7</td>
+            <td>第2天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 8</td>
+            <td>第2天<span class="lbl">2026-10-28 周三</span></td>
+            
+            <td>2026-10-29<span class="lbl">第3天</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-12<span class="lbl">第17天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 9</td>
+            <td>第3天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 10</td>
+            <td>第3天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 11</td>
+            <td>第3天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 12</td>
+            <td>第3天<span class="lbl">2026-10-29 周四</span></td>
+            
+            <td>2026-10-30<span class="lbl">第4天</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-13<span class="lbl">第18天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 13</td>
+            <td>第4天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 14</td>
+            <td>第4天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 15</td>
+            <td>第4天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 16</td>
+            <td>第4天<span class="lbl">2026-10-30 周五</span></td>
+            
+            <td>2026-10-31<span class="lbl">第5天</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-14<span class="lbl">第19天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 17</td>
+            <td>第5天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 18</td>
+            <td>第5天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 19</td>
+            <td>第5天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 20</td>
+            <td>第5天<span class="lbl">2026-10-31 周六</span></td>
+            
+            <td>2026-11-01<span class="lbl">第6天</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-07<span class="lbl">第12天</span></td>
+            
+            <td>2026-11-15<span class="lbl">第20天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 21</td>
+            <td>第6天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 22</td>
+            <td>第6天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 23</td>
+            <td>第6天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 24</td>
+            <td>第6天<span class="lbl">2026-11-01 周日</span></td>
+            
+            <td>2026-11-02<span class="lbl">第7天</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-05<span class="lbl">第10天</span></td>
+            
+            <td>2026-11-08<span class="lbl">第13天</span></td>
+            
+            <td>2026-11-16<span class="lbl">第21天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 25</td>
+            <td>第7天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 26</td>
+            <td>第7天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+          <tr>
+            <td>块 27</td>
+            <td>第7天<span class="lbl">2026-11-02 周一</span></td>
+            
+            <td>2026-11-03<span class="lbl">第8天</span></td>
+            
+            <td>2026-11-04<span class="lbl">第9天</span></td>
+            
+            <td>2026-11-06<span class="lbl">第11天</span></td>
+            
+            <td>2026-11-09<span class="lbl">第14天</span></td>
+            
+            <td>2026-11-17<span class="lbl">第22天</span></td>
+            
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 每日打卡清单 ── -->
+  <section class="card" id="daily">
+    <h2>✅ 每日打卡清单</h2>
+    <p class="hint-line">点一下块号打卡完成，进度自动保存到本机。每天「新背」若干块 + 复习之前背过的块。</p>
+    <div class="cpd-row">
+      <label>每天新背</label>
+      <select id="cpd-select" onchange="setCpd(this.value)">
+        
+        <option value="1" >1 块</option>
+        
+        <option value="2" >2 块</option>
+        
+        <option value="3" >3 块</option>
+        
+        <option value="4" selected>4 块</option>
+        
+        <option value="5" >5 块</option>
+        
+        <option value="6" >6 块</option>
+        
+      </select>
+      <div class="progress"><div class="progress-fill" id="progress-fill"></div></div>
+      <span id="progress-text">0/0</span>
+    </div>
+    <div id="daily-list"></div>
+  </section>
+
+  <div class="footer">智读 · 背诵 · 意群分块 + 艾宾浩斯复习 · 学习进度保存在本机浏览器<br>
+    <a href="/recite/Does_China_really_prize_AI_speed_over_safety?force=1" style="color:#9ab5ad; text-decoration:underline;">♻️ 重新生成</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var CFG = {
+    materialId: "Does_China_really_prize_AI_speed_over_safety",
+    chunkCount: 27,
+    startDate: "2026-10-27",
+    intervals: [1, 2, 4, 7, 15],
+    defaultCpd: 4
+  };
+  var WEEKDAYS = ["周日","周一","周二","周三","周四","周五","周六"];
+
+  function parseISO(s){ var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
+  function addDays(d,n){ var r=new Date(d); r.setDate(r.getDate()+n); return r; }
+  function iso(d){ return d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2); }
+  function fmt(d){ return (d.getMonth()+1)+"月"+d.getDate()+"日"; }
+
+  function buildSchedule(cpd){
+    var perChunk=[], maxDay=0, i, day;
+    for(i=0;i<CFG.chunkCount;i++){
+      var learnDay=Math.floor(i/cpd)+1;
+      var reviewDays=CFG.intervals.map(function(d){return learnDay+d;});
+      maxDay=Math.max(maxDay, learnDay, reviewDays[reviewDays.length-1]);
+      perChunk.push({index:i+1, learnDay:learnDay, reviewDays:reviewDays});
+    }
+    var daily=[];
+    for(day=1;day<=maxDay;day++){
+      daily.push({
+        day:day,
+        learn: perChunk.filter(function(c){return c.learnDay===day;}).map(function(c){return c.index;}),
+        review: perChunk.filter(function(c){return c.reviewDays.indexOf(day)!==-1;}).map(function(c){return c.index;})
+      });
+    }
+    return {perChunk:perChunk, daily:daily, totalDays:maxDay};
+  }
+
+  function storageKey(cpd){ return "recite-"+CFG.materialId+"-cpd"+cpd; }
+  function loadChecks(cpd){
+    try{ return new Set(JSON.parse(localStorage.getItem(storageKey(cpd))||"[]")); }
+    catch(e){ return new Set(); }
+  }
+  function saveChecks(cpd,set){ localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+  function chipKey(day,idx,type){ return day+":"+idx+":"+type; }
+
+  function todayIndex(){
+    var diff = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()) - parseISO(CFG.startDate);
+    return Math.floor(diff/86400000)+1;
+  }
+
+  function renderDaily(cpd){
+    var data=buildSchedule(cpd), checks=loadChecks(cpd);
+    var list=document.getElementById("daily-list");
+    list.innerHTML="";
+    var total=0, done=0, today=todayIndex();
+
+    data.daily.forEach(function(dp){
+      var card=document.createElement("div");
+      card.className="day-card"+(dp.day===today?" today":"");
+      var date=addDays(parseISO(CFG.startDate), dp.day-1);
+
+      var head=document.createElement("div");
+      head.className="day-head";
+      var no=document.createElement("span"); no.className="day-no"; no.textContent="第 "+dp.day+" 天";
+      var dt=document.createElement("span"); dt.className="day-date"; dt.textContent=fmt(date)+" "+WEEKDAYS[date.getDay()];
+      head.appendChild(no); head.appendChild(dt);
+      card.appendChild(head);
+
+      function addRow(label,cls,indices,type){
+        var row=document.createElement("div");
+        row.className="day-row";
+        var lab=document.createElement("span"); lab.className="row-label "+cls; lab.textContent=label;
+        row.appendChild(lab);
+        if(!indices.length){
+          var e=document.createElement("span"); e.className="empty-day"; e.textContent="今日无"+label;
+          row.appendChild(e);
+        } else {
+          indices.forEach(function(idx){
+            var key=chipKey(dp.day,idx,type), checked=checks.has(key);
+            total++;
+            if(checked) done++;
+            var chip=document.createElement("button");
+            chip.className="chip "+cls+(checked?" on":"");
+            chip.textContent="块 "+idx;
+            chip.onclick=function(){
+              if(checks.has(key)) checks.delete(key); else checks.add(key);
+              saveChecks(cpd,checks);
+              renderDaily(cpd);
+            };
+            row.appendChild(chip);
+          });
+        }
+        card.appendChild(row);
+      }
+
+      addRow("新背","new",dp.learn,"new");
+      addRow("复习","review",dp.review,"review");
+      list.appendChild(card);
+    });
+
+    var fill=document.getElementById("progress-fill");
+    fill.style.width = total? (done/total*100)+"%" : "0%";
+    document.getElementById("progress-text").textContent=done+"/"+total;
+  }
+
+  window.setCpd=function(v){ renderDaily(parseInt(v,10)||2); };
+  renderDaily(CFG.defaultCpd);
+})();
+
+function toggleBlank(btn){
+  var card=btn.closest(".chunk");
+  card.classList.toggle("blanked");
+  btn.textContent = card.classList.contains("blanked") ? "👀 显示原文" : "🙈 遮住自测";
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', function () { navigator.serviceWorker.register('/sw.js').catch(function () {}); }); }
+</script>
+</body>
+</html>

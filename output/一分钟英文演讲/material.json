@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "material_id": "一分钟英文演讲",
+    "title": "一分钟英文演讲.mp4",
+    "language": "en",
+    "source_type": "video",
+    "truncated": false,
+    "created": "2026-10-27"
+  },
+  "material": {
+    "title_suggested": "一分钟英文演讲.mp4",
+    "language": "en",
+    "advice": "This material features long, winding sentences with repetitions and self-corrections, which can trip you up. Break chunk 2 and chunk 5 into smaller breath groups, and use the keywords like 'brave choice', '2019', 'scary', 'problem solution' as memory anchors to recall the flow. Practice each chunk aloud until fluent before linking them together.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "Woman is speech practice. The topic is a brave choice.",
+        "hint": "speech practice topic"
+      },
+      {
+        "index": 2,
+        "text": "Among all of the decisions I made in my life, I think one of the brave choice that I can think of is the time when I decided to move to other cities.",
+        "hint": "brave choice moving cities"
+      },
+      {
+        "index": 3,
+        "text": "It was in 2019 when I decided to get married and start over and go to a new city.",
+        "hint": "2019 married new city"
+      },
+      {
+        "index": 4,
+        "text": "I think that that moment is pretty scary because I've never been to that city before.",
+        "hint": "scary never been"
+      },
+      {
+        "index": 5,
+        "text": "I have no idea about what does it look like to live in that city. I don't even know what kind of jobs I'm going to end up with.",
+        "hint": "no idea living jobs"
+      },
+      {
+        "index": 6,
+        "text": "But eventually, I made that decision because I believe that whenever there's a problem, there's always a solution for that.",
+        "hint": "problem solution belief"
+      },
+      {
+        "index": 7,
+        "text": "So that's one of the decisions that I make that I can think of is quite, I will call it challenging.",
+        "hint": "challenging decision"
+      },
+      {
+        "index": 8,
+        "text": "But now, if I look back, I'm very grateful for the decision that I made.",
+        "hint": "grateful looking back"
+      },
+      {
+        "index": 9,
+        "text": "I decided to move to other city and start a new life with someone that I love, and I really enjoy everything that we have done together.",
+        "hint": "new life loved one enjoy"
+      },
+      {
+        "index": 10,
+        "text": "A brave decision for me is something that I decided to move and start over.",
+        "hint": "brave decision start over"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 826,
+    "completion_tokens": 542,
+    "total_tokens": 1368,
+    "cost_cny": 0.00191
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "material_id": "brainrot",
+    "title": "brainrot.mp4",
+    "language": "en",
+    "source_type": "video",
+    "truncated": false,
+    "created": "2026-10-27"
+  },
+  "material": {
+    "title_suggested": "brainrot.mp4",
+    "language": "en",
+    "advice": "Watch out for the long sentence in chunk 4 and the slightly awkward phrasing in chunk 12 ('for ours to establish'). Break chunk 4 into two breaths: 'So it is getting more popular...' and 'and people believe...'. Use the keyword 'balance' in chunks 13-14 as a memory anchor to link the conclusion.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "What you're doing right now is one clear example of brain rot.",
+        "hint": "clear example of brain rot"
+      },
+      {
+        "index": 2,
+        "text": "It means that your brain is not functioning.",
+        "hint": "brain not functioning"
+      },
+      {
+        "index": 3,
+        "text": "You're purely looking at things that we're not actually thinking.",
+        "hint": "purely looking, not thinking"
+      },
+      {
+        "index": 4,
+        "text": "So it is getting more popular among social media and people believe this action itself is really bad for your brain.",
+        "hint": "popular, bad for brain"
+      },
+      {
+        "index": 5,
+        "text": "What I'm trying to say here is there's always a way to get rid of it.",
+        "hint": "always a way to get rid"
+      },
+      {
+        "index": 6,
+        "text": "There's always a way to stop your brain from doing that.",
+        "hint": "stop brain from doing that"
+      },
+      {
+        "index": 7,
+        "text": "So the way you're going to do that is take actions.",
+        "hint": "take actions"
+      },
+      {
+        "index": 8,
+        "text": "Make sure that every day that you understand you can practice your brain.",
+        "hint": "every day practice brain"
+      },
+      {
+        "index": 9,
+        "text": "You can start writing.",
+        "hint": "start writing"
+      },
+      {
+        "index": 10,
+        "text": "There are many things that you can prevent from brain rot.",
+        "hint": "many things prevent brain rot"
+      },
+      {
+        "index": 11,
+        "text": "On the other hand, social media is just fundamentally changing the way we were saving information.",
+        "hint": "social media changing saving info"
+      },
+      {
+        "index": 12,
+        "text": "It's important for ours to establish the awareness that too much time on social media probably not a good thing.",
+        "hint": "awareness: too much time not good"
+      },
+      {
+        "index": 13,
+        "text": "As long as you understand that, I think there's a way to get a balance.",
+        "hint": "understand, get balance"
+      },
+      {
+        "index": 14,
+        "text": "Balance is the key for us to best exercise our brain and become a better person.",
+        "hint": "balance key, better person"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 800,
+    "completion_tokens": 597,
+    "total_tokens": 1397,
+    "cost_cny": 0.001994
+  }
+}

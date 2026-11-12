@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>瞎猫理论.txt — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>瞎猫理论.txt</h1>
+    <div class="meta">本地文件 · 7403 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0133 · 9979 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>作者用“瞎猫理论”解释自己学生时代如何通过大量低成本尝试找到人生机会。</li><li>他认为一切成功本质上都是运气，但人可以像天道一样，通过增加尝试次数来提高成功概率。</li><li>他提出“人道有情，地道有常，天道无情亦无常”，并主张“抱着人道的意志，用天道的方法做事，以地道的方法优化”。</li><li>在衡水中学的经历让他决心拒绝竞争、掌控人生，并设定了年入百万、喜欢、无法竞争、合法四个标准。</li><li>他通过实习、阅读、副业、社团、体验五个方面进行多线尝试，最终因写夜店公众号而成功。</li><li>他总结出五条践行瞎猫理论的方法：找备胎、低成本多尝试、跨领域获取信息、迭代复盘、保持善良。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天咱们聊一个特别有意思的理论，叫“瞎猫理论”。它来自一位连续创业者，他靠这个理论做出了四家一人公司。这期内容特别适合那些正在迷茫、不知道人生方向在哪的年轻人，因为他说，学生时代就能用这个方法找到自己的机会。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>作者的核心观点很颠覆：他认为一切成功本质上都是运气，学霸是运气，努力也是运气。但关键在于，既然一切都是运气，那人该做什么？他的答案是：像天道一样做事，通过增加尝试次数来提高成功的概率。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>他打了个比方：天道要干成一件事，会平等地折磨数万个人，最后总有一个英雄冒出来把事干好。大公司、风投、甚至“饱和式救援”都是这个逻辑。所以人应该同时成为数百条聪明的溪流，增大自己流入河谷的概率。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>作者在衡水中学待了三年，那段经历让他下定决心：拒绝竞争，掌控人生。他给自己定了四个标准：年入百万、喜欢、别人无法竞争、合法。然后他通过实习、阅读、副业、社团、体验五个方面进行大量低成本尝试。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>最终，他因为写夜店公众号而成功，但他说这完全是运气。他总结出五条践行瞎猫理论的方法：第一，找到人生备胎；第二，以最低成本大量尝试；第三，跨领域获取信息；第四，迭代复盘；第五，保持善良。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>所以，如果你也想找到自己的机会，不妨试试这个“瞎猫理论”：把自己扔进更大的混乱，同时保护好自己。你准备好开始你的尝试了吗？</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The author uses the &#39;blind cat theory&#39; to explain how he found life opportunities through numerous low-cost attempts during his student years.</li><li>He believes all success is essentially luck, but one can increase the probability of success by increasing the number of attempts, similar to how &#39;heaven&#39; operates.</li><li>He proposes that &#39;humanity is emotional, earth is constant, heaven is indifferent and unpredictable,&#39; and advocates &#39;holding human will, using heavenly methods, and optimizing with earthly methods.&#39;</li><li>His experience at Hengshui High School led him to reject competition and take control of his life, setting four criteria: earning a million a year, doing what he loves, having no competition, and staying legal.</li><li>He tried internships, reading, side hustles, clubs, and experiences, and eventually succeeded by writing for nightclub WeChat accounts.</li><li>He summarizes five actionable methods: have a backup plan, try many low-cost experiments, gather cross-domain information, iterate and review, and stay kind.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re talking about something called the &#39;blind cat theory.&#39; It comes from a serial entrepreneur who used it to build four one-person companies. This is especially useful for young people who feel lost and don&#39;t know where their life is headed, because he says you can use this method even as a student to find your opportunities.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>His core idea is quite颠覆: he believes all success is essentially luck—being a top student is luck, working hard is luck. But the key question is: if everything is luck, what should you do? His answer: act like &#39;heaven&#39;—increase your chances of success by increasing the number of attempts.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>He gives an analogy: when heaven wants something done, it torments tens of thousands of people equally, and eventually one hero emerges to get it done. Big companies, venture capital, even &#39;saturated rescue&#39; all follow this logic. So a person should become hundreds of smart streams at once, increasing the probability of flowing into the river valley.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>The author spent three years at Hengshui High School, an experience that made him determined to reject competition and take control of his life. He set four criteria: earn a million a year, do what he loves, have no competition, and stay legal. Then he tried many low-cost experiments across internships, reading, side hustles, clubs, and experiences.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Eventually, he succeeded by writing for nightclub WeChat accounts, but he says it was pure luck. He summarizes five methods: first, have a backup plan; second, try many things at low cost; third, gather cross-domain information; fourth, iterate and review; fifth, stay kind.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>So if you want to find your own opportunity, try the &#39;blind cat theory&#39;: throw yourself into greater chaos while protecting yourself. Are you ready to start your experiments?</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这篇文章以“瞎猫理论”为核心，采用第一人称叙事，从回应读者质疑切入，逐步展开对运气、天道、人道、地道的哲学思考，再结合个人学生时代的尝试经历，最后总结出可操作的方法。结构上先破后立，先颠覆“努力决定论”，再提出“概率思维”，并用大量个人故事和比喻（如粒子对撞机、溪流汇入河谷）来增强说服力。风格口语化、幽默自嘲，夹杂网络用语和段子，但内核是严肃的概率论和人生策略。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">8 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">回应质疑，引出理论</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">成功靠运气，但运气背后有方法，即“瞎猫理论”。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">读者留言说“你就是靠运气”，作者点赞并承认，但指出“万事皆运气”还不够通透，进而提出学霸的本质也是运气。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">设问、自嘲、互动感</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出核心论点</span>
+            <span class="sec-title">重新解读“天将降大任”</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">天道无情，它平等地折磨许多人，最终只有一人成功，谁成功天道不在乎。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用《孟子》名句，但给出全新解读：天道不是特意安排你，而是随机筛选。并用大公司赛马、风投投资赛道、饱和式救援等例子佐证。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用经典、对比解读、举例论证</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">人道、地道、天道的做事方法</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人道是全力以赴，地道是优化条件，天道是增加尝试次数以提高概率。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用成功率5%的例子说明：人道是抱着必胜决心，地道是思考如何提高到10%，天道是随机折磨200人，最终有1人成功。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">排比、对比、数字举例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">衡水经历与人生标准</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">衡水中学的体验让作者决心拒绝竞争、掌控人生，并设定了四个事业标准。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">描述在衡水“比坐牢还苦”的经历，以及四个标准：年入百万、喜欢、别人无法竞争、合法。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">讲故事、列标准</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">学生时代的五方面尝试</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">通过实习、阅读、副业、社团、体验五个方面的低成本尝试，增加找到人生方向的可能性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">详细描述每方面的尝试和结果：实习收效差，阅读无即时回报，副业回报不错，社团无收获，体验有收获。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">分类叙述、细节描写、自嘲</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">从尝试到夜店公众号的偶然路径</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">一系列偶然事件（认识人、买潮牌、恋爱、被绿、写夜店公众号）最终导向成功，印证了瞎猫理论。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列出11个步骤，展示如何从无头苍蝇般的尝试中意外找到出路。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列步骤、讲故事、因果链条</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">总结提升</span>
+            <span class="sec-title">瞎猫理论的学术与哲学解释</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">瞎猫理论本质是概率论的应用，也是“道法自然”：人应同时成为数百条聪明的溪流。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用溪流汇入河谷的比喻，说明增加尝试次数和保持善良的重要性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻、哲学引用、数学概念类比</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">五条践行方法</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">普通人可以通过找备胎、低成本多尝试、跨领域获取信息、迭代复盘、保持善良来践行瞎猫理论。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">每条方法都结合个人经验简要说明。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">列清单、简洁总结</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">6 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">自嘲与幽默</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““我偷偷给那几条留言点了赞。” “这不就是个仗着自己有接盘侠的混圈女吗？是的。””</span></div>
+            
+            
+            <div class="tech-line">💡 拉近与读者距离，化解严肃话题的沉重感，让说理更易接受。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻和类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““我会把自己想象成一台安全的粒子对撞机，我的任务就是在四年内找到稀有粒子。” “人应同时成为数百条聪明的溪流。””</span></div>
+            
+            
+            <div class="tech-line">💡 把抽象的概率思维具象化，让读者更容易理解和记忆。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">对比论证</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““人道有情，地道有常，天道无情亦无常。” “人道做事的方法是抱着必胜的决心全力以赴。地道做事的方法是思考能否让成功率从5%变成10%、20%。天道做事的方法是随机挑200个看起来靠谱的人折磨。””</span></div>
+            
+            
+            <div class="tech-line">💡 清晰区分三种做事逻辑，突出天道思维的特点，增强说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">讲故事</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“详细叙述从认识初恋到写夜店公众号的11个步骤，包括被绿、写公众号、投稿等细节。”</span></div>
+            
+            
+            <div class="tech-line">💡 用真实经历佐证理论，让读者看到偶然性中的必然，增强可信度和代入感。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">引用与反用</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“引用“天将降大任于是人也”，但给出全新解读，颠覆传统理解。”</span></div>
+            
+            
+            <div class="tech-line">💡 制造认知冲突，吸引读者注意，同时强化自己的观点。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">6</span>
+          <div class="tech-body">
+            <div class="tech-name">列清单</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“四个事业标准、五个尝试方面、五条践行方法。”</span></div>
+            
+            
+            <div class="tech-line">💡 让内容结构化，便于读者记忆和操作。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">建立人生备胎</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 找到一份能保障基本生存的退路，比如一个学历、一项技能、一份兼职，确保即使尝试失败也不会陷入绝境。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 作者以上财学历为备胎，心想“再差我毕业也能找到月薪6000的工作，不会饿死”。你可以评估自己的专业或技能，确定一个最低保障。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">低成本多线尝试</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在时间、金钱允许的范围内，同时开展多个不同领域的尝试，每个尝试控制成本，避免孤注一掷。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 作者同时从实习、阅读、副业、社团、体验五个方面入手，实习日薪150-200，副业写稿一篇160-400，成本极低。你可以列出3-5个感兴趣的方向，每个每周投入几小时。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">跨领域获取信息</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 主动接触不同行业、不同领域的信息，不设边界，看不懂就跳过，保持好奇心。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 作者看各种人物传记和闲书，虽然没找到天赋，但积累了跨领域知识。你可以每周读一篇不同领域的文章或看一个纪录片。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">迭代复盘</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 每次尝试后，总结规律，分析成功或失败的原因，用于优化下一次尝试。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 作者在写公众号时，发现夜店公众号很好写，就把读过的书、走过的路融入其中，做到最好。你可以建立复盘笔记，记录每次尝试的得失。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">保持善良</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在混乱的尝试中，坚守本心，不做损人利己的事，用善良保护自己不被反噬。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 作者面对初恋的伤害，选择斩断因果，而不是变坏去渣别人。你可以在每次决策时问自己：这个选择是否伤害他人？</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">概率思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 认识到成功是概率事件，通过增加尝试次数来提高总体成功率，而不是追求单次必胜。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在面临不确定性时，计算或估算成功率，然后设计多次尝试的方案。比如求职时，不要只投一家，而是投100家，提高命中率。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">天道思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 像天道一样无情且平等地对待每次尝试，不执着于单次结果，只关注整体概率。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在制定计划时，问自己：“如果每次尝试都可能失败，我该怎样安排，才能提高最终成功的概率？”然后设计多线并行的尝试。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">无限后手</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 确保最坏情况发生时自己能够承受，从而敢于尝试。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在尝试前，评估最坏结果，并准备一个备胎。比如辞职创业前，先存够半年生活费，或保留一份兼职收入。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">平行宇宙思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 想象每个选择都分支出一个平行宇宙，通过大量选择，最终找到一条通往成功的世界线。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在迷茫时，不要纠结于单一选择，而是同时探索多个方向，让概率帮你找到出路。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">道法自然</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 人应同时成为数百条聪明的溪流，增大流入河谷的概率，即使没有流入，也能成为活水。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在人生规划中，不要只做一条溪流，而是多线发展，保持流动性，适应变化。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">32 块 · 预计背诵 62 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">本文篇幅较长且包含大量口语化表达和评论区内容，背诵时建议先抓住主线：瞎猫理论的定义（运气、天道、概率）→学生时代的尝试（实习、阅读、副业、社团、体验）→接触夜店的链条→理论总结与践行方法。对于评论区部分，可重点记忆作者回复中的关键句，其余可略读。注意长段落（如第24块11个步骤）可拆分成小点记忆，利用数字序号辅助。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/瞎猫理论">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">32 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">107 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我在学生时代是如何践行“瞎猫理论”的？ 图片
+
+上一篇文章，我写了自己是如何靠“瞎猫理论”做出四家一人公司的。
+
+多数留言是好奇，我在学生时代是如何发现自己的天赋、找到人生机会的？
+
+也有几条留言评价：“你就是靠运气。”
+
+图片
+
+我偷偷给那几条留言点了赞。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">学生时代践行瞎猫理论</div>
+            <div class="rc-hint-letters">我图上我多我找也“”图我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">80 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">万事皆运气，他们看得很通透，但还不够通透。
+
+这道理我小学就明白了：学霸的本质是运气。
+
+也许他天生聪明或更专注，也许他父母非常严厉。
+
+天赋是运气，家庭教育是运气，刻苦努力更是运气。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">万事皆运气</div>
+            <div class="rc-hint-letters">万他但这学也也天家刻</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">168 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我在衡水中学念书时有位同学，学校里出了名的刻苦努力。
+
+但他有个被人议论的习惯。
+
+他做题、考试，常会不顾旁人地把手放进裤裆里。
+
+图片
+
+刷题对他而言，像你看擦边视频那样快乐，数学是黑丝，化学是白丝，物理学是网袜……他学文科像偷人老婆一样刺激，人家活该上清北。
+
+图片
+
+那请问他考上清北是否算运气呢？
+
+我认为绝对算。因为多数人做题很痛苦，他比别人更刻苦仅仅是运气给了他奇怪的大脑。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">衡水同学刻苦与怪癖</div>
+            <div class="rc-hint-letters">我学但他考常图刷像数化物人图那我因他</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">65 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+这世间所有事，本就都是运气。拥有反抗运气的灵魂，也是运气的一部分。
+
+真正值得讨论的问题只有一个：
+
+既然一切都是运气，那人该做什么、怎么做呢？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">反抗运气也是运气</div>
+            <div class="rc-hint-letters">图这本拥也真既那怎</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">107 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+我念初中时，课本上有句话：
+
+“故天将降大任于是人也，必先苦其心志，劳其筋骨，饿其体肤，空乏其身，行拂乱其所为。”
+
+相信各位读者都不陌生，这种烂大街的话，我写作文都不屑引用。
+
+老师的解读是：“成大事的人命中注定要经历挫折。”
+
+但我不认同那样的解读。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天将降大任解读</div>
+            <div class="rc-hint-letters">图我课“必劳饿空行”相这我老“”但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">91 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我认为那句话应该理解成：
+
+“天道要干一件事，会平等且冷漠的折磨数万个人，苦他们心志，劳他们筋骨…
+
+最终！数万个被折磨的人里会冒出一位英雄把大任干好。”
+
+至于是谁，天道不在乎。
+
+天道又不是你亲爹，还能特别安排你么？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天道折磨数万人出英雄</div>
+            <div class="rc-hint-letters">我“会苦劳最数”至天天还</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">105 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+人总觉得自己很特别，会为所有经历赋予意义。对成功者而言，挫折是成功的必经之路，对失败者而言，挫折是命运多舛、是世间不公。
+
+但须知，天地不仁以万物为刍狗，天道是没有感情的。
+
+大公司、大资金、大组织做事用的都是天道做事的方法。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天地不仁天道无情</div>
+            <div class="rc-hint-letters">图人会对挫对挫是但天天大大大</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">175 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">互联网公司总会雇佣大量聪明的年轻人，不同的团队像赛马般，加班做着相同的产品，总会有某个团队做出好产品的。
+
+风险投资机构从来不会指望一个创业者、一家公司，它看好一个赛道往往会同时投资许多家公司。
+
+《流浪地球》里有个词叫“饱和式救援”，数十个团队去解决同一个危机。大组织不在乎哪个团队最后会解决危机，大组织只在乎危机被解决的结果本身，喀秋莎火炮不在乎那一发击中，有一发击中即可。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">大组织天道做事方法</div>
+            <div class="rc-hint-letters">互不加总风一它《数大大喀有</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">129 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+如果一件事的成功率是5%。
+
+人道做事的方法是抱着必胜的决心全力以赴。
+
+地道做事的方法是思考能否让成功率从5%变成10%、20%。
+
+天道做事的方法是随机挑200个看起来靠谱的人折磨，200人里会冒出20个越挫越勇的强者，20个强者里会有1位英雄阴差阳错把事干好。
+
+人道有情，地道有常，天道无情亦无常。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">人道地道天道对比</div>
+            <div class="rc-hint-letters">图如人地2天22人地天</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">132 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+初二，我开始习惯于站在“天道做事”的角度去思考每个问题。
+
+人道会说：“天行健，君子以自强不息。”
+
+地道会琢磨：“格物致知，什么条件，这事更容易做好？”
+
+天道会问：“如果每次尝试都可能失败，我该怎样安排，才能提高最终成功的概率？”
+
+我不知道读者会如何看待上述文字？
+
+如果你认为这很嘉豪，那说明你是一个清醒聪明的人。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">初二天道角度思考</div>
+            <div class="rc-hint-letters">图初我人“君”地“什这”天“我才”我如那</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">98 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+这在我小时候叫“中二病”，我沉浸在道教文化骄傲又懒惰的浪漫叙事里。
+
+但如果你觉得上面那段文字很高深莫测，我会诚恳的建议你读读《概率论》。我写的不过是一些被玄学词汇包装的概率学常识，我不想在读者面前装神棍。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">中二病与概率论</div>
+            <div class="rc-hint-letters">图这我但我我我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">88 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+初中毕业后，我被扭送到了衡水中学。
+
+我仍能回忆起入学的第一个月，每天晚上我都会哭着向父母求饶，我愿意为离开那里做任何事。他们无动于衷，只是安慰我“忍忍就过去了”。
+
+一忍便是三年，比坐牢还苦。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">衡水中学痛苦回忆</div>
+            <div class="rc-hint-letters">图初我我每我他只一比</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">145 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+衡中三年给了我两个教训：
+
+第一件事，拒绝竞争，我不想再经历内卷的尸山血海，我到了该享清福的年纪。
+
+第二件事，必须掌控自己的人生，我不想把人生的评判权、控制权给任何人。
+
+这意味着我必须找到一份属于自己的事业，那份事业应满足四个标准：
+
+1，年入百万。
+
+2，我喜欢。
+
+3，别人无法与我竞争。
+
+4，合法。
+
+我这辈子没遇到过这么难的题。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">衡中教训与事业标准</div>
+            <div class="rc-hint-letters">图衡第拒我我第必我控这那1年2我3别4合我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">130 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">显然，大学的我对这道题完全没有任何头绪，那时候甚至还没有自媒体和AI呢。
+
+在衡中被关了三年，我也没什么特别的爱好和特长。
+
+图片
+
+学生时代与成人世界的本质区别是，学生时代的难题总有固定答案，大不了你去问老师，老师会给你答案和具体步骤；但成人世界的难题没有固定答案也没人给的了解题步骤。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">学生与成人世界区别</div>
+            <div class="rc-hint-letters">显大那在我图学学大老但</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">119 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">我当时的策略是“抱着人道的意志，用天道的方法做事，以地道的方法优化。”
+
+好吧，我相信你会忍不住骂，这狗东西怎么又装神棍了？
+
+因为人生是苦闷的，失败是不可避免的，我的意志力和执行力又没那么强，我需要为自己的每个行为、事件赋予大量的浪漫叙事和意义，我认为这是个好习惯。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">策略与浪漫叙事</div>
+            <div class="rc-hint-letters">我用以”好我这因失我我事我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">92 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+让我们说人话吧！
+
+我决定心平气和地随机尝试无数次，每次失败后总结规律，以增加下次尝试的成功概率。
+
+此外，我还得保证自己有足够的试错成本，确保即便最坏的情况发生，我也能心平气和的接受。
+
+这叫无限后手。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">随机尝试与无限后手</div>
+            <div class="rc-hint-letters">图让我每以此我确我这</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">156 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">关于试错成本，我其实只有“旷课”。
+
+我甚至不能花钱试错，如果我不断花钱试错又没成果，成绩还差，会触发我父母的强制管控。
+
+关于最差情况，我有上财这个备胎。上财毕业生的平均薪资是1w，再差我毕业也能找到月薪6000的工作，不会饿死。
+
+这不就是个仗着自己有接盘侠的混圈女吗？
+
+是的。
+
+但我会把自己想象成一台安全的粒子对撞机，我的任务就是在四年内找到稀有粒子。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">试错成本与备胎</div>
+            <div class="rc-hint-letters">关我我如成会关我上再不这是但我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">192 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+我的确没什么头绪，所以我同时从实习、阅读、副业、校内社团、体验，五个方面入手，做大量尝试。
+
+实习是我收效最差的。我做过杜嘉班纳的零售分析实习生（Retail Analysis）、NIKE的零售企划实习生（Merchandising），这俩都是用EXCEL函数处理数据的工作。
+
+我在法院做过实习法官助理，我也在金融公司做过国际业务实习生，我还在一家很小的咨询公司的某个时尚项目做过实习生。
+
+这些工作基本都是日薪150-200，每周三天，我不喜欢上班，干得也中规中矩，甚至没收获过杰出的评价。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">五个方面尝试与实习</div>
+            <div class="rc-hint-letters">图我所阅副校体五做实我AN这我我我这每我干甚</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">126 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片 图片 图片
+
+阅读也没什么即时回报。
+
+我多是看各种人物传记和不同领域的闲书。
+
+很悲伤，我没在哪个领域解锁自己的天赋，甚至都没找到自己很想钻研的领域。
+
+我甚至不是人文社科领域的聪明人。我看纯粹理性批判和分析哲学也会头蒙蒙的，翻两页就扔了，纯文学我也看不下去，叽里咕噜讲啥呢？</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">阅读无回报</div>
+            <div class="rc-hint-letters">图图图阅我很我甚我我翻纯叽</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">180 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+副业的回报还不错。
+
+我第一份副业是代写论文，一万字的论文赚一千两百块。本科生论文真的很好写，胡扯就完事了，我连引用都是胡扯的，胡扯查重率还低。
+
+图片
+
+后来我发现写公众号，一篇2000字能拿160-400块的稿费，我就跑去写公众号。
+
+我每次跟读者们说我没有写作天赋，你们都觉得我是故作谦虚。
+
+真的啊！
+
+我的写作天赋只能算三流，所有的情感、时尚头部账号都给我拒稿了。我甚至不能用几乎这个词，因为没有“几乎”，是“全都”。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">副业代写与公众号</div>
+            <div class="rc-hint-letters">图副我一本胡我胡图后一我我你真我所时我因是</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">160 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+我只能退而求次写潮流、球鞋，我同时给三家公众号供稿：
+
+甲不要给乙，乙不要给丙，丙是我的垃圾回收站，毕竟它每篇稿费只有160。
+
+图片 （这种被业内知名设计师转发的推文，一篇我只能赚160块）
+
+社团没啥收获啥。
+
+我当时把学校能进的社团都进了一遍，从动漫社到创业中心、外联部、文艺部，每个社团也只会呆七八天到一个月，我在大学社团既找不到归属感也看不到什么好机会。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">供稿三家与社团无获</div>
+            <div class="rc-hint-letters">图我球我甲乙丙毕图（一社我从外文每我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">124 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">体验的体验还挺好的。
+
+我把实习和副业赚的钱都花在了谈恋爱、买潮牌、环游世界。
+
+环游世界其实没想象的那么贵，只要你买中转好几趟的廉价航空、晚晚住青旅，在最贵的北欧玩一个月也花不到两万。
+
+打游戏、刷剧也算体验，体验就有收获，譬如我确实没有什么成为职业游戏选手的天赋。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">体验与环游世界</div>
+            <div class="rc-hint-letters">体我买环环只晚在打刷体譬</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-23">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 23</span>
+            <span class="rc-size">132 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+因为我常写夜店，许多读者都认为我是富二代。
+
+我既不想凹励志人设，也不想蹭媚富的流量。
+
+我是普通的中产家庭，我父母不需要我供养，这是我的运气。我大一生活费是每个月三千块，它的确比平均水平更高。
+
+但我从大二开始就不要家里钱了。
+
+倒不是我自强，是我不敢要，被扭送衡中给我的心理阴影太大了。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">中产家庭与不要钱</div>
+            <div class="rc-hint-letters">图因许我也我我这我它但倒是被</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-24">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 24</span>
+            <span class="rc-size">150 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+我能清楚地意识到那种代价，只要我花家里的钱，就会被管。我要一边花家里钱，一边挂科，还没有合理解释，我认为父母是有概率送我去电疗的。
+
+…….
+
+让我们就此打住！
+
+这些碎碎念的流水账，任何人看了都会厌倦。
+
+诸位请看！
+
+上面一连串的尝试跟我会成为夜生活博主没任何关系。
+
+我所有的尝试恰如下图：
+
+图片
+
+像一只无头苍蝇，我仍是一只没抓到死耗子的瞎猫。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">流水账与瞎猫</div>
+            <div class="rc-hint-letters">图我只就我一还我…让这任诸上我图像我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-25">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 25</span>
+            <span class="rc-size">465 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">那我是如何接触夜店的呢？
+
+1，乱窜的过程，我认识了学校里的很多人。
+
+2，我会买一些潮牌，看起来还挺酷的。我的实习和副业让我显得像个有钱的大学生。
+
+3，我初恋看上了我。
+
+她其实并不喜欢我这个人，她只是想找一个能当ATM机、工具人用的帅哥，现在我能看的很通透。
+
+4，我像她的小助理，她去夜店玩会让我替她写校园公众号。
+
+我问她你希望我照着哪个公众号写？她发给我夜店公众号。
+
+5，我们的关系只持续了三个月，她用我送的手机忘了关icloud，我打开相册看到了自己被绿。
+
+6，我和她恋爱的过程认识了一些会去夜店玩的人。
+
+几个月后，那些人缺人摊钱开卡，喊了我。我很乐于体验一切新事物，我去了。
+
+7，两年后，当我在写潮流公众号时，一个我在夜店认识的女生随口一问：“你为什么不写夜店公众号？”
+
+8，对啊！我怎么没想到！我开始尝试给夜店公众号投稿。
+
+9，我发现夜店公众号很好写，那些我读过的书、走过的路，总能把低俗内容升华。我很轻松地做到了最好，不过只是最好的编辑。
+
+10，我大四因为挂科被延长毕业了，我不敢告诉家里。2019年6月到9月这段时间，我一边在当编辑，一边更新满分激光枪。
+
+11，2019年12月，我拿到了毕业证，那时满分激光枪已经小火了。
+
+我就这样实现了所谓的“刚大学毕业就年入百万”。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">接触夜店十一步</div>
+            <div class="rc-hint-letters">那1乱我2我看我3我她她工现4我她我她5我她我6我几那喊我我7两当一“”8对我我9我那走总我不1我我2我一12我那我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-26">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 26</span>
+            <span class="rc-size">218 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">如果我只写1-11，你会认为这是一个“被初恋伤害后黑化的故事”。如果我是男性情感博主，我会大书特书，博取男人们情绪上的支持和共鸣。
+
+但，这事在我人生中深刻的记忆里甚至排不进前50。
+
+我写，只因为它是线上的一环。
+
+图片
+
+诚恳地说，分手时我很难过、生气，我觉得被羞辱、玩弄了。
+
+但我什么都没做，我也什么都不想做，我只是让情绪流过自己。
+
+我觉得这种链条很悲伤：她被人渣，她变坏，她渣了我，渣她的人不过也是被人渣的。那我要变坏再去渣别人吗？
+
+比起争口气，我倒觉得把这种因果在我这儿斩断比较有成就感。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">分手与斩断因果</div>
+            <div class="rc-hint-letters">如你如我博但这我只图诚分生我玩但我我我她她她渣那比我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-27">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 27</span>
+            <span class="rc-size">187 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">物理学有个家说：人做每个选择的那一刻都会分支出另一个平行宇宙，我只是不停歇地同时做大量选择，最终在无数条世界线里找到了唯一一条能让那个哇哇大哭的小轩昂幸福的世界线。
+
+图片
+
+什么是“瞎猫理论”？
+
+站在学术的角度概括，瞎猫理论本质上是数学和概率论在商业世界的应用。
+
+站在民科的角度，瞎猫理论是一种平行宇宙思维方式，瞎猫理论是用粒子对撞机的方式找到人生出路。
+
+站在大家都能懂的角度，我会说瞎猫理论即是“道法自然”。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">平行宇宙与瞎猫理论定义</div>
+            <div class="rc-hint-letters">物人我最图什站瞎站瞎瞎站我</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-28">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 28</span>
+            <span class="rc-size">172 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">天该怎么找到河谷呢？
+
+上天不会寻找河谷，上天会下雨，雨水会变成溪流，溪流会流进河谷。
+
+那人要成为天吗？
+
+人怎么可能成为天呢？你又不是大组织、大资本、大公司。
+
+那人要成为溪流吗？
+
+请让我们回到文章开头，我引用天将降大任于是人也是想告诉各位：
+
+总有溪流会越过坎坷进入河谷，但并非所有的溪流最终都会汇入河谷。
+
+那人要成为什么呢？
+
+人法地，地法天，天法道，道法自然。
+
+人应同时成为数百条聪明的溪流。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">天与溪流比喻</div>
+            <div class="rc-hint-letters">天上上雨溪那人你大大那请我总但那人地天道人</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-29">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 29</span>
+            <span class="rc-size">134 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">即便如此，人只是增大了自己流入河谷的概率。所以人要心平气和，就算没流入河谷，也能成为一滩活水。
+
+当你迈入更多的溪流，即便一条溪流都没有流入河谷，但数百条溪流会渐渐形成一条新的溪流流入河谷。
+
+这在数学上叫概率论+傅立叶变换。
+
+没事，我们不用懂这个。
+
+我也不懂，我只知道大概意思。
+
+毕竟我是文科生。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">概率论与傅立叶变换</div>
+            <div class="rc-hint-letters">即人所就也当即但这没我我我毕</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-30">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 30</span>
+            <span class="rc-size">170 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">图片
+
+讲真的。
+
+写作（表达）和夜店（社交）完全是我最差的两项技能，我讨厌作文。
+
+我学生时代也不喜欢喝酒，酒桌文化很老登，喝酒很伤脑。
+
+图片 （一条非常外祖父悖论的朋友圈）
+
+我没有当网红的天赋，直到今天我在镜头面前都表现的不好。
+
+结果我的第一桶金是自媒体…
+
+我甚至没赶上自媒体的风口，抖音是18年火的，我写公众号是19年，它早过气了。
+
+你问我一切是否是运气呢？
+
+绝对是。
+
+所以我的理论才叫瞎猫理论呀！</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">最差技能与第一桶金</div>
+            <div class="rc-hint-letters">图讲写我我酒喝图（我直结我抖我它你绝所</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-31">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 31</span>
+            <span class="rc-size">261 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">瞎猫理论是一门把自己扔进混乱的哲学，我要教的无非两点：
+
+1，如何把自己扔进更大的混乱？
+
+2，如何在混乱里保护自己？
+
+一个普通的学生、白领该如何践行瞎猫理论呢？
+
+1，先找到、拥有人生备胎。上财就是我的备胎，学历贬值跟我无关，谁会在乎备胎好坏啊？能当备胎即可。
+
+2，以最低的试错成本大量尝试，多线尝试。
+
+3，接触更多信息、跨行业、跨领域的信息。看不懂就不看，不喜欢就不看。
+
+4，有迭代复盘的好习惯。
+
+5，保持善良。保持善良不是为了回报，只是为了在混乱中守住本心，不被混乱侵蚀。我们总想为善良找到一些世俗意义，好吧，那我会说，善良能帮助你从混乱中窃取力量而不被反噬，它是穿越平行宇宙的秘密。</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">瞎猫理论两点与践行五条</div>
+            <div class="rc-hint-letters">瞎我1如2如一白1先拥上学谁能2以多3接跨跨看不4有5保保只不我好那善它</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-32">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 32</span>
+            <span class="rc-size">2745 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">以上是瞎猫理论的第二篇。
+
+我自己评价这篇文章，我会觉得它有点儿神棍和鸡汤，所以我后面几篇会务实的写：
+
+1，如何快速在任何领域做到二流水平？
+
+2，如何从0到1构建一人媒体公司？
+
+3，如何从0到1构建一人电商公司？
+
+4，如何从0到1构建一人广告公司？
+
+5，如何从0到1成为网红？
+
+6，夜生活行业的各位“瞎猫”，局头、DJ、酒吧老板如何年入百万？
+
+图片
+
+暂无评论
+
+留言 50
+
+满分激光枪 作者 3天前 5 瞎猫理论第一篇我靠“瞎猫理论”，做了四家赚钱的一人公司。～ 置顶
+
+Duole 广东 3天前 9 有勇气开始试错，揣颗大心脏面对负反馈，其实也是很大的天赋了
+
+满分激光枪 作者 3天前 28 平常心很重要。 我有次请一个女生吃饭。 她说：你不是我喜欢的类型 我说：好吧 她问：你不难过吗？ 我说：难过啊。 但你看，用0到10分衡量，你拒绝我的难过是4分。 我经常认真写很久，做出一篇推文，结果我的读者们不喜欢，阅读量很差，那种痛苦是6分。 你看，我的读者肯定比你重要的，我隔三差五都在被最重要的人拒绝，习惯了。 展开
+
+田 江苏 3天前 5 我的问题是，连载到第几部开始割我，已经迫不及待了
+
+满分激光枪 作者 3天前 21 咋算割啊？卖课？那不会。咱主打一个开源赢闭源。
+
+行吟的歌者 浙江 3天前 13 我看到传记（不多）感受之一是那些人共性是或早或晚找到了某种自己的使命，并且十分投入，大部分人也就是凑数或者将就随波逐流
+
+Branda Lau 北京 3天前 13 “抱着人道的意志，用天道的方法做事，以地道的方法优化。”这句话其实超级凡尔赛（褒义，凡尔赛的前提是真得有），一个没受过客观外部挫折的青年人，既能主动有知觉地“觉醒”，又能坦诚不逃避竞争和试错，还不为失误矫饰，直面真实的残酷。tutu老师教我良多。
+
+满分激光枪 作者 3天前 12 那我还是受到挺多外部挫折的🤡
+
+一坨猫 湖南 3天前 8 你应该认识一个曾经叫躺平学概论现在叫骑桶跑路人的劳保博主，不认识的话现在认识也来得及
+
+满分激光枪 作者 3天前 11 我认识啊 我学弟
+
+Paushyon 福建 3天前 3 tutu要不展开讲讲窃取力量不被反噬
+
+满分激光枪 作者 3天前 10 当个老实人
+
+saber 浙江 3天前 1 如果不觉得那段文字嘉豪和高深莫测 觉得很合理，说明什么呢
+
+满分激光枪 作者 3天前 7 说明该去学概率论
+
+看天在人 上海 3天前 7 关于最差情况，我有上财这个备胎，这特么真的是何不食肉糜，过于凡尔赛
+
+Q Q 上海 2天前 我发现像tutu这样的人，转机发生的背后都有个女人，好神奇
+
+满分激光枪 作者 2天前 6 等于白看…世界其实没有转机，世界是非线性的
+
+安澜 河北 3天前 1 学长好 在微信大号已经关注了你很多年，之前总以为你在衡水的生活如鱼得水，毕竟关于医务室和普通班年级前几名的描述真的很生动，没有想到你也会有逃离的想法和举动。 关于衡水的经历你会怎么看呢，或者说，你会如何定义那个阶段？
+
+满分激光枪 作者 3天前 6 我会尽量苦中作乐，但苦也是实在的苦。我关于自己的高中想写的可太多了，我觉得写出来是能成为文学的，所以我会把那些话留在小说里。
+
+安澜 河北 3天前 1 回复 满分激光枪：非常期待，两三年前看到这个消息时就在期待了，等了好久
+
+樱花木道 河北 3天前 1 搞这么高级，还用ai跑了几张概念图出来
+
+满分激光枪 作者 3天前 6 对啊 想表达大数定律、贝叶斯以及傅立叶变换，图片就容易理解。
+
+时之砂 青海 3天前 5 老粉表示上篇留言被吞，被扭送到衡水这一听就很专业了，tutu不愧是另辟蹊径的法学高材生
+
+满分激光枪 作者 3天前 2 运气好主要
+
+Shawn 上海 3天前 4 很喜欢楼主那张如神经束般的那张图，同时很羡慕楼主很早就明白了这个道理，开智的非常早，而我直到25岁才开始进行尝试
+
+满分激光枪 作者 3天前 谢谢哈哈哈
+
+ghc6eddd9bda5c 上海 3天前 运气也是实力的一种
+
+满分激光枪 作者 3天前 3 能增加运气的叫实力
+
+ghc6eddd9bda5c 上海 3天前 回复 满分激光枪：嗯，实力决定了运气的下限，运气决定了实力的上限
+
+Claysayhey 北京 3天前 1 在有那个女朋友前我和你的经历和理念几乎一样看来转折点是该恋爱脑的时候没恋爱脑 以及体验过东西自己没有很喜欢便不会被人老叫出去，小众的东西体验过就过了。但大众的东西确实太卷了
+
+Claysayhey 北京 3天前 2 又思索了一下，似乎还有一个很重要的卡点，我怕被大众审视，所以只能给平台供稿，不敢一直更新自己的账号，就这样错过了公众号抖音小红书。他们刚出的时候我就觉得是未来潮流去用了，但还是选择了上班
+
+满分激光枪 作者 3天前 3 回复 Claysayhey：我也怕啊 我刚做公众号不露脸也不介绍自己哈哈
+
+rULe4Ker4pwn 已赞赏 美国 3天前 2 训练样本量越大找到edge的概率越大单次过度押注会被方差带走，所以科学分配仓位押注降低波动影响，同时押注的频率越多在有edge的情况下越能被大数定律放大优势，让自己找到随机过程中的下鞅，玩+EV的游戏，exploit the Edge，活下去在找到下鞅之前，人生就像西西弗斯，或者有期望优势在印不够的利用的情况下过度riskon的代价是成为西西弗斯，但是无论我再绝望也会在绝望中重复尝试因为我知道有天我一定会把那块巨石推到山顶，我也知道客观现实不在乎一万个人里谁能做到，只是除了我以外没人能做到所以只能是我，因为自由意志的作用就是用理性和策略击碎其他错误事件发生路线的概率场，这是之所以天道或者上帝赋予人类自由意志，以及任何人短暂的一生唯一的意义，自由意志和理性驱动行为，因此人类才和动物有分别，我能看到你的自由意志，这很少见我喜欢你么么哒 展开
+
+饮鸩而歌 上海 3天前 2 感觉更适合有优秀学历背景的同学参考，不是想着在自己的领域硬卷（能人天才太多），而是针对个人优势不断尝试新赛道，达到1+1大于2的效果。但是也有时代局限性，在当时，主包中规中矩也能拿到很好的结果过很舒服的生活，而现在试错成本大大提高，哪怕在好点的985，混子的兜底保护机制也在逐步消失。
+
+Sophia 山东 3天前 俺在中9，当年休学一年相当于用高中学历找了份服务业工作（当然比较低端比较累），上一休一，月薪5000+ 如果对备胎（最低保障）的要求不要太高的话，是真的会有勇气试错并放下竞争心的。当然我对自己低保的要求就是自己能养活自己
+
+每天进步一点. 广东 3天前 2 *年老读者路过留下了一个赞
+
+綾波麗 上海 3天前 2 写的真好，老粉也是现在才知道tutu大学捣鼓了这么多东西，我还是尝试的不够多，要多学习！
+
+陈宸谌琛趁 广东 17小时前 “我要一边花家里钱，一边挂科，还没有合理解释，我认为父母是有概率送我去电疗的。“衡水对于博主的阴影可见一斑哈哈哈哈哈哈
+
+满分激光枪 作者 15小时前 1 那太大了
+
+- 四川 17小时前 ”甲不要给乙，乙不要给丙，丙是我的垃圾回收站“，这句话让摸鱼的我笑出声，写得好有意思哈哈哈
+
+满分激光枪 作者 15小时前 1 不然呢 总不能白写呀哈哈
+
+Learning by doing 内蒙古 2天前 1 我也是这样做的，这个理论适用于所有普通大学毕业生，人生就该这样，才能找到自己喜欢的事
+
+田半赤 天津 3天前 我很好奇为啥我每次评论都没被精选过，这在我的评论经历里实属罕见，这篇讲瞎猫理论，那我就接着评论看看能不能像瞎猫碰死耗子一样被精选
+
+满分激光枪 作者 3天前 1 瞅了眼，你留言过四次，我精选了两次，许多留言会被直接屏蔽，不是我没选。
+
+阿夫 四川 3天前 1 1成人世界的难题没有固定答案也没人给的了解题步骤 2比起争口气，我倒觉得把这种因果在我这儿斩断比较有成就感。 3保持善良 深表认可！🍻
+
+满分激光枪 作者 3天前 1 🍻
+
+文柒柒777 陕西 3天前 写这些文章 然后获得大家的正反馈 算是窃取力量的一种方式吗
+
+满分激光枪 作者 3天前 不是 是追求人生更大的成就
+
+阿斯德夫 上海 3天前 好看，爱看，多写多看
+
+值域 上海 3天前 抢个前排，前两篇留言都没放出来 已无更多数据 写留言</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">后续计划与评论区</div>
+            <div class="rc-hint-letters">以我我所1如2如3如4如5如6夜局D酒图暂留5满作35瞎做～置D广39有揣其满作32平我她你我好她你我难但用你我做结阅那你我我习展田江35我连已满作32咋卖那咱行浙31我并大BL北31“用以”凡一既又还直t满作31那一湖38你不满作31我我P福33t满作31当s浙31如觉说满作37说看上37关我这过QQ上2我转好满作26等世安河31学在之毕没关或你满作36我但我我所安河31回满非两等樱河31搞还满作36对想贝图时青35老被t满作32运S上34很同开而满作3谢g上3运满作33能g上3回满嗯实运C北31在以小但C北32又似我所不就他但满作33回C我我r已美32训所同让玩etE活人或但我只因这以自因我这展饮上32感不而达但在主而哪混S山3俺当上月如是当每广32*綾上32写老我要陈广1“一还我“满作11那-四1”乙丙这写满作11不总Lbd内21我这人才田天3我这这那满作31瞅你我许不阿四3112我3深🍻满作31🍻文陕3写然算满作3不是阿上3好爱多值上3抢前已写</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-29 周四</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-29 周四</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-29 周四</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-29 周四</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-30 周五</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-30 周五</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-30 周五</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-30 周五</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-31 周六</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-31 周六</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-31 周六</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-31 周六</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-01 周日</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-01 周日</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 23</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-01 周日</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 24</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-01 周日</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-08<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 25</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-02 周一</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 26</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-02 周一</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 27</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-02 周一</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 28</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-02 周一</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-09<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 29</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-03 周二</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 30</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-03 周二</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 31</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-03 周二</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 32</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-03 周二</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-10<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">7403</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 6635 tokens · 输出 3344 tokens ·
+        费用 ¥0.0133
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-10-27
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "瞎猫理论",
+      chunkCount: 32,
+      startDate: "2026-10-27",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

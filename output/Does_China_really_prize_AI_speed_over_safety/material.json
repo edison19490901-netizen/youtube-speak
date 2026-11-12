@@ -1,0 +1,158 @@
+{
+  "meta": {
+    "material_id": "Does_China_really_prize_AI_speed_over_safety",
+    "title": "Does China really prize AI speed over safety.txt",
+    "language": "en",
+    "source_type": "article",
+    "truncated": false,
+    "created": "2026-10-27"
+  },
+  "material": {
+    "title_suggested": "Does China really prize AI speed over safety?",
+    "language": "en",
+    "advice": "This piece is dense with long, multi-clause sentences (chunks 9, 11, 18, 19) and parallel lists (chunk 13's three risk categories, chunk 26's 'rules, controls, limits and warnings'), so read each long chunk in two breaths at the dash or semicolon. Anchor the argument's arc with four keywords: 'golden three seconds' (hook), '54 risks' (framework), 'philosophical gap' (Xi vs Silicon Valley), 'in its element' (conclusion). Watch tricky items like 'forregulation', 'newestversion' and 'ontougher' — keep them exactly as printed, and note the British spellings 'labour', 'labelled', 'co-ordinated'.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "China | Chaguan Does China really prize AI speed over safety? In full command of its own cyberspace, China wants the same for AI Oct 22nd 2026",
+        "hint": "title and standfirst"
+      },
+      {
+        "index": 2,
+        "text": "“Guard the golden three seconds, guard your wallet.” In recent weeks a video of an avuncular policeman, Guo Tao, delivering this message—a warning about how to handle fraudsters on the phone—has spread widely in China.",
+        "hint": "Guo Tao's golden three seconds"
+      },
+      {
+        "index": 3,
+        "text": "All it takes is a simple greeting for criminals to capture one’s voice and then use artificial intelligence to synthesise it for duping friends and relatives. So, as Mr Guo says, it is best to stay silent for three seconds when called from unknown numbers, to see if a real person speaks.",
+        "hint": "voice cloning fraud"
+      },
+      {
+        "index": 4,
+        "text": "Not bad advice. It also relates to one of the tech world’s most pressing questions: what does China think about the risks posed by AI?",
+        "hint": "pressing question"
+      },
+      {
+        "index": 5,
+        "text": "Many observers believe China does not care much about the dangers. Donald Trump is one. “China will be doing absolutely nothing to stand in the way of AI,” he claimed last month, explaining his own disdain forregulation.",
+        "hint": "Trump's claim"
+      },
+      {
+        "index": 6,
+        "text": "Indeed, surveys point to overwhelming Chinese optimism about AI. In a poll by Gallup, 93% of respondents in China said it would mostly help their country, versus just 36% in America.",
+        "hint": "Gallup optimism gap"
+      },
+      {
+        "index": 7,
+        "text": "Calls for China to work with America to slow down frontier models have been brushed aside in Beijing. “Fearmongering” serves no one, says China’s foreign ministry.",
+        "hint": "fearmongering brushed aside"
+      },
+      {
+        "index": 8,
+        "text": "In fact, China spends an awful lot of time thinking about AI safety. Telephone fraud is just the tip of an iceberg of anxieties.",
+        "hint": "tip of the iceberg"
+      },
+      {
+        "index": 9,
+        "text": "China’s concerns run from criminal activity, labour displacement and national security to, yes, the loss-of-control scenarios causing sleepless nights in Silicon Valley. This should not be surprising.",
+        "hint": "range of concerns"
+      },
+      {
+        "index": 10,
+        "text": "The Communist Party, which obsesses about danger in almost every domain of life, has fought for years to bring cyberspace under control. Is a regime that views the internet as an existential challenge suddenly about to let AI rip?",
+        "hint": "party control of cyberspace"
+      },
+      {
+        "index": 11,
+        "text": "If, as in the Trump administration, one defines regulation as intrinsically a form of slowdown, then China is, in effect, slowing AI—though it would never say so. “China already has the most stringent AI rules anywhere in the world,” says Kendra Schaefer of Trivium, a consultancy based in Beijing.",
+        "hint": "regulation as slowdown"
+      },
+      {
+        "index": 12,
+        "text": "The foundational document is China’s framework for the governance of AI safety. A second update came out in September.",
+        "hint": "safety framework update"
+      },
+      {
+        "index": 13,
+        "text": "It lists 54 risks under three categories: “inherent” (models behaving in unintended ways), “application” (use by criminals) and “secondary” (social alienation). It also proposes ways to eliminate or, at least, mitigate these threats.",
+        "hint": "54 risks, three categories"
+      },
+      {
+        "index": 14,
+        "text": "One is to require checkpoints at which humans (remember those?) must review and, if necessary, halt AI agents before they roam too widely.",
+        "hint": "human checkpoints"
+      },
+      {
+        "index": 15,
+        "text": "Some of the framework’s earlier ideas are already in force—for instance, AI-generated content such as audio and video must be clearly labelled. Others are likely to form the basis of new rules. Draft measures call for service providers to shut down any feature with serious problems immediately.",
+        "hint": "labelling and shutdowns"
+      },
+      {
+        "index": 16,
+        "text": "On October 16th China also proposed curbs on exports of its most advanced AI technologies.",
+        "hint": "export curbs"
+      },
+      {
+        "index": 17,
+        "text": "As AI has grown more powerful, China has paid more attention to doomsday possibilities. The original version of its safety framework, issued in 2024, made just one glancing reference to loss of control. In the newestversion, that topic comes up more than a dozen times.",
+        "hint": "doomsday focus grows"
+      },
+      {
+        "index": 18,
+        "text": "Even so, it is possible to discern a philosophical gap. Whereas some in America fear that AI models will eventually surpass human intelligence and take control of their own evolution, the more common view in China is that AI is a transformative technology that can be harnessed and directed, not something that will slip human grasp.",
+        "hint": "philosophical gap"
+      },
+      {
+        "index": 19,
+        "text": "Xi Jinping compares AI to the steam engine, electricity and the internet— technologies that were epoch-shaping but did not pose dangers that required a co-ordinated slowdown. With China still trailing America at the frontier of AI, Mr Xi is all the less inclined to agree to apply the brakes. As China sees it, such an agreement looks both unnecessary and self-serving for Americans.",
+        "hint": "Xi's steam engine analogy"
+      },
+      {
+        "index": 20,
+        "text": "Unsurprisingly, Chinese officials devote much bandwidth to ideology. They want to ensure that models do not contradict the party on important matters, and that new tools do not undermine its control.",
+        "hint": "ideological control"
+      },
+      {
+        "index": 21,
+        "text": "Yet there are more banal concerns, too, reflecting the soft paternalism of the Chinese state. Hence Mr Guo’s three golden seconds on the phone and a ban on offering virtual lovers or, for that matter, virtual relatives to minors.",
+        "hint": "soft paternalism"
+      },
+      {
+        "index": 22,
+        "text": "China’s yen for rules may have an unintended effect. In America, where the government has a much lighter touch, companies have stepped into the breach, evaluating their own models and asking for more guardrails. In China firms are often more passive, waiting for directions from the party and government before applying controls.",
+        "hint": "passive firms"
+      },
+      {
+        "index": 23,
+        "text": "A review by Concordia AI, a consultancy in Beijing, of ten Chinese firms with recently released models found that just five had published safety evaluations. That suggests possible perils if models develop faster than regulators expect.",
+        "hint": "only five evaluations"
+      },
+      {
+        "index": 24,
+        "text": "China’s rules will also fail to impress those who view its open-weight models as unavoidably dangerous. Critics fret that such models, unlike the closed ones dominant in America, can be abused more readily.",
+        "hint": "open-weight criticism"
+      },
+      {
+        "index": 25,
+        "text": "Yet many in Chinese AI argue the benefits outweigh that hazard: they note that China’s open models have helped defend computer systems from rogue attacks launched by American closed models, as when OpenAI tools breached Hugging Face, an AI platform. In any case, China is already working ontougher rules to govern open models. Insiders say that new releases face exacting safety reviews before being offered to the public.",
+        "hint": "defence of open models"
+      },
+      {
+        "index": 26,
+        "text": "By most measures China’s AI models are a few months, or more, behind America’s in their performance. That is a big gap for such a fast-evolving technology. But do not accuse China of lagging behind America in its management of risks. When it comes to rules, controls, limits and warnings, China is in its element.■",
+        "hint": "behind in models, ahead in rules"
+      },
+      {
+        "index": 27,
+        "text": "This article was downloaded by zlibrary from https://www.economist.com/china/2026/10/19/does-china-really-prize-ai-speed-over-",
+        "hint": "source line"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1856,
+    "completion_tokens": 1838,
+    "total_tokens": 3694,
+    "cost_cny": 0.005532
+  }
+}

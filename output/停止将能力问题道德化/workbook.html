@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>停止将能力问题道德化.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-trans { border-top: 1px dashed #eee; background: #fcfcfc; }
+  .rc-trans summary { cursor: pointer; list-style: none; user-select: none; padding: 8px 14px; font-size: 12.5px; color: #b03a4e; font-weight: 600; }
+  .rc-trans summary::-webkit-details-marker { display: none; }
+  .rc-trans summary::before { content: "▸ "; color: #aaa; }
+  .rc-trans[open] summary::before { content: "▾ "; }
+  .rc-trans summary:hover { background: #f8f8f8; }
+  .rc-trans-text { padding: 0 14px 12px; font-size: 13.5px; line-height: 1.85; color: #4a5f59; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>停止将能力问题道德化.mp4</h1>
+    <div class="meta">上传视频 · 1m 57s · 669 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 中文</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0072 · 4400 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>变强的第一要务是停止将能力问题道德化，道德化是大脑逃避深入分析的快捷方式。</li><li>道德化能带来掌控感和心理台阶，但会让我们逃避真正的成长机会。</li><li>这种标签化思维是从小被训练出来的，我们习惯用道德标尺衡量自己和他人。</li><li>要真正成长，需识别思维枷锁，把困难当作技术问题来处理，而非道德问题。</li><li>例如拖延是生活系统问题，懒惰可能是能量管理问题，而非品格缺陷。</li><li>停止道德化的意义在于把审判自己的能量转向提升能力、解决问题，让改变动力从内心升起。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>你有没有发现，每次遇到挫折，我们总爱给自己或别人贴个道德标签？比如“他就是个坏人”“我就是不够努力”。今天咱们聊聊，为什么变强的第一步，是停止把能力问题道德化。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>道德化其实是大脑的快捷方式。被人伤害了，直接判定对方是坏人，比分析他为什么敢这样对你、你该怎么设边界要容易得多。这种处理能给你掌控感，填补内心的无力感，还给你一个心理台阶。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>但代价是什么呢？竞争失败了，你不去分析输在哪个环节，而是告诉自己“我不是这块料”，那就逃避了真正的成长机会。这种标签化思维，其实是从小被训练出来的——我们从小就被“努力”“听话”这些道德标尺衡量，长大后就习惯用同一把尺子量世界、量自己。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>所以，想真正变强，先要识别这些阻碍成长的思维枷锁，有意识地调整。把生活中的困难当作技术问题来处理，而不是道德问题。比如拖延，不是无药可救的性格弱点，而是你没设置好一个能顺畅启动的生活系统；懒惰，可能不是品行问题，而是能量管理问题——缺体力、缺心理能量、缺安全感时，人就会本能地低频运转。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>停止道德化的真正意义，是把审判自己的负面能量，转移到提升能力、解决问题上。当你不再视自己为问题，而是能把问题剥离出来重新看待，改变的动力就会从内心升起。一味用“我应该努力”要求自己，得到的往往不是动力，而是更深的自我攻击。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>下次遇到困难，不妨先问自己：这是能力问题还是道德问题？我该怎么用技术思维去拆解它？希望这期内容能帮你卸下道德包袱，轻装上阵。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>The first priority for getting stronger is to stop moralizing ability issues; moralizing is a mental shortcut that avoids deeper analysis.</li><li>Moralizing gives a sense of control and a psychological escape, but it makes us miss real opportunities for growth.</li><li>This labeling mindset is trained from childhood, and we habitually measure ourselves and others with moral yardsticks.</li><li>To truly grow, we must identify these mental shackles and treat difficulties as technical problems, not moral ones.</li><li>For example, procrastination is a system problem, and laziness may be an energy management issue, not a character flaw.</li><li>The point of stopping moralization is to redirect energy from self-judgment to improving abilities and solving problems, so motivation arises from within.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Have you ever noticed that whenever we face a setback, we tend to slap a moral label on ourselves or others? Like &#34;he&#39;s a bad person&#34; or &#34;I&#39;m just not trying hard enough.&#34; Today, let&#39;s talk about why the first step to getting stronger is to stop moralizing ability issues.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Moralizing is actually a shortcut our brain takes. If someone hurts you, labeling them as a bad person is much easier than analyzing why they dared to treat you that way and how you should set boundaries. This gives you a sense of control, fills the void of powerlessness, and offers a psychological escape.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>But what&#39;s the cost? If you fail in a competition and don&#39;t analyze which part you lost, but instead tell yourself &#34;I&#39;m just not cut out for this,&#34; you miss the real opportunity to grow. This labeling mindset is trained from childhood—we&#39;re measured by moral yardsticks like &#34;hardworking&#34; and &#34;obedient,&#34; and as adults, we use the same ruler to measure the world and ourselves.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>So, to truly get stronger, first identify these mental shackles that hinder growth and consciously adjust them. Treat difficulties in life as technical problems, not moral ones. For example, procrastination is not a hopeless character weakness; it&#39;s that you haven&#39;t set up a life system that allows you to start smoothly. Laziness may not be a character flaw but an energy management issue—when lacking physical energy, mental energy, or a sense of security, people instinctively operate at a low frequency.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>The real meaning of stopping moralization is to redirect the negative energy of self-judgment toward improving abilities and solving problems. When you no longer see yourself as the problem, but can separate the problem and look at it objectively, the motivation to change arises from within. Constantly demanding &#34;I should try harder&#34; often leads not to motivation but to deeper self-attack.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Next time you face a difficulty, ask yourself: Is this an ability issue or a moral issue? How can I break it down with a technical mindset? I hope this helps you drop the moral burden and move forward lighter.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这是一篇典型的观点输出型口播稿，结构清晰，采用「提出核心观点—解释机制—分析成因—给出方法—升华意义」的递进式结构。主线是：停止将能力问题道德化，把困难当技术问题处理。风格口语化，善用生活化例子和对比，逻辑推演层层深入，最后落脚到自我成长的心理动力上。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">5 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">提出核心观点</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">变强的第一要务是停止将能力问题道德化。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">直接给出论断，开门见山。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">开门见山，直接抛出核心观点，吸引注意力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点并论证</span>
+            <span class="sec-title">解释道德化的心理机制</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">道德化是大脑的快捷方式，能带来掌控感和心理台阶，但会让人逃避深入分析。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用「被伤害后判定对方是坏人」和「竞争失败后说自己不是这块料」两个例子，对比分析原因与贴标签的难易程度。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">举例论证、对比论证，用生活化场景让抽象概念具体化。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">分析道德化思维的成因</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">这种标签化思维是从小被训练出来的，我们习惯用道德标尺衡量世界和自己。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">从小被「努力」「忍耐」「听话」等道德标词衡量，长大后用同一套尺子衡量一切。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">归因分析，从社会文化角度解释思维习惯的来源，增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折与结论</span>
+            <span class="sec-title">给出解决方案</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">要识别思维枷锁，把困难当作技术问题来处理，而非道德问题。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">以拖延和懒惰为例，说明它们是系统问题或能量管理问题，而非品格缺陷。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">提出具体方法，并用重新定义问题的方式（把道德问题转化为技术问题）来支撑论点。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">升华意义</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">停止道德化的意义在于把审判自己的能量转向提升能力，让改变动力从内心升起。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">对比「我应该努力」的自我要求往往带来更深的自我攻击，而把问题剥离出来看待能激发内在动力。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">对比论证，升华主题，强调心理能量的转移。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">生活化举例</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“比如说，你被别人伤害了，你把它规戒为对方是个坏人”</span></div>
+            
+            
+            <div class="tech-line">💡 用常见场景让抽象概念易于理解，引发听众共鸣。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">对比论证</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“那这个比分析它为什么敢这样对待我 我以后该怎么设置边界要容易的多”</span></div>
+            
+            
+            <div class="tech-line">💡 通过对比凸显道德化处理的省力与危害，强化论点。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">重新定义问题</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“拖延其实并不是一个无要可救的一个性格弱点 而是你没有设置好一个能让自己顺常启动的一个生活系统”</span></div>
+            
+            
+            <div class="tech-line">💡 把道德问题转化为技术问题，提供新的视角和解决方向。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">归因分析</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“从小我们就被像努力,像忍耐,像听话这种 道德的标词所衡量”</span></div>
+            
+            
+            <div class="tech-line">💡 从成长经历解释思维习惯的来源，让听众感到被理解，减少防御心理。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">升华式结尾</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“当一个人不再视自己为问题 而是能够把问题剥离出来重新看待的时候 改变的动力就会从内心升起”</span></div>
+            
+            
+            <div class="tech-line">💡 将观点提升到心理动力层面，给听众留下深刻印象和行动号召。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">问题分类法：区分道德问题与技术问题</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 遇到任何让自己沮丧的事情时，先停下来问自己：这是道德问题（涉及善恶、品格）还是技术问题（涉及方法、系统、资源）？然后强制自己用技术语言重新描述问题。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 比如「我太懒了」是道德评判，改写成「我最近能量水平低，需要调整作息和任务难度」就是技术描述。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">边界设置三步法</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当被人伤害时，不要停留在「他是坏人」的判断，而是：1）分析对方为什么敢这样对待我；2）明确自己的底线在哪里；3）制定具体的边界设置行动。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 同事抢了你的功劳，不要只骂他无耻，而是分析他为什么敢（可能你平时太好说话），然后明确下次项目分工要邮件确认，并学会在会议上主动汇报。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">失败复盘技术化</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 竞争失败后，不要给自己贴「不是这块料」的标签，而是列出失败环节清单，逐个分析可优化的点。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 面试失败后，写下：简历匹配度、自我介绍、问答表现、薪资谈判等环节，每个环节打分并找出一个改进点。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">能量管理检查清单</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当感到懒惰或拖延时，检查自己的体力、心理能量和安全感三个维度，而不是自责品格。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 问自己：昨晚睡够了吗？今天是否被负面情绪消耗？是否对任务感到不安？针对缺项采取行动，如小睡、冥想或拆解任务降低不安。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">成长型思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 能力可以通过努力和方法提升，而不是固定不变的。道德化往往暗示「我就是这样的人」，成长型思维则强调「我只是暂时还没找到方法」。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在遇到挫折时，把「我不会」改成「我还没学会」，把「我失败了」改成「我学到了什么」。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">系统思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 看到问题背后的系统结构，而不是归因于个人品格。拖延、懒惰往往是系统设计问题。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 分析问题时，画出影响行为的各种因素（环境、流程、资源、情绪），从系统层面调整，而非指责自己。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">课题分离</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 区分哪些是自己的课题，哪些是别人的课题。道德化常常是把别人的行为当作自己的课题来审判。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当被人伤害时，想：他的行为是他的课题，我如何应对是我的课题。专注于自己能控制的部分。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">能量管理模型</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 人的行为表现取决于能量水平，包括体力、情绪、心智能量。低能量时人会本能地低频运转。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在安排任务时，根据能量周期匹配难度，高能量时做难事，低能量时做琐事，并主动恢复能量。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">13 块 · 预计背诵 6 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 2 块</p>
+        
+        <div class="recite-advice">材料中长句较多，如第2、4、10块，建议先按意群拆分再连读；注意第10块有并列结构（缺乏体力、心理能量、安全感），可用关键词串联记忆；第11块有口误“到的话”，背诵时按原文保留即可。</div>
+        
+        <p class="recite-extra"><a href="/recite/result/停止将能力问题道德化">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">13 块</span></h3>
+        <p class="sub-hint">先通读，点开每块底部「🌐 翻译」对照理解，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">34 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">变强的第一要物呢,就是停止将能力问题道德化 道德化是大脑中的一种快捷方式</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">变强第一要物</div>
+            <div class="rc-hint-letters">变就道</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">The first essential for becoming stronger is to stop moralizing ability issues. Moralizing is a shortcut in the brain.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">53 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">比如说,你被别人伤害了,你把它规戒为对方是个坏人 那这个比分析它为什么敢这样对待我 我以后该怎么设置边界要容易的多</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">伤害归为坏人</div>
+            <div class="rc-hint-letters">比你你那我</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">For example, if you are hurt by someone, you categorize them as a bad person. That is much easier than analyzing why they dared to treat me this way and how I should set boundaries in the future.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">44 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">这种道德化的处理会给你一种掌控感 用来填补这种内心的无力感 它还会给你提供一种在心理上的台阶</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">掌控感与台阶</div>
+            <div class="rc-hint-letters">这用它</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">This moralizing treatment gives you a sense of control to fill the inner feeling of powerlessness. It also provides you with a psychological step.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">68 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">比如说你在一次竞争中失败了 你没有分析自己到底是输在哪个环节 哪个环节可以优化 而是直接告诉自己自己不是这块料 那你就逃避了那个真正的成长的机会</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">竞争失败逃避</div>
+            <div class="rc-hint-letters">比你哪而那</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">For example, if you fail in a competition, you don&#39;t analyze which stage you lost at and which stage could be optimized, but directly tell yourself that you are not cut out for it. Then you escape the real opportunity for growth.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">51 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">当这种习惯化的一种道德化,一种标签化的处理 其实也不完全怪我们自己 它是一种从小到大被训练出来的一种思维方式</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">习惯标签化</div>
+            <div class="rc-hint-letters">当一其它</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">When this habitual moralizing and labeling treatment happens, it&#39;s not entirely our fault. It is a way of thinking trained into us from childhood.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">57 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">从小我们就被像努力,像忍耐,像听话这种 道德的标词所衡量 所以长大之后我们也会用 同样的这一套齿子去衡量整个世界 包括衡量自己</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">道德标词衡量</div>
+            <div class="rc-hint-letters">从像像道所同包</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">From childhood, we are measured by moral labels like hard work, endurance, and obedience. So when we grow up, we also use the same set of standards to measure the whole world, including ourselves.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以我们如果想让自己真正的变强,想让自己真正的成长 我们首先要识别这些阻碍成长的思维的架索 然后有意识的去调整这些思维方式</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">识别思维架索</div>
+            <div class="rc-hint-letters">所想我然</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">So if we want to truly become stronger and truly grow, we first need to identify these thought shackles that hinder growth, and then consciously adjust these ways of thinking.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">49 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">不要这种快捷方式,这种标签化的处理方式 我们要把生活中遇到的困难当做技术问题来处理 而不是道德问题来处理</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">技术问题处理</div>
+            <div class="rc-hint-letters">不这我而</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">Don&#39;t use this shortcut, this labeling treatment. We should treat the difficulties we encounter in life as technical problems to solve, not as moral problems.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">48 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">比如说拖延其实并不是一个无要可救的一个性格弱点 而是你没有设置好一个能让自己顺常启动的一个生活系统</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">拖延生活系统</div>
+            <div class="rc-hint-letters">比而</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">For example, procrastination is not an incurable character weakness, but rather that you haven&#39;t set up a life system that allows you to start smoothly.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">76 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">包括懒惰罔网友不是说你的品形问题 可能是源于你的能量管理问题 在缺乏体力 缺乏心理能量 在缺乏安全感的时候 人就会本能地进行这种低频的运转 这才是你应该去面对的问题</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">懒惰能量管理</div>
+            <div class="rc-hint-letters">包可在缺在人这</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">Including laziness and addiction to the internet is not a problem of your character, but may stem from your energy management problem. When lacking physical strength, lacking mental energy, and lacking a sense of security, people will instinctively operate at this low frequency. This is the problem you should face.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">49 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">所以停止将能力问题到的话 真正的意义在于 把审判自己的这种负面的能量转移到提升自我 提升能力,解决问题上面</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">停止道德化意义</div>
+            <div class="rc-hint-letters">所真把提解</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">So the real significance of stopping moralizing ability issues lies in transferring the negative energy of judging yourself to improving yourself, enhancing your abilities, and solving problems.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">42 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">当一个人不再视自己为问题 而是能够把问题剥离出来重新看待的时候 改变的动力就会从内心升起</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">剥离问题动力</div>
+            <div class="rc-hint-letters">当而改</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">When a person no longer sees themselves as the problem, but can separate the problem and look at it anew, the motivation for change will rise from within.</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">40 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">而一味的用我应该努力 我应该有责任感去要求自己 往往得到的不是动力 而是更深的自我攻击</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">应该努力自我攻击</div>
+            <div class="rc-hint-letters">而我往而</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 English Translation</summary>
+            <div class="rc-trans-text">But blindly demanding yourself with &#39;I should work hard&#39; and &#39;I should have a sense of responsibility&#39; often results not in motivation, but in deeper self-attack.</div>
+          </details>
+          
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-11-12 周四</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-11-12 周四</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-11-13 周五</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-20<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-11-13 周五</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-20<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-11-14 周六</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-11-14 周六</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-11-15 周日</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-11-15 周日</span></td>
+                
+                <td class="context-col">2026-11-16<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-11-16 周一</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-20<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-11-16 周一</span></td>
+                
+                <td class="context-col">2026-11-17<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-20<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-17 周二</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-17 周二</span></td>
+                
+                <td class="context-col">2026-11-18<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-18 周三</span></td>
+                
+                <td class="context-col">2026-11-19<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-20<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2" selected>2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4">4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">669</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 1631 tokens · 输出 2769 tokens ·
+        费用 ¥0.0072
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-11-12
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "停止将能力问题道德化",
+      chunkCount: 13,
+      startDate: "2026-11-12",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 2
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>一分钟英文演讲.mp4 — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>一分钟英文演讲.mp4</h1>
+    <div class="meta">上传视频 · 0m 56s · 212 字</div>
+    <div class="tags">
+      <span class="tag">📄 视频</span>
+      <span class="tag">🌐 English</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0078 · 4776 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-golden">金句单词</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>演讲者认为人生中勇敢的选择之一是2019年决定结婚并搬到陌生城市重新开始。</li><li>当时她对那座城市一无所知，连工作方向也不确定，内心充满恐惧。</li><li>她最终做出决定，是因为相信问题总有解决办法。</li><li>如今回望，她非常感激这个决定，享受与爱人共同创造的生活。</li><li>对她而言，勇敢就是敢于搬去新地方、重新开始。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天想和你聊聊一个关于勇敢选择的故事。故事的主人公在2019年做了一个决定，彻底改变了她的生活。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>她决定结婚，并且搬到一个完全陌生的城市重新开始。那时候，她对那座城市一无所知，连自己会做什么工作都不知道，心里特别害怕。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>但她还是迈出了那一步，因为她相信：无论遇到什么问题，总会有解决的办法。这个信念给了她勇气。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>现在回头看，她非常感激当初的决定。她和爱人一起创造了许多美好的回忆，享受着共同的生活。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>所以，对她来说，勇敢就是敢于搬去新地方、重新开始。你人生中那个勇敢的选择又是什么呢？</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>One of the bravest choices the speaker made was deciding to get married and move to a new city in 2019.</li><li>She had never been to that city and had no idea about her future job, which made her scared.</li><li>She made the decision because she believes every problem has a solution.</li><li>Looking back, she is grateful for the decision and enjoys the life she built with her loved one.</li><li>For her, a brave decision means moving and starting over.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today I want to share a story about a brave choice. In 2019, the speaker made a decision that completely changed her life.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>She decided to get married and move to a completely new city to start over. At that time, she knew nothing about the city and had no idea what job she would end up with. She was scared.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>But she still took the step because she believes that whenever there&#39;s a problem, there&#39;s always a solution. That belief gave her courage.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Looking back now, she is very grateful for that decision. She and her loved one have created many beautiful memories and enjoy their life together.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>So for her, a brave decision means moving and starting over. What is the brave choice in your life?</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">这篇演讲以个人故事为主线，采用总-分-总结构。开头点明主题——人生中勇敢的选择，然后具体讲述2019年决定结婚并搬到陌生城市的经历，描述当时的恐惧和最终做出决定的原因，最后总结回望时的感激之情，并重申勇敢的定义。整体风格口语化、真诚，通过具体细节和情感变化增强感染力。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">6 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">点明主题</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">人生中勇敢的选择之一是搬到其他城市。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">演讲者直接陈述自己的经历。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">开门见山，直接点题。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">例证</span>
+            <span class="sec-title">具体背景</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">2019年决定结婚并搬到新城市重新开始。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">时间、事件细节。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">用具体时间和事件增强真实感。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">描述恐惧</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">对未知的恐惧：从未去过那座城市，不知道工作会怎样。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">列举未知因素。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">排比句式强调不确定性。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">做出决定的原因</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">相信问题总有解决办法，因此做出决定。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">个人信念。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用个人信条，增强说服力。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">回望与感激</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">现在很感激这个决定，享受与爱人共同的生活。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">情感表达。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">情感对比，突出勇敢选择的价值。</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">总结</span>
+            <span class="sec-title">重申定义</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">勇敢的决定就是搬去新地方重新开始。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">总结性陈述。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">首尾呼应，强化主题。</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">4 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">个人故事叙述</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“It was in 2019 when I decided to get married and start over and go to a new city.”</span></div>
+            
+            
+            <div class="tech-line">💡 用真实经历拉近与听众距离，增强可信度。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">排比强调</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“I&#39;ve never been to that city before. I have no idea about what does it look like to live in that city. I don&#39;t even know what kind of jobs I&#39;m going to end up with.”</span></div>
+            
+            
+            <div class="tech-line">💡 通过重复句式强调未知和恐惧，让听众感同身受。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">对比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“But now, if I look back, I&#39;m very grateful for the decision that I made.”</span></div>
+            
+            
+            <div class="tech-line">💡 过去恐惧与现在感激形成对比，突出勇敢选择的价值。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">首尾呼应</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">“开头：one of the brave choice that I can think of is the time when I decided to move to other cities. 结尾：A brave decision for me is something that I decided to move and start over.”</span></div>
+            
+            
+            <div class="tech-line">💡 强化主题，使结构完整。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">3 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用故事框架讲个人经历</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 按照背景-冲突-决定-结果的顺序组织故事，突出情感变化。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 先描述时间地点事件，再讲恐惧和犹豫，然后说出决定的原因，最后讲现在的感受。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用排比句强调情感</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 连续使用结构相似的句子表达同一类情绪，增强感染力。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · I&#39;ve never been to that city before. I have no idea about what does it look like to live in that city. I don&#39;t even know what kind of jobs I&#39;m going to end up with.</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">首尾呼应点题</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 开头提出核心概念，结尾用相似句式重申，形成闭环。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 开头说勇敢的选择是搬到其他城市，结尾说勇敢的决定就是搬去新地方重新开始。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">3 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">问题解决导向思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 相信任何问题都有解决办法，从而减少对未知的恐惧。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 面对不确定性时，问自己：最坏的情况是什么？我能怎么应对？</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">成长型思维</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 把挑战视为成长机会，勇敢尝试新事物。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在犹豫是否要改变时，关注可能带来的学习和成长，而非失败的风险。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">回顾感恩法</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 回望过去的选择，感激其中的积极结果，增强当下幸福感。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 定期回顾人生重大决定，写下它带来的好处，培养感恩心态。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+    <div class="tab-panel" id="tab-golden" data-label="金句单词">
+      
+      <div class="block">
+        <h3>💎 金句 <span class="badge">8 句</span></h3>
+        
+        <div class="quote-card">
+          <div class="quote-text">“Among all of the decisions I made in my life, I think one of the brave choice that I can think of is the time when I decided to move to other cities.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用范围限定和最高级表达，突出主题，句式自然。</div>
+          
+          
+          <div class="quote-zh">中文 · 在我一生所做的所有决定中，我能想到的勇敢选择之一就是决定搬到其他城市的时候。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“I think that that moment is pretty scary because I&#39;ve never been to that city before.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 直接表达情感，用原因状语从句解释恐惧来源。</div>
+          
+          
+          <div class="quote-zh">中文 · 我觉得那一刻相当可怕，因为我以前从未去过那座城市。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“I have no idea about what does it look like to live in that city.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用have no idea强调一无所知，口语化表达。</div>
+          
+          
+          <div class="quote-zh">中文 · 我完全不知道在那座城市生活是什么样子。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“I don&#39;t even know what kind of jobs I&#39;m going to end up with.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用don&#39;t even know加强语气，end up with生动表达最终结果。</div>
+          
+          
+          <div class="quote-zh">中文 · 我甚至不知道我最终会从事什么样的工作。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“But eventually, I made that decision because I believe that whenever there&#39;s a problem, there&#39;s always a solution for that.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用whenever引导的格言式句子，表达坚定信念。</div>
+          
+          
+          <div class="quote-zh">中文 · 但最终，我做出了那个决定，因为我相信无论遇到什么问题，总会有解决办法。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“But now, if I look back, I&#39;m very grateful for the decision that I made.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用look back引出回顾，grateful表达感激，情感真挚。</div>
+          
+          
+          <div class="quote-zh">中文 · 但现在，如果我回顾过去，我非常感激我所做的决定。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“I decided to move to other city and start a new life with someone that I love, and I really enjoy everything that we have done together.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用and连接两个动作，表达积极情感，enjoy everything强调满足感。</div>
+          
+          
+          <div class="quote-zh">中文 · 我决定搬到另一个城市，和我爱的人开始新生活，我真的很享受我们一起做的每一件事。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“A brave decision for me is something that I decided to move and start over.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用定义句式总结，简洁有力，呼应开头。</div>
+          
+          
+          <div class="quote-zh">中文 · 对我来说，勇敢的决定就是我决定搬去新地方并重新开始。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📖 重点单词 <span class="badge">10 个</span></h3>
+        <table class="vocab-table">
+          <thead>
+            <tr><th>单词 / 短语</th><th>难度</th><th>出现语境</th><th>中文注释</th></tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="word-col">brave</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">Among all of the decisions I made in my life, I think one of the brave choice that I can think of is the time when I decided to move to other cities.</td>
+              <td>勇敢的，常用于描述面对困难或危险时的勇气。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">start over</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">It was in 2019 when I decided to get married and start over and go to a new city.</td>
+              <td>重新开始，常用于生活或事业的重新起步。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">scary</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">I think that that moment is pretty scary because I&#39;ve never been to that city before.</td>
+              <td>可怕的，口语中常用，描述令人恐惧的事物。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">have no idea</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">I have no idea about what does it look like to live in that city.</td>
+              <td>完全不知道，口语中常用表达一无所知。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">end up with</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">I don&#39;t even know what kind of jobs I&#39;m going to end up with.</td>
+              <td>最终得到或处于某种状态，常用于描述结果。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">eventually</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">But eventually, I made that decision because I believe that whenever there&#39;s a problem, there&#39;s always a solution for that.</td>
+              <td>最终，表示经过一段时间或努力后发生。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">grateful</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">But now, if I look back, I&#39;m very grateful for the decision that I made.</td>
+              <td>感激的，常用于表达对某人或某事的感谢。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">look back</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">But now, if I look back, I&#39;m very grateful for the decision that I made.</td>
+              <td>回顾，回想，常用于反思过去。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">challenging</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">So that&#39;s one of the decisions that I make that I can think of is quite, I will call it challenging.</td>
+              <td>有挑战性的，描述困难但有价值的事。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">solution</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">But eventually, I made that decision because I believe that whenever there&#39;s a problem, there&#39;s always a solution for that.</td>
+              <td>解决办法，常与problem搭配。</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">10 块 · 预计背诵 3 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 2 块</p>
+        
+        <div class="recite-advice">This material features long, winding sentences with repetitions and self-corrections, which can trip you up. Break chunk 2 and chunk 5 into smaller breath groups, and use the keywords like &#39;brave choice&#39;, &#39;2019&#39;, &#39;scary&#39;, &#39;problem solution&#39; as memory anchors to recall the flow. Practice each chunk aloud until fluent before linking them together.</div>
+        
+        <p class="recite-extra"><a href="/recite/result/一分钟英文演讲">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">10 块</span></h3>
+        <p class="sub-hint">先通读，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">10 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Woman is speech practice. The topic is a brave choice.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">speech practice topic</div>
+            <div class="rc-hint-letters">W I S P T T I A B C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">33 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Among all of the decisions I made in my life, I think one of the brave choice that I can think of is the time when I decided to move to other cities.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">brave choice moving cities</div>
+            <div class="rc-hint-letters">A A O T D I M I M L I T O O T B C T I C T O I T T W I D T M T O C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">19 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">It was in 2019 when I decided to get married and start over and go to a new city.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">2019 married new city</div>
+            <div class="rc-hint-letters">I W I W I D T G M A S O A G T A N C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">17 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I think that that moment is pretty scary because I&#39;ve never been to that city before.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">scary never been</div>
+            <div class="rc-hint-letters">I T T T M I P S B I N B T T C B</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">31 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I have no idea about what does it look like to live in that city. I don&#39;t even know what kind of jobs I&#39;m going to end up with.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">no idea living jobs</div>
+            <div class="rc-hint-letters">I H N I A W D I L L T L I T C I D E K W K O J I G T E U W</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">22 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">But eventually, I made that decision because I believe that whenever there&#39;s a problem, there&#39;s always a solution for that.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">problem solution belief</div>
+            <div class="rc-hint-letters">B E I M T D B I B T W T A P T A A S F T</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">22 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So that&#39;s one of the decisions that I make that I can think of is quite, I will call it challenging.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">challenging decision</div>
+            <div class="rc-hint-letters">S T O O T D T I M T I C T O I Q I W C I C</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">16 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">But now, if I look back, I&#39;m very grateful for the decision that I made.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">grateful looking back</div>
+            <div class="rc-hint-letters">B N I I L B I V G F T D T I M</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">27 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I decided to move to other city and start a new life with someone that I love, and I really enjoy everything that we have done together.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">new life loved one enjoy</div>
+            <div class="rc-hint-letters">I D T M T O C A S A N L W S T I L A I R E E T W H D T</div>
+          </div>
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">15 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">A brave decision for me is something that I decided to move and start over.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">brave decision start over</div>
+            <div class="rc-hint-letters">A B D F M I S T I D T M A S O</div>
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-10-27 周二</span></td>
+                
+                <td class="context-col">2026-10-28<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-11<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-10-28 周三</span></td>
+                
+                <td class="context-col">2026-10-29<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-12<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-29 周四</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-10-29 周四</span></td>
+                
+                <td class="context-col">2026-10-30<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-05<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-13<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-30 周五</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-10-30 周五</span></td>
+                
+                <td class="context-col">2026-10-31<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-03<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-06<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-11-14<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-31 周六</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-10-31 周六</span></td>
+                
+                <td class="context-col">2026-11-01<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-02<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-04<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-07<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-11-15<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2" selected>2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4">4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">212</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">思维模型</div></div>
+        
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">金句</div></div>
+        <div class="stat-item"><div class="stat-num">10</div><div class="stat-label">生词</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 1742 tokens · 输出 3034 tokens ·
+        费用 ¥0.0078
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-10-27
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "一分钟英文演讲",
+      chunkCount: 10,
+      startDate: "2026-10-27",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 2
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>

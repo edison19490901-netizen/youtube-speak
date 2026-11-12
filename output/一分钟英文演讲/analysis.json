@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "language": "en",
+    "source_type": "video",
+    "title": "一分钟英文演讲.mp4",
+    "truncated": false
+  },
+  "spoken_summary": {
+    "summary_zh": "演讲者认为人生中勇敢的选择之一是2019年决定结婚并搬到陌生城市重新开始。\n当时她对那座城市一无所知，连工作方向也不确定，内心充满恐惧。\n她最终做出决定，是因为相信问题总有解决办法。\n如今回望，她非常感激这个决定，享受与爱人共同创造的生活。\n对她而言，勇敢就是敢于搬去新地方、重新开始。",
+    "summary_en": "One of the bravest choices the speaker made was deciding to get married and move to a new city in 2019.\nShe had never been to that city and had no idea about her future job, which made her scared.\nShe made the decision because she believes every problem has a solution.\nLooking back, she is grateful for the decision and enjoys the life she built with her loved one.\nFor her, a brave decision means moving and starting over.",
+    "script_zh": [
+      "今天想和你聊聊一个关于勇敢选择的故事。故事的主人公在2019年做了一个决定，彻底改变了她的生活。",
+      "她决定结婚，并且搬到一个完全陌生的城市重新开始。那时候，她对那座城市一无所知，连自己会做什么工作都不知道，心里特别害怕。",
+      "但她还是迈出了那一步，因为她相信：无论遇到什么问题，总会有解决的办法。这个信念给了她勇气。",
+      "现在回头看，她非常感激当初的决定。她和爱人一起创造了许多美好的回忆，享受着共同的生活。",
+      "所以，对她来说，勇敢就是敢于搬去新地方、重新开始。你人生中那个勇敢的选择又是什么呢？"
+    ],
+    "script_en": [
+      "Today I want to share a story about a brave choice. In 2019, the speaker made a decision that completely changed her life.",
+      "She decided to get married and move to a completely new city to start over. At that time, she knew nothing about the city and had no idea what job she would end up with. She was scared.",
+      "But she still took the step because she believes that whenever there's a problem, there's always a solution. That belief gave her courage.",
+      "Looking back now, she is very grateful for that decision. She and her loved one have created many beautiful memories and enjoy their life together.",
+      "So for her, a brave decision means moving and starting over. What is the brave choice in your life?"
+    ]
+  },
+  "deconstruction": {
+    "overview": "这篇演讲以个人故事为主线，采用总-分-总结构。开头点明主题——人生中勇敢的选择，然后具体讲述2019年决定结婚并搬到陌生城市的经历，描述当时的恐惧和最终做出决定的原因，最后总结回望时的感激之情，并重申勇敢的定义。整体风格口语化、真诚，通过具体细节和情感变化增强感染力。",
+    "sections": [
+      {
+        "title": "点明主题",
+        "role": "引入",
+        "argument": "人生中勇敢的选择之一是搬到其他城市。",
+        "evidence": "演讲者直接陈述自己的经历。",
+        "technique": "开门见山，直接点题。"
+      },
+      {
+        "title": "具体背景",
+        "role": "例证",
+        "argument": "2019年决定结婚并搬到新城市重新开始。",
+        "evidence": "时间、事件细节。",
+        "technique": "用具体时间和事件增强真实感。"
+      },
+      {
+        "title": "描述恐惧",
+        "role": "论证",
+        "argument": "对未知的恐惧：从未去过那座城市，不知道工作会怎样。",
+        "evidence": "列举未知因素。",
+        "technique": "排比句式强调不确定性。"
+      },
+      {
+        "title": "做出决定的原因",
+        "role": "转折",
+        "argument": "相信问题总有解决办法，因此做出决定。",
+        "evidence": "个人信念。",
+        "technique": "引用个人信条，增强说服力。"
+      },
+      {
+        "title": "回望与感激",
+        "role": "结论",
+        "argument": "现在很感激这个决定，享受与爱人共同的生活。",
+        "evidence": "情感表达。",
+        "technique": "情感对比，突出勇敢选择的价值。"
+      },
+      {
+        "title": "重申定义",
+        "role": "总结",
+        "argument": "勇敢的决定就是搬去新地方重新开始。",
+        "evidence": "总结性陈述。",
+        "technique": "首尾呼应，强化主题。"
+      }
+    ],
+    "writing_techniques": [
+      {
+        "name": "个人故事叙述",
+        "example": "It was in 2019 when I decided to get married and start over and go to a new city.",
+        "effect": "用真实经历拉近与听众距离，增强可信度。"
+      },
+      {
+        "name": "排比强调",
+        "example": "I've never been to that city before. I have no idea about what does it look like to live in that city. I don't even know what kind of jobs I'm going to end up with.",
+        "effect": "通过重复句式强调未知和恐惧，让听众感同身受。"
+      },
+      {
+        "name": "对比",
+        "example": "But now, if I look back, I'm very grateful for the decision that I made.",
+        "effect": "过去恐惧与现在感激形成对比，突出勇敢选择的价值。"
+      },
+      {
+        "name": "首尾呼应",
+        "example": "开头：one of the brave choice that I can think of is the time when I decided to move to other cities. 结尾：A brave decision for me is something that I decided to move and start over.",
+        "effect": "强化主题，使结构完整。"
+      }
+    ]
+  },
+  "practical_application": {
+    "actionable_skills": [
+      {
+        "skill": "用故事框架讲个人经历",
+        "how_to_apply": "按照背景-冲突-决定-结果的顺序组织故事，突出情感变化。",
+        "example": "先描述时间地点事件，再讲恐惧和犹豫，然后说出决定的原因，最后讲现在的感受。"
+      },
+      {
+        "skill": "用排比句强调情感",
+        "how_to_apply": "连续使用结构相似的句子表达同一类情绪，增强感染力。",
+        "example": "I've never been to that city before. I have no idea about what does it look like to live in that city. I don't even know what kind of jobs I'm going to end up with."
+      },
+      {
+        "skill": "首尾呼应点题",
+        "how_to_apply": "开头提出核心概念，结尾用相似句式重申，形成闭环。",
+        "example": "开头说勇敢的选择是搬到其他城市，结尾说勇敢的决定就是搬去新地方重新开始。"
+      }
+    ],
+    "thinking_models": [
+      {
+        "model": "问题解决导向思维",
+        "explanation": "相信任何问题都有解决办法，从而减少对未知的恐惧。",
+        "how_to_use": "面对不确定性时，问自己：最坏的情况是什么？我能怎么应对？"
+      },
+      {
+        "model": "成长型思维",
+        "explanation": "把挑战视为成长机会，勇敢尝试新事物。",
+        "how_to_use": "在犹豫是否要改变时，关注可能带来的学习和成长，而非失败的风险。"
+      },
+      {
+        "model": "回顾感恩法",
+        "explanation": "回望过去的选择，感激其中的积极结果，增强当下幸福感。",
+        "how_to_use": "定期回顾人生重大决定，写下它带来的好处，培养感恩心态。"
+      }
+    ]
+  },
+  "golden_words": {
+    "golden_sentences": [
+      {
+        "sentence": "Among all of the decisions I made in my life, I think one of the brave choice that I can think of is the time when I decided to move to other cities.",
+        "why_good": "用范围限定和最高级表达，突出主题，句式自然。",
+        "chinese_meaning": "在我一生所做的所有决定中，我能想到的勇敢选择之一就是决定搬到其他城市的时候。"
+      },
+      {
+        "sentence": "I think that that moment is pretty scary because I've never been to that city before.",
+        "why_good": "直接表达情感，用原因状语从句解释恐惧来源。",
+        "chinese_meaning": "我觉得那一刻相当可怕，因为我以前从未去过那座城市。"
+      },
+      {
+        "sentence": "I have no idea about what does it look like to live in that city.",
+        "why_good": "用have no idea强调一无所知，口语化表达。",
+        "chinese_meaning": "我完全不知道在那座城市生活是什么样子。"
+      },
+      {
+        "sentence": "I don't even know what kind of jobs I'm going to end up with.",
+        "why_good": "用don't even know加强语气，end up with生动表达最终结果。",
+        "chinese_meaning": "我甚至不知道我最终会从事什么样的工作。"
+      },
+      {
+        "sentence": "But eventually, I made that decision because I believe that whenever there's a problem, there's always a solution for that.",
+        "why_good": "用whenever引导的格言式句子，表达坚定信念。",
+        "chinese_meaning": "但最终，我做出了那个决定，因为我相信无论遇到什么问题，总会有解决办法。"
+      },
+      {
+        "sentence": "But now, if I look back, I'm very grateful for the decision that I made.",
+        "why_good": "用look back引出回顾，grateful表达感激，情感真挚。",
+        "chinese_meaning": "但现在，如果我回顾过去，我非常感激我所做的决定。"
+      },
+      {
+        "sentence": "I decided to move to other city and start a new life with someone that I love, and I really enjoy everything that we have done together.",
+        "why_good": "用and连接两个动作，表达积极情感，enjoy everything强调满足感。",
+        "chinese_meaning": "我决定搬到另一个城市，和我爱的人开始新生活，我真的很享受我们一起做的每一件事。"
+      },
+      {
+        "sentence": "A brave decision for me is something that I decided to move and start over.",
+        "why_good": "用定义句式总结，简洁有力，呼应开头。",
+        "chinese_meaning": "对我来说，勇敢的决定就是我决定搬去新地方并重新开始。"
+      }
+    ],
+    "vocabulary": [
+      {
+        "word": "brave",
+        "context_sentence": "Among all of the decisions I made in my life, I think one of the brave choice that I can think of is the time when I decided to move to other cities.",
+        "difficulty": "★☆☆",
+        "chinese_note": "勇敢的，常用于描述面对困难或危险时的勇气。"
+      },
+      {
+        "word": "start over",
+        "context_sentence": "It was in 2019 when I decided to get married and start over and go to a new city.",
+        "difficulty": "★★☆",
+        "chinese_note": "重新开始，常用于生活或事业的重新起步。"
+      },
+      {
+        "word": "scary",
+        "context_sentence": "I think that that moment is pretty scary because I've never been to that city before.",
+        "difficulty": "★☆☆",
+        "chinese_note": "可怕的，口语中常用，描述令人恐惧的事物。"
+      },
+      {
+        "word": "have no idea",
+        "context_sentence": "I have no idea about what does it look like to live in that city.",
+        "difficulty": "★☆☆",
+        "chinese_note": "完全不知道，口语中常用表达一无所知。"
+      },
+      {
+        "word": "end up with",
+        "context_sentence": "I don't even know what kind of jobs I'm going to end up with.",
+        "difficulty": "★★☆",
+        "chinese_note": "最终得到或处于某种状态，常用于描述结果。"
+      },
+      {
+        "word": "eventually",
+        "context_sentence": "But eventually, I made that decision because I believe that whenever there's a problem, there's always a solution for that.",
+        "difficulty": "★★☆",
+        "chinese_note": "最终，表示经过一段时间或努力后发生。"
+      },
+      {
+        "word": "grateful",
+        "context_sentence": "But now, if I look back, I'm very grateful for the decision that I made.",
+        "difficulty": "★★☆",
+        "chinese_note": "感激的，常用于表达对某人或某事的感谢。"
+      },
+      {
+        "word": "look back",
+        "context_sentence": "But now, if I look back, I'm very grateful for the decision that I made.",
+        "difficulty": "★☆☆",
+        "chinese_note": "回顾，回想，常用于反思过去。"
+      },
+      {
+        "word": "challenging",
+        "context_sentence": "So that's one of the decisions that I make that I can think of is quite, I will call it challenging.",
+        "difficulty": "★★☆",
+        "chinese_note": "有挑战性的，描述困难但有价值的事。"
+      },
+      {
+        "word": "solution",
+        "context_sentence": "But eventually, I made that decision because I believe that whenever there's a problem, there's always a solution for that.",
+        "difficulty": "★☆☆",
+        "chinese_note": "解决办法，常与problem搭配。"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 1742,
+    "completion_tokens": 3034,
+    "total_tokens": 4776,
+    "cost_cny": 0.00781
+  }
+}
