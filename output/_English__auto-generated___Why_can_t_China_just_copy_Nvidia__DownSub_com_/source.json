@@ -1,0 +1,9 @@
+{
+  "title": "[English (auto-generated)] Why can't China just copy Nvidia [DownSub.com]",
+  "uploader": "本地文件",
+  "duration_seconds": 110,
+  "language": "en",
+  "source_type": "article",
+  "word_count": 272,
+  "full_text": "Why doesn't China just make its own Nvidia chips? After all, China has built its own space station, landed on the far side of the moon, and developed some of the world's fastest supercomputers. So, why is making a tiny chip so difficult? To answer that, we first need to understand how the company works. Nvidia doesn't really manufacture its own chips. It designs them. The manufacturing is largely done by a Taiwanese company called TSMC. And the process is incredibly complicated. Modern AI chips packs tens of billions of tiny transistors onto a single chip with some structures just a few nanometers wide. Manufacturers use a technology called extreme ultraviolet lithography or EUV which uses light with a wavelength of just 13.5 nanome. And these machines they are made by a Dutch company called ASML. But China can't buy them because of export restrictions. So, Chinese companies have been developing alternatives. Huawei has created its own ascent AI chips while chip maker SMIC has used older equipment and more complicated techniques to manufacture advanced chips. But for now, these are still expensive, inefficient, and hard to scale. And on top of that, there's another challenge, software. Nvidia has spent nearly two decades building a software ecosystem that AI developers around the world rely on. So competing with Nvidia isn't just about making a powerful chip. It's about building an entire ecosystem of hardware, software, and manufacturing. So the real question is not simply whether China can copy Nvidia. It's whether China can build an alternative that doesn't depend on Nvidia at"
+}

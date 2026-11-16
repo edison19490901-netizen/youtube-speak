@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "material_id": "_English__auto-generated___Why_can_t_China_just_copy_Nvidia__DownSub_com_",
+    "title": "[English (auto-generated)] Why can't China just copy Nvidia [DownSub.com]",
+    "language": "en",
+    "source_type": "article",
+    "truncated": false,
+    "created": "2026-11-16"
+  },
+  "material": {
+    "title_suggested": "[English (auto-generated)] Why can't China just copy Nvidia [DownSub.com]",
+    "language": "en",
+    "advice": "This material contains several long sentences with technical terms (e.g., extreme ultraviolet lithography, TSMC, ASML) and parallel structures (e.g., 'built... landed... developed...'). Pay attention to chunk 1's list of achievements and chunk 4's numbers. Use the hint keywords as memory anchors, and practice chunk 5 and 6 together since they describe the EUV technology and its restrictions. For chunk 10, emphasize the parallel structure 'not just... but...' to aid recall.",
+    "chunks": [
+      {
+        "index": 1,
+        "text": "Why doesn't China just make its own Nvidia chips? After all, China has built its own space station, landed on the far side of the moon, and developed some of the world's fastest supercomputers.",
+        "hint": "China's achievements vs. chip challenge",
+        "translation": "为什么中国不直接制造自己的英伟达芯片呢？毕竟，中国已经建成了自己的空间站，登陆了月球背面，并开发了一些世界上最快的超级计算机。"
+      },
+      {
+        "index": 2,
+        "text": "So, why is making a tiny chip so difficult? To answer that, we first need to understand how the company works.",
+        "hint": "Chip difficulty and company understanding",
+        "translation": "那么，为什么制造一个小芯片如此困难？要回答这个问题，我们首先需要了解这家公司是如何运作的。"
+      },
+      {
+        "index": 3,
+        "text": "Nvidia doesn't really manufacture its own chips. It designs them. The manufacturing is largely done by a Taiwanese company called TSMC.",
+        "hint": "Nvidia designs, TSMC manufactures",
+        "translation": "英伟达并不真正制造自己的芯片。它设计芯片。制造主要由一家名为台积电的台湾公司完成。"
+      },
+      {
+        "index": 4,
+        "text": "And the process is incredibly complicated. Modern AI chips packs tens of billions of tiny transistors onto a single chip with some structures just a few nanometers wide.",
+        "hint": "Complex process, billions of transistors",
+        "translation": "而且这个过程极其复杂。现代人工智能芯片将数百亿个微型晶体管封装到单个芯片上，有些结构只有几纳米宽。"
+      },
+      {
+        "index": 5,
+        "text": "Manufacturers use a technology called extreme ultraviolet lithography or EUV which uses light with a wavelength of just 13.5 nanome.",
+        "hint": "EUV lithography, 13.5 nm",
+        "translation": "制造商使用一种称为极紫外光刻或EUV的技术，该技术使用的光波长仅为13.5纳米。"
+      },
+      {
+        "index": 6,
+        "text": "And these machines they are made by a Dutch company called ASML. But China can't buy them because of export restrictions.",
+        "hint": "ASML machines, export restrictions",
+        "translation": "而这些机器是由一家名为ASML的荷兰公司制造的。但由于出口限制，中国无法购买它们。"
+      },
+      {
+        "index": 7,
+        "text": "So, Chinese companies have been developing alternatives. Huawei has created its own ascent AI chips while chip maker SMIC has used older equipment and more complicated techniques to manufacture advanced chips.",
+        "hint": "Chinese alternatives: Huawei, SMIC",
+        "translation": "因此，中国公司一直在开发替代方案。华为创建了自己的昇腾AI芯片，而芯片制造商中芯国际则使用更旧的设备和更复杂的技术来制造先进芯片。"
+      },
+      {
+        "index": 8,
+        "text": "But for now, these are still expensive, inefficient, and hard to scale. And on top of that, there's another challenge, software.",
+        "hint": "Current limitations, software challenge",
+        "translation": "但就目前而言，这些芯片仍然昂贵、低效且难以规模化。除此之外，还有另一个挑战：软件。"
+      },
+      {
+        "index": 9,
+        "text": "Nvidia has spent nearly two decades building a software ecosystem that AI developers around the world rely on.",
+        "hint": "Nvidia's software ecosystem",
+        "translation": "英伟达花了近二十年时间构建了一个全球人工智能开发者所依赖的软件生态系统。"
+      },
+      {
+        "index": 10,
+        "text": "So competing with Nvidia isn't just about making a powerful chip. It's about building an entire ecosystem of hardware, software, and manufacturing.",
+        "hint": "Competing requires full ecosystem",
+        "translation": "因此，与英伟达竞争不仅仅是制造一个强大的芯片。而是要构建一个包含硬件、软件和制造的完整生态系统。"
+      },
+      {
+        "index": 11,
+        "text": "So the real question is not simply whether China can copy Nvidia. It's whether China can build an alternative that doesn't depend on Nvidia at",
+        "hint": "Real question: independent alternative",
+        "translation": "所以真正的问题不是中国能否复制英伟达。而是中国能否构建一个不依赖英伟达的替代方案。"
+      }
+    ]
+  },
+  "usage": {
+    "prompt_tokens": 986,
+    "completion_tokens": 1075,
+    "total_tokens": 2061,
+    "cost_cny": 0.003136
+  }
+}
