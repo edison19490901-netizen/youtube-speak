@@ -1,0 +1,2887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="智读">
+<link rel="icon" type="image/png" href="/static/understand_recite.png">
+<link rel="apple-touch-icon" href="/static/understand_recite.png">
+<title>[English (auto-generated)] Rewire Your Brain By Doing Hard Things  Andrew Huberman Motivation [DownS.txt — 智读</title>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #2c2c2c;
+    background: #f5f5f5;
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 0; }
+
+  /* ── 封面标题区 ── */
+  .hero {
+    text-align: center;
+    padding: 28px 20px 22px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+  }
+  .hero h1 { font-size: 18px; font-weight: 800; line-height: 1.4; margin-bottom: 6px; }
+  .hero .meta { font-size: 12px; opacity: 0.7; }
+  .hero .tags { margin-top: 8px; }
+  .hero .tag {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    margin: 0 3px;
+  }
+  .hero .cost { margin-top: 8px; font-size: 11px; opacity: 0.5; }
+  .hero .warn { margin-top: 6px; font-size: 11px; color: #ffd27f; opacity: 0.95; }
+  /* ── 横向 Tab 导航 ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    padding: 10px 8px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    min-width: 44px;
+    text-align: center;
+  }
+  .tab-btn:hover { color: #555; background: #eee; }
+  .tab-btn.active { color: #fff; background: #e94560; }
+
+  /* ── 内容面板 ── */
+  .tab-panels { padding: 16px 16px 24px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 通用小节 ── */
+  .block {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  .block h3 {
+    font-size: 14px;
+    color: #e94560;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .block h3 .badge {
+    font-size: 10px;
+    color: #999;
+    background: #f0f0f0;
+    padding: 1px 8px;
+    border-radius: 10px;
+    font-weight: 400;
+  }
+  .sub-hint { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+
+  /* ── 结构化摘要要点 ── */
+  .point-list { list-style: none; }
+  .point-list li {
+    position: relative;
+    padding: 7px 0 7px 22px;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px dashed #eee;
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: #e94560;
+  }
+
+  /* ── 口播稿段落 ── */
+  .script-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+  }
+  .script-card .seg-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #e94560;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .script-card .text { font-size: 14.5px; color: #333; line-height: 1.9; }
+  .script-card .text .mic {
+    display: block;
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+
+  /* ── 解构 ── */
+  .overview-text {
+    font-size: 14px;
+    color: #444;
+    background: #f8f9fa;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+  .section-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .section-card .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .section-card .sec-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .role-badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #1a6aaa;
+    background: #e8f4fd;
+    padding: 2px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+  .field-row { margin-bottom: 7px; font-size: 13.5px; }
+  .field-row .field-label {
+    font-size: 11px;
+    color: #999;
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.5px;
+  }
+  .field-row .field-val { color: #444; }
+
+  .technique-card {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 12px 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+  .technique-card .tech-num {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    background: #1a1a2e;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .technique-card .tech-body .tech-name { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .technique-card .tech-body .tech-line { font-size: 12.5px; color: #666; margin-top: 3px; }
+  .technique-card .tech-body .tech-line .q { color: #b3a200; font-style: italic; }
+
+  /* ── 实际应用 ── */
+  .app-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: #fff;
+  }
+  .app-card .app-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .app-card .app-icon {
+    font-size: 16px;
+  }
+  .app-card .app-title { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+  .app-card .app-row { font-size: 13.5px; color: #555; margin-bottom: 6px; }
+  .app-card .app-row b { color: #e94560; font-size: 12px; }
+
+  /* ── 金句单词 ── */
+  .quote-card {
+    border-left: 3px solid #e94560;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+  }
+  .quote-card .quote-text { font-size: 15px; font-weight: 600; color: #1a1a2e; font-style: italic; }
+  .quote-card .quote-why { font-size: 12.5px; color: #666; margin-top: 6px; }
+  .quote-card .quote-why b { color: #e94560; }
+  .quote-card .quote-zh { font-size: 12.5px; color: #888; margin-top: 3px; }
+
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 8px; overflow: hidden; }
+  .vocab-table th { background: #1a1a2e; color: #fff; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; }
+  .vocab-table td { padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  .vocab-table .word-col { font-weight: 700; color: #1a1a2e; }
+  .vocab-table .stars-col { white-space: nowrap; color: #f0a500; }
+  .vocab-table .context-col { color: #666; font-size: 11px; }
+
+  /* ── 统计 ── */
+  .stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .stat-item .stat-num { font-size: 30px; font-weight: 800; color: #e94560; line-height: 1.2; }
+  .stat-item .stat-label { font-size: 11px; color: #888; }
+  .usage-line { text-align: center; margin-top: 16px; color: #aaa; font-size: 12px; }
+  .truncate-note {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fff8e6;
+    border: 1px solid #ffe0a3;
+    border-radius: 8px;
+    font-size: 12px;
+    color: #8a6d1a;
+  }
+
+  /* ── 背诵 Tab（嵌入看板内）── */
+  .recite-advice {
+    font-size: 13.5px; color: #444; background: #fafafa;
+    border-left: 3px solid #e94560; padding: 8px 12px; border-radius: 4px; margin-top: 8px;
+  }
+  .recite-extra { margin-top: 10px; font-size: 12px; }
+  .recite-extra a { color: #e94560; text-decoration: none; }
+  .recite-gen-btn {
+    display: inline-block; margin-top: 6px; padding: 10px 22px; font-size: 14px; font-weight: 700;
+    background: #e94560; color: #fff; border-radius: 8px; text-decoration: none;
+  }
+  .recite-gen-btn:hover { background: #d63850; }
+  .rc-chunk { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; background: #fff; }
+  .rc-chunk-head { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #fafafa; border-bottom: 1px solid #eee; }
+  .rc-no { background: #e94560; color: #fff; font-weight: 700; font-size: 12px; padding: 2px 10px; border-radius: 12px; }
+  .rc-size { font-size: 11px; color: #aaa; }
+  .rc-spacer { flex: 1; }
+  .rc-btn { font-size: 12px; border: none; border-radius: 8px; padding: 5px 10px; cursor: pointer; background: #fdecee; color: #b03a4e; font-weight: 600; }
+  .rc-btn:hover { background: #f8d4d9; }
+  .rc-btn-amber { background: #fdf1dd; color: #b45309; }
+  .rc-btn-amber:hover { background: #fae6c4; }
+  .rc-text { padding: 12px 14px; font-size: 15px; line-height: 1.9; }
+  .rc-cover {
+    display: none; flex-direction: column; align-items: center; justify-content: center;
+    padding: 22px 14px; gap: 10px; color: #aaa; font-size: 13px;
+    background: repeating-linear-gradient(45deg, #fafafa, #fafafa 8px, #f1f1f1 8px, #f1f1f1 16px);
+  }
+  .rc-chunk.rc-blanked .rc-text { display: none; }
+  .rc-chunk.rc-blanked .rc-cover { display: flex; }
+  .rc-hint { display: none; padding: 10px 14px 12px; background: #fdf1dd; border-top: 1px dashed #f0d9a8; }
+  .rc-chunk.rc-hint-on .rc-hint { display: block; }
+  .rc-hint-label { font-size: 11px; color: #b45309; font-weight: 700; margin-bottom: 4px; }
+  .rc-hint-kw { font-size: 14px; color: #7a4a00; font-weight: 600; margin-bottom: 6px; }
+  .rc-hint-letters { font-size: 13px; color: #9a7b4f; letter-spacing: 1.5px; line-height: 1.9; border-top: 1px dashed #f0d9a8; padding-top: 6px; }
+  .rc-trans { border-top: 1px dashed #eee; background: #fcfcfc; }
+  .rc-trans summary { cursor: pointer; list-style: none; user-select: none; padding: 8px 14px; font-size: 12.5px; color: #b03a4e; font-weight: 600; }
+  .rc-trans summary::-webkit-details-marker { display: none; }
+  .rc-trans summary::before { content: "▸ "; color: #aaa; }
+  .rc-trans[open] summary::before { content: "▾ "; }
+  .rc-trans summary:hover { background: #f8f8f8; }
+  .rc-trans-text { padding: 0 14px 12px; font-size: 13.5px; line-height: 1.85; color: #4a5f59; }
+  .rc-table { font-size: 12px; }
+  .rc-table .lbl { display: block; color: #aaa; font-size: 10px; }
+  .rc-table-wrap { overflow-x: auto; }
+  .rc-cpd-row { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+  .rc-cpd-row label { font-size: 13px; color: #444; }
+  .rc-cpd-row select { padding: 6px 8px; border: 1px solid #ddd; border-radius: 8px; background: #fff; color: #b03a4e; font-size: 14px; font-weight: 700; }
+  .rc-progress { flex: 1; min-width: 80px; height: 8px; background: #eee; border-radius: 6px; overflow: hidden; }
+  .rc-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #e94560, #ff6b81); transition: width .3s; }
+  #rc-progress-text { font-size: 12px; color: #aaa; white-space: nowrap; }
+  .rc-day-card { border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+  .rc-day-card.rc-today { border-color: #e94560; box-shadow: 0 0 0 1px #e94560; }
+  .rc-day-head { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fafafa; }
+  .rc-day-no { font-weight: 800; color: #1a1a2e; font-size: 14px; }
+  .rc-day-date { font-size: 12px; color: #aaa; }
+  .rc-day-row { display: flex; align-items: center; gap: 6px; padding: 6px 12px; flex-wrap: wrap; }
+  .rc-day-row + .rc-day-row { border-top: 1px dashed #eee; }
+  .rc-row-label { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 10px; flex-shrink: 0; }
+  .rc-row-label.rc-new { background: #fdecee; color: #b03a4e; }
+  .rc-row-label.rc-review { background: #fdf1dd; color: #b45309; }
+  .rc-chip { border: 1px solid #eee; background: #fff; color: #444; border-radius: 10px; padding: 4px 10px; font-size: 12.5px; cursor: pointer; transition: all .15s; }
+  .rc-chip:hover { border-color: #e94560; }
+  .rc-chip.rc-on.rc-new { background: #e94560; border-color: #e94560; color: #fff; }
+  .rc-chip.rc-on.rc-review { background: #d97706; border-color: #d97706; color: #fff; }
+  .rc-empty-day { font-size: 12px; color: #aaa; }
+
+  /* ── 页脚 ── */
+  .footer { text-align: center; padding: 20px; color: #bbb; font-size: 11px; }
+
+  /* ── 打印样式 ── */
+  @media print {
+    body { background: #fff; }
+    .container { max-width: 100%; }
+    .tab-bar { display: none; }
+    .tab-panel { display: block !important; margin-bottom: 16px; page-break-inside: avoid; }
+    .tab-panel::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      border-bottom: 2px solid #e94560;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+    .hero { padding: 20px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ═══ 封面 ═══ -->
+  <div class="hero">
+    <h1>[English (auto-generated)] Rewire Your Brain By Doing Hard Things  Andrew Huberman Motivation [DownS.txt</h1>
+    <div class="meta">本地文件 · 3180 字</div>
+    <div class="tags">
+      <span class="tag">📄 文章</span>
+      <span class="tag">🌐 English</span>
+    </div>
+    
+    
+    <div class="cost">本次分析 · ¥0.0138 · 9533 tokens</div>
+    
+  </div>
+
+  <!-- ═══ Tab 导航 ═══ -->
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="tab-summary">口播总结</button>
+    <button class="tab-btn" data-tab="tab-decon">解构</button>
+    <button class="tab-btn" data-tab="tab-apply">应用</button>
+    
+    <button class="tab-btn" data-tab="tab-golden">金句单词</button>
+    
+    <button class="tab-btn" data-tab="tab-recite">背诵</button>
+    <button class="tab-btn" data-tab="tab-stats">统计</button>
+  </div>
+
+  <!-- ═══ 内容面板 ═══ -->
+  <div class="tab-panels">
+
+    <!-- 口播总结 -->
+    <div class="tab-panel active" id="tab-summary" data-label="口播总结">
+
+      <div class="block">
+        <h3>🗒️ 中文要点 <span class="badge">结构化摘要</span></h3>
+        
+        <ul class="point-list">
+          <li>学习的关键在于主动进入“恰到好处的压力”状态，通过专注和犯错来触发神经可塑性。</li><li>保持当下感知（present）是幸福和心理健康的核心，方法是通过提问将注意力锚定在即时物理环境。</li><li>学习四步法：专注、警觉、通过真实尝试犯错、睡眠巩固，辅以自我测试强化。</li><li>刻意练习不擅长之事能带来更深满足感，并维持认知能力，但需平衡热爱与挑战。</li><li>理解身体系统的原理（如皮质醇节律、迷走神经）比死守规则更重要，灵活调整才能持久。</li><li>过好生活的基础：感恩已有、停止抱怨（“shut up”），并主动管理压力反应（如长呼气）。</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🎙️ 中文口播稿 <span class="badge">可照读</span></h3>
+        <p class="sub-hint">按段落朗读，每段后自然停顿。</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🎙️ 第 1 段</span>今天我们来聊一个特别实用的话题：如何通过做难事来重塑大脑。如果你总觉得学习新东西很痛苦，或者明明想努力却总是拖延，这期内容就是为你准备的。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🎙️ 第 2 段</span>安德鲁·休伯曼博士指出，学习的关键是让自己进入一种“恰到好处的压力”状态——就像在游戏中等待反应时那种警觉又专注的感觉。这种状态能触发大脑的可塑性，但压力太大会适得其反。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🎙️ 第 3 段</span>那么具体怎么做呢？首先，你需要专注，而专注的前提是警觉。运动、睡眠都能帮你提升警觉性。然后，你要通过真实的尝试去犯错，错误带来的那种焦躁感，正是神经元需要改变的信号。晚上睡个好觉，大脑就会自动帮你缩小差距。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🎙️ 第 4 段</span>还有一个重要的技巧：自我测试。不是简单的可视化，而是主动回忆并找出记忆的缺口，然后去查漏补缺。这能极大地巩固学习效果。</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🎙️ 第 5 段</span>除了学习，休伯曼还谈到了幸福。哈佛的研究表明，走神的大脑是不快乐的大脑。保持当下，把注意力锚定在眼前的物理环境，是提升幸福感的关键。你可以通过问自己一些简单的问题来回到当下，比如“我眼前有哪些颜色？”</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🎙️ 第 6 段</span>最后，过好生活其实有一个简单的起点：停止抱怨，感恩已有。就像那位84岁的心理分析师说的：“闭嘴，总有人比你更惨。”同时，学会用长呼气来管理压力。希望这些方法能帮你重新 wiring 你的大脑，去做那些难而正确的事。</div>
+        </div>
+        
+      </div>
+      
+
+      <div class="block">
+        <h3>📌 English Key Points</h3>
+        
+        <ul class="point-list">
+          <li>Learning requires leaning into just enough stress to trigger neuroplasticity, using focus and errors as signals for change.</li><li>Being present—anchoring attention to the immediate physical environment—is foundational for happiness and mental health.</li><li>The learning loop: focus, alertness, making errors through genuine attempts, sleep consolidation, and self-testing.</li><li>Doing hard things we avoid enriches us and maintains cognitive function, but must be balanced with what we love.</li><li>Understanding principles (cortisol rhythm, vagus nerve) beats rigid rules; flexibility keeps the system online.</li><li>A great life starts with gratitude and stopping complaints, plus managing stress via long exhales.</li>
+        </ul>
+        
+      </div>
+
+      
+      <div class="block">
+        <h3>🗣️ English Spoken Script</h3>
+        <p class="sub-hint">Read each paragraph aloud, pause between segments.</p>
+        
+        <div class="script-card">
+          <span class="seg-num">1</span>
+          <div class="text"><span class="mic">🗣️ Segment 1</span>Today we&#39;re diving into something incredibly practical: how to rewire your brain by doing hard things. If you&#39;ve ever struggled to learn something new or found yourself procrastinating, this is for you.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">2</span>
+          <div class="text"><span class="mic">🗣️ Segment 2</span>Andrew Huberman explains that learning happens when you lean into just enough stress—that state of alert focus you feel when waiting to react in a game. It&#39;s the sweet spot that triggers neuroplasticity, but too much stress backfires.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">3</span>
+          <div class="text"><span class="mic">🗣️ Segment 3</span>So how do you get there? First, you need focus, and focus requires alertness. Exercise and sleep are your allies. Then, you must make genuine attempts and embrace errors. That agitation you feel is the signal for your neurons to change. Sleep on it, and your brain will close the gap.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">4</span>
+          <div class="text"><span class="mic">🗣️ Segment 4</span>Another key tool is self-testing. Not visualization, but actively recalling information and finding the gaps, then looking them up. This reinforces learning and makes it stick.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">5</span>
+          <div class="text"><span class="mic">🗣️ Segment 5</span>Beyond learning, Huberman talks about happiness. A Harvard study shows that a wandering mind is an unhappy mind. Being present—anchoring your attention to your immediate physical environment—is the key. You can do this by asking simple questions about what&#39;s around you.</div>
+        </div>
+        
+        <div class="script-card">
+          <span class="seg-num">6</span>
+          <div class="text"><span class="mic">🗣️ Segment 6</span>Finally, a great life starts with gratitude and cutting the complaints. As an 84-year-old analyst put it: &#39;Shut up. Someone always has it worse.&#39; And manage stress with long exhales. These principles can help you rewire your brain and tackle what matters.</div>
+        </div>
+        
+      </div>
+      
+
+    </div>
+
+    <!-- 解构 -->
+    <div class="tab-panel" id="tab-decon" data-label="解构">
+      
+      <div class="block">
+        <h3>🏗️ 写法总览</h3>
+        <div class="overview-text">本文是安德鲁·休伯曼关于学习、幸福与个人发展的播客片段整理。文章以“如何重塑大脑”为主线，从学习机制（专注、犯错、睡眠、自测）讲到幸福（当下感知），再延伸到生活原则（做难事、感恩、压力管理）。结构松散但逻辑连贯，风格口语化，善用比喻（如动态吸引子状态、弹珠与凹槽）和权威引用（哈佛研究、詹姆斯·霍利斯），将复杂的神经科学转化为可操作的建议。</div>
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📐 结构拆解 <span class="badge">7 部分</span></h3>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">引入</span>
+            <span class="sec-title">学习需要恰到好处的压力</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">学习的关键是主动进入一种“足够但不过量”的压力状态，以触发神经可塑性。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">以游戏中的反应等待状态类比，指出这种警觉状态最适合学习困难但有益的内容。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">类比、设问（“how much alertness?”）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">提出论点</span>
+            <span class="sec-title">当下感知与幸福</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">幸福的核心是保持当下，将注意力锚定在即时物理环境，而非过去或未来。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用哈佛研究：走神的大脑是不快乐的大脑；提出通过提问环境来练习当下。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引权威、对比（走神 vs 当下）、设问（“what is presence?”）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">大脑的工作原理：动态吸引子状态</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">大脑像弹珠在凹槽中运动，重复的思维模式会强化神经回路，因此练习当下就是重塑大脑。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">用弹珠与凹槽的比喻解释神经可塑性；指出冥想是练习当下的一种方式，但并非唯一。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">比喻、类比、举例（冥想）</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">论证</span>
+            <span class="sec-title">学习的步骤：专注、警觉、犯错、睡眠、自测</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">学习需要专注和警觉，通过真实尝试犯错产生焦躁感（肾上腺素和去甲肾上腺素），睡眠巩固，自我测试强化。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">解释运动提升儿茶酚胺；错误信号通过小脑回路；自我测试的例子（回忆神经科学知识）。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">分步骤说明、生理机制解释、举例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">转折</span>
+            <span class="sec-title">做难事的意义与平衡</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">刻意练习不擅长之事能带来更深满足感，并维持认知能力，但需平衡热爱与挑战。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用“英雄之旅”和努力先于多巴胺的原理；指出运动必要但不充分，需要学习；举例填字游戏和棋类。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引用、对比（容易 vs 困难）、举例</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">理解原理而非死守规则</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">掌握身体系统的原理（如皮质醇节律、迷走神经）比机械遵循规则更重要，能灵活应对变化。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">解释呼吸性窦性心律不齐和迷走神经；举例在飞机上无法锻炼时的应对。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">生理学解释、举例、对比</span></div>
+          
+        </div>
+        
+        <div class="section-card">
+          <div class="sec-head">
+            <span class="role-badge">结论</span>
+            <span class="sec-title">过好生活的原则：感恩与停止抱怨</span>
+          </div>
+          
+          <div class="field-row"><span class="field-label">论点</span><span class="field-val">过好生活始于停止抱怨、感恩已有，并主动管理压力。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">论据</span><span class="field-val">引用詹姆斯·霍利斯的“shut up”建议；强调长呼气降低压力。</span></div>
+          
+          
+          <div class="field-row"><span class="field-label">写法</span><span class="field-val">引权威、直接引语、幽默</span></div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🛠️ 可借鉴的写作技巧 <span class="badge">5 个</span></h3>
+        
+        <div class="technique-card">
+          <span class="tech-num">1</span>
+          <div class="tech-body">
+            <div class="tech-name">比喻与类比</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““The brain works in what are called dynamic attractor states, which is nerd speak for if I take a ball bearing and I put it on a plate...””</span></div>
+            
+            
+            <div class="tech-line">💡 将抽象的神经科学概念转化为日常经验，降低理解门槛，增强记忆。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">2</span>
+          <div class="tech-body">
+            <div class="tech-name">引用权威研究</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““There&#39;s this massive study out of Harvard a few years ago that a wandering mind is an unhappy mind.””</span></div>
+            
+            
+            <div class="tech-line">💡 用具体研究支撑观点，增加可信度和说服力。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">3</span>
+          <div class="tech-body">
+            <div class="tech-name">设问与自答</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““What is presence? Does it mean um anchoring my visual attention? What How do I be present? Cuz otherwise it&#39;s just a bumper sticker.””</span></div>
+            
+            
+            <div class="tech-line">💡 引导读者思考，暴露常见误区，然后给出清晰定义，使论述层层深入。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">4</span>
+          <div class="tech-body">
+            <div class="tech-name">对比与反差</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““The things that we are not facile in, that don&#39;t come easy to us.” 与 “They love their video games. They love perhaps mathematics, but not literature.””</span></div>
+            
+            
+            <div class="tech-line">💡 突出舒适区与成长区的差异，强化“做难事”的必要性。</div>
+            
+          </div>
+        </div>
+        
+        <div class="technique-card">
+          <span class="tech-num">5</span>
+          <div class="tech-body">
+            <div class="tech-name">口语化与幽默</div>
+            
+            <div class="tech-line">✍️ 原文: <span class="q">““You don&#39;t have to dissolve into a puddle of your own tears cuz you&#39;re on a plane...””</span></div>
+            
+            
+            <div class="tech-line">💡 拉近与听众距离，使严肃话题轻松易懂，增强传播力。</div>
+            
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 实际应用 -->
+    <div class="tab-panel" id="tab-apply" data-label="应用">
+      
+      <div class="block">
+        <h3>🛠️ 可操作技能 <span class="badge">5 个</span></h3>
+        <p class="sub-hint">看完就能照着做的具体方法。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">用提问法回到当下</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 当你感到焦虑或分心时，问自己几个关于即时环境的问题，比如“我眼前有哪三种颜色？”“我听到什么声音？”，迫使注意力锚定在当下。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 在会议前紧张时，快速环顾房间，默念：“墙是白色的，椅子是蓝色的，窗外有棵树。”</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">刻意犯错学习法</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 在学习新技能时，不要害怕犯错，主动尝试略高于当前水平的任务，感受错误带来的焦躁感，然后休息或睡眠让大脑巩固。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 学吉他时，直接尝试弹一首稍难的曲子，记录卡住的地方，第二天再练。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">自我测试巩固记忆</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 学完一个知识点后，合上资料，主动回忆并写下关键点，找出记不清的地方，再回去查阅。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 读完一章书，用空白纸默写核心概念，然后对照书本补缺。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">长呼气减压法</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 感到压力时，进行几次深呼吸，重点放在长而缓慢的呼气上，激活迷走神经，降低心率。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 在演讲前，吸气4秒，呼气8秒，重复3次。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">✅</span><span class="app-title">平衡舒适与挑战</span></div>
+          
+          <div class="app-row"><b>怎么做</b> · 每周安排时间做一件你一直回避但有益的事（如读一本难懂的书、学一项新技能），同时保留你热爱的活动作为奖励。</div>
+          
+          
+          <div class="app-row"><b>例子</b> · 周一至周五每天花30分钟学习统计，周末则尽情画画作为放松。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>🧠 思维模型 <span class="badge">4 个</span></h3>
+        <p class="sub-hint">可迁移到其他领域的思考方式。</p>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">动态吸引子模型</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 大脑像弹珠在凹槽中运动，重复的思维和行为会加深凹槽，形成习惯；要改变，需有意识地创造新凹槽。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当想培养新习惯时，每天重复小行动，让神经回路逐渐固化；想改掉坏习惯，则避免触发旧凹槽，并用新行为替代。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">错误信号驱动学习</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 学习发生在当前能力与目标之间的差距被意识到时，错误带来的不适感是神经可塑性的信号。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在学习中主动寻求反馈和挑战，把错误视为进步的机会，而不是失败。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">系统原理优先于规则</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 理解身体和心理系统的基本原理（如皮质醇节律、迷走神经），比死守具体规则更能灵活应对变化。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 当无法执行既定计划时（如旅行中），根据原理调整（如用短时运动或深呼吸替代），保持系统在线。</div>
+          
+        </div>
+        
+        <div class="app-card">
+          <div class="app-head"><span class="app-icon">🧩</span><span class="app-title">努力先于奖励</span></div>
+          
+          <div class="app-row"><b>是什么</b> · 通过努力获得的奖励比轻易得到的奖励更具强化作用，能带来更深满足感。</div>
+          
+          
+          <div class="app-row"><b>何时用</b> · 在设定目标时，选择需要付出努力的任务，并享受过程，而非只追求结果。</div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!-- 金句单词（仅英文材料） -->
+    
+    <div class="tab-panel" id="tab-golden" data-label="金句单词">
+      
+      <div class="block">
+        <h3>💎 金句 <span class="badge">8 句</span></h3>
+        
+        <div class="quote-card">
+          <div class="quote-text">“The ability to learn and lean into just enough stress that you trigger learning.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 用“lean into”生动表达主动迎接压力，简洁有力。</div>
+          
+          
+          <div class="quote-zh">中文 · 学习并主动投入恰到好处的压力以触发学习的能力。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“A wandering mind is an unhappy mind.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 简洁对仗，一语中的，易于传播。</div>
+          
+          
+          <div class="quote-zh">中文 · 走神的大脑是不快乐的大脑。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“The error between what you can currently do and what you&#39;re trying to do, the error, is the signal that the neurons, the nerve cells, need to change.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 重复“error”强调核心，将抽象机制具体化。</div>
+          
+          
+          <div class="quote-zh">中文 · 你当前能做到的与你想做到的之间的差距，这个错误，就是神经元需要改变的信号。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“The effort that precedes dopamine is far more reinforcing than when just dopamine comes in.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 对比“effort”与“dopamine”，突出努力的价值。</div>
+          
+          
+          <div class="quote-zh">中文 · 多巴胺释放前的努力比单纯获得多巴胺更具强化作用。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“If you like chess? Play go. You like checkers? Learn chess.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 排比与递进，形象说明要不断挑战更高难度。</div>
+          
+          
+          <div class="quote-zh">中文 · 喜欢国际象棋？去下围棋。喜欢跳棋？去学国际象棋。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“Shut up. Someone&#39;s always got it worse than you. Nobody wants to hear you whine.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 直接引语，粗粝真实，冲击力强。</div>
+          
+          
+          <div class="quote-zh">中文 · 闭嘴。总有人比你更惨。没人想听你抱怨。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“High morning cortisol means low nighttime cortisol means high nighttime melatonin means great sleep means better days.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 顶针修辞，环环相扣，清晰展示因果链。</div>
+          
+          
+          <div class="quote-zh">中文 · 早晨皮质醇高意味着夜间皮质醇低，意味着夜间褪黑素高，意味着好睡眠，意味着更好的日子。</div>
+          
+        </div>
+        
+        <div class="quote-card">
+          <div class="quote-text">“You don&#39;t have to dissolve into a puddle of your own tears cuz you&#39;re on a plane.”</div>
+          
+          <div class="quote-why"><b>好在哪</b> · 夸张幽默，画面感强，缓解焦虑。</div>
+          
+          
+          <div class="quote-zh">中文 · 你不必因为身在飞机上就哭成一滩水。</div>
+          
+        </div>
+        
+      </div>
+      
+
+      
+      <div class="block">
+        <h3>📖 重点单词 <span class="badge">12 个</span></h3>
+        <table class="vocab-table">
+          <thead>
+            <tr><th>单词 / 短语</th><th>难度</th><th>出现语境</th><th>中文注释</th></tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td class="word-col">lean into</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">The ability to learn and lean into just enough stress that you trigger learning.</td>
+              <td>主动投入、拥抱（挑战或不适），常用于鼓励面对困难。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">attractor state</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">The brain works in what are called dynamic attractor states...</td>
+              <td>吸引子状态，物理/数学术语，指系统倾向于稳定的状态。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">interoception</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">...that&#39;s actually interoception. It&#39;s focusing on our internal bodily state...</td>
+              <td>内感受，指对体内状态的感知，如心跳、饥饿。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">catecholamines</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">Exercise makes you better at learning for two reasons. One, it increases the catecholamines, dopamine, epinephrine, and norepinephrine.</td>
+              <td>儿茶酚胺，包括多巴胺、肾上腺素等神经递质。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">respiratory sinus arrhythmia</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">It slows your heart rate down through a phenomenon called respiratory sinus arrhythmia...</td>
+              <td>呼吸性窦性心律不齐，指心率随呼吸变化的正常生理现象。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">vagus nerve</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">The vagus nerve collects sensory information from our viscera...</td>
+              <td>迷走神经，第十对脑神经，调节内脏功能。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">viscera</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">...from our viscera, which is nerd speak for your internal organs.</td>
+              <td>内脏，医学用语。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">facile</td>
+              <td class="stars-col">★★★</td>
+              <td class="context-col">The things that we are not facile in, that don&#39;t come easy to us.</td>
+              <td>容易的、熟练的，常指表面容易但缺乏深度。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">underdog</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">We like underdog often to success story, pitfall, come out of that.</td>
+              <td>处于劣势的人或团队，逆袭者。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">nudge</td>
+              <td class="stars-col">★★☆</td>
+              <td class="context-col">...you can start doing other things to nudge the system or keep the system online...</td>
+              <td>轻推，微调，常用于行为经济学。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">puddle</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">You don&#39;t have to dissolve into a puddle of your own tears...</td>
+              <td>水坑，此处比喻哭成一滩水。</td>
+            </tr>
+            
+            <tr>
+              <td class="word-col">whine</td>
+              <td class="stars-col">★☆☆</td>
+              <td class="context-col">Nobody wants to hear you whine.</td>
+              <td>抱怨、哀鸣，带贬义。</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+    
+
+    <!-- 背诵（意群分块 + 艾宾浩斯复习） -->
+    <div class="tab-panel" id="tab-recite" data-label="背诵">
+      
+      <div class="block">
+        <h3>📖 背诵材料 <span class="badge">42 块 · 预计背诵 36 分钟</span></h3>
+        <p class="sub-hint">间隔复习：第 1 天 / 第 2 天 / 第 4 天 / 第 7 天 / 第 15 天 · 每天新背 4 块</p>
+        
+        <div class="recite-advice">This material is dense with long sentences and technical terms (e.g., &#39;dynamic attractor states&#39;, &#39;respiratory sinus arrhythmia&#39;). Break each chunk into smaller breath groups, especially chunks 13, 19, and 35. Use the hint keywords as memory anchors, and practice recalling the logical flow from one chunk to the next. Pay attention to parallel structures like &#39;The ability to...&#39; in chunk 1 and the step-by-step lists in chunks 18 and 24.</div>
+        
+        <p class="recite-extra"><a href="/recite/result/_English__auto-generated___Rewire_Your_Brain_By_Doing_Hard_Things__Andrew_Huberman_Motivation__DownS">🖨 打印 / 独立打开背诵版 →</a></p>
+      </div>
+
+      <div class="block">
+        <h3>🧱 原文分块 <span class="badge">42 块</span></h3>
+        <p class="sub-hint">先通读，点开每块底部「🌐 翻译」对照理解，再用「🙈 遮住自测」盖住原文、看提示卡背出来。</p>
+        
+        <div class="rc-chunk" id="rc-chunk-1">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 1</span>
+            <span class="rc-size">58 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So much of life, the ability to learn and lean into just enough stress that you trigger learning. The ability to listen when you want to react. The ability to force yourself to get up and work on the book or the thing that you don&#39;t want to do. So much of that is top-down influences.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">top-down influences</div>
+            <div class="rc-hint-letters">S M O L T A T L A L I J E S T Y T L T A T L W Y W T R T A T F Y T G U A W O T B O T T T Y D W T D S M O T I T D I</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">生活中很大一部分，在于学习的能力，以及投入恰到好处的压力以触发学习。在于想反应时却能倾听的能力。在于强迫自己起床，去写那本书或做你不想做的事情的能力。这其中很大一部分是自上而下的影响。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-2">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 2</span>
+            <span class="rc-size">55 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Focus is obviously in a tunnel, but then how much alertness? I don&#39;t think anyone&#39;s ever described it before, but when you look at levels of arousal in a game like Hot Hands and believe it or not, there are some equivalent data on this or data on the equivalent sort of thing.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">focus and alertness</div>
+            <div class="rc-hint-letters">F I O I A T B T H M A I D T A E D I B B W Y L A L O A I A G L H H A B I O N T A S E D O T O D O T E S O T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">专注显然是在一个隧道里，但警觉度要多少呢？我认为之前没有人描述过这一点，但当你观察像“热手”这样的游戏中的唤醒水平时，信不信由你，有一些关于这方面的等效数据，或者关于等效事物的数据。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-3">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 3</span>
+            <span class="rc-size">61 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">When you&#39;re waiting for a time trial and you&#39;re waiting for something to happen and you have to react quickly, that&#39;s the state of mind you want to be in to learn something that&#39;s hard for you, but beneficial for you. Period, end of story. So hopefully that&#39;ll help people kind of find that mental groove.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">state of mind for learning</div>
+            <div class="rc-hint-letters">W Y W F A T T A Y W F S T H A Y H T R Q T T S O M Y W T B I T L S T H F Y B B F Y P E O S S H T H P K O F T M G</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">当你在等待计时赛，等待某事发生，并且必须快速反应时，那就是你想要的学习状态，去学习对你来说困难但有益的东西。就这样，故事结束。所以希望这能帮助人们找到那种心理状态。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-4">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 4</span>
+            <span class="rc-size">73 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And then as you learn, if you find you&#39;re getting too stressed, that doesn&#39;t that brings down reaction time. It actually you you start making false positive. You start moving your hands away before the person even does anything. Okay. Hopefully that will help people understand the level of attention and why it&#39;s so tiring after about 90 minutes. And you&#39;re like, &#34;Okay, I need to take a break.&#34;</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">too stressed, false positives</div>
+            <div class="rc-hint-letters">A T A Y L I Y F Y G T S T D T B D R T I A Y Y S M F P Y S M Y H A B T P E D A O H T W H P U T L O A A W I S T A A M A Y L O I N T T A B</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">然后随着你学习，如果你发现自己压力太大，那不会——那会降低反应时间。实际上你会开始做出假阳性反应。你开始在对方甚至还没做任何事之前就把手移开。好吧。希望这能帮助人们理解注意力的水平，以及为什么大约90分钟后会如此疲惫。你会想，“好吧，我需要休息一下。”</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-5">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 5</span>
+            <span class="rc-size">52 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Step back and acknowledge there&#39;s a lot out there about how to get through trauma. But what are the unifying themes and can I put a structure on those themes that helps people navigate all of that? What&#39;s the business of &gt;&gt; &gt;&gt; having a great life? So we talk about that.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">unifying themes, great life</div>
+            <div class="rc-hint-letters">S B A A T A L O T A H T G T T B W A T U T A C I P A S O T T T H P N A O T W T B O H A G L S W T A T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">退后一步，承认有很多关于如何度过创伤的信息。但统一的主题是什么？我能否在这些主题上建立一个结构，帮助人们驾驭所有这些？拥有美好生活的要务是什么？所以我们谈论那个。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-6">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 6</span>
+            <span class="rc-size">70 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">We hear be present. There&#39;s this massive study out of Harvard a few years ago that a wandering mind is an unhappy mind. I&#39;m sure you&#39;re familiar with the data. You ping people throughout the day, you ask them what they&#39;re doing and how present they are to it. Turns out happiness is really about being present, having your attention what&#39;s called present tethered awareness.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">Harvard study, present awareness</div>
+            <div class="rc-hint-letters">W H B P T T M S O O H A F Y A T A W M I A U M I S Y F W T D Y P P T T D Y A T W T D A H P T A T I T O H I R A B P H Y A W C P T A</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我们听到要活在当下。几年前哈佛有一项大规模研究，表明走神是不快乐的心灵。我相信你熟悉这些数据。你全天候地询问人们，问他们在做什么以及他们有多投入。结果表明幸福真的在于活在当下，让你的注意力成为所谓的“当下系留意识”。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-7">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 7</span>
+            <span class="rc-size">75 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">You&#39;re focused on what&#39;s happening now, even if it&#39;s unpleasant. People report that as being much happier on average than if their mind is someplace else. Daydreaming has its place, but daydreaming is usually mind wandering to bad things, things of past, things of future, we&#39;re just not present. The converse is also true that focusing on what you&#39;re doing is a great way to build up your mental health.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">present vs daydreaming</div>
+            <div class="rc-hint-letters">Y F O W H N E I I U P R T A B M H O A T I T M I S E D H I P B D I U M W T B T T O P T O F W J N P T C I A T T F O W Y D I A G W T B U Y M H</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">你专注于现在发生的事情，即使它不愉快。人们报告说，平均而言，这比心思在别处要快乐得多。白日梦有其位置，但白日梦通常是思绪游荡到坏事、过去的事、未来的事，我们就是不在当下。反过来也成立：专注于你正在做的事情是建立心理健康的绝佳方式。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-8">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 8</span>
+            <span class="rc-size">38 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So then I started asking cuz I&#39;m a biologist not a psychologist, what is presence? Does it mean um anchoring my visual attention? What How do I be present? Cuz otherwise it&#39;s just a bumper sticker.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">what is presence?</div>
+            <div class="rc-hint-letters">S T I S A C I A B N A P W I P D I M U A M V A W H D I B P C O I J A B S</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">所以然后我开始问，因为我是生物学家不是心理学家，什么是临在？它是否意味着锚定我的视觉注意力？我如何临在？因为否则它只是一个保险杠贴纸。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-9">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 9</span>
+            <span class="rc-size">77 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And otherwise I look I love psychologist said these beautiful studies that discover phenomena, but then it&#39;s like if you&#39;re going to say like fall asleep, what is falling asleep? And we can talk about that. What is being present? Okay. So be here now, I think Ram Dass said that. Great, be here now. How? How do we move our brain from thinking about the future and the past to what&#39;s happening now?</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">be here now, how?</div>
+            <div class="rc-hint-letters">A O I L I L P S T B S T D P B T I L I Y G T S L F A W I F A A W C T A T W I B P O S B H N I T R D S T G B H N H H D W M O B F T A T F A T P T W H N</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">否则我看起来——我喜欢心理学家说的这些发现现象的精美研究，但然后就像如果你要说入睡，什么是入睡？我们可以谈论那个。什么是临在？好吧。所以“此时此地”，我想是拉姆·达斯说的。很好，此时此地。如何？我们如何让大脑从思考未来和过去转移到现在正在发生的事情？</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-10">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 10</span>
+            <span class="rc-size">50 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Okay, so that means perceptions about what&#39;s only in our immediate physical environment. It means not thinking, not doing, not planning, but asking questions about the immediate physical environment. So we can do this just right now and you can do this anytime you want to be more present.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">immediate physical environment</div>
+            <div class="rc-hint-letters">O S T M P A W O I O I P E I M N T N D N P B A Q A T I P E S W C D T J R N A Y C D T A Y W T B M P</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">好的，所以这意味着感知只存在于我们 immediate 物理环境中的东西。这意味着不思考、不做、不计划，而是询问关于 immediate 物理环境的问题。所以我们现在就可以这样做，你可以在任何时候想要更临在时这样做。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-11">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 11</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And I want to just preface this by saying what I&#39;m about to describe is not the end point. It&#39;s the way to get into the present. But what you do next is critically important too. So first, you ask trivial questions about your immediate environment that can only be answered accurately by focusing on the present.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">not endpoint, trivial questions</div>
+            <div class="rc-hint-letters">A I W T J P T B S W I A T D I N T E P I T W T G I T P B W Y D N I C I T S F Y A T Q A Y I E T C O B A A B F O T P</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我想先说明，我即将描述的不是终点。它是进入当下的方法。但你接下来做什么也至关重要。所以首先，你问一些关于你 immediate 环境的琐碎问题，这些问题只有通过专注于当下才能准确回答。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-12">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 12</span>
+            <span class="rc-size">35 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So for instance, bring our mind toward obviously &gt;&gt; &gt;&gt; perception of the present. Duh, there&#39;s nothing, you know, profound about that. But it&#39;s what they take our mind away from &gt;&gt; &gt;&gt; that&#39;s critically important.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">take mind away from</div>
+            <div class="rc-hint-letters">S F I B O M T O P O T P D T N Y K P A T B I W T T O M A F T C I</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">例如，将我们的心智转向显然 &gt;&gt; &gt;&gt; 对当下的感知。废话，你知道，那没什么深奥的。但正是它们让我们的心智远离 &gt;&gt; &gt;&gt; 那才是至关重要的。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-13">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 13</span>
+            <span class="rc-size">122 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">The brain, there&#39;s a whole section on thinking, what is thinking? The brain works in what are called dynamic attractor states, which is nerd speak for if I take a ball bearing and I put it on a on a plate, it essentially can move in any direction. There&#39;s some details related to the smoothness of the bearing and the plate, etc. But if I put a little groove on that plate and I tilt the plate slightly, it obviously will go toward the groove. It&#39;ll get into the groove. And then, if I turn that groove into a I make it more concave and eventually a trench, the ball bearing stays there. That&#39;s how your brain works.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">dynamic attractor states</div>
+            <div class="rc-hint-letters">T B T A W S O T W I T T B W I W A C D A S W I N S F I I T A B B A I P I O A O A P I E C M I A D T S D R T T S O T B A T P E B I I P A L G O T P A I T T P S I O W G T T G I G I T G A T I I T T G I A I M I M C A E A T T B B S T T H Y B W</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">大脑，有一整节关于思考，什么是思考？大脑以所谓的动态吸引子状态运作，这是书呆子话，意思是如果我拿一个滚珠轴承放在盘子上，它基本上可以向任何方向移动。有一些关于轴承和盘子光滑度等的细节。但如果我在盘子上刻一个小槽，并稍微倾斜盘子，它显然会向槽移动。它会进入槽中。然后，如果我把那个槽变成一个更凹的，最终变成沟槽，滚珠轴承就留在那里。你的大脑就是这样运作的。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-14">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 14</span>
+            <span class="rc-size">92 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">The more that you seed a thought, the more that you seed a perception, the more that brain circuits are devoted to things related to that thought or perception. So, when you want to be present, something that we know from excellent data a this large study at at Harvard, but subsequent studies as well, is so critical for happiness, the way to practice that is to learn from taking your mind from thinking and doing and remembering about things of past and future to just anchoring your perception to the present.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">seed thought, anchor perception</div>
+            <div class="rc-hint-letters">T M T Y S A T T M T Y S A P T M T B C A D T T R T T T O P S W Y W T B P S T W K F E D A T L S A A H B S S A W I S C F H T W T P T I T L F T Y M F T A D A R A T O P A F T J A Y P T T P</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">你越是播种一个想法，越是播种一个感知，就有越多的脑回路专门用于与那个想法或感知相关的事物。所以，当你想临在时，我们从哈佛的这项大型研究以及后续研究中获得的优秀数据知道，这对幸福如此关键，练习的方法是学会将你的心智从思考、行动和回忆过去与未来的事情，转变为仅仅将你的感知锚定在当下。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-15">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 15</span>
+            <span class="rc-size">76 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">It doesn&#39;t require meditating. Meditation is one form of that. What are What are we doing when we meditate? We close our eyes, we focus on our breathing, that&#39;s here now, and we focus on quote unquote third eye center or whatever, but that&#39;s actually interoception. It&#39;s focusing on our internal bodily state, which is not that great, frankly, if you look at the data, for being present in a happy way.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">meditation vs interoception</div>
+            <div class="rc-hint-letters">I D R M M I O F O T W A W A W D W W M W C O E W F O O B T H N A W F O Q U T E C O W B T A I I F O O I B S W I N T G F I Y L A T D F B P I A H W</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">它不需要冥想。冥想是其中一种形式。当我们冥想时我们在做什么？我们闭上眼睛，专注于呼吸，那是此时此地，我们专注于所谓的第三眼中心或其他什么，但那实际上是内感受。它是专注于我们内部身体状态，坦率地说，如果你看数据，对于以快乐的方式临在来说，那并不是那么好。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-16">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 16</span>
+            <span class="rc-size">69 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Most people who are overly focused on their internal state in the present are like, my heart rate is increasing. My heart rate&#39;s too low. I&#39;m sweating. I&#39;m uncomfortable. You start thinking about the fact that like your your you know, your boxers are like pulled up on one one leg, you know, they That&#39;s not the way to get present and calm and aware.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">internal state discomfort</div>
+            <div class="rc-hint-letters">M P W A O F O T I S I T P A L M H R I I M H R T L I S I U Y S T A T F T L Y Y Y K Y B A L P U O O O L Y K T T N T W T G P A C A A</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">大多数过度关注当下内部状态的人会想，我的心率在增加。我的心率太低了。我在出汗。我不舒服。你开始思考这样的事实：你的，你知道，你的平角裤一条腿往上缩了，你知道，它们——那不是变得临在、平静和觉察的方式。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-17">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 17</span>
+            <span class="rc-size">95 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">The way to get present, calm, and aware and be able to move forward from that in a in the best way is to ask questions about your immediate physical environment. Once you do that, remember that&#39;s just the first step. The second step is to use that heightened level of awareness to ask yourself, &#34;What do I want to What do I actually want to do next? What do I want to say next? What do I want to think about next?&#34; This is the way that you take control of your thoughts.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">ask questions, control thoughts</div>
+            <div class="rc-hint-letters">T W T G P C A A A B A T M F F T I A I T B W I T A Q A Y I P E O Y D T R T J T F S T S S I T U T H L O A T A Y W D I W T W D I A W T D N W D I W T S N W D I W T T A N T I T W T Y T C O Y T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">变得临在、平静和觉察，并能够以最佳方式向前迈进的方法是，询问关于你 immediate 物理环境的问题。一旦你这样做，记住那只是第一步。第二步是利用那种提高的觉察水平问自己，“我想要——我实际上接下来想做什么？我接下来想说什么？我接下来想思考什么？”这就是你控制思想的方式。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-18">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 18</span>
+            <span class="rc-size">65 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Here are the steps to learning. You need to focus, obviously, to learn. To focus, you need to be alert. To get alert, there are many things you can do, and I talk about all of them in the book. There are foundational things like sleep, all right, that&#39;s going to help you get alert and focused, but there are also things like exercise.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">steps to learning</div>
+            <div class="rc-hint-letters">H A T S T L Y N T F O T L T F Y N T B A T G A T A M T Y C D A I T A A O T I T B T A F T L S A R T G T H Y G A A F B T A A T L E</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">以下是学习的步骤。显然，你需要专注才能学习。要专注，你需要警觉。要变得警觉，你可以做很多事情，我在书中谈到了所有方法。有一些基础的事情，比如睡眠，好吧，那会帮助你变得警觉和专注，但也有一些事情，比如锻炼。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-19">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 19</span>
+            <span class="rc-size">57 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">We all hear that exercise makes our brain better, it makes us better at learning. Exercise makes you better at learning for two reasons. One, it increases the catecholamines, dopamine, epinephrine, and norepinephrine. So, so in the 4 to 6 hours after exercise, you are more alert and you can focus better, unless you exercise to exhaustion.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">exercise benefits learning</div>
+            <div class="rc-hint-letters">W A H T E M O B B I M U B A L E M Y B A L F T R O I I T C D E A N S S I T T H A E Y A M A A Y C F B U Y E T E</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我们都听说锻炼使大脑更好，使我们更善于学习。锻炼使你更善于学习有两个原因。第一，它增加儿茶酚胺、多巴胺、肾上腺素和去甲肾上腺素。所以，在锻炼后的4到6小时内，你更警觉，能更好地集中注意力，除非你锻炼到筋疲力尽。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-20">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 20</span>
+            <span class="rc-size">123 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">If you have leg day for, you know, you 10 sets of 10 and on the squats followed by a bunch of hamstring work and etc., your brain&#39;s not going to be so good at focusing, but, you know, 45 to 75 minutes of hard training, not taken to extreme, a bit like what we did this morning, that was a little bit on the lighter side, not just because we didn&#39;t have a whole lot of time, but you&#39;re going to come out of that more alert because you have more adrenaline in your body, &gt;&gt; &gt;&gt; more norepinephrine being released in your brain, and more dopamine being released in your brain, and dopamine is a critical component for learning, okay?</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">hard training, dopamine</div>
+            <div class="rc-hint-letters">I Y H L D F Y K Y S O A O T S F B A B O H W A E Y B N G T B S G A F B Y K T M O H T N T T E A B L W W D T M T W A L B O T L S N J B W D H A W L O T B Y G T C O O T M A B Y H M A I Y B M N B R I Y B A M D B R I Y B A D I A C C F L O</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">如果你有练腿日，你知道，10组10次的深蹲，接着一堆腘绳肌训练等等，你的大脑不会那么擅长集中注意力，但是，你知道，45到75分钟的艰苦训练，不做到极端，有点像我们今天早上做的，那有点偏轻，不仅因为我们没有很多时间，但你会从中出来更警觉，因为你体内有更多肾上腺素，&gt;&gt; &gt;&gt; 大脑释放更多去甲肾上腺素，大脑释放更多多巴胺，而多巴胺是学习的关键组成部分，好吗？</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-21">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 21</span>
+            <span class="rc-size">77 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Focus then becomes easier to access. And in your focus, what are you focusing on? You need to focus on making errors through genuine attempts to do something, something physical, maybe a tennis serve, or you&#39;re learning billiards, something cognitive, you&#39;re trying to learn a language. The error between what you can currently do and what you&#39;re trying to do, the error, is the signal that the neurons, the nerve cells, need to change.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">focus on errors</div>
+            <div class="rc-hint-letters">F T B E T A A I Y F W A Y F O Y N T F O M E T G A T D S S P M A T S O Y L B S C Y T T L A L T E B W Y C C D A W Y T T D T E I T S T T N T N C N T C</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">然后专注变得更容易进入。而在你的专注中，你专注于什么？你需要专注于通过真诚尝试做某事来犯错，一些身体的事情，也许是网球发球，或者你在学台球，一些认知的事情，你在尝试学习一门语言。你目前能做的和你试图做的之间的误差，那个误差，是神经元、神经细胞需要改变的信号。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-22">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 22</span>
+            <span class="rc-size">59 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">It runs through a circuit involving the cerebellum and a bunch of other things, but that gap is what the brain tries to close. If you can do something, there&#39;s no reason for your brain to change. And the agitation you feel from those errors reflects elevated levels of epinephrine and norepinephrine in the body and brain, respectively.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">gap, agitation</div>
+            <div class="rc-hint-letters">I R T A C I T C A A B O O T B T G I W T B T T C I Y C D S T N R F Y B T C A T A Y F F T E R E L O E A N I T B A B R</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">它通过一个涉及小脑和一堆其他东西的回路运行，但那个差距是大脑试图关闭的。如果你能做某事，你的大脑就没有理由改变。你从那些错误中感受到的激动反映了身体和大脑中分别升高的肾上腺素和去甲肾上腺素水平。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-23">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 23</span>
+            <span class="rc-size">53 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And those tag literally chemically tag the synapses. I mean, there&#39;s some additional steps, but they tag those synapses so that then at night when you sleep, the synapses rearrange and you close the gap between your current ability and the ability you&#39;re striving to achieve. That&#39;s how it works.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">chemical tagging, sleep</div>
+            <div class="rc-hint-letters">A T T L C T T S I M T S A S B T T T S S T T A N W Y S T S R A Y C T G B Y C A A T A Y S T A T H I W</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">那些标记字面上化学标记突触。我的意思是，有一些额外的步骤，但它们标记那些突触，以便然后在晚上你睡觉时，突触重新排列，你关闭当前能力和你努力达到的能力之间的差距。这就是它的运作方式。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-24">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 24</span>
+            <span class="rc-size">78 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So, a curiosity and willingness to learn gets you to the gate of learning. The making of errors through genuine attempts puts the key in and turns the key. The agitation is walking through that gate and then getting some sleep or maybe even uh you know, a day or two later even if you don&#39;t sleep quite as well as you would like, just some time for the synapses to rearrange, that&#39;s the last piece.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">gate, key, walk through</div>
+            <div class="rc-hint-letters">S A C A W T L G Y T T G O L T M O E T G A P T K I A T T K T A I W T T G A T G S S O M E U Y K A D O T L E I Y D S Q A W A Y W L J S T F T S T R T T L P</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">所以，好奇心和学习的意愿让你来到学习的大门前。通过真诚尝试犯错将钥匙插入并转动钥匙。激动是走过那扇门，然后睡一觉，或者甚至呃你知道，一两天后，即使你睡得不如你希望的那么好，只是给突触一些时间重新排列，那是最后一块。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-25">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 25</span>
+            <span class="rc-size">63 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">There&#39;s an additional piece that can reinforce it all, which is self-testing. If you want to get good at something and stay good at it and continue to get better at it, you need to self-test. Mental self-testing is the best way to consolidate learning and learn faster. What do I mean by that? I don&#39;t mean visualization.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">self-testing</div>
+            <div class="rc-hint-letters">T A A P T C R I A W I S T I Y W T G G A S A S G A I A C T G B A I Y N T S T M S T I T B W T C L A L F W D I M B T I D M V</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">还有一个额外的部分可以强化这一切，那就是自我测试。如果你想擅长某事并保持擅长并继续变得更好，你需要自我测试。心理自我测试是巩固学习和更快学习的最佳方式。我是什么意思？我不是指可视化。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-26">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 26</span>
+            <span class="rc-size">74 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I mean, asking yourself like for me, if I wanted make my memory better, generally speaking, I might think, &#34;Okay, so that was uh September 11th, 2001. Where was I exactly? What were some of the details?&#34; Now, that might be a something I might not want to think about, but if I were to say, &#34;Okay, I&#39;m going to go back to my um you know, year one neuroscience &gt;&gt; &gt;&gt; graduate school training.&#34;</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">ask yourself, recall details</div>
+            <div class="rc-hint-letters">I M A Y L F M I I W M M M B G S I M T O S T W U S T W W I E W W S O T D N T M B A S I M N W T T A B I I W T S O I G T G B T M U Y K Y O N G S T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我的意思是，问自己，比如对我来说，如果我想让我的记忆力更好，一般来说，我可能会想，“好吧，那是2001年9月11日。我到底在哪里？有哪些细节？”现在，那可能是我可能不想思考的事情，但如果我说，“好吧，我要回到我的嗯你知道，第一年神经科学 &gt;&gt; &gt;&gt; 研究生训练。”</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-27">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 27</span>
+            <span class="rc-size">103 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Of course, I already know what a synapse is, I know what neurons are, I know what astrocytes are. I know all this stuff. It&#39;s embedded so deeply in me, I can almost do it in my sleep. But then I think, &#34;Yeah, that&#39;s right. Like, what is the role of astrocytes in this?&#34; And I go, &#34;Okay.&#34; Cuz that&#39;s stuff that&#39;s relevant to me. When you hit the point where you can&#39;t remember something, you go and look it up. Boom, you&#39;ve now closed that gap again and it reinforces those synapses that were weakening. Yeah.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">look it up, reinforce synapses</div>
+            <div class="rc-hint-letters">O C I A K W A S I I K W N A I K W A A I K A T S I E S D I M I C A D I I M S B T I T Y T R L W I T R O A I T A I G O C T S T R T M W Y H T P W Y C R S Y G A L I U B Y N C T G A A I R T S T W W Y</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">当然，我已经知道什么是突触，我知道神经元是什么，我知道星形胶质细胞是什么。我知道所有这些东西。它如此深深地嵌入我，我几乎可以在睡梦中做到。但然后我想，“是的，没错。比如，星形胶质细胞在其中的作用是什么？”然后我说，“好吧。”因为那是对我有用的东西。当你到达记不住某事的地步时，你去查一下。砰，你现在再次关闭了那个差距，它强化了那些正在减弱的突触。是的。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-28">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 28</span>
+            <span class="rc-size">57 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So, if you&#39;re trying to learn something new or you want to get maintain information from way back when, you need to retest. So, that&#39;s how you learn. You have to bring yourself to those points of agitation. I wish I&#39;d learned that in the third grade. I wish they had told me that.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">retest, points of agitation</div>
+            <div class="rc-hint-letters">S I Y T T L S N O Y W T G M I F W B W Y N T R S T H Y L Y H T B Y T T P O A I W I L T I T T G I W T H T M T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">所以，如果你试图学习新东西，或者你想保持很久以前的信息，你需要重新测试。所以，那就是你学习的方式。你必须把自己带到那些激动的点。我希望我在三年级就学到了这一点。我希望他们告诉过我。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-29">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 29</span>
+            <span class="rc-size">37 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Now, many people find that they are very disciplined about certain things. They&#39;re getting their sets and reps in. They&#39;re pushed past failure. They love their video games. They love perhaps mathematics, but not literature.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">disciplined in certain things</div>
+            <div class="rc-hint-letters">N M P F T T A V D A C T T G T S A R I T P P F T L T V G T L P M B N L</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">现在，许多人发现他们对某些事情非常自律。他们完成组数和次数。他们被推过失败。他们喜欢电子游戏。他们可能喜欢数学，但不喜欢文学。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-30">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 30</span>
+            <span class="rc-size">72 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">The things that we are not facile in, that don&#39;t come easy to us. There&#39;re two reasons to do some of that learning at &gt;&gt; &gt;&gt; at every stage of life. One is it enriches us. We often find that the things that are hardest to learn, that we then learn, are the most satisfying. This is the effort that precedes dopamine is far more reinforcing than when just dopamine comes in.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">hard learning enriches</div>
+            <div class="rc-hint-letters">T T T W A N F I T D C E T U T T R T D S O T L A A E S O L O I I E U W O F T T T T A H T L T W T L A T M S T I T E T P D I F M R T W J D C I</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我们不擅长的事情，对我们来说不容易的事情。在人生的每个阶段 &gt;&gt; &gt;&gt; 进行一些这样的学习有两个原因。一是它丰富我们。我们经常发现，最难学但然后我们学会的东西，是最令人满足的。这是先于多巴胺的努力，比仅仅多巴胺到来要强化得多。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-31">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 31</span>
+            <span class="rc-size">96 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">You could say, &#34;Well, you know, scrolling there&#39;s no um uh you know, there&#39;s no effort involved.&#34; And that seems very reinforcing. That&#39;s more of a compulsive behavior after a certain point. That&#39;s going to get passed into reflex. But, talk to anybody, anyone, and their life experience, if they&#39;ve had a life, will say something like, &#34;Oh, yeah, everything was going great until this big thing. Then I overcame that big thing, and that was really the thing that taught me that I&#39;m capable of even bigger things, right?&#34;</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">effort vs compulsive</div>
+            <div class="rc-hint-letters">Y C S W Y K S T N U U Y K T N E I A T S V R T M O A C B A A C P T G T G P I R B T T A A A T L E I T H A L W S S L O Y E W G G U T B T T I O T B T A T W R T T T T M T I C O E B T R</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">你可能会说，“嗯，你知道，刷手机没有嗯呃你知道，没有努力。”那似乎非常强化。在某种程度上那更像是一种强迫行为。那会变成反射。但是，和任何人交谈，任何有生活经验的人，如果他們有过生活，会说类似这样的话：“哦，是的，一切都很顺利，直到这件大事。然后我克服了那件大事，那真的是教会我我能做更大的事情的事情，对吧？”</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-32">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 32</span>
+            <span class="rc-size">87 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I mean, no we don&#39;t really like success stories. We like um we like underdog often to success story, pitfall, come out of that. The hero&#39;s journey is something that we resonate with in part because it&#39;s so true, but in part because for so many people it&#39;s not true. We know it&#39;s there, but most most people don&#39;t embark on those things. And I think it&#39;s because we set too lofty an idea what the hero&#39;s journey is.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">hero&#39;s journey</div>
+            <div class="rc-hint-letters">I M N W D R L S S W L U W L U O T S S P C O O T T H J I S T W R W I P B I S T B I P B F S M P I N T W K I T B M M P D E O T T A I T I B W S T L A I W T H J I</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我的意思是，不，我们并不真的喜欢成功故事。我们喜欢嗯我们喜欢弱者往往成功的故事，陷阱，从中走出来。英雄之旅是我们共鸣的东西，部分因为它是如此真实，但部分因为对许多人来说它不是真的。我们知道它在那里，但大多数大多数人没有踏上那些事情。我认为这是因为我们对英雄之旅设定了太崇高的想法。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-33">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 33</span>
+            <span class="rc-size">111 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I mean, for a lot of people it&#39;s about learning to do less. I know a lot of hard driving people. It&#39;s about learning how to achieve more peace. It&#39;s about exploring ideas around spirituality or fiction if they only read non-fiction. I mean, we all have to ask ourselves how much should we push ourselves to do things that are that we&#39;re not just naturally inclined to do. I think a mixture of what we love to do and some of the things that we&#39;ve just avoided because um they just seem too hard. I think there&#39;s real value in doing those things.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">do less, push yourself</div>
+            <div class="rc-hint-letters">I M F A L O P I A L T D L I K A L O H D P I A L H T A M P I A E I A S O F I T O R N F I M W A H T A O H M S W P O T D T T A T W N J N I T D I T A M O W W L T D A S O T T T W J A B U T J S T H I T T R V I D T T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我的意思是，对很多人来说，这是关于学会少做。我认识很多拼命的人。这是关于学会如何获得更多平静。这是关于探索灵性或小说的想法，如果他们只读非小说。我的意思是，我们都必须问自己，我们应该在多大程度上推动自己去做那些我们并非天生倾向做的事情。我认为混合我们喜欢做的事情和一些我们只是避免的事情，因为嗯它们似乎太难了。我认为做那些事情有真正的价值。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-34">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 34</span>
+            <span class="rc-size">94 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">And all the data on cognitive and maintaining cognitive ability say will exercise make you smarter? No. It&#39;s necessary but not sufficient to make you smarter. You still have to go learn. &gt;&gt; &gt;&gt; And it without completely joking, I mean this is evidenced by many guys that spend hours upon hours in the gym and they&#39;re not brilliant people. They So they&#39;re exercising plenty. Their brain is clearly not getting bigger. They&#39;re not necessarily getting stupider, but they&#39;re not doing anything to make themselves smarter. You need to learn information.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">exercise necessary not sufficient</div>
+            <div class="rc-hint-letters">A A T D O C A M C A S W E M Y S N I N B N S T M Y S Y S H T G L A I W C J I M T I E B M G T S H U H I T G A T N B P T S T E P T B I C N G B T N N G S B T N D A T M T S Y N T L I</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">而所有关于认知和维持认知能力的数据说，锻炼会让你更聪明吗？不。它是让你更聪明的必要条件，但不是充分条件。你仍然必须去学习。&gt;&gt; &gt;&gt; 而且不开玩笑地说，我的意思是，这被许多在健身房花费无数小时的人所证明，他们不是聪明人。所以他们锻炼很多。他们的大脑显然没有变大。他们不一定变得更笨，但他们没有做任何让自己更聪明的事情。你需要学习信息。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-35">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 35</span>
+            <span class="rc-size">71 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So there&#39;s that, but then there&#39;s also people say is it crossword puzzles? If you love doing crossword puzzles, guess what my friend? You&#39;re They&#39;re not going to help keep your brain young. You got to do the the hard puzzles. You know, if you they&#39;re easy for you then it&#39;s not going to help. You like chess? Play go. You like checkers? Learn chess.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">hard puzzles, new challenges</div>
+            <div class="rc-hint-letters">S T T B T T A P S I I C P I Y L D C P G W M F Y T N G T H K Y B Y Y G T D T T H P Y K I Y T E F Y T I N G T H Y L C P G Y L C L C</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">所以有那个，但然后也有人说是填字游戏吗？如果你喜欢做填字游戏，猜猜怎么着我的朋友？你——它们不会帮助保持你的大脑年轻。你必须做难的谜题。你知道，如果你——它们对你来说很容易，那就不会有帮助。你喜欢国际象棋？下围棋。你喜欢跳棋？学国际象棋。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-36">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 36</span>
+            <span class="rc-size">141 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So this is where I think people really lose out on the understanding that people who are striving maintain brain and bodily function for a long period of time, their internal state is not necessarily one of like, &#34;Oh yeah, I just love learning and so I just keep learning.&#34; I bet you Andy Stumpf as calm and cool and collected as he is, even though so many of his Tier 1 operator peers tell me it&#39;s really frustrating cuz Andy&#39;s really good at everything. I bet you if we looked at his internal state, his narrative is &gt;&gt; &gt;&gt; probably by now says, you know, you can do this, but is I doubt it&#39;s one of complete calm all the time. I&#39;m sure there&#39;s a He&#39;s just managing the external like He&#39;s not showing it.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">internal struggle, Andy Stumpf</div>
+            <div class="rc-hint-letters">S T I W I T P R L O O T U T P W A S M B A B F F A L P O T T I S I N N O O L O Y I J L L A S I J K L I B Y A S A C A C A C A H I E T S M O H T O P T M I R F C A R G A E I B Y I W L A H I S H N I P B N S Y K Y C D T B I I D I O O C C A T T I S T A H J M T E L H N S I</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">所以这就是我认为人们真正错失的地方，他们不理解那些努力保持大脑和身体功能长时间的人，他们的内部状态不一定是这样的：“哦是的，我只是喜欢学习，所以我一直学习。”我敢打赌，安迪·斯坦普夫虽然冷静、酷、镇定，尽管他的许多一级操作员同行告诉我这真的很令人沮丧，因为安迪真的擅长一切。我敢打赌，如果我们看他的内部状态，他的叙述 &gt;&gt; &gt;&gt; 现在可能说，你知道，你能做到，但我怀疑它不总是完全平静。我确定有一个——他只是在管理外部，就像他不表现出来。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-37">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 37</span>
+            <span class="rc-size">85 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Just do a long exhale. When you&#39;re stressed, do a long deliberate exhale. It slows your heart rate down through a phenomenon called respiratory sinus arrhythmia, which sounds bad. People hear arrhythmia, sounds bad, but we&#39;ve all heard of the vagus nerve. The vagus nerve collects sensory information from our viscera, which is nerd speak for your internal organs. So your stomach, your spleen, your liver, sending that information up to your brain. Unconsciously, your brain is responding to that all the time.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">long exhale, vagus nerve</div>
+            <div class="rc-hint-letters">J D A L E W Y S D A L D E I S Y H R D T A P C R S A W S B P H A S B B W A H O T V N T V N C S I F O V W I N S F Y I O S Y S Y S Y L S T I U T Y B U Y B I R T T A T T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">只需做一个长呼气。当你压力大时，做一个长而刻意的呼气。它通过一种叫做呼吸性窦性心律不齐的现象减慢你的心率，这听起来不好。人们听到心律不齐，听起来不好，但我们都听说过迷走神经。迷走神经从我们的内脏收集感觉信息，这是书呆子话，指你的内部器官。所以你的胃、你的脾、你的肝，将信息发送到你的大脑。无意识地，你的大脑一直在回应那个。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-38">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 38</span>
+            <span class="rc-size">79 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">So what we need and what I try and highlight in the book are principles. High morning cortisol means low nighttime cortisol means high nighttime melatonin means great sleep means better days and so on and so forth. You&#39;re You&#39;re essentially got the gears of the system linking together with that. Understand that and then yes, it&#39;s true bright light is the best way to sport spike your morning cortisol, but exercise is pretty effective, too.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">principles, cortisol, melatonin</div>
+            <div class="rc-hint-letters">S W W N A W I T A H I T B A P H M C M L N C M H N M M G S M B D A S O A S F Y Y E G T G O T S L T W T U T A T Y I T B L I T B W T S S Y M C B E I P E T</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">所以我们需要和我试图在书中强调的原则。早晨高皮质醇意味着夜间低皮质醇，意味着夜间高褪黑素，意味着好睡眠，意味着更好的日子，等等等等。你基本上让系统的齿轮与那连接起来。理解那个，然后是的，确实明亮光线是激增早晨皮质醇的最佳方式，但锻炼也相当有效。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-39">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 39</span>
+            <span class="rc-size">120 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Sometimes you don&#39;t have access to either, sometimes you have access to both. Sometimes you&#39;re on a plane, you can&#39;t but you can start doing other things to nudge the system or keep the system online when you have 30 seconds. You also understand that if you miss a day or two, you&#39;re okay because you set up the system through good behaviors going into it. So, you don&#39;t have to dissolve into a puddle of your own tears cuz you&#39;re on a plane and they don&#39;t have any caffeinated coffee and you can&#39;t do your air squats and like I mean, come on. No one wants to be that guy. Exactly.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">flexibility, don&#39;t panic</div>
+            <div class="rc-hint-letters">S Y D H A T E S Y H A T B S Y O A P Y C B Y C S D O T T N T S O K T S O W Y H S Y A U T I Y M A D O T Y O B Y S U T S T G B G I I S Y D H T D I A P O Y O T C Y O A P A T D H A C C A Y C D Y A S A L I M C O N O W T B T G E</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">有时你两者都无法获得，有时你两者都能获得。有时你在飞机上，你不能，但你可以开始做其他事情来推动系统或在你有30秒时保持系统在线。你也理解，如果你错过一两天，你没事，因为你通过进入它的良好行为设置了系统。所以，你不必因为你在飞机上而他们没有含咖啡因的咖啡而你不能做你的空气深蹲而溶解在自己的一滩眼泪中，就像我的意思是，拜托。没人想成为那个人。确切地说。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-40">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 40</span>
+            <span class="rc-size">89 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">Once you understand a bit of the principles that organize the mechanisms, you&#39;re in a great position to be truly strong of mind and body because you can organize information. And the same thing is true and like in chapter seven of the book on personal development, I took a step back and I said, &#34;What are the unifying features of all the trauma therapies? What are the unifying features of how to have a great life?&#34; Let&#39;s just start with how to have a great life.</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">principles, organize information</div>
+            <div class="rc-hint-letters">O Y U A B O T P T O T M Y I A G P T B T S O M A B B Y C O I A T S T I T A L I C S O T B O P D I T A S B A I S W A T U F O A T T T W A T U F O H T H A G L L J S W H T H A G L</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">一旦你理解了一些组织机制的原则，你就处于一个很好的位置，真正在思想和身体上强大，因为你可以组织信息。同样的事情也适用于书中关于个人发展的第七章，我退后一步说，“所有创伤疗法的统一特征是什么？如何拥有美好生活的统一特征是什么？”让我们从如何拥有美好生活开始。</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-41">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 41</span>
+            <span class="rc-size">81 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">James Hollis came on my podcast, 84 years old, surprised that he got to me when he said, &#34;Here&#39;s how you have a great life. It involves four things. The first three are shut up.&#34; That&#39;s the first one. I go, &#34;Shut up.&#34; And he goes, &#34;Yeah, someone&#39;s always got it worse than you. Nobody wants to hear you whine. Have gratitude for what you do have. If you&#39;re alive, you got something to be grateful for.&#34;</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">James Hollis, shut up</div>
+            <div class="rc-hint-letters">J H C O M P Y O S T H G T M W H S H H Y H A G L I I F T T F T A S U T T F O I G S U A H G Y S A G I W T Y N W T H Y W H G F W Y D H I Y A Y G S T B G F</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">詹姆斯·霍利斯来到我的播客，84岁，惊讶于他打动了我，当他说，“这是你如何拥有美好生活。它涉及四件事。前三件是闭嘴。”那是第一件。我说，“闭嘴。”他说，“是的，总有人比你更糟。没人想听你抱怨。对你拥有的东西感恩。如果你活着，你就有东西可以感恩。”</div>
+          </details>
+          
+        </div>
+        
+        <div class="rc-chunk" id="rc-chunk-42">
+          <div class="rc-chunk-head">
+            <span class="rc-no">块 42</span>
+            <span class="rc-size">51 字</span>
+            <span class="rc-spacer"></span>
+            <button class="rc-btn" onclick="this.closest('.rc-chunk').classList.toggle('rc-hint-on')">💡 提示</button>
+            <button class="rc-btn rc-btn-amber" onclick="toggleBlank(this)">🙈 遮住自测</button>
+          </div>
+          <p class="rc-text">I didn&#39;t really expect that from him. You know, he&#39;s like this 85-year-old Youngian analyst who talks about the unconscious mind. He goes, &#34;Shut up. Your day should start with Huberman, shut up. Whatever has got you bothered, shut up. You&#39;ve got it better than somebody.&#34;</p>
+          <div class="rc-cover">🔒 正在自测……试着把这一块背出来</div>
+          <div class="rc-hint">
+            <div class="rc-hint-label">💡 提示卡</div>
+            <div class="rc-hint-kw">unexpected advice, gratitude</div>
+            <div class="rc-hint-letters">I D R E T F H Y K H L T Y O Y A W T A T U M H G S U Y D S S W H S U W H G Y B S U Y G I B T S</div>
+          </div>
+          
+          <details class="rc-trans">
+            <summary>🌐 中文翻译</summary>
+            <div class="rc-trans-text">我真的没想到他会这么说。你知道，他就像这个85岁的荣格分析师，谈论无意识心灵。他说，“闭嘴。你的一天应该从休伯曼开始，闭嘴。无论什么困扰你，闭嘴。你比某些人过得更好。”</div>
+          </details>
+          
+        </div>
+        
+      </div>
+
+      <div class="block">
+        <h3>🗓 逐块复习表</h3>
+        <p class="sub-hint">每块背完后，在以下间隔日复习（间隔：D+1 / D+2 / D+4 / D+7 / D+15）。</p>
+        <div class="rc-table-wrap">
+          <table class="vocab-table rc-table">
+            <thead>
+              <tr>
+                <th>块</th>
+                <th>背诵日</th>
+                <th>复习 D+1</th><th>复习 D+2</th><th>复习 D+4</th><th>复习 D+7</th><th>复习 D+15</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="word-col">块 1</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-11-20 周五</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 2</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-11-20 周五</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 3</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-11-20 周五</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 4</td>
+                <td class="context-col">第 1 天<span class="lbl">2026-11-20 周五</span></td>
+                
+                <td class="context-col">2026-11-21<span class="lbl">第 2 天</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 5</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-11-21 周六</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 6</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-11-21 周六</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 7</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-11-21 周六</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 8</td>
+                <td class="context-col">第 2 天<span class="lbl">2026-11-21 周六</span></td>
+                
+                <td class="context-col">2026-11-22<span class="lbl">第 3 天</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 9</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-11-22 周日</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-07<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 10</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-11-22 周日</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-07<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 11</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-11-22 周日</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-07<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 12</td>
+                <td class="context-col">第 3 天<span class="lbl">2026-11-22 周日</span></td>
+                
+                <td class="context-col">2026-11-23<span class="lbl">第 4 天</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-07<span class="lbl">第 18 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 13</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-11-23 周一</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-08<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 14</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-11-23 周一</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-08<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 15</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-11-23 周一</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-08<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 16</td>
+                <td class="context-col">第 4 天<span class="lbl">2026-11-23 周一</span></td>
+                
+                <td class="context-col">2026-11-24<span class="lbl">第 5 天</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-08<span class="lbl">第 19 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 17</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-11-24 周二</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-09<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 18</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-11-24 周二</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-09<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 19</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-11-24 周二</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-09<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 20</td>
+                <td class="context-col">第 5 天<span class="lbl">2026-11-24 周二</span></td>
+                
+                <td class="context-col">2026-11-25<span class="lbl">第 6 天</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-09<span class="lbl">第 20 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 21</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-25 周三</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-10<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 22</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-25 周三</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-10<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 23</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-25 周三</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-10<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 24</td>
+                <td class="context-col">第 6 天<span class="lbl">2026-11-25 周三</span></td>
+                
+                <td class="context-col">2026-11-26<span class="lbl">第 7 天</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-10<span class="lbl">第 21 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 25</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-26 周四</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-11<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 26</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-26 周四</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-11<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 27</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-26 周四</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-11<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 28</td>
+                <td class="context-col">第 7 天<span class="lbl">2026-11-26 周四</span></td>
+                
+                <td class="context-col">2026-11-27<span class="lbl">第 8 天</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-11<span class="lbl">第 22 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 29</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-27 周五</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-04<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-12-12<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 30</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-27 周五</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-04<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-12-12<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 31</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-27 周五</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-04<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-12-12<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 32</td>
+                <td class="context-col">第 8 天<span class="lbl">2026-11-27 周五</span></td>
+                
+                <td class="context-col">2026-11-28<span class="lbl">第 9 天</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-04<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-12-12<span class="lbl">第 23 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 33</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-11-28 周六</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-12-13<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 34</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-11-28 周六</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-12-13<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 35</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-11-28 周六</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-12-13<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 36</td>
+                <td class="context-col">第 9 天<span class="lbl">2026-11-28 周六</span></td>
+                
+                <td class="context-col">2026-11-29<span class="lbl">第 10 天</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-05<span class="lbl">第 16 天</span></td>
+                
+                <td class="context-col">2026-12-13<span class="lbl">第 24 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 37</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-11-29 周日</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-12-14<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 38</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-11-29 周日</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-12-14<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 39</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-11-29 周日</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-12-14<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 40</td>
+                <td class="context-col">第 10 天<span class="lbl">2026-11-29 周日</span></td>
+                
+                <td class="context-col">2026-11-30<span class="lbl">第 11 天</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-03<span class="lbl">第 14 天</span></td>
+                
+                <td class="context-col">2026-12-06<span class="lbl">第 17 天</span></td>
+                
+                <td class="context-col">2026-12-14<span class="lbl">第 25 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 41</td>
+                <td class="context-col">第 11 天<span class="lbl">2026-11-30 周一</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-04<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-12-07<span class="lbl">第 18 天</span></td>
+                
+                <td class="context-col">2026-12-15<span class="lbl">第 26 天</span></td>
+                
+              </tr>
+              
+              <tr>
+                <td class="word-col">块 42</td>
+                <td class="context-col">第 11 天<span class="lbl">2026-11-30 周一</span></td>
+                
+                <td class="context-col">2026-12-01<span class="lbl">第 12 天</span></td>
+                
+                <td class="context-col">2026-12-02<span class="lbl">第 13 天</span></td>
+                
+                <td class="context-col">2026-12-04<span class="lbl">第 15 天</span></td>
+                
+                <td class="context-col">2026-12-07<span class="lbl">第 18 天</span></td>
+                
+                <td class="context-col">2026-12-15<span class="lbl">第 26 天</span></td>
+                
+              </tr>
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="block">
+        <h3>✅ 每日打卡清单</h3>
+        <p class="sub-hint">点块号打卡，进度自动保存在本机浏览器。</p>
+        <div class="rc-cpd-row">
+          <label>每天新背</label>
+          <select id="rc-cpd-select" onchange="rcSetCpd(this.value)">
+            
+            <option value="1">1 块</option>
+            
+            <option value="2">2 块</option>
+            
+            <option value="3">3 块</option>
+            
+            <option value="4" selected>4 块</option>
+            
+            <option value="5">5 块</option>
+            
+            <option value="6">6 块</option>
+            
+          </select>
+          <div class="rc-progress"><div class="rc-progress-fill" id="rc-progress-fill"></div></div>
+          <span id="rc-progress-text">0/0</span>
+        </div>
+        <div id="rc-daily-list"></div>
+      </div>
+      
+    </div>
+
+    <!-- 统计 -->
+    <div class="tab-panel" id="tab-stats" data-label="统计">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-num">3180</div><div class="stat-label">总字数</div></div>
+        <div class="stat-item"><div class="stat-num">7</div><div class="stat-label">解构部分</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">写作技巧</div></div>
+        <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">可操作技能</div></div>
+        <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">思维模型</div></div>
+        
+        <div class="stat-item"><div class="stat-num">8</div><div class="stat-label">金句</div></div>
+        <div class="stat-item"><div class="stat-num">12</div><div class="stat-label">生词</div></div>
+        
+      </div>
+      
+      <div class="usage-line">
+        ⚙️ 输入 5227 tokens · 输出 4306 tokens ·
+        费用 ¥0.0138
+      </div>
+      
+      
+      <p style="text-align:center; margin-top:18px; color:#aaa; font-size:12px;">
+        读完，讲出来，用起来。💡
+      </p>
+    </div>
+
+  </div>
+
+  <!-- ═══ 页脚 ═══ -->
+  <div class="footer">
+    智读 · 2026-11-20
+  </div>
+
+</div>
+
+<script>
+  // Tab 切换
+  var tabBar = document.getElementById('tabBar');
+  function activateTab(id) {
+    if (!id || !document.getElementById(id)) return;
+    tabBar.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+    document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === id); });
+  }
+  tabBar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.tab-btn');
+    if (!btn) return;
+    activateTab(btn.getAttribute('data-tab'));
+    if (history.replaceState) history.replaceState(null, '', '#' + btn.getAttribute('data-tab'));
+  });
+  // 支持 #tab-recite 等 hash 直达（生成背诵版后回到对应 Tab）
+  if (location.hash && location.hash.length > 1) activateTab(location.hash.slice(1));
+
+
+  // ── 背诵 Tab：遮罩自测 + 每日打卡 ──
+  function toggleBlank(btn) {
+    var card = btn.closest('.rc-chunk');
+    card.classList.toggle('rc-blanked');
+    btn.textContent = card.classList.contains('rc-blanked') ? '👀 显示原文' : '🙈 遮住自测';
+  }
+
+  (function () {
+    var CFG = {
+      materialId: "_English__auto-generated___Rewire_Your_Brain_By_Doing_Hard_Things__Andrew_Huberman_Motivation__DownS",
+      chunkCount: 42,
+      startDate: "2026-11-20",
+      intervals: [1, 2, 4, 7, 15],
+      defaultCpd: 4
+    };
+    var WEEKDAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+    var listEl = document.getElementById('rc-daily-list');
+    if (!listEl) return;
+
+    function parseISO(s) { var p = s.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function addDays(d, n) { var r = new Date(d); r.setDate(r.getDate() + n); return r; }
+    function fmt(d) { return (d.getMonth() + 1) + '月' + d.getDate() + '日'; }
+
+    function buildSchedule(cpd) {
+      var perChunk = [], maxDay = 0, i;
+      for (i = 0; i < CFG.chunkCount; i++) {
+        var learnDay = Math.floor(i / cpd) + 1;
+        var reviewDays = CFG.intervals.map(function (d) { return learnDay + d; });
+        maxDay = Math.max(maxDay, learnDay, reviewDays[reviewDays.length - 1]);
+        perChunk.push({ index: i + 1, learnDay: learnDay, reviewDays: reviewDays });
+      }
+      var daily = [];
+      for (var day = 1; day <= maxDay; day++) {
+        daily.push({
+          day: day,
+          learn: perChunk.filter(function (c) { return c.learnDay === day; }).map(function (c) { return c.index; }),
+          review: perChunk.filter(function (c) { return c.reviewDays.indexOf(day) !== -1; }).map(function (c) { return c.index; })
+        });
+      }
+      return { perChunk: perChunk, daily: daily };
+    }
+
+    function storageKey(cpd) { return 'recite-' + CFG.materialId + '-cpd' + cpd; }
+    function loadChecks(cpd) {
+      try { return new Set(JSON.parse(localStorage.getItem(storageKey(cpd)) || '[]')); }
+      catch (e) { return new Set(); }
+    }
+    function saveChecks(cpd, set) { localStorage.setItem(storageKey(cpd), JSON.stringify(Array.from(set))); }
+    function chipKey(day, idx, type) { return day + ':' + idx + ':' + type; }
+
+    function todayIndex() {
+      var now = new Date();
+      var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((today - parseISO(CFG.startDate)) / 86400000) + 1;
+    }
+
+    function renderDaily(cpd) {
+      var data = buildSchedule(cpd), checks = loadChecks(cpd);
+      listEl.innerHTML = '';
+      var total = 0, done = 0, today = todayIndex();
+
+      data.daily.forEach(function (dp) {
+        var card = document.createElement('div');
+        card.className = 'rc-day-card' + (dp.day === today ? ' rc-today' : '');
+        var date = addDays(parseISO(CFG.startDate), dp.day - 1);
+
+        var head = document.createElement('div');
+        head.className = 'rc-day-head';
+        var no = document.createElement('span'); no.className = 'rc-day-no'; no.textContent = '第 ' + dp.day + ' 天';
+        var dt = document.createElement('span'); dt.className = 'rc-day-date'; dt.textContent = fmt(date) + ' ' + WEEKDAYS[date.getDay()];
+        head.appendChild(no); head.appendChild(dt);
+        card.appendChild(head);
+
+        function addRow(label, cls, indices, type) {
+          var row = document.createElement('div');
+          row.className = 'rc-day-row';
+          var lab = document.createElement('span'); lab.className = 'rc-row-label ' + cls; lab.textContent = label;
+          row.appendChild(lab);
+          if (!indices.length) {
+            var e = document.createElement('span'); e.className = 'rc-empty-day'; e.textContent = '今日无' + label;
+            row.appendChild(e);
+          } else {
+            indices.forEach(function (idx) {
+              var key = chipKey(dp.day, idx, type), checked = checks.has(key);
+              total++; if (checked) done++;
+              var chip = document.createElement('button');
+              chip.className = 'rc-chip ' + cls + (checked ? ' rc-on' : '');
+              chip.textContent = '块 ' + idx;
+              chip.onclick = function () {
+                if (checks.has(key)) checks.delete(key); else checks.add(key);
+                saveChecks(cpd, checks);
+                renderDaily(cpd);
+              };
+              row.appendChild(chip);
+            });
+          }
+          card.appendChild(row);
+        }
+
+        addRow('新背', 'rc-new', dp.learn, 'new');
+        addRow('复习', 'rc-review', dp.review, 'review');
+        listEl.appendChild(card);
+      });
+
+      var fill = document.getElementById('rc-progress-fill');
+      fill.style.width = total ? (done / total * 100) + '%' : '0%';
+      document.getElementById('rc-progress-text').textContent = done + '/' + total;
+    }
+
+    window.rcSetCpd = function (v) { renderDaily(parseInt(v, 10) || 2); };
+    renderDaily(CFG.defaultCpd);
+  })();
+
+</script>
+
+</body>
+</html>
